@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>np.unique( )的用法</title>
+    <url>/np-unique/</url>
+    <content><![CDATA[<p>去除数组中的重复数字，并进行排序之后输出。</p>
+<p>要求是 <code>arr</code> 里面是相同的维数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">result1 = np.unique([<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">print(type(result1))  <span class="comment"># &lt;class 'numpy.ndarray'&gt;</span></span><br><span class="line">print(result1)  <span class="comment"># [1 2 3 4]</span></span><br><span class="line"></span><br><span class="line">arr = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]])</span><br><span class="line">result2 = np.unique(arr)</span><br><span class="line">print(type(result2))  <span class="comment"># &lt;class 'numpy.ndarray'&gt;</span></span><br><span class="line">print(result2)  <span class="comment"># [1 2 3]</span></span><br><span class="line"></span><br><span class="line">arr = np.array([[<span class="number">7</span>, <span class="number">8</span>], [<span class="number">3</span>, <span class="number">3</span>], [<span class="number">5</span>, <span class="number">4</span>]])</span><br><span class="line">result3 = np.unique(arr)</span><br><span class="line">print(type(result3))  <span class="comment"># &lt;class 'numpy.ndarray'&gt;</span></span><br><span class="line">print(result3)  <span class="comment"># [3 4 5 7 8]</span></span><br></pre></td></tr></table></figure>
+
+<p>如果使用不同的维数：</p>
+<p>依旧是排序，但是排序的对象就不同了。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">arr = np.array([[<span class="number">7</span>, <span class="number">8</span>], [<span class="number">3</span>, <span class="number">3</span>], [<span class="number">5</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">0</span>]])</span><br><span class="line">result3 = np.unique(arr)</span><br><span class="line">print(type(result3))  <span class="comment"># &lt;class 'numpy.ndarray'&gt;</span></span><br><span class="line">print(result3)  <span class="comment"># [list([3, 3]) list([5, 4, 9, 0]) list([7, 8])]</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>numpy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask 开启 80 端口</title>
+    <url>/flask-port-80/</url>
+    <content><![CDATA[<p><code>Flask</code> 在默认运行的时候是在 <code>5000</code> 端口处，映射到域名还需要额外输入 <code>:5000</code> 就不是很方便，所以就研究了一下如何映射到默认的 <code>80</code> 端口处。</p>
+<a id="more"></a>
+
+<p>Linux 中 <code>1024</code>  以下的端口都是需要 <code>root</code> 才能使用的。</p>
+<p>在我的 aws 机器上使用 <code>sudo su</code> 就可以切换到 <code>root</code> 啦，不过就无法使用 <code>conda</code> 啦，所以继续尝试。</p>
+<h3 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">iptables -t nat -A PREROUTING -p tcp --dport <span class="number">80</span> -j REDIRECT --to-port <span class="number">8080</span></span><br></pre></td></tr></table></figure>
+
+<p>相比之下还是端口转发讲究！</p>
+]]></content>
+      <tags>
+        <tag>Flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>overleaf写汉语报告</title>
+    <url>/overleaf-chinese/</url>
+    <content><![CDATA[<p>在 overleaf <a href="https://www.overleaf.com/learn/latex/chinese" target="_blank" rel="noopener">官网文档</a>，已经详细说明了配置，这里简单概括一下。</p>
+<p>就是在最开始添加 <code>ctex</code> 包就可以啦！</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">usepackage</span></span> &#123;ctex&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+  </entry>
+  <entry>
+    <title>ubuntu pip安装</title>
+    <url>/ubuntu-pip-install/</url>
+    <content><![CDATA[<p>ubuntu pip 安装的时候常需要源，这里记录一下。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install * -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<p>aws 上面机器由于内存比较小，安装的时候会遇到 MemoryError</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install * --no-cache-dir</span><br></pre></td></tr></table></figure>
+
+<p>安装 opencv</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install -y libsm6 libxext6 libxrender-dev libglib2.0-0</span><br><span class="line">pip install opencv-python</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<a id="more"></a>
+
+]]></content>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用Flask快速部署一个网站</title>
+    <url>/deploy-a-website-by-flask/</url>
+    <content><![CDATA[<ol>
+<li><p>Pycharm 生成 Flask 项目</p>
+</li>
+<li><p>还是使用直白的 Debug 运行模式，赶紧开始工作起来啦</p>
+</li>
+<li><p>端口容易出现占用的情况</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">kill</span> $(lsof -ti:5000)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="Flask-实现上传"><a href="#Flask-实现上传" class="headerlink" title="Flask 实现上传"></a>Flask 实现上传</h3><ol>
+<li>上传的代码，这里整理一下方便之后复用</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 初始化上传的文件夹信息</span></span><br><span class="line">UPLOAD_FOLDER = <span class="string">'./uploads'</span></span><br><span class="line">ALLOWED_EXTENSIONS = &#123;<span class="string">'pdf'</span>&#125;</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">dropzone = Dropzone(app)</span><br><span class="line"><span class="comment"># 配置上传的文件夹和上传文件最大大小限制</span></span><br><span class="line">app.config[<span class="string">'UPLOAD_FOLDER'</span>] = UPLOAD_FOLDER</span><br><span class="line">app.config[<span class="string">'MAX_CONTENT_LENGTH'</span>] = <span class="number">32</span> * <span class="number">1024</span> * <span class="number">1024</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否是允许的文件，注意-1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">allowed_file</span><span class="params">(filename)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'.'</span> <span class="keyword">in</span> filename <span class="keyword">and</span> filename.rsplit(<span class="string">'.'</span>, <span class="number">1</span>)[<span class="number">-1</span>].lower() <span class="keyword">in</span> ALLOWED_EXTENSIONS</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注册网址 绑定函数</span></span><br><span class="line"><span class="meta">@app.route('/uploads/&lt;filename&gt;')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">uploaded_file</span><span class="params">(filename)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> send_from_directory(app.config[<span class="string">'UPLOAD_FOLDER'</span>], filename)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 是先上传</span></span><br><span class="line"><span class="meta">@app.route('/', methods=['GET', 'POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload_file</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        file = request.files[<span class="string">'file'</span>]</span><br><span class="line">        <span class="keyword">if</span> file <span class="keyword">and</span> allowed_file(file.filename):</span><br><span class="line">            filename = secure_filename(file.filename)</span><br><span class="line">            file.save(os.path.join(app.config[<span class="string">'UPLOAD_FOLDER'</span>], filename))</span><br><span class="line">            file_url = url_for(<span class="string">'uploaded_file'</span>, filename=filename)</span><br><span class="line">            <span class="keyword">return</span> redirect(url_for(<span class="string">'uploaded_file'</span>, filename=filename))</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">'upload.html'</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>前端实现拖拽上传的效果，使用 <code>dropzone.css</code> 和 <code>dropzone.js</code>。主要的 <code>HTML</code>的代码如下：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Flask upload with Dropzone example&lt;/title&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"&#123;&#123; url_for('static', filename='css/dropzone.css') &#125;&#125;"</span>&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- Change action value to your upload address --&gt;</span><br><span class="line">    &lt;form action="&#123;&#123; url_for('upload_file') &#125;&#125;" class="dropzone" method="POST" enctype="multipart/form-data"&gt;&lt;/form&gt;</span><br><span class="line">    &lt;header&gt;woshi555&lt;/header&gt;</span><br><span class="line">    &lt;script src="&#123;&#123; url_for('static', filename='js/dropzone.js') &#125;&#125;"&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>继续和我的基础环境绑定</li>
+</ol>
+<hr>
+<h3 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h3><p>之前也遇见过部署的时候网页就没了，这次发现是因为 <code>Flask</code> 自带的服务器在 ssh 退出之后就不可用了</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup python app.py 1&gt;result.txt 2&gt;err.txt &amp;</span><br></pre></td></tr></table></figure>
+
+<p>注意：最后的 &amp; 才表示后台运行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ux</span><br><span class="line">ps- aux</span><br><span class="line"></span><br><span class="line">lsof -i :5000</span><br><span class="line"><span class="built_in">kill</span> -9 PID</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="继续更新-flask-dropzone"><a href="#继续更新-flask-dropzone" class="headerlink" title="继续更新 - flask-dropzone"></a>继续更新 - flask-dropzone</h3><p>先配置，然后再 <code>dropzone = Dropzone(app)</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.config[<span class="string">'UPLOAD_FOLDER'</span>] = UPLOAD_FOLDER</span><br><span class="line"><span class="comment"># app.config['DROPZONE_REDIRECT_VIEW'] = 'hello'  # set redirect view</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_REDIRECT_VIEW'</span>] = <span class="string">'result'</span>  <span class="comment"># function-name (not the true url)</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_ALLOWED_FILE_CUSTOM'</span>] = <span class="literal">True</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_ALLOWED_FILE_TYPE'</span>] = <span class="string">'.pdf'</span></span><br><span class="line"></span><br><span class="line">dropzone = Dropzone(app)</span><br></pre></td></tr></table></figure>
+
+<p>限制了文件的格式是 PDF，可以实现最后选框上传的时候就是 PDF 文件</p>
+<p>跳转只能这样显示的写，不能使用 <code>redirect</code> ，使用的是函数的名字</p>
+<p><strong>html文件中</strong>很容易就可以做出来了</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    &#123;&#123; dropzone.load_css() &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.style('border: 2px dashed #0087F7; margin: 10%') &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    &#123;&#123; dropzone.create(action="upload_file") &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.load_js() &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.config() &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图灵完备</title>
+    <url>/turing-completeness/</url>
+    <content><![CDATA[<p>在<a href="https://zh.wikipedia.org/wiki/可计算性理论" target="_blank" rel="noopener">可计算性理论</a>里，如果一系列操作数据的规则（如<a href="https://zh.wikipedia.org/wiki/指令集" target="_blank" rel="noopener">指令集</a>、<a href="https://zh.wikipedia.org/wiki/编程语言" target="_blank" rel="noopener">编程语言</a>、<a href="https://zh.wikipedia.org/wiki/細胞自動機" target="_blank" rel="noopener">细胞自动机</a>）可以用来模拟<a href="https://zh.wikipedia.org/wiki/图灵机" target="_blank" rel="noopener">单带图灵机</a>，那么它是<strong>图灵完全的</strong>。这个词源于引入图灵机概念的数学家<a href="https://zh.wikipedia.org/wiki/艾伦·图灵" target="_blank" rel="noopener">艾伦·图灵</a>。</p>
+<p>虽然<a href="https://zh.wikipedia.org/wiki/图灵机" target="_blank" rel="noopener">图灵机</a>会受到储存能力的<a href="https://zh.wikipedia.org/wiki/物理" target="_blank" rel="noopener">物理</a>限制，图灵完全性通常指“具有无限存储能力的通用物理机器或编程语言”。</p>
+<p>PPT 是图灵完备的，神奇！</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>数据集的划分</title>
+    <url>/split-dataset/</url>
+    <content><![CDATA[<ol>
+<li><p>验证集和测试集不相交，验证集和训练集不相交，测试集和训练集不相交。</p>
+</li>
+<li><p><strong>三者的关系：</strong></p>
+<ul>
+<li>训练集用于训练模型参数</li>
+<li>测试集用于估计模型对样本的泛化误差</li>
+<li>验证集用于“训练”模型的超参数。</li>
+</ul>
+</li>
+</ol>
+<p>验证集用于找到最适合的超参数，这个过程不调整模型的参数（不是学习过程）</p>
+<p>测试集只使用一次，不调整任何参数，直接测试模型的结果。</p>
+<ol start="3">
+<li><strong>交叉验证</strong></li>
+</ol>
+<p><img data-src="/split-dataset/20180206150941131.png" alt="img"></p>
+<p>训练集进行划分，然后多次进行训练过程。</p>
+<h3 id="K-Fold"><a href="#K-Fold" class="headerlink" title="K-Fold"></a>K-Fold</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold</span><br><span class="line"></span><br><span class="line">X = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>]</span><br><span class="line">kf = KFold(n_splits=<span class="number">4</span>)</span><br><span class="line"><span class="keyword">for</span> train, test <span class="keyword">in</span> kf.split(X):</span><br><span class="line">    print(<span class="string">"%s %s"</span> % (train, test))</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[1 2 3] [0]</span><br><span class="line">[0 2 3] [1]</span><br><span class="line">[0 1 3] [2]</span><br><span class="line">[0 1 2] [3]</span><br></pre></td></tr></table></figure>
+
+<h3 id="StratifiedKFold"><a href="#StratifiedKFold" class="headerlink" title="StratifiedKFold"></a>StratifiedKFold</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> StratifiedKFold</span><br><span class="line"></span><br><span class="line">X = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">              [<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>],</span><br><span class="line">              [<span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">24</span>],</span><br><span class="line">              [<span class="number">31</span>, <span class="number">32</span>, <span class="number">33</span>, <span class="number">34</span>],</span><br><span class="line">              [<span class="number">41</span>, <span class="number">42</span>, <span class="number">43</span>, <span class="number">44</span>],</span><br><span class="line">              [<span class="number">51</span>, <span class="number">52</span>, <span class="number">53</span>, <span class="number">54</span>],</span><br><span class="line">              [<span class="number">61</span>, <span class="number">62</span>, <span class="number">63</span>, <span class="number">64</span>],</span><br><span class="line">              [<span class="number">71</span>, <span class="number">72</span>, <span class="number">73</span>, <span class="number">74</span>]])</span><br><span class="line"></span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">stratified_folder = StratifiedKFold(n_splits=<span class="number">4</span>, random_state=<span class="number">0</span>, shuffle=<span class="literal">False</span>)</span><br><span class="line"><span class="keyword">for</span> train_index, test_index <span class="keyword">in</span> stratified_folder.split(X, y):</span><br><span class="line">    print(<span class="string">"Stratified Train Index:"</span>, train_index)</span><br><span class="line">    print(<span class="string">"Stratified Test Index:"</span>, test_index)</span><br><span class="line">    print(<span class="string">"Stratified y_train:"</span>, y[train_index])</span><br><span class="line">    print(<span class="string">"Stratified y_test:"</span>, y[test_index], <span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Stratified Train Index: [1 3 4 5 6 7]</span><br><span class="line">Stratified Test Index: [0 2]</span><br><span class="line">Stratified y_train: [1 0 1 1 0 0]</span><br><span class="line">Stratified y_test: [1 0] </span><br><span class="line"></span><br><span class="line">Stratified Train Index: [0 2 4 5 6 7]</span><br><span class="line">Stratified Test Index: [1 3]</span><br><span class="line">Stratified y_train: [1 0 1 1 0 0]</span><br><span class="line">Stratified y_test: [1 0] </span><br><span class="line"></span><br><span class="line">Stratified Train Index: [0 1 2 3 5 7]</span><br><span class="line">Stratified Test Index: [4 6]</span><br><span class="line">Stratified y_train: [1 1 0 0 1 0]</span><br><span class="line">Stratified y_test: [1 0] </span><br><span class="line"></span><br><span class="line">Stratified Train Index: [0 1 2 3 4 6]</span><br><span class="line">Stratified Test Index: [5 7]</span><br><span class="line">Stratified y_train: [1 1 0 0 1 0]</span><br><span class="line">Stratified y_test: [1 0]</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>正向代理和反向代理</title>
+    <url>/forward-and-backword-proxy/</url>
+    <content><![CDATA[<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p>提到 <code>反向代理</code>，必然先提到 <code>正向代理</code>。</p>
+<p>正向代理 (forward) 是一个位于客户端【用户 A 】和原始服务器 (origin server) 【服务器 B 】之间的服务器【代理服务器 Z 】，为了从原始服务器取得内容，用户 A 向代理服务器 Z 发送一个请求并指定目标 (服务器 B)， 然后代理服务器 Z 向服务器 B 转交请求并将获得的内容返回给客户端。客户端必须要进行一些特别的设置才能使用正向代理。</p>
+<p>如下图（图来自网络）：</p>
+<p><img data-src="/forward-and-backword-proxy/forwards_proxy-1591876806097.jpg" alt="正向代理示意图"></p>
+<p>从上图可以看出，所谓的 <code>正向代理</code> 就是 <code>代理服务器替代访问方【用户 A 】去访问目标服务器【服务器 B 】</code>，在现实中的例子就是『翻墙』！但如果代理服务器 Z 被完全控制（或不完全控制），就不行了。</p>
+<p>而 <code>反向代理</code> 与正向代理相反，对客户端而言代理服务器就像是原始服务器，并且客户端不需要进行任何特别的设置。客户端向反向代理的命名空间（name-space）中的内容发送普通请求，接着反向代理将判断向何处（原始服务器）转交请求，并将获得的内容返回给客户端。</p>
+<p>使用反向代理服务器主要核心作用如下：</p>
+<ol>
+<li>保护和隐藏原始资源服务器</li>
+</ol>
+<p><img data-src="/forward-and-backword-proxy/backward_proxy_1-1591876806585.jpg" alt="反向代理原理图"></p>
+<p>从上图可以看出，用户 A 始终认为它访问的是代理服务器 Z 而不是原始服务器 B，但实际上反向代理服务器接受用户 A 的应答，从原始资源服务器 B 中取得用户 A 的需求资源，然后发送给用户 A。由于防火墙的作用，只允许代理服务器 Z 访问原始资源服务器 B。尽管在这个虚拟的环境下，防火墙和反向代理的共同作用保护了原始资源服务器 B，但用户 A 并不知情。</p>
+<ol start="2">
+<li>负载均衡</li>
+</ol>
+<p><img data-src="/forward-and-backword-proxy/backward_balance-1591876806098.jpg" alt="反向代理负载均衡示例图"></p>
+<p>当反向代理服务器不止一个的时候，我们甚至可以把它们做成集群，当更多的用户访问资源服务器 B 的时候，让不同的代理服务器 Z（x）去应答不同的用户，然后发送不同用户需要的资源。</p>
+<p>当然 <code>反向代理服务器</code> 像 <code>正向代理服务器</code> 一样拥有 CACHE 的作用，它可以缓存原始资源服务器 B 的资源，而不是每次都要向原始资源服务器 B 请求数据，特别是一些静态的数据，比如图片和文件，如果这些反向代理服务器能够做到和用户 X 来自同一个网络，那么用户 X 访问反向代理服务器 X，就会得到很高质量的速度。这正是 <code>CDN 技术</code> 的核心。如下图：</p>
+<p><img data-src="/forward-and-backword-proxy/cdn-1591876805954.jpg" alt="CDN 原理图"></p>
+]]></content>
+      <tags>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyMuPDF 进行 PDF 处理</title>
+    <url>/pymupdf-process-pdf/</url>
+    <content><![CDATA[<p>PyMuPDF（fitz）：MuPDF 的 Python 绑定，它是一个轻量级的 PDF 和 XPS 查看器。该库可以访问 PDF，XPS，OpenXPS，epub，漫画和小说书籍格式的文件，并以其顶级性能和高渲染质量而闻名。</p>
+<p><a href="https://github.com/pymupdf/PyMuPDF/wiki" target="_blank" rel="noopener">PyMuPDF/wiki</a></p>
+<p><img data-src="/pymupdf-process-pdf/13717038-cdc4983066bc598f.webp" alt="img"></p>
+<h3 id="使用-PyMuPDF-从-PDF-中提取图像"><a href="#使用-PyMuPDF-从-PDF-中提取图像" class="headerlink" title="使用 PyMuPDF 从 PDF 中提取图像"></a>使用 PyMuPDF 从 PDF 中提取图像</h3><p>PyMuPDF 使用 getPageImageList（）方法简化了从 PDF 文档中提取图像的过程。下面的代码来源于 PyMuPDF wiki 页面的示例，并逐页提取并保存 PDF 中的所有图像作为 PNG 文件。 如果图像具有 CMYK 颜色空间，则首先将其转换为 RGB。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+  </entry>
+  <entry>
+    <title>NexT 主题添加 canvas-nest 动画背景</title>
+    <url>/next-canvas-nest/</url>
+    <content><![CDATA[<p><code>NexT</code> 主题相较于我之前的 <code>Casper</code> 主题是一个很成熟的主题，很多定制化都已经别前人封装好了。</p>
+<p>这篇文章来记录一下添加 <code>canvas-nest</code> 动画背景。</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>使用 <code>NexT</code> 主题 <code>5.1.4</code> 版本</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>主题配置文件中已经预留好接口了，只需要在选择的动画背景选择 <code>true</code> 即可</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Canvas-nest</span></span><br><span class="line"><span class="attr">canvas_nest:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># three_waves</span></span><br><span class="line"><span class="attr">three_waves:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># canvas_lines</span></span><br><span class="line"><span class="attr">canvas_lines:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># canvas_sphere</span></span><br><span class="line"><span class="attr">canvas_sphere:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>更新到 <code>7</code> 版本的 <code>NexT</code> 之后暂时失效了。</p>
+]]></content>
+      <tags>
+        <tag>NexT</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python-Round</title>
+    <url>/python-round/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">round( x [, n]  )</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>x – 数字表达式</li>
+<li>n – 表示从小数点位数，其中 x 需要四舍五入，默认值为 0</li>
+</ul>
+<a id="more"></a>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">round(<span class="number">70.23456</span>) :  <span class="number">70</span></span><br><span class="line">round(<span class="number">56.659</span>,<span class="number">1</span>) :  <span class="number">56.7</span></span><br><span class="line">round(<span class="number">80.264</span>, <span class="number">2</span>) :  <span class="number">80.26</span></span><br><span class="line">round(<span class="number">100.000056</span>, <span class="number">3</span>) :  <span class="number">100.0</span></span><br><span class="line">round(<span class="number">-100.000056</span>, <span class="number">3</span>) :  <span class="number">-100.0</span></span><br></pre></td></tr></table></figure>
+
+<p>但是浮点数精度会对结果有影响</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>round(<span class="number">2.675</span>, <span class="number">2</span>) </span><br><span class="line"><span class="number">2.67</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>按我们的想法返回结果应该是 2.68，可结果却是 2.67，为什么？</strong></p>
+<p>这跟浮点数的精度有关。我们知道在机器中浮点数不一定能精确表达，因为换算成一串 1 和 0 后可能是无限位数的，机器已经做出了截断处理。那么在机器中保存的2.675这个数字就比实际数字要小那么一点点。这一点点就导致了它离 2.67 要更近一点点，所以保留两位小数时就近似到了 2.67。</p>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客自动刷新</title>
+    <url>/hexo-auto-refresh-by-browsersync/</url>
+    <content><![CDATA[<p>Hexo 博客在写的过程中不能自动刷新网页，所以引入新的插件来自动刷新。</p>
+<h3 id="安装-Browsersync"><a href="#安装-Browsersync" class="headerlink" title="安装 Browsersync"></a>安装 Browsersync</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g browser-sync</span><br></pre></td></tr></table></figure>
+
+<p>安装结束后，测试安装是否成功。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">browser-sync --version</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-Hexo-插件"><a href="#安装-Hexo-插件" class="headerlink" title="安装 Hexo 插件"></a>安装 Hexo 插件</h3><p>还需要给 Hexo 安装上插件（需要在 Hexo 目录下安装）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-browsersync --save</span><br></pre></td></tr></table></figure>
+
+<p>安装后像往常一样执行 <code>hexo s</code> 开启本地服务器，当相关文件被修改或者保存时，关联的浏览器页面会自带刷新。</p>
+<h3 id="Hexo-配置"><a href="#Hexo-配置" class="headerlink" title="Hexo 配置"></a>Hexo 配置</h3><p>需要在 Hexo 根目录的 config.yml 里面添加以下配置，就可以啦！</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">compress:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="一些不足"><a href="#一些不足" class="headerlink" title="一些不足"></a>一些不足</h3><ul>
+<li>变动后将重新加载整个页面，不能局部刷新</li>
+<li>使用 Hexo 自带服务器时，无法在移动端调试</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hexo 的 NexT 主题添加相关文章</title>
+    <url>/hexo-next-related-posts/</url>
+    <content><![CDATA[<p>更新 <code>NexT</code> 主题到最新版本之后，发现具有更多的定制功能，其中就有添加相关文章的选项。</p>
+<p>使用 <code>https://github.com/tea3/hexo-related-popular-posts</code></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Related popular posts</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/tea3/hexo-related-popular-posts</span></span><br><span class="line"><span class="attr">related_posts:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">相关文章</span></span><br><span class="line">  <span class="comment"># Custom header, leave empty to use the default one</span></span><br><span class="line">  <span class="attr">display_in_home:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">params:</span></span><br><span class="line">    <span class="attr">maxCount:</span> <span class="number">3</span></span><br><span class="line">    <span class="comment">#PPMixingRate: 0.0</span></span><br><span class="line">    <span class="comment">#isDate: false</span></span><br><span class="line">    <span class="comment">#isImage: false</span></span><br><span class="line">    <span class="comment">#isExcerpt: false</span></span><br></pre></td></tr></table></figure>
+
+<p>配置完成，重新生成 <code>html</code> 文件就可以直接看到效果啦！</p>
+<a id="more"></a>
+
+<p><img data-src="/hexo-next-related-posts/image-20200610111926921.png" alt="image-20200610111926921"></p>
+]]></content>
+      <tags>
+        <tag>NexT</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo使用npm快速生成</title>
+    <url>/hexo-npm-fast-generate/</url>
+    <content><![CDATA[<p>使用 <code>Hexo</code> 的时候，我们通常使用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s &#x2F; hexo d</span><br></pre></td></tr></table></figure>
+
+<p>但是在文件内容比较多的时候需要较长时间进行渲染处理，同时也需要输入三个命令。</p>
+<p>之前配置 npm 里面的快捷命令的时候时好时坏，最近终于可以正常运行了，记录一下。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>打开 <code>package.json</code> 文件</p>
+<p>我们会发现默认已经配置好了脚本(scripts)</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">    "deploy": "hexo clean &amp;&amp; hexo g &amp;&amp; hexo d",</span><br><span class="line">    "start": "hexo clean &amp;&amp; hexo g &amp;&amp; hexo s"</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>这个时候使用以下命令，就可以直接运行了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm deploy </span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+
+<p>如果想要每次输入的字母数更少一些，可以将 <code>json</code> 更改成以下形式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;d&quot;: &quot;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&quot;,</span><br><span class="line">    &quot;s&quot;: &quot;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&quot;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>这种时候运行输入以下命令就可以啦</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run s</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>以太坊上安全生成随机数</title>
+    <url>/generate-random-number-on-ethereum-safely/</url>
+    <content><![CDATA[<h2 id="用-keccak256-来制造随机数。"><a href="#用-keccak256-来制造随机数。" class="headerlink" title="用 keccak256 来制造随机数。"></a>用 <code>keccak256</code> 来制造随机数。</h2><p>Solidity 中最好的随机数生成器是 <code>keccak256</code> 哈希函数.</p>
+<p>我们可以这样来生成一些随机数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 生成一个0到100的随机数:</span><br><span class="line">uint randNonce &#x3D; 0;</span><br><span class="line">uint random &#x3D; uint(keccak256(now, msg.sender, randNonce)) % 100;</span><br><span class="line">randNonce++;</span><br><span class="line">uint random2 &#x3D; uint(keccak256(now, msg.sender, randNonce)) % 100;</span><br></pre></td></tr></table></figure>
+
+<p>这个方法首先拿到 <code>now</code> 的时间戳、 <code>msg.sender</code>、 以及一个自增数 <code>nonce</code> （一个仅会被使用一次的数，这样我们就不会对相同的输入值调用一次以上哈希函数了）。</p>
+<p>然后利用 <code>keccak</code> 把输入的值转变为一个哈希值, 再将哈希值转换为 <code>uint</code>, 然后利用 <code>% 100</code> 来取最后两位, 就生成了一个0到100之间随机数了。</p>
+<h3 id="这个方法很容易被不诚实的节点攻击"><a href="#这个方法很容易被不诚实的节点攻击" class="headerlink" title="这个方法很容易被不诚实的节点攻击"></a>这个方法很容易被不诚实的节点攻击</h3><p>在以太坊上, 当你在和一个合约上调用函数的时候, 你会把它广播给一个节点或者在网络上的 <strong><em>transaction\</em></strong> 节点们。 网络上的节点将收集很多事务, 试着成为第一个解决计算密集型数学问题的人，作为“工作证明”，然后将“工作证明”(Proof of Work, PoW)和事务一起作为一个 <strong><em>block\</em></strong> 发布在网络上。</p>
+<p>一旦一个节点解决了一个PoW, 其他节点就会停止尝试解决这个 PoW, 并验证其他节点的事务列表是有效的，然后接受这个节点转而尝试解决下一个节点。</p>
+<p><strong>这就让我们的随机数函数变得可利用了</strong></p>
+<p>我们假设我们有一个硬币翻转合约——正面你赢双倍钱，反面你输掉所有的钱。假如它使用上面的方法来决定是正面还是反面 (<code>random &gt;= 50</code> 算正面, <code>random &lt; 50</code> 算反面)。</p>
+<p>如果我正运行一个节点，我可以 <strong>只对我自己的节点</strong> 发布一个事务，且不分享它。 我可以运行硬币翻转方法来偷窥我的输赢 — 如果我输了，我就不把这个事务包含进我要解决的下一个区块中去。我可以一直运行这个方法，直到我赢得了硬币翻转并解决了下一个区块，然后获利。</p>
+<h2 id="所以我们该如何在以太坊上安全地生成随机数呢"><a href="#所以我们该如何在以太坊上安全地生成随机数呢" class="headerlink" title="所以我们该如何在以太坊上安全地生成随机数呢"></a>所以我们该如何在以太坊上安全地生成随机数呢</h2><p>因为区块链的全部内容对所有参与者来说是透明的， 这就让这个问题变得很难，它的解决方法不在本课程讨论范围，你可以阅读 <a href="https://ethereum.stackexchange.com/questions/191/how-can-i-securely-generate-a-random-number-in-my-smart-contract" target="_blank" rel="noopener">这个 StackOverflow 上的讨论</a> 来获得一些主意。 一个方法是利用 <strong><em>oracle\</em></strong> 来访问以太坊区块链之外的随机数函数。</p>
+<p>当然， 因为网络上成千上万的以太坊节点都在竞争解决下一个区块，我能成功解决下一个区块的几率非常之低。 这将花费我们巨大的计算资源来开发这个获利方法 — 但是如果奖励异常地高(比如我可以在硬币翻转函数中赢得 1个亿)， 那就很值得去攻击了。</p>
+<p>所以尽管这个方法在以太坊上不安全，在实际中，除非我们的随机函数有一大笔钱在上面，你游戏的用户一般是没有足够的资源去攻击的。</p>
+<p>因为在这个教程中，我们只是在编写一个简单的游戏来做演示，也没有真正的钱在里面，所以我们决定接受这个不足之处，使用这个简单的随机数生成函数。但是要谨记它是不安全的。</p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Windows以太坊区块链环境搭建</title>
+    <url>/windows-geth/</url>
+    <content><![CDATA[<p>从环境搭建开始我的 <strong>智能合约</strong> 探索。</p>
+<h3 id="一、安装Geth"><a href="#一、安装Geth" class="headerlink" title="一、安装Geth"></a>一、安装Geth</h3><p>以太坊社区提供了多种语言实现的客户端和开发库，官方推荐使用 <code>Go-ethererum</code>，也就是 <code>Geth</code> 。</p>
+<p><a href="https://geth.ethereum.org/downloads/" target="_blank" rel="noopener">Geth 官网下载链接</a> 官网有一点小问题，通过 <code>F12</code> 找到了 <code>Windows</code> 的对应下载链接 <a href="https://gethstore.blob.core.windows.net/builds/geth-windows-amd64-1.9.15-0f77f34b.exe" target="_blank" rel="noopener">v1.9.15</a></p>
+<p>源码在 <a href="https://github.com/ethereum/go-ethereum/releases" target="_blank" rel="noopener">Github - Geth - Release</a> </p>
+<p>安装到路径 <code>C:\workspace\geth\</code> </p>
+<p>命令行里面输入 <code>geth version</code>，正常反馈信息即为安装成功。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ geth version</span><br><span class="line">Geth</span><br><span class="line">Version: 1.9.15-stable</span><br><span class="line">Git Commit: 0f77f34bb67b640bd8af22b215f3d279a1e21170</span><br><span class="line">Git Commit Date: 20200608</span><br><span class="line">Architecture: amd64</span><br><span class="line">Protocol Versions: [65 64 63]</span><br><span class="line">Go Version: go1.14.2</span><br><span class="line">Operating System: windows</span><br><span class="line">GOPATH&#x3D;</span><br><span class="line">GOROOT&#x3D;C:\go</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、创建创世区块"><a href="#二、创建创世区块" class="headerlink" title="二、创建创世区块"></a>二、创建创世区块</h3><p>相同文件夹下面创建 <code>genesis.json</code> 文件</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"config"</span>: &#123;</span><br><span class="line">        <span class="attr">"chainId"</span>: <span class="number">98</span>,</span><br><span class="line">        <span class="attr">"homesteadBlock"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"eip155Block"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"eip158Block"</span>: <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"difficulty"</span> : <span class="string">"200000000"</span>,</span><br><span class="line">    <span class="attr">"gasLimit"</span> : <span class="string">"2100000"</span>,</span><br><span class="line">    <span class="attr">"alloc"</span>: &#123; </span><br><span class="line">        <span class="attr">"7df9a875a174b3bc565e6424a0050ebc1b2d1d82"</span>: &#123; <span class="attr">"balance"</span>: <span class="string">"300000"</span> &#125;,</span><br><span class="line">        <span class="attr">"f41c74c9ae680c1aa78f42e5647a62f353b7bdde"</span>: &#123; <span class="attr">"balance"</span>: <span class="string">"400000"</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在命令行中执行命令，生成创世区块</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">geth --datadir &quot;.&#x2F;&quot; init genesis.json</span><br></pre></td></tr></table></figure>
+
+<p>进入 <code>Geth</code>命令行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">geth --datadir &quot;.&#x2F;&quot; --nodiscover console 2&gt;&gt;geth.log</span><br></pre></td></tr></table></figure>
+
+<p>提示以下内容</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">Welcome to the Geth JavaScript console!</span><br><span class="line"></span><br><span class="line"><span class="function">instance: <span class="title">Geth</span>/<span class="title">v1</span>.9.15-<span class="title">stable</span>-0<span class="title">f77f34b</span>/<span class="title">windows</span>-<span class="title">amd64</span>/<span class="title">go1</span>.14.2                         </span></span><br><span class="line"><span class="function"><span class="title">at</span> <span class="title">block</span>: 0 (<span class="title">Thu</span> <span class="title">Jan</span> 01 1970 08:00:00 <span class="title">GMT</span>+0800 (<span class="title">CST</span>))                                 </span></span><br><span class="line"><span class="function"><span class="title">datadir</span>: <span class="title">C</span>:\<span class="title">workspace</span>\<span class="title">geth</span>                                                             </span></span><br><span class="line"><span class="function"><span class="title">modules</span>: <span class="title">admin</span>:1.0 <span class="title">debug</span>:1.0 <span class="title">eth</span>:1.0 <span class="title">ethash</span>:1.0 <span class="title">miner</span>:1.0 <span class="title">net</span>:1.0 <span class="title">personal</span>:1.0 <span class="title">rpc</span>:1.0 <span class="title">txpool</span>:1.0 <span class="title">web3</span>:1.0</span></span><br><span class="line"><span class="function">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>创建一个新账户，记录地址</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">&gt; personal.newAccount()</span><br><span class="line"><span class="function">Passphrase:</span></span><br><span class="line"><span class="function"><span class="title">Repeat</span> <span class="title">passphrase</span>:</span></span><br><span class="line"><span class="function">"0<span class="title">xc6d0ba74c35a0b8650a75d81e41bac0478c45efc</span>"</span></span><br><span class="line"><span class="function">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>启动挖矿</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">geth --datadir "./" --networkid <span class="number">98</span> --mine --minerthreads=<span class="number">1</span> --etherbase=<span class="number">0</span>xc6d0ba74c35a0b8650a75d81e41bac0478c45efc</span><br></pre></td></tr></table></figure>
+
+<p>以太坊是内存困难型的挖矿算法，首先需要生成 <code>DAG</code>，这个过程会占用大量的 CPU 资源</p>
+<p><img data-src="/windows-geth/image-20200610172600263.png" alt="image-20200610172600263"></p>
+<p><img data-src="/windows-geth/image-20200610173936739.png" alt="image-20200610173936739"></p>
+<p>停留在 <code>Looking for peers</code> ，好像是因为没有太多全节点了，导致的卡住。</p>
+<p>暂时挂载着，期待着后续的结果吧，如果一切顺利下一步就是挖到以太啦！</p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>pyPDF2识别PDF中的图表、公式的数量</title>
+    <url>/python-pdf-processing-by-pypdf2/</url>
+    <content><![CDATA[<p>使用 PyPDF2 读取 PDF，通过正则表达式转换 PDF 中的图片为文字</p>
+<p>PyPDF2 是一个Python 库，用于提取文档信息和内容，逐页拆分文档，合并文档，裁剪页面和添加水印。 PyPDF2 支持未加密和加密的文档。</p>
+<p>代码如下</p>
+<a id="more"></a>
+
+<p>初始引入，及查找公式个数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> PyPDF2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> multiprocessing.pool <span class="keyword">import</span> Pool</span><br><span class="line"></span><br><span class="line">INPUT_DIR = <span class="string">'../dataset_new/'</span></span><br><span class="line">OUTPUT_DIR = <span class="string">'../output/'</span></span><br><span class="line"></span><br><span class="line">score_d = &#123;</span><br><span class="line">    <span class="string">'='</span>: <span class="number">1.2</span>,</span><br><span class="line">    <span class="string">'('</span>: <span class="number">0.2</span>,</span><br><span class="line">    <span class="string">')'</span>: <span class="number">0.3</span>,</span><br><span class="line">    <span class="string">'['</span>: <span class="number">0.3</span>,</span><br><span class="line">    <span class="string">']'</span>: <span class="number">0.3</span>,</span><br><span class="line">    <span class="string">'−'</span>: <span class="number">0.6</span>,</span><br><span class="line">    <span class="string">'+'</span>: <span class="number">1.5</span>,</span><br><span class="line">    <span class="string">'-'</span>: <span class="number">0.6</span>,</span><br><span class="line">    <span class="string">'/'</span>: <span class="number">1.5</span>,</span><br><span class="line">    <span class="string">'^'</span>: <span class="number">1.1</span>,</span><br><span class="line">    <span class="string">'|'</span>: <span class="number">0.9</span>,</span><br><span class="line">    <span class="string">''</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line">formula_pattern = re.compile(<span class="string">r'=|/|−|-|^|\||\[|\]|\+|\(\d&#123;1,2&#125;\)|\(\w\)|\('</span>)</span><br><span class="line">exclude_pattern = re.compile(<span class="string">r'\+\+|http|--|==|pdf'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cal_score</span><span class="params">(r)</span>:</span></span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> r:</span><br><span class="line">        <span class="keyword">if</span> len(t) &gt; <span class="number">1</span>:</span><br><span class="line">            s += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            s += score_d[t]</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_formula_num</span><span class="params">(text)</span>:</span></span><br><span class="line">    cnt = <span class="number">0</span></span><br><span class="line">    l = []</span><br><span class="line">    tmp = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> text.split(<span class="string">'\n'</span>):</span><br><span class="line">        <span class="keyword">if</span> len(t) &lt;= <span class="number">5</span>:</span><br><span class="line">            tmp += t</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> tmp != <span class="string">''</span>:</span><br><span class="line">                l.append(tmp)</span><br><span class="line">                tmp = <span class="string">''</span></span><br><span class="line">            l.append(t)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> l:</span><br><span class="line">        p = exclude_pattern.findall(t)</span><br><span class="line">        <span class="keyword">if</span> len(t) &gt; <span class="number">100</span> <span class="keyword">or</span> len(p) &gt; <span class="number">0</span>: <span class="keyword">continue</span></span><br><span class="line">        res = formula_pattern.findall(t)</span><br><span class="line">        s = cal_score(res)</span><br><span class="line">        <span class="keyword">if</span> s &gt; <span class="number">3</span>:</span><br><span class="line">            cnt += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> cnt</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_pdf_meta</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        pdfFileObject = open(path, <span class="string">'rb'</span>)</span><br><span class="line">        pdfReader = PyPDF2.PdfFileReader(pdfFileObject)</span><br><span class="line">        count = pdfReader.numPages</span><br><span class="line">        figures = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">8</span>)]</span><br><span class="line">        tables = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">8</span>)]</span><br><span class="line">        formulas = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">8</span>)]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(count):</span><br><span class="line">            <span class="keyword">if</span> i &gt; <span class="number">7</span>: <span class="keyword">break</span></span><br><span class="line">            page = pdfReader.getPage(i)</span><br><span class="line">            text = page.extractText()</span><br><span class="line">            <span class="comment"># figures and table</span></span><br><span class="line">            pattern = re.compile(<span class="string">r'(Figure|Table|Fig\.)\s*(\d+)(:)'</span>)</span><br><span class="line">            res = pattern.findall(text)</span><br><span class="line">            res = set([<span class="string">''</span>.join(i) <span class="keyword">for</span> i <span class="keyword">in</span> res])</span><br><span class="line">            <span class="keyword">for</span> item <span class="keyword">in</span> res:</span><br><span class="line">                <span class="keyword">if</span> item.startswith(<span class="string">'Fig'</span>):</span><br><span class="line">                    figures[i] += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    tables[i] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># formula</span></span><br><span class="line">            formulas[i] = get_formula_num(text)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> np.array(figures).sum() == <span class="number">0</span> <span class="keyword">and</span> np.array(tables).sum() == <span class="number">0</span>:</span><br><span class="line">            s = set()</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(count):</span><br><span class="line">                <span class="keyword">if</span> i &gt; <span class="number">7</span>: <span class="keyword">break</span></span><br><span class="line">                page = pdfReader.getPage(i)</span><br><span class="line">                text = page.extractText()</span><br><span class="line">                pattern = re.compile(</span><br><span class="line">                    <span class="string">r'(Figure|Table|Fig\.)\s*(\d+)(\.[A-Z]&#123;0,1&#125;)'</span>)</span><br><span class="line">                res = pattern.findall(text)</span><br><span class="line">                res = set(</span><br><span class="line">                    [<span class="string">''</span>.join(i).replace(<span class="string">'.'</span>, <span class="string">':'</span>).split(<span class="string">':'</span>)[<span class="number">0</span>] <span class="keyword">for</span> i <span class="keyword">in</span> res]) - s</span><br><span class="line">                s = s | res</span><br><span class="line">                <span class="keyword">for</span> item <span class="keyword">in</span> res:</span><br><span class="line">                    <span class="keyword">if</span> item.startswith(<span class="string">'Fig'</span>):</span><br><span class="line">                        figures[i] += <span class="number">1</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        tables[i] += <span class="number">1</span></span><br><span class="line">        pdfFileObject.close()</span><br><span class="line">        <span class="keyword">return</span> figures, tables, formulas, count</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        print(path, e)</span><br><span class="line">        pdfFileObject.close()</span><br><span class="line">        <span class="keyword">return</span> [<span class="number">-1</span>], [<span class="number">-1</span>], [<span class="number">-1</span>], <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+
+<p>main 函数多线程操作</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    print(<span class="string">'execute lgb_process.py ...'</span>)</span><br><span class="line">    lgb_output = OUTPUT_DIR + <span class="string">'lgb_output/'</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(lgb_output):</span><br><span class="line">        os.makedirs(lgb_output)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(path)</span>:</span></span><br><span class="line">        figures, tables, formulas, cnt = get_pdf_meta(path)</span><br><span class="line">        <span class="keyword">return</span> path, figures, tables, formulas, cnt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> [<span class="string">'conference'</span>, <span class="string">'workshop'</span>]:</span><br><span class="line">        lst = []</span><br><span class="line">        conf_fold = INPUT_DIR + <span class="string">'train/%s/'</span> % name</span><br><span class="line">        <span class="keyword">for</span> pdf <span class="keyword">in</span> os.listdir(conf_fold):</span><br><span class="line">            lst.append(conf_fold + pdf)</span><br><span class="line"></span><br><span class="line">        ret = Pool(<span class="number">20</span>).map(func, lst)</span><br><span class="line">        json.dump(</span><br><span class="line">            ret, open(lgb_output + <span class="string">'%s.json'</span> % name, <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>),</span><br><span class="line">            			ensure_ascii=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>pdf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>正则表达式</title>
+    <url>/re-expression/</url>
+    <content><![CDATA[<p>总遇见正则的常用场景，这次就来记录一下。</p>
+<p><a href="https://tool.oschina.net/uploads/apidocs/jquery/regexp.html" target="_blank" rel="noopener">网上的正则表达式手册</a></p>
+<p><a href="https://c.runoob.com/front-end/854" target="_blank" rel="noopener">菜鸟在线正则表达式测试</a></p>
+<p>这次使用的是</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pattern = re.compile(<span class="string">r'(Figure|Table|Fig\.)\s*(\d+)(:)'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>然后在文本中搜索</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">res = pattern.findall(text)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>Ethereum-Studio-Sample-Coin</title>
+    <url>/ethereum-studio-sample-coin/</url>
+    <content><![CDATA[<p>Ethereum-Studio 上面简单的 Coin 交易 Sample</p>
+<p>代码很容易理解，重要的是基于这个代码理解了 Ethereum-Studio 上面的操作</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Specifies that the source code is for a version</span></span><br><span class="line"><span class="comment">// of Solidity greater than 0.5.0</span></span><br><span class="line">pragma solidity &gt;=<span class="number">0.5</span><span class="number">.0</span> &lt;<span class="number">0.7</span><span class="number">.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// A contract is a collection of functions and data (its state)</span></span><br><span class="line"><span class="comment">// that resides at a specific address on the Ethereum blockchain.</span></span><br><span class="line">contract Coin &#123;</span><br><span class="line">    <span class="comment">// The keyword "public" makes variables accessible from outside a contract</span></span><br><span class="line">    <span class="comment">// and creates a function that other contracts or SDKs can call to access the value</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// An address stores addresses of contracts or external (user) accounts</span></span><br><span class="line">    address public minter;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A mapping lets you create complex custom data types.</span></span><br><span class="line">    <span class="comment">// This mapping assigns an unsigned integer to an address</span></span><br><span class="line">    <span class="comment">// and is also a public variable.</span></span><br><span class="line">    mapping (<span class="function"><span class="params">address</span> =&gt;</span> uint) public balances;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Events allow Ethereum clients to react to specific</span></span><br><span class="line">    <span class="comment">// contract changes you declare.</span></span><br><span class="line">    <span class="comment">// This defines the event and it is sent later</span></span><br><span class="line">    event Sent(address <span class="keyword">from</span>, address to, uint amount);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A special function only run during the creation of the contract</span></span><br><span class="line">    <span class="keyword">constructor</span>() public &#123;</span><br><span class="line">        <span class="comment">// Uses the special msg global variable to store the</span></span><br><span class="line">        <span class="comment">// address of the contract creator</span></span><br><span class="line">        minter = msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Sends an amount of newly created coins to an address</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">mint</span>(<span class="params">address receiver, uint amount</span>) <span class="title">public</span> </span>&#123;</span><br><span class="line">        <span class="comment">// require statements define conditions that must pass</span></span><br><span class="line">        <span class="comment">// before state is changed.</span></span><br><span class="line">        <span class="comment">// If it fails (equals false), an exception is triggered</span></span><br><span class="line">        <span class="comment">// and reverts all modifications to state from the current call</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Can only be called by the contract creator</span></span><br><span class="line">        <span class="built_in">require</span>(msg.sender == minter);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Ensures a maximum amount of tokens</span></span><br><span class="line">        <span class="built_in">require</span>(amount &lt; <span class="number">1e60</span>);</span><br><span class="line">        balances[receiver] += amount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Sends an amount of existing coins</span></span><br><span class="line">    <span class="comment">// from any caller to an address</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params">address receiver, uint amount</span>) <span class="title">public</span> </span>&#123;</span><br><span class="line">        <span class="comment">// The sender must have enough coins to send</span></span><br><span class="line">        <span class="built_in">require</span>(amount &lt;= balances[msg.sender], <span class="string">"Insufficient balance."</span>);</span><br><span class="line">        <span class="comment">// Adjust balances</span></span><br><span class="line">        balances[msg.sender] -= amount;</span><br><span class="line">        balances[receiver] += amount;</span><br><span class="line">        <span class="comment">// Emit event defined earlier</span></span><br><span class="line">        emit Sent(msg.sender, receiver, amount);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>进入到页面默认是这样的</p>
+<p><img data-src="/ethereum-studio-sample-coin/image-20200610194530891.png" alt="image-20200610194530891"></p>
+<p>点击左侧的小火箭进行部署 - 右侧会更新 <code>构造函数</code> 生成的结果。</p>
+<p><img data-src="/ethereum-studio-sample-coin/image-20200610194608028.png" alt="image-20200610194608028"></p>
+<p>利用 mint 函数，为合约账户添加 100 个币。</p>
+<p><img data-src="/ethereum-studio-sample-coin/image-20200610194743997.png" alt="image-20200610194743997"></p>
+<p>给账户一转去 50 个币，可以看到交易和余额同步都正确显示了。</p>
+<p><img data-src="/ethereum-studio-sample-coin/image-20200610194838920.png" alt="image-20200610194838920"></p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>心疼我的Ethereum-Studio</title>
+    <url>/ethereum-studio-no-longer-support/</url>
+    <content><![CDATA[<p><img data-src="/ethereum-studio-no-longer-support/image-20200613174400940.png" alt="image-20200613174400940"></p>
+<p>突然发现我最爱的 <code>Ethereum Studio</code> 被列为了之后不再维护的 IDE，心痛。。。</p>
+<p>今天接下来的主要任务就是对着官网链接整体过一下 Solidity 语法和 Remix 的使用！</p>
+<p><img data-src="/ethereum-studio-no-longer-support/image-20200614083819767.png" alt="image-20200614083819767"></p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>Solidity Game</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Remix-Owner-Demo</title>
+    <url>/remix-owner-demo/</url>
+    <content><![CDATA[<p>这个智能合约增加了操作数和账户，的但是依旧是比较简单的合约。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity &gt;&#x3D;0.4.22 &lt;0.7.0;</span><br><span class="line"></span><br><span class="line">contract Owner &#123;</span><br><span class="line"></span><br><span class="line">    address private owner;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; event for EVM logging</span><br><span class="line">    event OwnerSet(address indexed oldOwner, address indexed newOwner);</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; modifier to check if caller is owner</span><br><span class="line">    modifier isOwner() &#123;</span><br><span class="line">        &#x2F;&#x2F; If the first argument of &#39;require&#39; evaluates to &#39;false&#39;, execution terminates and all</span><br><span class="line">        &#x2F;&#x2F; changes to the state and to Ether balances are reverted.</span><br><span class="line">        &#x2F;&#x2F; This used to consume all gas in old EVM versions, but not anymore.</span><br><span class="line">        &#x2F;&#x2F; It is often a good idea to use &#39;require&#39; to check if functions are called correctly.</span><br><span class="line">        &#x2F;&#x2F; As a second argument, you can also provide an explanation about what went wrong.</span><br><span class="line">        require(msg.sender &#x3D;&#x3D; owner, &quot;Caller is not owner&quot;);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Set contract deployer as owner</span><br><span class="line">     *&#x2F;</span><br><span class="line">    constructor() public &#123;</span><br><span class="line">        owner &#x3D; msg.sender; &#x2F;&#x2F; &#39;msg.sender&#39; is sender of current call, contract deployer for a constructor</span><br><span class="line">        emit OwnerSet(address(0), owner);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Change owner</span><br><span class="line">     * @param newOwner address of new owner</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function changeOwner(address newOwner) public isOwner &#123;</span><br><span class="line">        emit OwnerSet(owner, newOwner);</span><br><span class="line">        owner &#x3D; newOwner;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Return owner address </span><br><span class="line">     * @return address of owner</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function getOwner() external view returns (address) &#123;</span><br><span class="line">        return owner;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/remix-owner-demo/image-20200613182526375.png" alt="image-20200613182526375"></p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>remix</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ethereum-Studio-Sample-Crypto-Pizzas</title>
+    <url>/ethereum-studio-sample-crypto-pizzas/</url>
+    <content><![CDATA[<h1 id="Creating-a-unique-collectible-token"><a href="#Creating-a-unique-collectible-token" class="headerlink" title="Creating a unique collectible token"></a>Creating a unique collectible token</h1><p>This project is an example application that teaches you how to:</p>
+<ul>
+<li>Write a smart contract and web app that conforms to a token standard.</li>
+<li>Different variable types in Solidity.</li>
+<li>Create, update and get variables in a smart contract.</li>
+<li>Emit events that clients can subscribe to.</li>
+<li>Provide arguments to a contract constructor using the <em>Configure contract</em> modal.</li>
+</ul>
+<p>这是一个略微复杂的智能合约</p>
+<p><img data-src="/ethereum-studio-sample-crypto-pizzas/image-20200610200542158.png" alt="image-20200610200542158"></p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Ethereum-Studio-Sample-Hello-World</title>
+    <url>/ethereum-studio-sample-hello-world/</url>
+    <content><![CDATA[<h1 id="Get-started-building-on-Ethereum"><a href="#Get-started-building-on-Ethereum" class="headerlink" title="Get started building on Ethereum"></a>Get started building on Ethereum</h1><p>使用 <strong>Ethereum Studio</strong> , a web-based IDE.</p>
+<p>在云端使用默认模板生成</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; Specifies that the source code is for a version</span><br><span class="line">&#x2F;&#x2F; of Solidity greater than 0.5.10</span><br><span class="line">pragma solidity ^0.5.10;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; A contract is a collection of functions and data (its state)</span><br><span class="line">&#x2F;&#x2F; that resides at a specific address on the Ethereum blockchain.</span><br><span class="line">contract HelloWorld &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; The keyword &quot;public&quot; makes variables accessible from outside a contract</span><br><span class="line">    &#x2F;&#x2F; and creates a function that other contracts or SDKs can call to access the value</span><br><span class="line">    string public message;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; A special function only run during the creation of the contract</span><br><span class="line">    constructor(string memory initMessage) public &#123;</span><br><span class="line">        &#x2F;&#x2F; Takes a string value and stores the value in the memory data storage area,</span><br><span class="line">        &#x2F;&#x2F; setting &#96;message&#96; to that value</span><br><span class="line">        message &#x3D; initMessage;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; A publicly accessible function that takes a string as a parameter</span><br><span class="line">    &#x2F;&#x2F; and updates &#96;message&#96;</span><br><span class="line">    function update(string memory newMessage) public &#123;</span><br><span class="line">        message &#x3D; newMessage;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>点击右侧的小火箭进行部署，程序就正常运行了。</p>
+<blockquote>
+<h1 id="Hello-World-template"><a href="#Hello-World-template" class="headerlink" title="Hello World template"></a>Hello World template</h1><p>This template is a “Hello World” example that teaches you how to:</p>
+<ul>
+<li>Provide arguments to a contract constructor using the <em>Configure contract</em> modal.</li>
+<li>Store state in a contract and to update it.</li>
+<li>Fetch your newly created contract’s information from the blockchain and render it to a front end.</li>
+</ul>
+<blockquote>
+<p>Tutorial content supplied by <a href="https://kauri.io/" target="_blank" rel="noopener">kauri.io</a>.</p>
+</blockquote>
+<h2 id="Explanation-of-the-template"><a href="#Explanation-of-the-template" class="headerlink" title="Explanation of the template"></a>Explanation of the template</h2><h3 id="The-smart-contract"><a href="#The-smart-contract" class="headerlink" title="The smart contract"></a>The smart contract</h3><blockquote>
+<p>Find the smart contract file in <em>contracts/HelloWorld.sol</em></p>
+</blockquote>
+<p>The first line, <code>pragma solidity ^0.5.10</code> specifies that the source code is for a Solidity version greater than 0.5.10. <a href="https://solidity.readthedocs.io/en/latest/layout-of-source-files.html#pragma" target="_blank" rel="noopener">Pragmas</a> are common instructions for compilers about how to treat the source code (e.g., pragma once).</p>
+<p>A contract in the sense of Solidity is a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain. The line <code>string public message</code> declares a public state variable called <code>message</code> of type <code>string</code>. You can think of it as a single slot in a database that you can query and alter by calling functions of the code that manages the database. The keyword public automatically generates a function that allows you to access the current value of the state variable from outside of the contract. Without this keyword, other contracts have no way to access the variable.</p>
+<p>The <a href="https://solidity.readthedocs.io/en/latest/contracts.html#constructor" target="_blank" rel="noopener"><code>constructor</code></a> is a special function run during the creation of the contract and cannot be called afterward. In this case, it takes a string value <code>initMessage</code>, stores the value in the <a href="https://solidity.readthedocs.io/en/latest/introduction-to-smart-contracts.html#storage-memory-and-the-stack" target="_blank" rel="noopener"><code>memory</code></a> data storage area, and sets <code>message</code> to that value.</p>
+<p>The <code>update</code> function is another public function that is similar to the constructor, taking a string as a parameter, and updating the <code>message</code> variable.</p>
+<h3 id="1-Configure"><a href="#1-Configure" class="headerlink" title="1. Configure"></a>1. Configure</h3><p>Configuring the contract allows you to set the name of the contract and the initial values sent to the constructor as arguments. You can configure the contract by going to the Deploy panel, accessed by clicking on the rocket icon in the left side menu and choosing <em>Configure</em> option. In this example, it configures the string displayed in the front end interface.</p>
+<h3 id="2-Compile"><a href="#2-Compile" class="headerlink" title="2. Compile"></a>2. Compile</h3><p>Solidity is a compiled language, and you need to convert the Solidity code into bytecode before the contract can run. We will automatically compile the code every time you save your changes or when performing a deployment.</p>
+<h3 id="3-Deploy"><a href="#3-Deploy" class="headerlink" title="3. Deploy"></a>3. Deploy</h3><p>Every smart contract runs at an address on the Ethereum blockchain, and you must deploy it to an address before it can run. When using Studio, the browser simulates the network, but there are several test networks and one main network for the Ethereum blockchain.</p>
+<p>Deploy the contract by going to the <em>Deploy</em> panel, accessed by clicking on the rocket icon in the left side menu.</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Remix-Storage-Demo</title>
+    <url>/remix-storage-demo/</url>
+    <content><![CDATA[<p>第一个例子很简单，简单的代码，学习一下操作</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity &gt;&#x3D;0.4.22 &lt;0.7.0;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @title Storage</span><br><span class="line"> * @dev Store &amp; retreive value in a variable</span><br><span class="line"> *&#x2F;</span><br><span class="line">contract Storage &#123;</span><br><span class="line"></span><br><span class="line">    uint256 number;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Store value in variable</span><br><span class="line">     * @param num value to store</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function store(uint256 num) public &#123;</span><br><span class="line">        number &#x3D; num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Return value </span><br><span class="line">     * @return value of &#39;number&#39;</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function retreive() public view returns (uint256)&#123;</span><br><span class="line">        return number;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/remix-storage-demo/image-20200613182040528.png" alt="image-20200613182040528"></p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>remix</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Remix-Ballot-Demo</title>
+    <url>/remix-ballot-demo/</url>
+    <content><![CDATA[<p>这个合约进一步扩展了使用，同时最大的亮点是带 <code>test</code></p>
+<h3 id="Ballot-sol"><a href="#Ballot-sol" class="headerlink" title="Ballot.sol"></a>Ballot.sol</h3><p>可以看到 constuctor 函数带了参数，在左侧同时也会预留出位置。</p>
+<p><img data-src="/remix-ballot-demo/image-20200613182940216.png" alt="image-20200613182940216"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity &gt;&#x3D;0.4.22 &lt;0.7.0;</span><br><span class="line"></span><br><span class="line">&#x2F;** </span><br><span class="line"> * @title Ballot</span><br><span class="line"> * @dev Implements voting process along with vote delegation</span><br><span class="line"> *&#x2F;</span><br><span class="line">contract Ballot &#123;</span><br><span class="line">   </span><br><span class="line">    struct Voter &#123;</span><br><span class="line">        uint weight; &#x2F;&#x2F; weight is accumulated by delegation</span><br><span class="line">        bool voted;  &#x2F;&#x2F; if true, that person already voted</span><br><span class="line">        address delegate; &#x2F;&#x2F; person delegated to</span><br><span class="line">        uint vote;   &#x2F;&#x2F; index of the voted proposal</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    struct Proposal &#123;</span><br><span class="line">        &#x2F;&#x2F; If you can limit the length to a certain number of bytes, </span><br><span class="line">        &#x2F;&#x2F; always use one of bytes1 to bytes32 because they are much cheaper</span><br><span class="line">        bytes32 name;   &#x2F;&#x2F; short name (up to 32 bytes)</span><br><span class="line">        uint voteCount; &#x2F;&#x2F; number of accumulated votes</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    address public chairperson;</span><br><span class="line"></span><br><span class="line">    mapping(address &#x3D;&gt; Voter) public voters;</span><br><span class="line"></span><br><span class="line">    Proposal[] public proposals;</span><br><span class="line"></span><br><span class="line">    &#x2F;** </span><br><span class="line">     * @dev Create a new ballot to choose one of &#39;proposalNames&#39;.</span><br><span class="line">     * @param proposalNames names of proposals</span><br><span class="line">     *&#x2F;</span><br><span class="line">    constructor(bytes32[] memory proposalNames) public &#123;</span><br><span class="line">        chairperson &#x3D; msg.sender;</span><br><span class="line">        voters[chairperson].weight &#x3D; 1;</span><br><span class="line"></span><br><span class="line">        for (uint i &#x3D; 0; i &lt; proposalNames.length; i++) &#123;</span><br><span class="line">            &#x2F;&#x2F; &#39;Proposal(&#123;...&#125;)&#39; creates a temporary</span><br><span class="line">            &#x2F;&#x2F; Proposal object and &#39;proposals.push(...)&#39;</span><br><span class="line">            &#x2F;&#x2F; appends it to the end of &#39;proposals&#39;.</span><br><span class="line">            proposals.push(Proposal(&#123;</span><br><span class="line">                name: proposalNames[i],</span><br><span class="line">                voteCount: 0</span><br><span class="line">            &#125;));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &#x2F;** </span><br><span class="line">     * @dev Give &#39;voter&#39; the right to vote on this ballot. May only be called by &#39;chairperson&#39;.</span><br><span class="line">     * @param voter address of voter</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function giveRightToVote(address voter) public &#123;</span><br><span class="line">        require(</span><br><span class="line">            msg.sender &#x3D;&#x3D; chairperson,</span><br><span class="line">            &quot;Only chairperson can give right to vote.&quot;</span><br><span class="line">        );</span><br><span class="line">        require(</span><br><span class="line">            !voters[voter].voted,</span><br><span class="line">            &quot;The voter already voted.&quot;</span><br><span class="line">        );</span><br><span class="line">        require(voters[voter].weight &#x3D;&#x3D; 0);</span><br><span class="line">        voters[voter].weight &#x3D; 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Delegate your vote to the voter &#39;to&#39;.</span><br><span class="line">     * @param to address to which vote is delegated</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function delegate(address to) public &#123;</span><br><span class="line">        Voter storage sender &#x3D; voters[msg.sender];</span><br><span class="line">        require(!sender.voted, &quot;You already voted.&quot;);</span><br><span class="line">        require(to !&#x3D; msg.sender, &quot;Self-delegation is disallowed.&quot;);</span><br><span class="line"></span><br><span class="line">        while (voters[to].delegate !&#x3D; address(0)) &#123;</span><br><span class="line">            to &#x3D; voters[to].delegate;</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F; We found a loop in the delegation, not allowed.</span><br><span class="line">            require(to !&#x3D; msg.sender, &quot;Found loop in delegation.&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        sender.voted &#x3D; true;</span><br><span class="line">        sender.delegate &#x3D; to;</span><br><span class="line">        Voter storage delegate_ &#x3D; voters[to];</span><br><span class="line">        if (delegate_.voted) &#123;</span><br><span class="line">            &#x2F;&#x2F; If the delegate already voted,</span><br><span class="line">            &#x2F;&#x2F; directly add to the number of votes</span><br><span class="line">            proposals[delegate_.vote].voteCount +&#x3D; sender.weight;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            &#x2F;&#x2F; If the delegate did not vote yet,</span><br><span class="line">            &#x2F;&#x2F; add to her weight.</span><br><span class="line">            delegate_.weight +&#x3D; sender.weight;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Give your vote (including votes delegated to you) to proposal &#39;proposals[proposal].name&#39;.</span><br><span class="line">     * @param proposal index of proposal in the proposals array</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function vote(uint proposal) public &#123;</span><br><span class="line">        Voter storage sender &#x3D; voters[msg.sender];</span><br><span class="line">        require(sender.weight !&#x3D; 0, &quot;Has no right to vote&quot;);</span><br><span class="line">        require(!sender.voted, &quot;Already voted.&quot;);</span><br><span class="line">        sender.voted &#x3D; true;</span><br><span class="line">        sender.vote &#x3D; proposal;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; If &#39;proposal&#39; is out of the range of the array,</span><br><span class="line">        &#x2F;&#x2F; this will throw automatically and revert all</span><br><span class="line">        &#x2F;&#x2F; changes.</span><br><span class="line">        proposals[proposal].voteCount +&#x3D; sender.weight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;** </span><br><span class="line">     * @dev Computes the winning proposal taking all previous votes into account.</span><br><span class="line">     * @return winningProposal_ index of winning proposal in the proposals array</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function winningProposal() public view</span><br><span class="line">            returns (uint winningProposal_)</span><br><span class="line">    &#123;</span><br><span class="line">        uint winningVoteCount &#x3D; 0;</span><br><span class="line">        for (uint p &#x3D; 0; p &lt; proposals.length; p++) &#123;</span><br><span class="line">            if (proposals[p].voteCount &gt; winningVoteCount) &#123;</span><br><span class="line">                winningVoteCount &#x3D; proposals[p].voteCount;</span><br><span class="line">                winningProposal_ &#x3D; p;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;** </span><br><span class="line">     * @dev Calls winningProposal() function to get the index of the winner contained in the proposals array and then</span><br><span class="line">     * @return winnerName_ the name of the winner</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function winnerName() public view</span><br><span class="line">            returns (bytes32 winnerName_)</span><br><span class="line">    &#123;</span><br><span class="line">        winnerName_ &#x3D; proposals[winningProposal()].name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="test-sol"><a href="#test-sol" class="headerlink" title="test.sol"></a>test.sol</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity &gt;&#x3D;0.4.22 &lt;0.7.0;</span><br><span class="line">import &quot;remix_tests.sol&quot;; &#x2F;&#x2F; this import is automatically injected by Remix.</span><br><span class="line">import &quot;.&#x2F;3_Ballot.sol&quot;;</span><br><span class="line"></span><br><span class="line">contract BallotTest &#123;</span><br><span class="line">   </span><br><span class="line">    bytes32[] proposalNames;</span><br><span class="line">   </span><br><span class="line">    Ballot ballotToTest;</span><br><span class="line">    function beforeAll () public &#123;</span><br><span class="line">        proposalNames.push(bytes32(&quot;candidate1&quot;));</span><br><span class="line">        ballotToTest &#x3D; new Ballot(proposalNames);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    function checkWinningProposal () public &#123;</span><br><span class="line">        ballotToTest.vote(0);</span><br><span class="line">        Assert.equal(ballotToTest.winningProposal(), uint(0), &quot;proposal at index 0 should be the winning proposal&quot;);</span><br><span class="line">        Assert.equal(ballotToTest.winnerName(), bytes32(&quot;candidate1&quot;), &quot;candidate1 should be the winner name&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    function checkWinninProposalWithReturnValue () public view returns (bool) &#123;</span><br><span class="line">        return ballotToTest.winningProposal() &#x3D;&#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>remix</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1-搭建僵尸工厂</title>
+    <url>/solidity-course-1-build-zoombies-factory/</url>
+    <content><![CDATA[<h3 id="这是-Solidity-的游戏教学项目，非常好！"><a href="#这是-Solidity-的游戏教学项目，非常好！" class="headerlink" title="这是 Solidity 的游戏教学项目，非常好！"></a>这是 Solidity 的游戏教学项目，非常好！</h3><p><a href="https://cryptozombies.io/zh/course" target="_blank" rel="noopener">项目网址</a>，我也生成了自己的 hanwen <a href="https://share.cryptozombies.io/zh/lesson/1/share/hanwen" target="_blank" rel="noopener">zoombie</a> </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity ^0.4.19;</span><br><span class="line"></span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line"></span><br><span class="line">    event NewZombie(uint zombieId, string name, uint dna);</span><br><span class="line"></span><br><span class="line">    uint dnaDigits &#x3D; 16;</span><br><span class="line">    uint dnaModulus &#x3D; 10 ** dnaDigits;</span><br><span class="line"></span><br><span class="line">    struct Zombie &#123;</span><br><span class="line">        string name;</span><br><span class="line">        uint dna;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Zombie[] public zombies;</span><br><span class="line"></span><br><span class="line">    function _createZombie(string _name, uint _dna) private &#123;</span><br><span class="line">        uint id &#x3D; zombies.push(Zombie(_name, _dna)) - 1;</span><br><span class="line">        NewZombie(id, _name, _dna);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function _generateRandomDna(string _str) private view returns (uint) &#123;</span><br><span class="line">        uint rand &#x3D; uint(keccak256(_str));</span><br><span class="line">        return rand % dnaModulus;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function createRandomZombie(string _name) public &#123;</span><br><span class="line">        uint randDna &#x3D; _generateRandomDna(_name);</span><br><span class="line">        _createZombie(_name, randDna);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="记录几个要点"><a href="#记录几个要点" class="headerlink" title="记录几个要点"></a>记录几个要点</h3><ol>
+<li>创建函数的时候默认是 public</li>
+<li>private 需要显式声明</li>
+<li>returns 需要有 s</li>
+<li>private 函数名需要以下环线开头</li>
+<li><code>keccak256</code> 生成的是 256 位的十六进制的哈希值，需要进行 uint 转换</li>
+</ol>
+<h3 id="event-和-前端的监听"><a href="#event-和-前端的监听" class="headerlink" title="event 和 前端的监听"></a>event 和 前端的监听</h3><p>智能合约中初始化 event，并且在函数中调用这个 event 可以将对应的信息传递到 前端页面中。</p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>Solidity Game</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sublime安装solidity代码高亮</title>
+    <url>/sublime-solidity-highlight/</url>
+    <content><![CDATA[<h3 id="安装-Package-Control"><a href="#安装-Package-Control" class="headerlink" title="安装 Package Control"></a>安装 Package Control</h3><p>通过 Ctrl+<code>快捷键或者</code>View &gt; Show Console` 菜单打开控制台，复制粘贴如下代码回车即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h &#x3D; &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)</span><br></pre></td></tr></table></figure>
+
+<h3 id="在-Preference-中打开-Package-Control"><a href="#在-Preference-中打开-Package-Control" class="headerlink" title="在 Preference 中打开 Package-Control"></a>在 Preference 中打开 Package-Control</h3><p><img data-src="/sublime-solidity-highlight/image-20200613094916993.png" alt="image-20200613094916993"></p>
+<h3 id="在-Package-Control-中搜索-install-package"><a href="#在-Package-Control-中搜索-install-package" class="headerlink" title="在 Package Control 中搜索 install package"></a>在 Package Control 中搜索 install package</h3><p>左下角会有一个加载的提示</p>
+<p><img data-src="/sublime-solidity-highlight/image-20200613095119124.png" alt="image-20200613095119124"></p>
+<h3 id="在弹出的搜索栏中输入-Ethereum"><a href="#在弹出的搜索栏中输入-Ethereum" class="headerlink" title="在弹出的搜索栏中输入 Ethereum"></a>在弹出的搜索栏中输入 Ethereum</h3><p>点击安装即可</p>
+<h3 id="重启-sublime-就可以看到代码高亮了"><a href="#重启-sublime-就可以看到代码高亮了" class="headerlink" title="重启 sublime 就可以看到代码高亮了"></a>重启 sublime 就可以看到代码高亮了</h3><p><img data-src="/sublime-solidity-highlight/image-20200613095354818.png" alt="image-20200613095354818"></p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>solidity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2-僵尸攻击人类</title>
+    <url>/solidity-course-2-zombie-attack-human/</url>
+    <content><![CDATA[<p>完成了教程，获得了 <a href="https://share.cryptozombies.io/zh/lesson/2/share/hanwen" target="_blank" rel="noopener">二级的僵尸</a>。</p>
+<h3 id="记录几个要点"><a href="#记录几个要点" class="headerlink" title="记录几个要点"></a>记录几个要点</h3><ol>
+<li><p><code>msg.sender</code> 调用者的地址</p>
+</li>
+<li><p>solidity 不原生支持字符串的比较</p>
+<p><code>require(keccak256(_name) == keccak256(&quot;Vitalik&quot;));</code></p>
+</li>
+<li><p>继承关系存在（越来越感觉像 C++ 了）</p>
+</li>
+<li><p>多文件 <code>import</code> 语句需要添加分号</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &quot;.&#x2F;zombiefactory.sol&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数内部需要显式声明 <code>memory</code> <code>storage</code></p>
+</li>
+<li><p>合约不能调用另一个合约的 private 函数</p>
+</li>
+<li><p>在 Solidity中，可以让一个函数返回多个值</p>
+</li>
+</ol>
+<h3 id="Contract-Interface"><a href="#Contract-Interface" class="headerlink" title="Contract Interface"></a>Contract Interface</h3><p>首先，我们定义 <code>LuckyNumber</code> 合约的 <strong><em>interface\</em></strong> ：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contract NumberInterface &#123;</span><br><span class="line">  function getNum(address _myAddress) public view returns (uint);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请注意，这个过程虽然看起来像在定义一个合约，但其实内里不同：</p>
+<p>首先，我们只声明了要与之交互的函数 —— 在本例中为 <code>getNum</code> —— 在其中我们没有使用到任何其他的函数或状态变量。</p>
+<p>其次，我们并没有使用大括号（<code>{</code> 和 <code>}</code>）定义函数体，我们单单用分号（<code>;</code>）结束了函数声明。这使它看起来像一个合约框架。</p>
+<p>编译器就是靠这些特征认出它是一个接口的。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contract KittyInterface &#123;</span><br><span class="line">  function getKitty(uint256 _id) external view returns (</span><br><span class="line">    bool isGestating,</span><br><span class="line">    bool isReady,</span><br><span class="line">    uint256 cooldownIndex,</span><br><span class="line">    uint256 nextActionAt,</span><br><span class="line">    uint256 siringWithId,</span><br><span class="line">    uint256 birthTime,</span><br><span class="line">    uint256 matronId,</span><br><span class="line">    uint256 sireId,</span><br><span class="line">    uint256 generation,</span><br><span class="line">    uint256 genes</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要写上所有的 return 的值，并且在 return 的括号后面加上分号！</p>
+<p><strong>调用另一个合约</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contract MyContract &#123;</span><br><span class="line">  address NumberInterfaceAddress &#x3D; 0xab38...;</span><br><span class="line">  &#x2F;&#x2F; ^ 这是FavoriteNumber合约在以太坊上的地址</span><br><span class="line">  NumberInterface numberContract &#x3D; NumberInterface(NumberInterfaceAddress);</span><br><span class="line">  &#x2F;&#x2F; 现在变量 &#96;numberContract&#96; 指向另一个合约对象</span><br><span class="line"></span><br><span class="line">  function someFunction() public &#123;</span><br><span class="line">    &#x2F;&#x2F; 现在我们可以调用在那个合约中声明的 &#96;getNum&#96;函数:</span><br><span class="line">    uint num &#x3D; numberContract.getNum(msg.sender);</span><br><span class="line">    &#x2F;&#x2F; ...在这儿使用 &#96;num&#96;变量做些什么</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>Solidity Game</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>5-ERC721标准和加密收藏品</title>
+    <url>/solidity-course-5-erc721-and-secret-collections/</url>
+    <content><![CDATA[<p>第五章<a href="https://share.cryptozombies.io/zh/lesson/5/share/H4XF13LD_MORRIS_%F0%9F%92%AF%F0%9F%92%AF%F0%9F%98%8E%F0%9F%92%AF%F0%9F%92%AF" target="_blank" rel="noopener">完课啦</a>！</p>
+<h3 id="ERC721-标准"><a href="#ERC721-标准" class="headerlink" title="ERC721 标准"></a>ERC721 标准</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contract ERC721 &#123;</span><br><span class="line">  event Transfer(address indexed _from, address indexed _to, uint256 _tokenId);</span><br><span class="line">  event Approval(address indexed _owner, address indexed _approved, uint256 _tokenId);</span><br><span class="line"></span><br><span class="line">  function balanceOf(address _owner) public view returns (uint256 _balance);</span><br><span class="line">  function ownerOf(uint256 _tokenId) public view returns (address _owner);</span><br><span class="line">  function transfer(address _to, uint256 _tokenId) public;</span><br><span class="line">  function approve(address _to, uint256 _tokenId) public;</span><br><span class="line">  function takeOwnership(uint256 _tokenId) public;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>操作就是用一个新合约，继承这个原来的合约，重新实现。</p>
+<h3 id="注释和-natspec"><a href="#注释和-natspec" class="headerlink" title="注释和 natspec"></a>注释和 natspec</h3><p>Solidity 社区所使用的一个标准是使用一种被称作 <strong><em>natspec\</em></strong> 的格式，看起来像这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;&#x2F; @title 一个简单的基础运算合约</span><br><span class="line">&#x2F;&#x2F;&#x2F; @author H4XF13LD MORRIS 💯💯😎💯💯</span><br><span class="line">&#x2F;&#x2F;&#x2F; @notice 现在，这个合约只添加一个乘法</span><br><span class="line">contract Math &#123;</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @notice 两个数相乘</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @param x 第一个 uint</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @param y  第二个 uint</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @return z  (x * y) 的结果</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @dev 现在这个方法不检查溢出</span><br><span class="line">  function multiply(uint x, uint y) returns (uint z) &#123;</span><br><span class="line">    &#x2F;&#x2F; 这只是个普通的注释，不会被 natspec 解释</span><br><span class="line">    z &#x3D; x * y;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>@title</code>（标题） 和 <code>@author</code> （作者）很直接了.</p>
+<p><code>@notice</code> （须知）向 <strong>用户</strong> 解释这个方法或者合约是做什么的。 <code>@dev</code> （开发者） 是向开发者解释更多的细节。</p>
+<p><code>@param</code> （参数）和 <code>@return</code> （返回） 用来描述这个方法需要传入什么参数以及返回什么值。</p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>Solidity Game</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3-高级Solidity理论</title>
+    <url>/solidity-course-3-senior-theory/</url>
+    <content><![CDATA[<p>实现了我的 <a href="https://share.cryptozombies.io/zh/lesson/3/share/hanwen" target="_blank" rel="noopener">三级僵尸</a>。</p>
+<h3 id="回顾一下："><a href="#回顾一下：" class="headerlink" title="回顾一下："></a>回顾一下：</h3><ul>
+<li>添加了一种新方法来修改CryptoKitties合约</li>
+<li>学会使用 <code>onlyOwner</code> 进行调用权限限制</li>
+<li>了解了 gas 和 gas 的优化</li>
+<li>为僵尸添加了 “级别” 和 “冷却周期”属性</li>
+<li>当僵尸达到一定级别时，允许修改僵尸的名字和 DNA</li>
+<li>最后，定义了一个函数，用以返回某个玩家的僵尸军团</li>
+</ul>
+<h2 id="OpenZeppelin库的Ownable-合约"><a href="#OpenZeppelin库的Ownable-合约" class="headerlink" title="OpenZeppelin库的Ownable 合约"></a>OpenZeppelin库的<code>Ownable</code> 合约</h2><p>下面是一个 <code>Ownable</code> 合约的例子： 来自 <strong>_ OpenZeppelin _</strong> Solidity 库的 <code>Ownable</code> 合约。OpenZeppelin 是主打安保和社区审查的智能合约库，可以在自己的 DApps中引用。</p>
+<h2 id="函数修饰符"><a href="#函数修饰符" class="headerlink" title="函数修饰符"></a>函数修饰符</h2><p>函数修饰符看起来跟函数没什么不同，不过关键字<code>modifier</code> 告诉编译器，这是个<code>modifier(修饰符)</code>，而不是个<code>function(函数)</code>。它不能像函数那样被直接调用，只能被添加到函数定义的末尾，用以改变函数的行为。</p>
+<p>咱们仔细读读 <code>onlyOwner</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * @dev 调用者不是‘主人’，就会抛出异常</span><br><span class="line"> *&#x2F;</span><br><span class="line">modifier onlyOwner() &#123;</span><br><span class="line">  require(msg.sender &#x3D;&#x3D; owner);</span><br><span class="line">  _;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>onlyOwner</code> 函数修饰符是这么用的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contract MyContract is Ownable &#123;</span><br><span class="line">  event LaughManiacally(string laughter);</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F;注意！ &#96;onlyOwner&#96;上场 :</span><br><span class="line">  function likeABoss() external onlyOwner &#123;</span><br><span class="line">    LaughManiacally(&quot;Muahahahaha&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意 <code>likeABoss</code> 函数上的 <code>onlyOwner</code> 修饰符。 当你调用 <code>likeABoss</code> 时，<strong>首先执行</strong> <code>onlyOwner</code> 中的代码， 执行到 <code>onlyOwner</code> 中的 <code>_;</code> 语句时，程序再返回并执行 <code>likeABoss</code> 中的代码。</p>
+<p>可见，尽管函数修饰符也可以应用到各种场合，但最常见的还是放在函数执行之前添加快速的 <code>require</code>检查。</p>
+<p>因为给函数添加了修饰符 <code>onlyOwner</code>，使得<strong>唯有合约的主人</strong>（也就是部署者）才能调用它。</p>
+<h2 id="省-gas-的招数：结构封装-（Struct-packing）"><a href="#省-gas-的招数：结构封装-（Struct-packing）" class="headerlink" title="省 gas 的招数：结构封装 （Struct packing）"></a>省 gas 的招数：结构封装 （Struct packing）</h2><p>在第1课中，我们提到除了基本版的 <code>uint</code> 外，还有其他变种 <code>uint</code>：<code>uint8</code>，<code>uint16</code>，<code>uint32</code>等。</p>
+<p>通常情况下我们不会考虑使用 <code>uint</code> 变种，因为无论如何定义 <code>uint</code>的大小，Solidity 为它保留256位的存储空间。例如，使用 <code>uint8</code> 而不是<code>uint</code>（<code>uint256</code>）不会为你节省任何 gas。</p>
+<p>除非，把 <code>uint</code> 绑定到 <code>struct</code> 里面。</p>
+<p>如果一个 <code>struct</code> 中有多个 <code>uint</code>，则尽可能使用较小的 <code>uint</code>, Solidity 会将这些 <code>uint</code> 打包在一起，从而占用较少的存储空间。例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">struct NormalStruct &#123;</span><br><span class="line">  uint a;</span><br><span class="line">  uint b;</span><br><span class="line">  uint c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct MiniMe &#123;</span><br><span class="line">  uint32 a;</span><br><span class="line">  uint32 b;</span><br><span class="line">  uint c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 因为使用了结构打包，&#96;mini&#96; 比 &#96;normal&#96; 占用的空间更少</span><br><span class="line">NormalStruct normal &#x3D; NormalStruct(10, 20, 30);</span><br><span class="line">MiniMe mini &#x3D; MiniMe(10, 20, 30);</span><br></pre></td></tr></table></figure>
+
+<h2 id="时间单位"><a href="#时间单位" class="headerlink" title="时间单位"></a>时间单位</h2><p>Solidity 使用自己的本地时间单位。</p>
+<p>变量 <code>now</code> 将返回当前的unix时间戳（自1970年1月1日以来经过的秒数）。我写这句话时 unix 时间是 <code>1515527488</code>。</p>
+<blockquote>
+<p>注意：Unix时间传统用一个32位的整数进行存储。这会导致“2038年”问题，当这个32位的unix时间戳不够用，产生溢出，使用这个时间的遗留系统就麻烦了。所以，如果我们想让我们的 DApp 跑够20年，我们可以使用64位整数表示时间，但为此我们的用户又得支付更多的 gas。真是个两难的设计啊！</p>
+</blockquote>
+<p>Solidity 还包含<code>秒(seconds)</code>，<code>分钟(minutes)</code>，<code>小时(hours)</code>，<code>天(days)</code>，<code>周(weeks)</code> 和 <code>年(years)</code> 等时间单位。它们都会转换成对应的秒数放入 <code>uint</code> 中。所以 <code>1分钟</code> 就是 <code>60</code>，<code>1小时</code>是 <code>3600</code>（60秒×60分钟），<code>1天</code>是<code>86400</code>（24小时×60分钟×60秒），以此类推。</p>
+<p>下面是一些使用时间单位的实用案例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uint lastUpdated;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 将‘上次更新时间’ 设置为 ‘现在’</span><br><span class="line">function updateTimestamp() public &#123;</span><br><span class="line">  lastUpdated &#x3D; now;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 如果到上次&#96;updateTimestamp&#96; 超过5分钟，返回 &#39;true&#39;</span><br><span class="line">&#x2F;&#x2F; 不到5分钟返回 &#39;false&#39;</span><br><span class="line">function fiveMinutesHavePassed() public view returns (bool) &#123;</span><br><span class="line">  return (now &gt;&#x3D; (lastUpdated + 5 minutes));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>Solidity Game</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>4-僵尸作战系统</title>
+    <url>/solidity-course-4-zombie-fighting/</url>
+    <content><![CDATA[<p>完成了<a href="https://share.cryptozombies.io/zh/lesson/4/share/NoName?id=W251bGwsMiwxNF0%3D" target="_blank" rel="noopener">第四课</a>！</p>
+<h3 id="函数修饰符"><a href="#函数修饰符" class="headerlink" title="函数修饰符"></a>函数修饰符</h3><ol>
+<li>我们有决定函数何时和被谁调用的可见性修饰符: <code>private</code> 意味着它只能被合约内部调用； <code>internal</code> 就像 <code>private</code> 但是也能被继承的合约调用； <code>external</code> 只能从合约外部调用；最后 <code>public</code> 可以在任何地方调用，不管是内部还是外部。</li>
+<li>我们也有状态修饰符， 告诉我们函数如何和区块链交互: <code>view</code> 告诉我们运行这个函数不会更改和保存任何数据； <code>pure</code> 告诉我们这个函数不但不会往区块链写数据，它甚至不从区块链读取数据。这两种在被从合约外部调用的时候都不花费任何gas（但是它们在被内部其他函数调用的时候将会耗费gas）。</li>
+<li>然后我们有了自定义的 <code>modifiers</code>，例如在第三课学习的: <code>onlyOwner</code> 和 <code>aboveLevel</code>。 对于这些修饰符我们可以自定义其对函数的约束逻辑。</li>
+</ol>
+<p>这些修饰符可以同时作用于一个函数定义上：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function test() external view onlyOwner anotherModifier &#123; &#x2F;*</span><br></pre></td></tr></table></figure>
+
+<h3 id="提现"><a href="#提现" class="headerlink" title="提现"></a>提现</h3><p>在上一章，我们学习了如何向合约发送以太，那么在发送之后会发生什么呢？</p>
+<p>在你发送以太之后，它将被存储进以合约的以太坊账户中， 并冻结在哪里 —— 除非你添加一个函数来从合约中把以太提现。</p>
+<p>你可以写一个函数来从合约中提现以太，类似这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contract GetPaid is Ownable &#123;</span><br><span class="line">  function withdraw() external onlyOwner &#123;</span><br><span class="line">    owner.transfer(this.balance);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意我们使用 <code>Ownable</code> 合约中的 <code>owner</code> 和 <code>onlyOwner</code>，假定它已经被引入了。</p>
+<p>你可以通过 <code>transfer</code> 函数向一个地址发送以太， 然后 <code>this.balance</code> 将返回当前合约存储了多少以太。 所以如果100个用户每人向我们支付1以太， <code>this.balance</code> 将是100以太。</p>
+<p>你可以通过 <code>transfer</code> 向任何以太坊地址付钱。 比如，你可以有一个函数在 <code>msg.sender</code> 超额付款的时候给他们退钱：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uint itemFee &#x3D; 0.001 ether;</span><br><span class="line">msg.sender.transfer(msg.value - itemFee);</span><br></pre></td></tr></table></figure>
+
+<p>或者在一个有卖家和卖家的合约中， 你可以把卖家的地址存储起来， 当有人买了它的东西的时候，把买家支付的钱发送给它 <code>seller.transfer(msg.value)</code>。</p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>Solidity Game</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>6- 前端和 Web3.js</title>
+    <url>/solidity-course-6-front-end-and-web3-js/</url>
+    <content><![CDATA[<p><strong>完成了 CryptoZombies 的第六课！</strong> <a href="https://share.cryptozombies.io/zh/lesson/6/share/The_Phantom_of_Web3" target="_blank" rel="noopener">我的僵尸大军</a></p>
+<p>以太坊基金发布的 JavaScript 库 —— <strong>Web3.js</strong>.</p>
+<p>以太坊节点只能识别一种叫做 <strong>JSON-RPC</strong> 的语言。这种语言直接读起来并不好懂。当你想调用一个合约的方法的时候，需要发送的查询语句将会是这样的：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 哈……祝你写所有这样的函数调用的时候都一次通过</span></span><br><span class="line"><span class="comment">// 往右边拉…… ==&gt;</span></span><br><span class="line">&#123;<span class="attr">"jsonrpc"</span>:<span class="string">"2.0"</span>,<span class="attr">"method"</span>:<span class="string">"eth_sendTransaction"</span>,<span class="attr">"params"</span>:[&#123;<span class="attr">"from"</span>:<span class="string">"0xb60e8dd61c5d32be8058bb8eb970870f07233155"</span>,<span class="attr">"to"</span>:<span class="string">"0xd46e8dd67c5d32be8058bb8eb970870f07244567"</span>,<span class="attr">"gas"</span>:<span class="string">"0x76c0"</span>,<span class="attr">"gasPrice"</span>:<span class="string">"0x9184e72a000"</span>,<span class="attr">"value"</span>:<span class="string">"0x9184e72a"</span>,<span class="attr">"data"</span>:<span class="string">"0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"</span>&#125;],<span class="attr">"id"</span>:<span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>幸运的是 Web3.js 把这些令人讨厌的查询语句都隐藏起来了， 所以你只需要与方便易懂的 JavaScript 界面进行交互即可。</p>
+<p>你不需要构建上面的查询语句，在你的代码中调用一个函数看起来将是这样：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">CryptoZombies.methods.createRandomZombie(<span class="string">"Vitalik Nakamoto 🤔 "</span>)</span><br><span class="line">  .send(&#123; <span class="attr">from</span>: <span class="string">"0xb60e8dd61c5d32be8058bb8eb970870f07233155"</span>, <span class="attr">gas</span>: <span class="string">"3000000"</span> &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Call"><a href="#Call" class="headerlink" title="Call"></a>Call</h3><p><code>call</code> 用来调用 <code>view</code> 和 <code>pure</code> 函数。它只运行在本地节点，不会在区块链上创建事务。</p>
+<blockquote>
+<p><strong>复习 :</strong> <code>view</code> 和 <code>pure</code> 函数是只读的并不会改变区块链的状态。它们也不会消耗任何 gas。用户也不会被要求用 MetaMask 对事务签名。</p>
+</blockquote>
+<p>使用 Web3.js，可以如下 <code>call</code> 一个名为 <code>myMethod</code> 的方法并传入一个 <code>123</code> 作为参数：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">myContract.methods.myMethod(123).call()</span><br></pre></td></tr></table></figure>
+
+<h3 id="Send"><a href="#Send" class="headerlink" title="Send"></a>Send</h3><p><code>send</code> 将创建一个事务并改变区块链上的数据。你需要用 <code>send</code> 来调用任何非 <code>view</code> 或者 <code>pure</code> 的函数。</p>
+<blockquote>
+<p><strong>注意 :</strong> <code>send</code> 一个事务将要求用户支付 gas，并会要求弹出对话框请求用户使用 Metamask 对事务签名。在我们使用 Metamask 作为我们的 web3 提供者的时候，所有这一切都会在我们调用 <code>send()</code> 的时候自动发生。而我们自己无需在代码中操心这一切，挺爽的吧。</p>
+</blockquote>
+<p>使用 Web3.js, 你可以像这样 <code>send</code> 一个事务调用 <code>myMethod</code> 并传入 <code>123</code> 作为参数：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">myContract.methods.myMethod(123).send()</span><br></pre></td></tr></table></figure>
+
+<p>语法几乎 <code>call()</code> 一模一样。</p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>Solidity Game</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>智能合约简单实战-石头剪刀布</title>
+    <url>/smart-contract-rock-scissors-paper/</url>
+    <content><![CDATA[<p>在 <code>Ethereum Studio</code> 配置双用户，使用 0.5.10 较新版本的 solidity，实现了 <strong>石头剪刀布</strong> 游戏程序，代码如下。</p>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity ^0.5.10;</span><br><span class="line"></span><br><span class="line">contract MyContract &#123;</span><br><span class="line"></span><br><span class="line">    mapping (string &#x3D;&gt; mapping(string &#x3D;&gt; int)) payoffMatrix;</span><br><span class="line">    address public player1;</span><br><span class="line">    address public player2;</span><br><span class="line">    string public player1Choice;</span><br><span class="line">    string public player2Choice;</span><br><span class="line">    int public winnerMessage;</span><br><span class="line"></span><br><span class="line">    modifier sentEnoughCash(uint amount) &#123;</span><br><span class="line">        require(msg.value&gt;&#x3D;amount);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    modifier notRegisteredYet()&#123;</span><br><span class="line">        require(msg.sender!&#x3D;player1 &amp;&amp; msg.sender!&#x3D;player2);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    constructor() public &#123;</span><br><span class="line">        payoffMatrix[&quot;rock&quot;][&quot;rock&quot;] &#x3D; 0;</span><br><span class="line">        payoffMatrix[&quot;rock&quot;][&quot;paper&quot;] &#x3D; 2;</span><br><span class="line">        payoffMatrix[&quot;rock&quot;][&quot;scissors&quot;] &#x3D; 1;</span><br><span class="line">        payoffMatrix[&quot;paper&quot;][&quot;rock&quot;] &#x3D; 1;</span><br><span class="line">        payoffMatrix[&quot;paper&quot;][&quot;paper&quot;] &#x3D; 0;</span><br><span class="line">        payoffMatrix[&quot;paper&quot;][&quot;scissors&quot;] &#x3D; 2;</span><br><span class="line">        payoffMatrix[&quot;scissors&quot;][&quot;rock&quot;] &#x3D; 2;</span><br><span class="line">        payoffMatrix[&quot;scissors&quot;][&quot;paper&quot;] &#x3D; 1;</span><br><span class="line">        payoffMatrix[&quot;scissors&quot;][&quot;scissors&quot;] &#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getWinner() public view returns(int)&#123;</span><br><span class="line">        return payoffMatrix[player1Choice][player2Choice];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function play(string memory choice) public&#123;</span><br><span class="line">        if(msg.sender&#x3D;&#x3D;player1)&#123;player1Choice&#x3D;choice;&#125;</span><br><span class="line">        else if(msg.sender&#x3D;&#x3D;player2)&#123;player2Choice&#x3D;choice;&#125;</span><br><span class="line">        if(bytes(player1Choice).length !&#x3D; 0 &amp;&amp; bytes(player2Choice).length !&#x3D; 0)&#123;</span><br><span class="line">            winnerMessage&#x3D;payoffMatrix[player1Choice][player2Choice];</span><br><span class="line">            player1Choice&#x3D;&quot;&quot;;</span><br><span class="line">            player2Choice&#x3D;&quot;&quot;;</span><br><span class="line">            player1&#x3D;address(0);</span><br><span class="line">            player2&#x3D;address(0);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    function register() public payable sentEnoughCash(5) notRegisteredYet&#123;</span><br><span class="line"></span><br><span class="line">        if(player1&#x3D;&#x3D;address(0))&#123;player1&#x3D;msg.sender;&#125;</span><br><span class="line">        else if (player2&#x3D;&#x3D;address(0))&#123;player2&#x3D;msg.sender;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>Solidity Game</tag>
+      </tags>
+  </entry>
+</search>
