@@ -1,3 +1,15 @@
+https://tech.starky99.com/clear-github-repo/
+https://tech.starky99.com/latex-configuration/
+https://tech.starky99.com/MIT-6.824-Spanner/
+https://tech.starky99.com/MIT-6.824-Raft/
+https://tech.starky99.com/MIT-6.824-PrimaryBackup-Replication/
+https://tech.starky99.com/MIT-6.824-GFS/
+https://tech.starky99.com/MIT-6.824-PRC/
+https://tech.starky99.com/truffle-get-started/
+https://tech.starky99.com/solidity-official-demo-secret-auction/
+https://tech.starky99.com/solidity-official-demo-safely-remote-shopping/
+https://tech.starky99.com/solidity-official-demo-simple-auction/
+https://tech.starky99.com/solidity-official-demo-vote/
 https://tech.starky99.com/remix-ballot-demo/
 https://tech.starky99.com/remix-owner-demo/
 https://tech.starky99.com/remix-storage-demo/

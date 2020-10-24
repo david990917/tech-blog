@@ -121,12 +121,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">12</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -186,7 +186,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/remix-ballot-demo/">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/clear-github-repo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hanwen.png">
@@ -200,7 +200,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/remix-ballot-demo/" class="post-title-link" itemprop="url">Remix-Ballot-Demo</a>
+            <a href="/clear-github-repo/" class="post-title-link" itemprop="url">更新GITHUB仓库</a>
         </h2>
 
         <div class="post-meta">
@@ -211,16 +211,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-06-13 18:28:27 / 修改时间：18:31:37" itemprop="dateCreated datePublished" datetime="2020-06-13T18:28:27+08:00">2020-06-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
-                </span>
+              <time title="创建时间：2020-10-24 10:25:50 / 修改时间：10:28:35" itemprop="dateCreated datePublished" datetime="2020-10-24T10:25:50+08:00">2020-10-24</time>
             </span>
 
           
@@ -234,13 +225,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>这个合约进一步扩展了使用，同时最大的亮点是带 <code>test</code></p>
-<h3 id="Ballot-sol"><a href="#Ballot-sol" class="headerlink" title="Ballot.sol"></a>Ballot.sol</h3><p>可以看到 constuctor 函数带了参数，在左侧同时也会预留出位置。</p>
-<p><img data-src="/remix-ballot-demo/image-20200613182940216.png" alt="image-20200613182940216"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity &gt;&#x3D;0.4.22 &lt;0.7.0;</span><br><span class="line"></span><br><span class="line">&#x2F;** </span><br><span class="line"> * @title Ballot</span><br><span class="line"> * @dev Implements voting process along with vote delegation</span><br><span class="line"> *&#x2F;</span><br><span class="line">contract Ballot &#123;</span><br><span class="line">   </span><br><span class="line">    struct Voter &#123;</span><br><span class="line">        uint weight; &#x2F;&#x2F; weight is accumulated by delegation</span><br><span class="line">        bool voted;  &#x2F;&#x2F; if true, that person already voted</span><br><span class="line">        address delegate; &#x2F;&#x2F; person delegated to</span><br><span class="line">        uint vote;   &#x2F;&#x2F; index of the voted proposal</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    struct Proposal &#123;</span><br><span class="line">        &#x2F;&#x2F; If you can limit the length to a certain number of bytes, </span><br><span class="line">        &#x2F;&#x2F; always use one of bytes1 to bytes32 because they are much cheaper</span><br><span class="line">        bytes32 name;   &#x2F;&#x2F; short name (up to 32 bytes)</span><br><span class="line">        uint voteCount; &#x2F;&#x2F; number of accumulated votes</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    address public chairperson;</span><br><span class="line"></span><br><span class="line">    mapping(address &#x3D;&gt; Voter) public voters;</span><br><span class="line"></span><br><span class="line">    Proposal[] public proposals;</span><br><span class="line"></span><br><span class="line">    &#x2F;** </span><br><span class="line">     * @dev Create a new ballot to choose one of &#39;proposalNames&#39;.</span><br><span class="line">     * @param proposalNames names of proposals</span><br><span class="line">     *&#x2F;</span><br><span class="line">    constructor(bytes32[] memory proposalNames) public &#123;</span><br><span class="line">        chairperson &#x3D; msg.sender;</span><br><span class="line">        voters[chairperson].weight &#x3D; 1;</span><br><span class="line"></span><br><span class="line">        for (uint i &#x3D; 0; i &lt; proposalNames.length; i++) &#123;</span><br><span class="line">            &#x2F;&#x2F; &#39;Proposal(&#123;...&#125;)&#39; creates a temporary</span><br><span class="line">            &#x2F;&#x2F; Proposal object and &#39;proposals.push(...)&#39;</span><br><span class="line">            &#x2F;&#x2F; appends it to the end of &#39;proposals&#39;.</span><br><span class="line">            proposals.push(Proposal(&#123;</span><br><span class="line">                name: proposalNames[i],</span><br><span class="line">                voteCount: 0</span><br><span class="line">            &#125;));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &#x2F;** </span><br><span class="line">     * @dev Give &#39;voter&#39; the right to vote on this ballot. May only be called by &#39;chairperson&#39;.</span><br><span class="line">     * @param voter address of voter</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function giveRightToVote(address voter) public &#123;</span><br><span class="line">        require(</span><br><span class="line">            msg.sender &#x3D;&#x3D; chairperson,</span><br><span class="line">            &quot;Only chairperson can give right to vote.&quot;</span><br><span class="line">        );</span><br><span class="line">        require(</span><br><span class="line">            !voters[voter].voted,</span><br><span class="line">            &quot;The voter already voted.&quot;</span><br><span class="line">        );</span><br><span class="line">        require(voters[voter].weight &#x3D;&#x3D; 0);</span><br><span class="line">        voters[voter].weight &#x3D; 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Delegate your vote to the voter &#39;to&#39;.</span><br><span class="line">     * @param to address to which vote is delegated</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function delegate(address to) public &#123;</span><br><span class="line">        Voter storage sender &#x3D; voters[msg.sender];</span><br><span class="line">        require(!sender.voted, &quot;You already voted.&quot;);</span><br><span class="line">        require(to !&#x3D; msg.sender, &quot;Self-delegation is disallowed.&quot;);</span><br><span class="line"></span><br><span class="line">        while (voters[to].delegate !&#x3D; address(0)) &#123;</span><br><span class="line">            to &#x3D; voters[to].delegate;</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F; We found a loop in the delegation, not allowed.</span><br><span class="line">            require(to !&#x3D; msg.sender, &quot;Found loop in delegation.&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        sender.voted &#x3D; true;</span><br><span class="line">        sender.delegate &#x3D; to;</span><br><span class="line">        Voter storage delegate_ &#x3D; voters[to];</span><br><span class="line">        if (delegate_.voted) &#123;</span><br><span class="line">            &#x2F;&#x2F; If the delegate already voted,</span><br><span class="line">            &#x2F;&#x2F; directly add to the number of votes</span><br><span class="line">            proposals[delegate_.vote].voteCount +&#x3D; sender.weight;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            &#x2F;&#x2F; If the delegate did not vote yet,</span><br><span class="line">            &#x2F;&#x2F; add to her weight.</span><br><span class="line">            delegate_.weight +&#x3D; sender.weight;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Give your vote (including votes delegated to you) to proposal &#39;proposals[proposal].name&#39;.</span><br><span class="line">     * @param proposal index of proposal in the proposals array</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function vote(uint proposal) public &#123;</span><br><span class="line">        Voter storage sender &#x3D; voters[msg.sender];</span><br><span class="line">        require(sender.weight !&#x3D; 0, &quot;Has no right to vote&quot;);</span><br><span class="line">        require(!sender.voted, &quot;Already voted.&quot;);</span><br><span class="line">        sender.voted &#x3D; true;</span><br><span class="line">        sender.vote &#x3D; proposal;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; If &#39;proposal&#39; is out of the range of the array,</span><br><span class="line">        &#x2F;&#x2F; this will throw automatically and revert all</span><br><span class="line">        &#x2F;&#x2F; changes.</span><br><span class="line">        proposals[proposal].voteCount +&#x3D; sender.weight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;** </span><br><span class="line">     * @dev Computes the winning proposal taking all previous votes into account.</span><br><span class="line">     * @return winningProposal_ index of winning proposal in the proposals array</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function winningProposal() public view</span><br><span class="line">            returns (uint winningProposal_)</span><br><span class="line">    &#123;</span><br><span class="line">        uint winningVoteCount &#x3D; 0;</span><br><span class="line">        for (uint p &#x3D; 0; p &lt; proposals.length; p++) &#123;</span><br><span class="line">            if (proposals[p].voteCount &gt; winningVoteCount) &#123;</span><br><span class="line">                winningVoteCount &#x3D; proposals[p].voteCount;</span><br><span class="line">                winningProposal_ &#x3D; p;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;** </span><br><span class="line">     * @dev Calls winningProposal() function to get the index of the winner contained in the proposals array and then</span><br><span class="line">     * @return winnerName_ the name of the winner</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function winnerName() public view</span><br><span class="line">            returns (bytes32 winnerName_)</span><br><span class="line">    &#123;</span><br><span class="line">        winnerName_ &#x3D; proposals[winningProposal()].name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="test-sol"><a href="#test-sol" class="headerlink" title="test.sol"></a>test.sol</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity &gt;&#x3D;0.4.22 &lt;0.7.0;</span><br><span class="line">import &quot;remix_tests.sol&quot;; &#x2F;&#x2F; this import is automatically injected by Remix.</span><br><span class="line">import &quot;.&#x2F;3_Ballot.sol&quot;;</span><br><span class="line"></span><br><span class="line">contract BallotTest &#123;</span><br><span class="line">   </span><br><span class="line">    bytes32[] proposalNames;</span><br><span class="line">   </span><br><span class="line">    Ballot ballotToTest;</span><br><span class="line">    function beforeAll () public &#123;</span><br><span class="line">        proposalNames.push(bytes32(&quot;candidate1&quot;));</span><br><span class="line">        ballotToTest &#x3D; new Ballot(proposalNames);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    function checkWinningProposal () public &#123;</span><br><span class="line">        ballotToTest.vote(0);</span><br><span class="line">        Assert.equal(ballotToTest.winningProposal(), uint(0), &quot;proposal at index 0 should be the winning proposal&quot;);</span><br><span class="line">        Assert.equal(ballotToTest.winnerName(), bytes32(&quot;candidate1&quot;), &quot;candidate1 should be the winner name&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    function checkWinninProposalWithReturnValue () public view returns (bool) &#123;</span><br><span class="line">        return ballotToTest.winningProposal() &#x3D;&#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          <h3 id="更新原因"><a href="#更新原因" class="headerlink" title="更新原因"></a>更新原因</h3><p>因为之前不小心上传了大文件，我的 git 文件夹中包含大量的神奇文件。</p>
+<h3 id="更新诉求"><a href="#更新诉求" class="headerlink" title="更新诉求"></a>更新诉求</h3><p>我只想要保留最新的文档内容，并不在意我过去提交的历史</p>
+<h3 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h3><p>删除<code>.git</code>文件夹可能会导致git存储库中的问题。如果要删除所有提交历史记录，但将代码保持在当前状态，可以按照以下方式安全地执行此操作：</p>
+<ol>
+<li><code>尝试  运行  git checkout --orphan latest_branch</code></li>
+<li>添加所有文件<code>git add -A</code></li>
+<li>提交更改<code>git commit -am &quot;commit message&quot;</code></li>
+<li>删除分支<code>git branch -D master</code></li>
+<li>将当前分支重命名<code>git branch -m master</code></li>
+<li>最后，强制更新存储库。<code>git push -f origin master</code></li>
+</ol>
 
       
     </div>
@@ -260,7 +255,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/remix-owner-demo/">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/latex-configuration/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hanwen.png">
@@ -274,7 +269,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/remix-owner-demo/" class="post-title-link" itemprop="url">Remix-Owner-Demo</a>
+            <a href="/latex-configuration/" class="post-title-link" itemprop="url">latex模板研究</a>
         </h2>
 
         <div class="post-meta">
@@ -285,16 +280,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-06-13 18:25:12 / 修改时间：18:28:44" itemprop="dateCreated datePublished" datetime="2020-06-13T18:25:12+08:00">2020-06-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
-                </span>
+              <time title="创建时间：2020-10-24 00:17:24 / 修改时间：09:35:11" itemprop="dateCreated datePublished" datetime="2020-10-24T00:17:24+08:00">2020-10-24</time>
             </span>
 
           
@@ -308,304 +294,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>这个智能合约增加了操作数和账户，的但是依旧是比较简单的合约。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity &gt;&#x3D;0.4.22 &lt;0.7.0;</span><br><span class="line"></span><br><span class="line">contract Owner &#123;</span><br><span class="line"></span><br><span class="line">    address private owner;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; event for EVM logging</span><br><span class="line">    event OwnerSet(address indexed oldOwner, address indexed newOwner);</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; modifier to check if caller is owner</span><br><span class="line">    modifier isOwner() &#123;</span><br><span class="line">        &#x2F;&#x2F; If the first argument of &#39;require&#39; evaluates to &#39;false&#39;, execution terminates and all</span><br><span class="line">        &#x2F;&#x2F; changes to the state and to Ether balances are reverted.</span><br><span class="line">        &#x2F;&#x2F; This used to consume all gas in old EVM versions, but not anymore.</span><br><span class="line">        &#x2F;&#x2F; It is often a good idea to use &#39;require&#39; to check if functions are called correctly.</span><br><span class="line">        &#x2F;&#x2F; As a second argument, you can also provide an explanation about what went wrong.</span><br><span class="line">        require(msg.sender &#x3D;&#x3D; owner, &quot;Caller is not owner&quot;);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Set contract deployer as owner</span><br><span class="line">     *&#x2F;</span><br><span class="line">    constructor() public &#123;</span><br><span class="line">        owner &#x3D; msg.sender; &#x2F;&#x2F; &#39;msg.sender&#39; is sender of current call, contract deployer for a constructor</span><br><span class="line">        emit OwnerSet(address(0), owner);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Change owner</span><br><span class="line">     * @param newOwner address of new owner</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function changeOwner(address newOwner) public isOwner &#123;</span><br><span class="line">        emit OwnerSet(owner, newOwner);</span><br><span class="line">        owner &#x3D; newOwner;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Return owner address </span><br><span class="line">     * @return address of owner</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function getOwner() external view returns (address) &#123;</span><br><span class="line">        return owner;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/remix-owner-demo/image-20200613182526375.png" alt="image-20200613182526375"></p>
-
-      
-    </div>
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/remix-storage-demo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hanwen.png">
-      <meta itemprop="name" content="David Stark">
-      <meta itemprop="description" content="瀚文的技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David Stark">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/remix-storage-demo/" class="post-title-link" itemprop="url">Remix-Storage-Demo</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-13 18:18:05 / 修改时间：18:20:43" itemprop="dateCreated datePublished" datetime="2020-06-13T18:18:05+08:00">2020-06-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>第一个例子很简单，简单的代码，学习一下操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity &gt;&#x3D;0.4.22 &lt;0.7.0;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @title Storage</span><br><span class="line"> * @dev Store &amp; retreive value in a variable</span><br><span class="line"> *&#x2F;</span><br><span class="line">contract Storage &#123;</span><br><span class="line"></span><br><span class="line">    uint256 number;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Store value in variable</span><br><span class="line">     * @param num value to store</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function store(uint256 num) public &#123;</span><br><span class="line">        number &#x3D; num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Return value </span><br><span class="line">     * @return value of &#39;number&#39;</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function retreive() public view returns (uint256)&#123;</span><br><span class="line">        return number;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/remix-storage-demo/image-20200613182040528.png" alt="image-20200613182040528"></p>
-
-      
-    </div>
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/ethereum-studio-no-longer-support/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hanwen.png">
-      <meta itemprop="name" content="David Stark">
-      <meta itemprop="description" content="瀚文的技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David Stark">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ethereum-studio-no-longer-support/" class="post-title-link" itemprop="url">心疼我的Ethereum-Studio</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-13 17:43:38" itemprop="dateCreated datePublished" datetime="2020-06-13T17:43:38+08:00">2020-06-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-14 08:38:25" itemprop="dateModified" datetime="2020-06-14T08:38:25+08:00">2020-06-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img data-src="/ethereum-studio-no-longer-support/image-20200613174400940.png" alt="image-20200613174400940"></p>
-<p>突然发现我最爱的 <code>Ethereum Studio</code> 被列为了之后不再维护的 IDE，心痛。。。</p>
-<p>今天接下来的主要任务就是对着官网链接整体过一下 Solidity 语法和 Remix 的使用！</p>
-<p><img data-src="/ethereum-studio-no-longer-support/image-20200614083819767.png" alt="image-20200614083819767"></p>
-
-      
-    </div>
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/sublime-solidity-highlight/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hanwen.png">
-      <meta itemprop="name" content="David Stark">
-      <meta itemprop="description" content="瀚文的技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David Stark">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/sublime-solidity-highlight/" class="post-title-link" itemprop="url">sublime安装solidity代码高亮</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-13 09:45:02 / 修改时间：09:53:55" itemprop="dateCreated datePublished" datetime="2020-06-13T09:45:02+08:00">2020-06-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="安装-Package-Control"><a href="#安装-Package-Control" class="headerlink" title="安装 Package Control"></a>安装 Package Control</h3><p>通过 Ctrl+<code>快捷键或者</code>View &gt; Show Console` 菜单打开控制台，复制粘贴如下代码回车即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h &#x3D; &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)</span><br></pre></td></tr></table></figure>
-
-<h3 id="在-Preference-中打开-Package-Control"><a href="#在-Preference-中打开-Package-Control" class="headerlink" title="在 Preference 中打开 Package-Control"></a>在 Preference 中打开 Package-Control</h3><p><img data-src="/sublime-solidity-highlight/image-20200613094916993.png" alt="image-20200613094916993"></p>
-<h3 id="在-Package-Control-中搜索-install-package"><a href="#在-Package-Control-中搜索-install-package" class="headerlink" title="在 Package Control 中搜索 install package"></a>在 Package Control 中搜索 install package</h3><p>左下角会有一个加载的提示</p>
-<p><img data-src="/sublime-solidity-highlight/image-20200613095119124.png" alt="image-20200613095119124"></p>
-<h3 id="在弹出的搜索栏中输入-Ethereum"><a href="#在弹出的搜索栏中输入-Ethereum" class="headerlink" title="在弹出的搜索栏中输入 Ethereum"></a>在弹出的搜索栏中输入 Ethereum</h3><p>点击安装即可</p>
-<h3 id="重启-sublime-就可以看到代码高亮了"><a href="#重启-sublime-就可以看到代码高亮了" class="headerlink" title="重启 sublime 就可以看到代码高亮了"></a>重启 sublime 就可以看到代码高亮了</h3><p><img data-src="/sublime-solidity-highlight/image-20200613095354818.png" alt="image-20200613095354818"></p>
-
-      
-    </div>
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/smart-contract-rock-scissors-paper/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hanwen.png">
-      <meta itemprop="name" content="David Stark">
-      <meta itemprop="description" content="瀚文的技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David Stark">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/smart-contract-rock-scissors-paper/" class="post-title-link" itemprop="url">智能合约简单实战-石头剪刀布</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-13 09:28:00 / 修改时间：10:32:52" itemprop="dateCreated datePublished" datetime="2020-06-13T09:28:00+08:00">2020-06-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在 <code>Ethereum Studio</code> 配置双用户，使用 0.5.10 较新版本的 solidity，实现了 <strong>石头剪刀布</strong> 游戏程序，代码如下。</p>
+          <p>最近在配置的我的简历模板，正好研究一下 LaTex 相关的命令。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/smart-contract-rock-scissors-paper/#more" rel="contents">
+              <a class="btn" href="/latex-configuration/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -629,7 +321,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/solidity-course-6-front-end-and-web3-js/">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/MIT-6.824-Spanner/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hanwen.png">
@@ -643,7 +335,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/solidity-course-6-front-end-and-web3-js/" class="post-title-link" itemprop="url">6- 前端和 Web3.js</a>
+            <a href="/MIT-6.824-Spanner/" class="post-title-link" itemprop="url">Spanner</a>
         </h2>
 
         <div class="post-meta">
@@ -652,23 +344,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-06-12 18:31:07" itemprop="dateCreated datePublished" datetime="2020-06-12T18:31:07+08:00">2020-06-12</time>
+              <time title="创建时间：2020-08-03 21:35:00 / 修改时间：22:05:20" itemprop="dateCreated datePublished" datetime="2020-08-03T21:35:00+08:00">2020-08-03</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-13 09:33:30" itemprop="dateModified" datetime="2020-06-13T09:33:30+08:00">2020-06-13</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
+                  <a href="/categories/MIT-6-824/" itemprop="url" rel="index"><span itemprop="name">MIT-6.824</span></a>
                 </span>
             </span>
 
@@ -683,30 +369,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>完成了 CryptoZombies 的第六课！</strong> <a href="https://share.cryptozombies.io/zh/lesson/6/share/The_Phantom_of_Web3" target="_blank" rel="noopener">我的僵尸大军</a></p>
-<p>以太坊基金发布的 JavaScript 库 —— <strong>Web3.js</strong>.</p>
-<p>以太坊节点只能识别一种叫做 <strong>JSON-RPC</strong> 的语言。这种语言直接读起来并不好懂。当你想调用一个合约的方法的时候，需要发送的查询语句将会是这样的：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 哈……祝你写所有这样的函数调用的时候都一次通过</span></span><br><span class="line"><span class="comment">// 往右边拉…… ==&gt;</span></span><br><span class="line">&#123;<span class="attr">"jsonrpc"</span>:<span class="string">"2.0"</span>,<span class="attr">"method"</span>:<span class="string">"eth_sendTransaction"</span>,<span class="attr">"params"</span>:[&#123;<span class="attr">"from"</span>:<span class="string">"0xb60e8dd61c5d32be8058bb8eb970870f07233155"</span>,<span class="attr">"to"</span>:<span class="string">"0xd46e8dd67c5d32be8058bb8eb970870f07244567"</span>,<span class="attr">"gas"</span>:<span class="string">"0x76c0"</span>,<span class="attr">"gasPrice"</span>:<span class="string">"0x9184e72a000"</span>,<span class="attr">"value"</span>:<span class="string">"0x9184e72a"</span>,<span class="attr">"data"</span>:<span class="string">"0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"</span>&#125;],<span class="attr">"id"</span>:<span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<p>幸运的是 Web3.js 把这些令人讨厌的查询语句都隐藏起来了， 所以你只需要与方便易懂的 JavaScript 界面进行交互即可。</p>
-<p>你不需要构建上面的查询语句，在你的代码中调用一个函数看起来将是这样：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CryptoZombies.methods.createRandomZombie(<span class="string">"Vitalik Nakamoto 🤔 "</span>)</span><br><span class="line">  .send(&#123; <span class="attr">from</span>: <span class="string">"0xb60e8dd61c5d32be8058bb8eb970870f07233155"</span>, <span class="attr">gas</span>: <span class="string">"3000000"</span> &#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="Call"><a href="#Call" class="headerlink" title="Call"></a>Call</h3><p><code>call</code> 用来调用 <code>view</code> 和 <code>pure</code> 函数。它只运行在本地节点，不会在区块链上创建事务。</p>
-<blockquote>
-<p><strong>复习 :</strong> <code>view</code> 和 <code>pure</code> 函数是只读的并不会改变区块链的状态。它们也不会消耗任何 gas。用户也不会被要求用 MetaMask 对事务签名。</p>
-</blockquote>
-<p>使用 Web3.js，可以如下 <code>call</code> 一个名为 <code>myMethod</code> 的方法并传入一个 <code>123</code> 作为参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myContract.methods.myMethod(123).call()</span><br></pre></td></tr></table></figure>
-
-<h3 id="Send"><a href="#Send" class="headerlink" title="Send"></a>Send</h3><p><code>send</code> 将创建一个事务并改变区块链上的数据。你需要用 <code>send</code> 来调用任何非 <code>view</code> 或者 <code>pure</code> 的函数。</p>
-<blockquote>
-<p><strong>注意 :</strong> <code>send</code> 一个事务将要求用户支付 gas，并会要求弹出对话框请求用户使用 Metamask 对事务签名。在我们使用 Metamask 作为我们的 web3 提供者的时候，所有这一切都会在我们调用 <code>send()</code> 的时候自动发生。而我们自己无需在代码中操心这一切，挺爽的吧。</p>
-</blockquote>
-<p>使用 Web3.js, 你可以像这样 <code>send</code> 一个事务调用 <code>myMethod</code> 并传入 <code>123</code> 作为参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myContract.methods.myMethod(123).send()</span><br></pre></td></tr></table></figure>
-
-<p>语法几乎 <code>call()</code> 一模一样。</p>
+          <p><strong>Spanner</strong> 是谷歌研发的可横向扩展的、支持多版本的、可在全球范围进行分布式部署的、同步进行数据复制的分布式数据库。</p>
+<hr>
+<p>参考文献：</p>
+<p><a href="https://www.jianshu.com/p/6ae6e7989161" target="_blank" rel="noopener">Google-Spanner论文的思考</a></p>
 
       
     </div>
@@ -726,7 +392,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/solidity-course-5-erc721-and-secret-collections/">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/MIT-6.824-Raft/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hanwen.png">
@@ -740,7 +406,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/solidity-course-5-erc721-and-secret-collections/" class="post-title-link" itemprop="url">5-ERC721标准和加密收藏品</a>
+            <a href="/MIT-6.824-Raft/" class="post-title-link" itemprop="url">Raft</a>
         </h2>
 
         <div class="post-meta">
@@ -749,23 +415,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-06-12 17:49:09" itemprop="dateCreated datePublished" datetime="2020-06-12T17:49:09+08:00">2020-06-12</time>
+              <time title="创建时间：2020-08-03 20:44:38 / 修改时间：21:33:03" itemprop="dateCreated datePublished" datetime="2020-08-03T20:44:38+08:00">2020-08-03</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-13 09:33:38" itemprop="dateModified" datetime="2020-06-13T09:33:38+08:00">2020-06-13</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
+                  <a href="/categories/MIT-6-824/" itemprop="url" rel="index"><span itemprop="name">MIT-6.824</span></a>
                 </span>
             </span>
 
@@ -780,198 +440,603 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>第五章<a href="https://share.cryptozombies.io/zh/lesson/5/share/H4XF13LD_MORRIS_%F0%9F%92%AF%F0%9F%92%AF%F0%9F%98%8E%F0%9F%92%AF%F0%9F%92%AF" target="_blank" rel="noopener">完课啦</a>！</p>
-<h3 id="ERC721-标准"><a href="#ERC721-标准" class="headerlink" title="ERC721 标准"></a>ERC721 标准</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">contract ERC721 &#123;</span><br><span class="line">  event Transfer(address indexed _from, address indexed _to, uint256 _tokenId);</span><br><span class="line">  event Approval(address indexed _owner, address indexed _approved, uint256 _tokenId);</span><br><span class="line"></span><br><span class="line">  function balanceOf(address _owner) public view returns (uint256 _balance);</span><br><span class="line">  function ownerOf(uint256 _tokenId) public view returns (address _owner);</span><br><span class="line">  function transfer(address _to, uint256 _tokenId) public;</span><br><span class="line">  function approve(address _to, uint256 _tokenId) public;</span><br><span class="line">  function takeOwnership(uint256 _tokenId) public;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>操作就是用一个新合约，继承这个原来的合约，重新实现。</p>
-<h3 id="注释和-natspec"><a href="#注释和-natspec" class="headerlink" title="注释和 natspec"></a>注释和 natspec</h3><p>Solidity 社区所使用的一个标准是使用一种被称作 <strong><em>natspec\</em></strong> 的格式，看起来像这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;&#x2F; @title 一个简单的基础运算合约</span><br><span class="line">&#x2F;&#x2F;&#x2F; @author H4XF13LD MORRIS 💯💯😎💯💯</span><br><span class="line">&#x2F;&#x2F;&#x2F; @notice 现在，这个合约只添加一个乘法</span><br><span class="line">contract Math &#123;</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @notice 两个数相乘</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @param x 第一个 uint</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @param y  第二个 uint</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @return z  (x * y) 的结果</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @dev 现在这个方法不检查溢出</span><br><span class="line">  function multiply(uint x, uint y) returns (uint z) &#123;</span><br><span class="line">    &#x2F;&#x2F; 这只是个普通的注释，不会被 natspec 解释</span><br><span class="line">    z &#x3D; x * y;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>@title</code>（标题） 和 <code>@author</code> （作者）很直接了.</p>
-<p><code>@notice</code> （须知）向 <strong>用户</strong> 解释这个方法或者合约是做什么的。 <code>@dev</code> （开发者） 是向开发者解释更多的细节。</p>
-<p><code>@param</code> （参数）和 <code>@return</code> （返回） 用来描述这个方法需要传入什么参数以及返回什么值。</p>
-
-      
-    </div>
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/generate-random-number-on-ethereum-safely/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hanwen.png">
-      <meta itemprop="name" content="David Stark">
-      <meta itemprop="description" content="瀚文的技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David Stark">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/generate-random-number-on-ethereum-safely/" class="post-title-link" itemprop="url">以太坊上安全生成随机数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-12 17:20:40" itemprop="dateCreated datePublished" datetime="2020-06-12T17:20:40+08:00">2020-06-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-13 09:33:14" itemprop="dateModified" datetime="2020-06-13T09:33:14+08:00">2020-06-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="用-keccak256-来制造随机数。"><a href="#用-keccak256-来制造随机数。" class="headerlink" title="用 keccak256 来制造随机数。"></a>用 <code>keccak256</code> 来制造随机数。</h2><p>Solidity 中最好的随机数生成器是 <code>keccak256</code> 哈希函数.</p>
-<p>我们可以这样来生成一些随机数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 生成一个0到100的随机数:</span><br><span class="line">uint randNonce &#x3D; 0;</span><br><span class="line">uint random &#x3D; uint(keccak256(now, msg.sender, randNonce)) % 100;</span><br><span class="line">randNonce++;</span><br><span class="line">uint random2 &#x3D; uint(keccak256(now, msg.sender, randNonce)) % 100;</span><br></pre></td></tr></table></figure>
-
-<p>这个方法首先拿到 <code>now</code> 的时间戳、 <code>msg.sender</code>、 以及一个自增数 <code>nonce</code> （一个仅会被使用一次的数，这样我们就不会对相同的输入值调用一次以上哈希函数了）。</p>
-<p>然后利用 <code>keccak</code> 把输入的值转变为一个哈希值, 再将哈希值转换为 <code>uint</code>, 然后利用 <code>% 100</code> 来取最后两位, 就生成了一个0到100之间随机数了。</p>
-<h3 id="这个方法很容易被不诚实的节点攻击"><a href="#这个方法很容易被不诚实的节点攻击" class="headerlink" title="这个方法很容易被不诚实的节点攻击"></a>这个方法很容易被不诚实的节点攻击</h3><p>在以太坊上, 当你在和一个合约上调用函数的时候, 你会把它广播给一个节点或者在网络上的 <strong><em>transaction\</em></strong> 节点们。 网络上的节点将收集很多事务, 试着成为第一个解决计算密集型数学问题的人，作为“工作证明”，然后将“工作证明”(Proof of Work, PoW)和事务一起作为一个 <strong><em>block\</em></strong> 发布在网络上。</p>
-<p>一旦一个节点解决了一个PoW, 其他节点就会停止尝试解决这个 PoW, 并验证其他节点的事务列表是有效的，然后接受这个节点转而尝试解决下一个节点。</p>
-<p><strong>这就让我们的随机数函数变得可利用了</strong></p>
-<p>我们假设我们有一个硬币翻转合约——正面你赢双倍钱，反面你输掉所有的钱。假如它使用上面的方法来决定是正面还是反面 (<code>random &gt;= 50</code> 算正面, <code>random &lt; 50</code> 算反面)。</p>
-<p>如果我正运行一个节点，我可以 <strong>只对我自己的节点</strong> 发布一个事务，且不分享它。 我可以运行硬币翻转方法来偷窥我的输赢 — 如果我输了，我就不把这个事务包含进我要解决的下一个区块中去。我可以一直运行这个方法，直到我赢得了硬币翻转并解决了下一个区块，然后获利。</p>
-<h2 id="所以我们该如何在以太坊上安全地生成随机数呢"><a href="#所以我们该如何在以太坊上安全地生成随机数呢" class="headerlink" title="所以我们该如何在以太坊上安全地生成随机数呢"></a>所以我们该如何在以太坊上安全地生成随机数呢</h2><p>因为区块链的全部内容对所有参与者来说是透明的， 这就让这个问题变得很难，它的解决方法不在本课程讨论范围，你可以阅读 <a href="https://ethereum.stackexchange.com/questions/191/how-can-i-securely-generate-a-random-number-in-my-smart-contract" target="_blank" rel="noopener">这个 StackOverflow 上的讨论</a> 来获得一些主意。 一个方法是利用 <strong><em>oracle\</em></strong> 来访问以太坊区块链之外的随机数函数。</p>
-<p>当然， 因为网络上成千上万的以太坊节点都在竞争解决下一个区块，我能成功解决下一个区块的几率非常之低。 这将花费我们巨大的计算资源来开发这个获利方法 — 但是如果奖励异常地高(比如我可以在硬币翻转函数中赢得 1个亿)， 那就很值得去攻击了。</p>
-<p>所以尽管这个方法在以太坊上不安全，在实际中，除非我们的随机函数有一大笔钱在上面，你游戏的用户一般是没有足够的资源去攻击的。</p>
-<p>因为在这个教程中，我们只是在编写一个简单的游戏来做演示，也没有真正的钱在里面，所以我们决定接受这个不足之处，使用这个简单的随机数生成函数。但是要谨记它是不安全的。</p>
-
-      
-    </div>
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/solidity-course-4-zombie-fighting/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hanwen.png">
-      <meta itemprop="name" content="David Stark">
-      <meta itemprop="description" content="瀚文的技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David Stark">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/solidity-course-4-zombie-fighting/" class="post-title-link" itemprop="url">4-僵尸作战系统</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-12 17:05:50" itemprop="dateCreated datePublished" datetime="2020-06-12T17:05:50+08:00">2020-06-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-13 09:33:45" itemprop="dateModified" datetime="2020-06-13T09:33:45+08:00">2020-06-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>完成了<a href="https://share.cryptozombies.io/zh/lesson/4/share/NoName?id=W251bGwsMiwxNF0%3D" target="_blank" rel="noopener">第四课</a>！</p>
-<h3 id="函数修饰符"><a href="#函数修饰符" class="headerlink" title="函数修饰符"></a>函数修饰符</h3><ol>
-<li>我们有决定函数何时和被谁调用的可见性修饰符: <code>private</code> 意味着它只能被合约内部调用； <code>internal</code> 就像 <code>private</code> 但是也能被继承的合约调用； <code>external</code> 只能从合约外部调用；最后 <code>public</code> 可以在任何地方调用，不管是内部还是外部。</li>
-<li>我们也有状态修饰符， 告诉我们函数如何和区块链交互: <code>view</code> 告诉我们运行这个函数不会更改和保存任何数据； <code>pure</code> 告诉我们这个函数不但不会往区块链写数据，它甚至不从区块链读取数据。这两种在被从合约外部调用的时候都不花费任何gas（但是它们在被内部其他函数调用的时候将会耗费gas）。</li>
-<li>然后我们有了自定义的 <code>modifiers</code>，例如在第三课学习的: <code>onlyOwner</code> 和 <code>aboveLevel</code>。 对于这些修饰符我们可以自定义其对函数的约束逻辑。</li>
+          <h3 id="容错模式"><a href="#容错模式" class="headerlink" title="容错模式"></a>容错模式</h3><p>我们已经学习了以下几种容错模式（fault-tolerance pattern）：</p>
+<ul>
+<li>计算冗余：MapReduce，但是所有计算由单点 Master 进行调度。</li>
+<li>数据冗余：GFS，也是依赖单点 Master 来对多个副本进行选主。</li>
+<li>服务冗余：VMware-FT 依赖单个 TestAndSet 操作</li>
+</ul>
+<h3 id="Split-Brain"><a href="#Split-Brain" class="headerlink" title="Split Brain"></a>Split Brain</h3><p>共识算法中最大的问题在于——如何避免 <strong>Split Brain</strong>。</p>
+<p>Split Brain 是如何产生的，其危害性为什么很大？</p>
+<p>假设我们要对 test-and-set 服务进行备份。test-and-set，简而言之，就是一个锁服务。当多个 Client 同时请求服务时，只有其中一个能通过 Test（测试是否为0），获取锁，并设置 Server 状态为 1，则其他 Client 测试不能通过，从而不能获取锁。</p>
+<p>考虑有以下四个系统角色：[C1, C2, S1, S2]，S1 和 S2 组成一个双备份的、可容错的系统，C1 和 C2 是使用此系统的客户端。假设 C1 可以和 S1 通信，但是与 S2 失联。那在只有 S1 的情况下，系统能够给 C1 正常提供服务么？</p>
+<ol>
+<li>如果 S2 真的宕机了，系统应当在 S2 缺席的情况下正常工作，否则系统就不能称之为是容错的（fault-tolerance）。</li>
+<li>如果 S2 没有宕机，但是和 C1 失联了。则系统不能够给 C1 提供服务，因为 S2 可能正在给 C2 提供服务，如果让 S1 同时给 C1 服务，则会造成系统状态不一致，从而使服务出错：C1 和 C2 同时获取到锁。</li>
 </ol>
-<p>这些修饰符可以同时作用于一个函数定义上：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function test() external view onlyOwner anotherModifier &#123; &#x2F;*</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://pic4.zhimg.com/80/v2-5d68e05ac6ec8837cb6871c6cbdc862a_1440w.jpg" alt="img"></p>
+<p>在此种情况下，我们面临一种选择的困境：</p>
+<ol>
+<li>要么不提供容错保证，尽管我们使用了双备份服务器。</li>
+<li>要么仍然回复客户端请求，但由于 Split Brain 可能会发生，不保证一致性。</li>
+</ol>
+<p>问题在于，服务器 S1 无法区分 S2 是失联了（”server crashed”）还是网络故障了（network broken）。因为在这两种情况下，S1 看到的现象是一样的：向 S2 的请求得不到回复。S1 能够和 C1 通信，S2 能够和 C2 通信；但是 S1+C1 收不到 S2+C2 的回复，我们称这种情况为出现了<strong>网络分区</strong>（network partitionn）。</p>
+<p>网络分区可能会持续很久，可能需要引入一个外力（比如说运维人员），来判断何时网络可信、何时服务器可信，才能打破僵局。那我们如何可以将容错做到自动化？答曰：<strong>多数票原则</strong>（majority vote）。</p>
+<h3 id="多数票原则"><a href="#多数票原则" class="headerlink" title="多数票原则"></a>多数票原则</h3><p>多数票原则，要求系统集群包含奇数个服务器，以此来避免出现<strong>同票困境</strong>（symmetry）。如上面只有两个服务的情况，两方各执一词，就很难决定以谁为准。</p>
+<p>在有奇数个服务器的系统中，我们只要获取多数票就可以保持系统正常运转，而不会陷入同票僵局（如 Raft 中的主选举、提交日志条目等）。多数票原则能够打破僵局，其原理也很简单：<em>不可能出现一个以上同时包含多数服务器的分区</em>。<strong>需要注意的是，这里的多数指的是构成系统所有的服务器的多数，而非存活服务器的多数。</strong></p>
+<p>如果集群由 2f + 1 个服务器构成，最多能够承受 f 个服务器宕机，而仍能对外提供服务。</p>
+<h3 id="Raft-概览"><a href="#Raft-概览" class="headerlink" title="Raft 概览"></a>Raft 概览</h3><p>Raft 一般表现为库的形式，运行在在每个副本（replica）服务器上，对<strong>多副本状态机</strong> （replicated state machine） 进行管理，主要负责对操作日志的同步。基于此，我们可以进一步构建可靠的 KV 存储层，主要负责状态的存储。</p>
+<p><img data-src="/MIT-6.824-Raft/v2-cbff2b86199392f38184a85bab3f7b56_1440w.jpg" alt="img"></p>
+<hr>
+<h2 id="一、Raft算法概述"><a href="#一、Raft算法概述" class="headerlink" title="一、Raft算法概述"></a>一、Raft算法概述</h2><p>不同于Paxos算法直接从分布式一致性问题出发推导出来，Raft算法则是从多副本状态机的角度提出，用于管理多副本状态机的日志复制。Raft实现了和Paxos相同的功能，它将一致性分解为多个子问题：Leader选举（Leader election）、日志同步（Log replication）、安全性（Safety）、日志压缩（Log compaction）、成员变更（Membership change）等。同时，Raft算法使用了更强的假设来减少了需要考虑的状态，使之变的易于理解和实现。</p>
+<p>Raft将系统中的角色分为领导者（Leader）、跟从者（Follower）和候选人（Candidate）：</p>
+<ul>
+<li><strong>Leader</strong>：接受客户端请求，并向Follower同步请求日志，当日志同步到大多数节点上后告诉Follower提交日志。</li>
+<li><strong>Follower</strong>：接受并持久化Leader同步的日志，在Leader告之日志可以提交之后，提交日志。</li>
+<li><strong>Candidate</strong>：Leader选举过程中的临时角色。</li>
+</ul>
+<p><img data-src="/MIT-6.824-Raft/v2-40d42747bec5c00503e4bd47566beb65_1440w.jpg" alt="Raft算法角色"></p>
+<p>Raft要求系统在任意时刻最多只有一个Leader，正常工作期间只有Leader和Followers。</p>
+<p>Raft算法角色状态转换如下：</p>
+<p><img data-src="/MIT-6.824-Raft/v2-7f64a2df8f8817932ed047d35878bca9_1440w.jpg" alt="img"></p>
+<p>Follower只响应其他服务器的请求。如果Follower超时没有收到Leader的消息，它会成为一个Candidate并且开始一次Leader选举。收到大多数服务器投票的Candidate会成为新的Leader。Leader在宕机之前会一直保持Leader的状态。</p>
+<p><img data-src="/MIT-6.824-Raft/v2-d3cc1cb525ac72dc59ed34148cb3199c_1440w.jpg" alt="img"></p>
+<p>Raft算法将时间分为一个个的任期（term），每一个term的开始都是Leader选举。在成功选举Leader之后，Leader会在整个term内管理整个集群。如果Leader选举失败，该term就会因为没有Leader而结束。</p>
+<h2 id="二、Leader选举"><a href="#二、Leader选举" class="headerlink" title="二、Leader选举"></a>二、Leader选举</h2><p>Raft 使用心跳（heartbeat）触发Leader选举。当服务器启动时，初始化为Follower。Leader向所有Followers周期性发送heartbeat。如果Follower在选举超时时间内没有收到Leader的heartbeat，就会等待一段随机的时间后发起一次Leader选举。</p>
+<p>Follower将其当前term加一然后转换为Candidate。它首先给自己投票并且给集群中的其他服务器发送 RequestVote RPC。结果有以下三种情况：</p>
+<ul>
+<li>赢得了多数的选票，成功选举为Leader；</li>
+<li>收到了Leader的消息，表示有其它服务器已经抢先当选了Leader；</li>
+<li>没有服务器赢得多数的选票，Leader选举失败，等待选举时间超时后发起下一次选举。</li>
+</ul>
+<p><img data-src="/MIT-6.824-Raft/v2-0471619d1b78ba6d57326d97825d9495_r.jpg" alt="preview"></p>
+<p>选举出Leader后，Leader通过定期向所有Followers发送心跳信息维持其统治。若Follower一段时间未收到Leader的心跳则认为Leader可能已经挂了，再次发起Leader选举过程。</p>
+<p>Raft保证选举出的Leader上一定具有最新的已提交的日志，这一点将在 <strong>四、安全性</strong> 中说明。</p>
+<p>某些Followers可能没有成功的复制日志，Leader会无限的重试 AppendEntries RPC直到所有的Followers最终存储了所有的日志条目。</p>
+<p>日志由有序编号（log index）的日志条目组成。每个日志条目包含它被创建时的任期号（term），和用于状态机执行的命令。如果一个日志条目被复制到大多数服务器上，就被认为可以提交（commit）了。</p>
+<p><img data-src="/MIT-6.824-Raft/v2-ee29a89e4eb63468e142bb6103dbe4de_1440w.jpg" alt="img"></p>
+<hr>
+<p>参考文献：</p>
+<p>Raft算法详解 - 祥光的文章 - 知乎 <a href="https://zhuanlan.zhihu.com/p/32052223" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32052223</a></p>
 
-<h3 id="提现"><a href="#提现" class="headerlink" title="提现"></a>提现</h3><p>在上一章，我们学习了如何向合约发送以太，那么在发送之后会发生什么呢？</p>
-<p>在你发送以太之后，它将被存储进以合约的以太坊账户中， 并冻结在哪里 —— 除非你添加一个函数来从合约中把以太提现。</p>
-<p>你可以写一个函数来从合约中提现以太，类似这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">contract GetPaid is Ownable &#123;</span><br><span class="line">  function withdraw() external onlyOwner &#123;</span><br><span class="line">    owner.transfer(this.balance);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
-<p>注意我们使用 <code>Ownable</code> 合约中的 <code>owner</code> 和 <code>onlyOwner</code>，假定它已经被引入了。</p>
-<p>你可以通过 <code>transfer</code> 函数向一个地址发送以太， 然后 <code>this.balance</code> 将返回当前合约存储了多少以太。 所以如果100个用户每人向我们支付1以太， <code>this.balance</code> 将是100以太。</p>
-<p>你可以通过 <code>transfer</code> 向任何以太坊地址付钱。 比如，你可以有一个函数在 <code>msg.sender</code> 超额付款的时候给他们退钱：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uint itemFee &#x3D; 0.001 ether;</span><br><span class="line">msg.sender.transfer(msg.value - itemFee);</span><br></pre></td></tr></table></figure>
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/MIT-6.824-PrimaryBackup-Replication/">
 
-<p>或者在一个有卖家和卖家的合约中， 你可以把卖家的地址存储起来， 当有人买了它的东西的时候，把买家支付的钱发送给它 <code>seller.transfer(msg.value)</code>。</p>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hanwen.png">
+      <meta itemprop="name" content="David Stark">
+      <meta itemprop="description" content="瀚文的技术博客">
+    </span>
 
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David Stark">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/MIT-6.824-PrimaryBackup-Replication/" class="post-title-link" itemprop="url">PrimaryBackup Replication</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-03 20:31:39 / 修改时间：20:37:38" itemprop="dateCreated datePublished" datetime="2020-08-03T20:31:39+08:00">2020-08-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MIT-6-824/" itemprop="url" rel="index"><span itemprop="name">MIT-6.824</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>备份选择：操作 &gt; 状态 - 因为操作小得多</p>
+<p>同步状态的层级：</p>
+<ol>
+<li>应用层（Application state）。如 GFS，更为高效，只需要发送高维操作即可，缺点是需要在应用层进行容错。</li>
+<li>机器层（Machine level）。可以让运行在服务器上的应用无需改动而获取容错能力。但需要细粒度的同步机器事件（中断、DMA）；并且需要修改机器底层实现以发送这些事件。</li>
+</ol>
+<p>VM-FT 选择了后者，能力更强大，但也做出了更多牺牲。</p>
+<p>VM-FT 系统使用一个额外的虚拟层 VMMonitor（ hypervisor == monitor == VMM ），当 client 请求到达 Primary 时，VMMonitor 一方面向本机转发请求、一方面向 Backup 的 VMMonitor 同步请求。处理完请求得到结果时，Primary 的 VMMonitor 会回复 Client，而 Backup 的 VMMonitor 会丢弃 Backup 产生的回复。</p>
+<p>使用两种方法来检测 Primary 和 Backup 的健康状况：</p>
+<ol>
+<li>和 Primary/Backup 进行心跳。</li>
+<li>监控 logging channel。</li>
+</ol>
+<h3 id="不确定性事件"><a href="#不确定性事件" class="headerlink" title="不确定性事件"></a>不确定性事件</h3><p>都有哪些不确定性（Non-deterministic）操作（operations）和事件（events）？</p>
+<ul>
+<li>输入的不确定性。系统中断事件。</li>
+<li>奇怪指令。比如随机数、依赖时间戳的指令。</li>
+<li>多核。不同机器可能以不同的方式在多核上交替运行指令。</li>
+</ul>
+<hr>
+<p>参考文献：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/124335979" target="_blank" rel="noopener">6.824 2020 视频笔记四：VM-FT - 穆尼奥的文章 - 知乎</a></p>
+
+      
+    </div>
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/MIT-6.824-GFS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hanwen.png">
+      <meta itemprop="name" content="David Stark">
+      <meta itemprop="description" content="瀚文的技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David Stark">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/MIT-6.824-GFS/" class="post-title-link" itemprop="url">GFS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-03 19:47:32 / 修改时间：20:30:13" itemprop="dateCreated datePublished" datetime="2020-08-03T19:47:32+08:00">2020-08-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MIT-6-824/" itemprop="url" rel="index"><span itemprop="name">MIT-6.824</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>GFS</strong> - The Google File System.</p>
+<p><code>parallel performance, fault tolerance, replication, consistency</code></p>
+<p><strong>Why is distributed storage hard?</strong></p>
+<ul>
+<li>high performance -&gt; shard data over many servers</li>
+<li>many servers -&gt; constant faults</li>
+<li>fault tolerance -&gt; replication</li>
+<li>replication -&gt; potential inconsistencies</li>
+<li>better consistency -&gt; low performance</li>
+</ul>
+<h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p><img data-src="/MIT-6.824-GFS/4309024-3e9b3ed1e3bf65c0.webp" alt="img"></p>
+<p>GFS主要包括master和chunk server两部分组成。一个文件被打散成了多个chunk，每个chunk会在多个chunk server上保存作为冗余备份。客户端向master请求某个某个文件的某个chunk的数据，master返回这个chunk所属的chunk server。客户端再请求对应的chunk server操作数据。</p>
+<p><strong>几个问题：</strong></p>
+<blockquote>
+<p>这种数据存储形式有什么好处？</p>
+</blockquote>
+<p>这样的设计巧妙的解耦了元数据和数据。对于元数据，只有master知道。因此，master必须好好维护这些信息，防止数据丢失或者错误，因此写operation log就变得非常重要。而对于数据本身，chunk server更加了解自身存储的情况，因此chunk的信息，chunk server说了算。这样避免了master中持久化一份数据分布的信息而带来的与实际情况不一致的情况(另外设计一套同步机制会使系统变得复杂)。</p>
+<blockquote>
+<p>master机器只有一台，怎么避免单点故障？</p>
+</blockquote>
+<p>为防止单点故障，肯定要准备备机。一般会存在2台或者以上的shadow master。当master在本地写operation log的时候，也会让shadow master写一份。只有在全部都写成功的时候，操作才会继续。如果master的硬盘挂了，那么任意一台shadow master都能够挺身而出充当新的master。</p>
+<blockquote>
+<p>master机器的内存大小会不会成为系统存储容量的瓶颈呢？</p>
+</blockquote>
+<p>首先，一个chunk被设置成了64M，大大减少了一个文件所占用的chunk数量，因此，master中存储的数量也会大大减少。</p>
+<p>其次，由于系统存储的是大文件，因此每一个文件，除了最后一个chunk以外，其他的chunk基本上都是存满的。</p>
+<p>最后，加内存也不是什么难事。</p>
+<p>一般64个bytes就可以存一个64M的chunk信息，因此大约可以用(内存大小)*(2^6)估算系统的容量，至少可以达到P级别。</p>
+<blockquote>
+<p>operation log是记下来了，但是重启的时候会不会因为日志回放的时间太久而导致很慢？</p>
+</blockquote>
+<p>当operation log达到一定大小时，系统会切换到一个新的日志。老的日志则会被回放，并存储在硬盘上，这个操作被称作checkpoint。当master重启时，直接加载checkpoint生成的内容，并回放新的日志，就可以完成了。</p>
+<hr>
+<p>参考文献：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/113161014" target="_blank" rel="noopener">6.824 2020 视频笔记三：GFS - 穆尼奥的文章 - 知乎</a> </p>
+<p><a href="https://www.jianshu.com/p/540ae70c0500" target="_blank" rel="noopener">GFS(Google File System)读书笔记</a></p>
+<p>【未整理-图解】-<a href="https://zhuanlan.zhihu.com/p/20673524" target="_blank" rel="noopener">硅谷之路9：深入浅出理解GFS - Mingche Su的文章 - 知乎</a> </p>
+
+      
+    </div>
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/MIT-6.824-PRC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hanwen.png">
+      <meta itemprop="name" content="David Stark">
+      <meta itemprop="description" content="瀚文的技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David Stark">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/MIT-6.824-PRC/" class="post-title-link" itemprop="url">PRC</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-03 19:15:52 / 修改时间：23:26:06" itemprop="dateCreated datePublished" datetime="2020-08-03T19:15:52+08:00">2020-08-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MIT-6-824/" itemprop="url" rel="index"><span itemprop="name">MIT-6.824</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>RPC，就是<strong>Remote Procedure Call</strong>的简称，翻译成中文就是<strong>远程过程调用</strong>，相对的是本地过程调用。</p>
+<p>远程过程调用为了简化，避免一串 HTTP 请求的代码，使用类似本地调用的方式，发起远程调用。</p>
+<p><strong>RPC要解决的两个问题：</strong></p>
+<ol>
+<li><strong>解决分布式系统中，服务之间的调用问题。</strong></li>
+<li><strong>远程调用时，要能够像本地调用一样方便，让调用者感知不到远程调用的逻辑。</strong></li>
+</ol>
+<h3 id="PRC的实现"><a href="#PRC的实现" class="headerlink" title="PRC的实现"></a>PRC的实现</h3><p>可以不使用 HTTP 协议（文本传输协议），而是直接使用 Socket 的二进制方式来进行传输。</p>
+<p><img data-src="/MIT-6.824-PRC/v2-43aee8a0ece93258fc6d6dc27f26ccea_1440w.jpg" alt="img"></p>
+<h3 id="PRC-和-Restful-的比较"><a href="#PRC-和-Restful-的比较" class="headerlink" title="PRC 和 Restful 的比较"></a>PRC 和 Restful 的比较</h3><p>RPC风格，你可能会这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;queryOrder?orderId&#x3D;123</span><br></pre></td></tr></table></figure>
+
+<p>用Restful风格呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Get  </span><br><span class="line">&#x2F;order?orderId&#x3D;123</span><br></pre></td></tr></table></figure>
+
+<p>再精炼一点，甚至可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Get  </span><br><span class="line">&#x2F;order&#x2F;123</span><br></pre></td></tr></table></figure>
+
+<p><strong>RPC是面向过程，Restful是面向资源</strong>，并且使用了Http动词。从这个维度上看，Restful风格的url在表述的精简性、可读性上都要更好。</p>
+<h3 id="RPC没那么简单"><a href="#RPC没那么简单" class="headerlink" title="RPC没那么简单"></a>RPC没那么简单</h3><p><strong>要实现一个RPC不算难，难的是实现一个高性能高可靠的RPC框架。</strong></p>
+<h3 id="PRC的实现原理-远程调用计算机为例"><a href="#PRC的实现原理-远程调用计算机为例" class="headerlink" title="PRC的实现原理-远程调用计算机为例"></a>PRC的实现原理-远程调用计算机为例</h3><p>本机计算机</p>
+<p><img data-src="/MIT-6.824-PRC/v2-f173a307dabb218a7f60c0be2629affc_1440w.jpg" alt="img"></p>
+<p>分布式计算器：</p>
+<p>CalculatorImpl和调用方不在同一个地址空间，那么就必须要进行远程过程调用：</p>
+<p><img data-src="/MIT-6.824-PRC/v2-c6a24fe26f6baa71532dacd02a5364b7_r.jpg" alt="preview"></p>
+<p><img data-src="/MIT-6.824-PRC/v2-43aee8a0ece93258fc6d6dc27f26ccea_1440w-1596454122000.jpg" alt="img"></p>
+<p>其中左边的Client，对应的就是前面的Service A，而右边的Server，对应的则是Service B。</p>
+<p>下面一步一步来理解一下：</p>
+<ol>
+<li>Service A的应用层代码中，调用了Calculator的一个实现类的add方法，希望执行一个加法运算；</li>
+<li>这个Calculator实现类，内部并不是直接实现计算器的加减乘除逻辑，而是通过远程调用Service B的RPC接口，来获取运算结果，因此称之为<strong>Stub</strong>；</li>
+<li>Stub怎么和Service B建立远程通讯呢？这时候就要用到<strong>远程通讯工具</strong>了，也就是图中的<strong>Run-time Library</strong>，这个工具将帮你实现远程通讯的功能，比如Java的<strong>Socket</strong>，就是这样一个库，当然，你也可以用基于Http协议的<strong>HttpClient</strong>，或者其他通讯工具类，都可以，<strong>RPC并没有规定说你要用何种协议进行通讯</strong>；</li>
+<li>Stub通过调用通讯工具提供的方法，和Service B建立起了通讯，然后将请求数据发给Service B。需要注意的是，由于底层的网络通讯是基于<strong>二进制格式</strong>的，因此这里Stub传给通讯工具类的数据也必须是二进制，比如calculator.add(1,2)，你必须把参数值1和2放到一个Request对象里头（这个Request对象当然不只这些信息，还包括要调用哪个服务的哪个RPC接口等其他信息），然后<strong>序列化</strong>为二进制，再传给通讯工具类，这一点也将在下面的代码实现中体现；</li>
+<li>二进制的数据传到Service B这一边了，Service B当然也有自己的通讯工具，通过这个通讯工具接收二进制的请求；</li>
+<li>既然数据是二进制的，那么自然要进行<strong>反序列化</strong>了，将二进制的数据反序列化为请求对象，然后将这个请求对象交给Service B的Stub处理；</li>
+<li>和之前的Service A的Stub一样，这里的Stub也同样是个“假玩意”，它所负责的，只是去解析请求对象，知道调用方要调的是哪个RPC接口，传进来的参数又是什么，然后再把这些参数传给对应的RPC接口，也就是Calculator的实际实现类去执行。很明显，如果是Java，那这里肯定用到了<strong>反射</strong>。</li>
+<li>RPC接口执行完毕，返回执行结果，现在轮到Service B要把数据发给Service A了，怎么发？一样的道理，一样的流程，只是现在Service B变成了Client，Service A变成了Server而已：Service B反序列化执行结果-&gt;传输给Service A-&gt;Service A反序列化执行结果 -&gt; 将结果返回给Application，完毕。</li>
+</ol>
+<hr>
+<p>参考文献：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/36427583" target="_blank" rel="noopener">如何给老婆解释什么是RPC - 柳树的文章 - 知乎</a> </p>
+<p><a href="https://zhuanlan.zhihu.com/p/36528189" target="_blank" rel="noopener">如何实现一个简单的RPC - 柳树的文章 - 知乎</a></p>
+
+      
+    </div>
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/truffle-get-started/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hanwen.png">
+      <meta itemprop="name" content="David Stark">
+      <meta itemprop="description" content="瀚文的技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David Stark">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/truffle-get-started/" class="post-title-link" itemprop="url">Truffle快速入门</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-14 11:38:28 / 修改时间：12:18:26" itemprop="dateCreated datePublished" datetime="2020-06-14T11:38:28+08:00">2020-06-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Truffle简介"><a href="#Truffle简介" class="headerlink" title="Truffle简介"></a>Truffle简介</h1><p>Truffle 是一个世界级的开发环境，测试框架，以太坊的资源管理通道，致力于让以太坊上的开发变得简单，Truffle 有以下特点：</p>
+<ul>
+<li>内置的智能合约编译，链接，部署和二进制文件的管理。</li>
+<li>快速开发下的自动合约测试。</li>
+<li>脚本化的，可扩展的部署与发布框架。</li>
+<li>部署到不管多少的公网或私网的网络环境管理功能</li>
+<li>使用EthPM&amp;NPM提供的包管理，使用<a href="https://github.com/ethereum/EIPs/issues/190" target="_blank" rel="noopener">ERC190</a>标准。</li>
+<li>与合约直接通信的直接交互控制台（写完合约就可以命令行里验证了）。</li>
+<li>可配的构建流程，支持紧密集成。</li>
+<li>在Truffle环境里支持执行外部的脚本。</li>
+</ul>
+<h3 id="Truffle-框架安装"><a href="#Truffle-框架安装" class="headerlink" title="Truffle 框架安装"></a>Truffle 框架安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g truffle</span><br></pre></td></tr></table></figure>
+
+<p><strong>Windows用户的建议</strong></p>
+<p>推荐使用 Powershell 或 Git BASH 来安装和使用Truffle框架。这两个 shell 环境相对默认的，提供了更方便的一些特性。</p>
+<h3 id="Truffle-客户端"><a href="#Truffle-客户端" class="headerlink" title="Truffle 客户端"></a>Truffle 客户端</h3><p>使用 Ganache 的桌面客户端 <del>我使用官网推荐的 Test RPC <code>is now</code> <a href="https://github.com/trufflesuite/ganache-cli" target="_blank" rel="noopener">ganache-cli</a></del> </p>
+<blockquote>
+<p>当开发基于Truffle的应用时，我们推荐使用EthereumJS TestRPC。它是一个完整的在内存中的区块链仅仅存在于你开发的设备上。它在执行交易时是实时返回，而不等待默认的出块时间，这样你可以快速验证你新写的代码，当出现错误时，也能即时反馈给你。它同时还是一个支持自动化测试的功能强大的客户端。Truffle充分利用它的特性，能将测试运行时间提速近90%。</p>
+</blockquote>
+<h3 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truffle init</span><br></pre></td></tr></table></figure>
+
+<h3 id="编译合约"><a href="#编译合约" class="headerlink" title="编译合约"></a>编译合约</h3><p>所有的合约应该位于 <code>./contracts</code> 目录。默认我们提供了一个合约文件，一个库文件，均以 <code>.sol</code> 结尾作为示例。尽管库文件有一定的特殊性，但为简单起见，当前均称之为合约。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truffle compile</span><br></pre></td></tr></table></figure>
+
+<p>Truffle 仅默认编译自上次编译后被修改过的文件，来减少不必要的编译。如果你想编译全部文件，可以使用 <code>--compile-all</code> 选项。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truffle compile --compile-all</span><br></pre></td></tr></table></figure>
+
+<p><strong>编译目录</strong></p>
+<p>编译的输出位于 <code>./build/contracts</code> 目录。如果目录不存在会自动创建。这些编译文件对于Truffle框架能否正常工作至关重要。不应该在正常的编译或发布以外手动修改这些文件。</p>
+<h3 id="移植"><a href="#移植" class="headerlink" title="移植"></a>移植</h3><p>移植是由一些 Javascript 文件组成来协助发布到以太坊网络。主要目的是用来缓存你的发布任务，它的存在基于发布需求会改变的前提。当工程发生了重要的改变，将创建新的移植脚本来将这些变化带到区块链上。</p>
+<p><strong>待续…不过感觉没啥内容了</strong></p>
+
+      
+    </div>
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/solidity-official-demo-secret-auction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hanwen.png">
+      <meta itemprop="name" content="David Stark">
+      <meta itemprop="description" content="瀚文的技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David Stark">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/solidity-official-demo-secret-auction/" class="post-title-link" itemprop="url">Solidity-Official-Demo-秘密竞拍（盲拍）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-14 10:56:40 / 修改时间：10:57:48" itemprop="dateCreated datePublished" datetime="2020-06-14T10:56:40+08:00">2020-06-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="秘密竞拍（盲拍）"><a href="#秘密竞拍（盲拍）" class="headerlink" title="秘密竞拍（盲拍）"></a>秘密竞拍（盲拍）</h3><p>之前的公开拍卖接下来将被扩展为一个秘密竞拍。 秘密竞拍的好处是在投标结束前不会有时间压力。 在一个透明的计算平台上进行秘密竞拍听起来像是自相矛盾，但密码学可以实现它。</p>
+<p>在 <strong>投标期间</strong> ，投标人实际上并没有发送她的出价，而只是发送一个哈希版本的出价。 由于目前几乎不可能找到两个（足够长的）值，其哈希值是相等的，因此投标人可通过该方式提交报价。 在投标结束后，投标人必须公开他们的出价：他们不加密的发送他们的出价，合约检查出价的哈希值是否与投标期间提供的相同。</p>
+<p>另一个挑战是如何使拍卖同时做到 <strong>绑定和秘密</strong> : 唯一能阻止投标者在她赢得拍卖后不付款的方式是，让她将钱连同出价一起发出。 但由于资金转移在 以太坊Ethereum 中不能被隐藏，因此任何人都可以看到转移的资金。</p>
+<p>下面的合约通过接受任何大于最高出价的值来解决这个问题。 当然，因为这只能在披露阶段进行检查，有些出价可能是 <strong>无效</strong> 的， 并且，这是故意的(与高出价一起，它甚至提供了一个明确的标志来标识无效的出价): 投标人可以通过设置几个或高或低的无效出价来迷惑竞争对手。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity &gt;0.4.23 &lt;0.5.0;</span><br><span class="line"></span><br><span class="line">contract BlindAuction &#123;</span><br><span class="line">    struct Bid &#123;</span><br><span class="line">        bytes32 blindedBid;</span><br><span class="line">        uint deposit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    address public beneficiary;</span><br><span class="line">    uint public biddingEnd;</span><br><span class="line">    uint public revealEnd;</span><br><span class="line">    bool public ended;</span><br><span class="line"></span><br><span class="line">    mapping(address &#x3D;&gt; Bid[]) public bids;</span><br><span class="line"></span><br><span class="line">    address public highestBidder;</span><br><span class="line">    uint public highestBid;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 可以取回的之前的出价</span><br><span class="line">    mapping(address &#x3D;&gt; uint) pendingReturns;</span><br><span class="line"></span><br><span class="line">    event AuctionEnded(address winner, uint highestBid);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 使用 modifier 可以更便捷的校验函数的入参。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; &#96;onlyBefore&#96; 会被用于后面的 &#96;bid&#96; 函数：</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 新的函数体是由 modifier 本身的函数体，并用原函数体替换 &#96;_;&#96; 语句来组成的。</span><br><span class="line">    modifier onlyBefore(uint _time) &#123; require(now &lt; _time); _; &#125;</span><br><span class="line">    modifier onlyAfter(uint _time) &#123; require(now &gt; _time); _; &#125;</span><br><span class="line"></span><br><span class="line">    constructor(</span><br><span class="line">        uint _biddingTime,</span><br><span class="line">        uint _revealTime,</span><br><span class="line">        address _beneficiary</span><br><span class="line">    ) public &#123;</span><br><span class="line">        beneficiary &#x3D; _beneficiary;</span><br><span class="line">        biddingEnd &#x3D; now + _biddingTime;</span><br><span class="line">        revealEnd &#x3D; biddingEnd + _revealTime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 可以通过 &#96;_blindedBid&#96; &#x3D; keccak256(value, fake, secret)</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 设置一个秘密竞拍。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 只有在出价披露阶段被正确披露，已发送的以太币才会被退还。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 如果与出价一起发送的以太币至少为 “value” 且 “fake” 不为真，则出价有效。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 将 “fake” 设置为 true ，然后发送满足订金金额但又不与出价相同的金额是隐藏实际出价的方法。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 同一个地址可以放置多个出价。</span><br><span class="line">    function bid(bytes32 _blindedBid)</span><br><span class="line">        public</span><br><span class="line">        payable</span><br><span class="line">        onlyBefore(biddingEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        bids[msg.sender].push(Bid(&#123;</span><br><span class="line">            blindedBid: _blindedBid,</span><br><span class="line">            deposit: msg.value</span><br><span class="line">        &#125;));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 披露你的秘密竞拍出价。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 对于所有正确披露的无效出价以及除最高出价以外的所有出价，你都将获得退款。</span><br><span class="line">    function reveal(</span><br><span class="line">        uint[] _values,</span><br><span class="line">        bool[] _fake,</span><br><span class="line">        bytes32[] _secret</span><br><span class="line">    )</span><br><span class="line">        public</span><br><span class="line">        onlyAfter(biddingEnd)</span><br><span class="line">        onlyBefore(revealEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        uint length &#x3D; bids[msg.sender].length;</span><br><span class="line">        require(_values.length &#x3D;&#x3D; length);</span><br><span class="line">        require(_fake.length &#x3D;&#x3D; length);</span><br><span class="line">        require(_secret.length &#x3D;&#x3D; length);</span><br><span class="line"></span><br><span class="line">        uint refund;</span><br><span class="line">        for (uint i &#x3D; 0; i &lt; length; i++) &#123;</span><br><span class="line">            Bid storage bid &#x3D; bids[msg.sender][i];</span><br><span class="line">            (uint value, bool fake, bytes32 secret) &#x3D;</span><br><span class="line">                    (_values[i], _fake[i], _secret[i]);</span><br><span class="line">            if (bid.blindedBid !&#x3D; keccak256(value, fake, secret)) &#123;</span><br><span class="line">                &#x2F;&#x2F; 出价未能正确披露</span><br><span class="line">                &#x2F;&#x2F; 不返还订金</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            refund +&#x3D; bid.deposit;</span><br><span class="line">            if (!fake &amp;&amp; bid.deposit &gt;&#x3D; value) &#123;</span><br><span class="line">                if (placeBid(msg.sender, value))</span><br><span class="line">                    refund -&#x3D; value;</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F; 使发送者不可能再次认领同一笔订金</span><br><span class="line">            bid.blindedBid &#x3D; bytes32(0);</span><br><span class="line">        &#125;</span><br><span class="line">        msg.sender.transfer(refund);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 这是一个 &quot;internal&quot; 函数， 意味着它只能在本合约（或继承合约）内被调用</span><br><span class="line">    function placeBid(address bidder, uint value) internal</span><br><span class="line">            returns (bool success)</span><br><span class="line">    &#123;</span><br><span class="line">        if (value &lt;&#x3D; highestBid) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        if (highestBidder !&#x3D; address(0)) &#123;</span><br><span class="line">            &#x2F;&#x2F; 返还之前的最高出价</span><br><span class="line">            pendingReturns[highestBidder] +&#x3D; highestBid;</span><br><span class="line">        &#125;</span><br><span class="line">        highestBid &#x3D; value;</span><br><span class="line">        highestBidder &#x3D; bidder;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 取回出价（当该出价已被超越）</span><br><span class="line">    function withdraw() public &#123;</span><br><span class="line">        uint amount &#x3D; pendingReturns[msg.sender];</span><br><span class="line">        if (amount &gt; 0) &#123;</span><br><span class="line">            &#x2F;&#x2F; 这里很重要，首先要设零值。</span><br><span class="line">            &#x2F;&#x2F; 因为，作为接收调用的一部分，</span><br><span class="line">            &#x2F;&#x2F; 接收者可以在 &#96;transfer&#96; 返回之前重新调用该函数。（可查看上面关于‘条件 -&gt; 影响 -&gt; 交互’的标注）</span><br><span class="line">            pendingReturns[msg.sender] &#x3D; 0;</span><br><span class="line"></span><br><span class="line">            msg.sender.transfer(amount);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 结束拍卖，并把最高的出价发送给受益人</span><br><span class="line">    function auctionEnd()</span><br><span class="line">        public</span><br><span class="line">        onlyAfter(revealEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        require(!ended);</span><br><span class="line">        emit AuctionEnded(highestBidder, highestBid);</span><br><span class="line">        ended &#x3D; true;</span><br><span class="line">        beneficiary.transfer(highestBid);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/solidity-official-demo-safely-remote-shopping/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hanwen.png">
+      <meta itemprop="name" content="David Stark">
+      <meta itemprop="description" content="瀚文的技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David Stark">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/solidity-official-demo-safely-remote-shopping/" class="post-title-link" itemprop="url">Solidity-Official-Demo-安全的远程购买</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-14 10:55:12 / 修改时间：10:56:20" itemprop="dateCreated datePublished" datetime="2020-06-14T10:55:12+08:00">2020-06-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.22;</span><br><span class="line"></span><br><span class="line">contract Purchase &#123;</span><br><span class="line">    uint public value;</span><br><span class="line">    address public seller;</span><br><span class="line">    address public buyer;</span><br><span class="line">    enum State &#123; Created, Locked, Inactive &#125;</span><br><span class="line">    State public state;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;确保 &#96;msg.value&#96; 是一个偶数。</span><br><span class="line">    &#x2F;&#x2F;如果它是一个奇数，则它将被截断。</span><br><span class="line">    &#x2F;&#x2F;通过乘法检查它不是奇数。</span><br><span class="line">    constructor() public payable &#123;</span><br><span class="line">        seller &#x3D; msg.sender;</span><br><span class="line">        value &#x3D; msg.value &#x2F; 2;</span><br><span class="line">        require((2 * value) &#x3D;&#x3D; msg.value, &quot;Value has to be even.&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier condition(bool _condition) &#123;</span><br><span class="line">        require(_condition);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier onlyBuyer() &#123;</span><br><span class="line">        require(</span><br><span class="line">            msg.sender &#x3D;&#x3D; buyer,</span><br><span class="line">            &quot;Only buyer can call this.&quot;</span><br><span class="line">        );</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier onlySeller() &#123;</span><br><span class="line">        require(</span><br><span class="line">            msg.sender &#x3D;&#x3D; seller,</span><br><span class="line">            &quot;Only seller can call this.&quot;</span><br><span class="line">        );</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier inState(State _state) &#123;</span><br><span class="line">        require(</span><br><span class="line">            state &#x3D;&#x3D; _state,</span><br><span class="line">            &quot;Invalid state.&quot;</span><br><span class="line">        );</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    event Aborted();</span><br><span class="line">    event PurchaseConfirmed();</span><br><span class="line">    event ItemReceived();</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F;中止购买并回收以太币。</span><br><span class="line">    &#x2F;&#x2F;&#x2F;只能在合约被锁定之前由卖家调用。</span><br><span class="line">    function abort()</span><br><span class="line">        public</span><br><span class="line">        onlySeller</span><br><span class="line">        inState(State.Created)</span><br><span class="line">    &#123;</span><br><span class="line">        emit Aborted();</span><br><span class="line">        state &#x3D; State.Inactive;</span><br><span class="line">        seller.transfer(address(this).balance);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 买家确认购买。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 交易必须包含 &#96;2 * value&#96; 个以太币。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 以太币会被锁定，直到 confirmReceived 被调用。</span><br><span class="line">    function confirmPurchase()</span><br><span class="line">        public</span><br><span class="line">        inState(State.Created)</span><br><span class="line">        condition(msg.value &#x3D;&#x3D; (2 * value))</span><br><span class="line">        payable</span><br><span class="line">    &#123;</span><br><span class="line">        emit PurchaseConfirmed();</span><br><span class="line">        buyer &#x3D; msg.sender;</span><br><span class="line">        state &#x3D; State.Locked;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 确认你（买家）已经收到商品。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 这会释放被锁定的以太币。</span><br><span class="line">    function confirmReceived()</span><br><span class="line">        public</span><br><span class="line">        onlyBuyer</span><br><span class="line">        inState(State.Locked)</span><br><span class="line">    &#123;</span><br><span class="line">        emit ItemReceived();</span><br><span class="line">        &#x2F;&#x2F; 首先修改状态很重要，否则的话，由 &#96;transfer&#96; 所调用的合约可以回调进这里（再次接收以太币）。</span><br><span class="line">        state &#x3D; State.Inactive;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 注意: 这实际上允许买方和卖方阻止退款 - 应该使用取回模式。</span><br><span class="line">        buyer.transfer(value);</span><br><span class="line">        seller.transfer(address(this).balance);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -989,7 +1054,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1056,20 +1121,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
