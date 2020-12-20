@@ -186,6 +186,144 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/solidity-official-demo-secret-auction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hanwen.png">
+      <meta itemprop="name" content="David Stark">
+      <meta itemprop="description" content="瀚文的技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David Stark">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/solidity-official-demo-secret-auction/" class="post-title-link" itemprop="url">Solidity-Official-Demo-秘密竞拍（盲拍）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-14 10:56:40 / 修改时间：10:57:48" itemprop="dateCreated datePublished" datetime="2020-06-14T10:56:40+08:00">2020-06-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="秘密竞拍（盲拍）"><a href="#秘密竞拍（盲拍）" class="headerlink" title="秘密竞拍（盲拍）"></a>秘密竞拍（盲拍）</h3><p>之前的公开拍卖接下来将被扩展为一个秘密竞拍。 秘密竞拍的好处是在投标结束前不会有时间压力。 在一个透明的计算平台上进行秘密竞拍听起来像是自相矛盾，但密码学可以实现它。</p>
+<p>在 <strong>投标期间</strong> ，投标人实际上并没有发送她的出价，而只是发送一个哈希版本的出价。 由于目前几乎不可能找到两个（足够长的）值，其哈希值是相等的，因此投标人可通过该方式提交报价。 在投标结束后，投标人必须公开他们的出价：他们不加密的发送他们的出价，合约检查出价的哈希值是否与投标期间提供的相同。</p>
+<p>另一个挑战是如何使拍卖同时做到 <strong>绑定和秘密</strong> : 唯一能阻止投标者在她赢得拍卖后不付款的方式是，让她将钱连同出价一起发出。 但由于资金转移在 以太坊Ethereum 中不能被隐藏，因此任何人都可以看到转移的资金。</p>
+<p>下面的合约通过接受任何大于最高出价的值来解决这个问题。 当然，因为这只能在披露阶段进行检查，有些出价可能是 <strong>无效</strong> 的， 并且，这是故意的(与高出价一起，它甚至提供了一个明确的标志来标识无效的出价): 投标人可以通过设置几个或高或低的无效出价来迷惑竞争对手。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity &gt;0.4.23 &lt;0.5.0;</span><br><span class="line"></span><br><span class="line">contract BlindAuction &#123;</span><br><span class="line">    struct Bid &#123;</span><br><span class="line">        bytes32 blindedBid;</span><br><span class="line">        uint deposit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    address public beneficiary;</span><br><span class="line">    uint public biddingEnd;</span><br><span class="line">    uint public revealEnd;</span><br><span class="line">    bool public ended;</span><br><span class="line"></span><br><span class="line">    mapping(address &#x3D;&gt; Bid[]) public bids;</span><br><span class="line"></span><br><span class="line">    address public highestBidder;</span><br><span class="line">    uint public highestBid;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 可以取回的之前的出价</span><br><span class="line">    mapping(address &#x3D;&gt; uint) pendingReturns;</span><br><span class="line"></span><br><span class="line">    event AuctionEnded(address winner, uint highestBid);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 使用 modifier 可以更便捷的校验函数的入参。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; &#96;onlyBefore&#96; 会被用于后面的 &#96;bid&#96; 函数：</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 新的函数体是由 modifier 本身的函数体，并用原函数体替换 &#96;_;&#96; 语句来组成的。</span><br><span class="line">    modifier onlyBefore(uint _time) &#123; require(now &lt; _time); _; &#125;</span><br><span class="line">    modifier onlyAfter(uint _time) &#123; require(now &gt; _time); _; &#125;</span><br><span class="line"></span><br><span class="line">    constructor(</span><br><span class="line">        uint _biddingTime,</span><br><span class="line">        uint _revealTime,</span><br><span class="line">        address _beneficiary</span><br><span class="line">    ) public &#123;</span><br><span class="line">        beneficiary &#x3D; _beneficiary;</span><br><span class="line">        biddingEnd &#x3D; now + _biddingTime;</span><br><span class="line">        revealEnd &#x3D; biddingEnd + _revealTime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 可以通过 &#96;_blindedBid&#96; &#x3D; keccak256(value, fake, secret)</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 设置一个秘密竞拍。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 只有在出价披露阶段被正确披露，已发送的以太币才会被退还。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 如果与出价一起发送的以太币至少为 “value” 且 “fake” 不为真，则出价有效。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 将 “fake” 设置为 true ，然后发送满足订金金额但又不与出价相同的金额是隐藏实际出价的方法。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 同一个地址可以放置多个出价。</span><br><span class="line">    function bid(bytes32 _blindedBid)</span><br><span class="line">        public</span><br><span class="line">        payable</span><br><span class="line">        onlyBefore(biddingEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        bids[msg.sender].push(Bid(&#123;</span><br><span class="line">            blindedBid: _blindedBid,</span><br><span class="line">            deposit: msg.value</span><br><span class="line">        &#125;));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 披露你的秘密竞拍出价。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 对于所有正确披露的无效出价以及除最高出价以外的所有出价，你都将获得退款。</span><br><span class="line">    function reveal(</span><br><span class="line">        uint[] _values,</span><br><span class="line">        bool[] _fake,</span><br><span class="line">        bytes32[] _secret</span><br><span class="line">    )</span><br><span class="line">        public</span><br><span class="line">        onlyAfter(biddingEnd)</span><br><span class="line">        onlyBefore(revealEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        uint length &#x3D; bids[msg.sender].length;</span><br><span class="line">        require(_values.length &#x3D;&#x3D; length);</span><br><span class="line">        require(_fake.length &#x3D;&#x3D; length);</span><br><span class="line">        require(_secret.length &#x3D;&#x3D; length);</span><br><span class="line"></span><br><span class="line">        uint refund;</span><br><span class="line">        for (uint i &#x3D; 0; i &lt; length; i++) &#123;</span><br><span class="line">            Bid storage bid &#x3D; bids[msg.sender][i];</span><br><span class="line">            (uint value, bool fake, bytes32 secret) &#x3D;</span><br><span class="line">                    (_values[i], _fake[i], _secret[i]);</span><br><span class="line">            if (bid.blindedBid !&#x3D; keccak256(value, fake, secret)) &#123;</span><br><span class="line">                &#x2F;&#x2F; 出价未能正确披露</span><br><span class="line">                &#x2F;&#x2F; 不返还订金</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            refund +&#x3D; bid.deposit;</span><br><span class="line">            if (!fake &amp;&amp; bid.deposit &gt;&#x3D; value) &#123;</span><br><span class="line">                if (placeBid(msg.sender, value))</span><br><span class="line">                    refund -&#x3D; value;</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F; 使发送者不可能再次认领同一笔订金</span><br><span class="line">            bid.blindedBid &#x3D; bytes32(0);</span><br><span class="line">        &#125;</span><br><span class="line">        msg.sender.transfer(refund);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 这是一个 &quot;internal&quot; 函数， 意味着它只能在本合约（或继承合约）内被调用</span><br><span class="line">    function placeBid(address bidder, uint value) internal</span><br><span class="line">            returns (bool success)</span><br><span class="line">    &#123;</span><br><span class="line">        if (value &lt;&#x3D; highestBid) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        if (highestBidder !&#x3D; address(0)) &#123;</span><br><span class="line">            &#x2F;&#x2F; 返还之前的最高出价</span><br><span class="line">            pendingReturns[highestBidder] +&#x3D; highestBid;</span><br><span class="line">        &#125;</span><br><span class="line">        highestBid &#x3D; value;</span><br><span class="line">        highestBidder &#x3D; bidder;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 取回出价（当该出价已被超越）</span><br><span class="line">    function withdraw() public &#123;</span><br><span class="line">        uint amount &#x3D; pendingReturns[msg.sender];</span><br><span class="line">        if (amount &gt; 0) &#123;</span><br><span class="line">            &#x2F;&#x2F; 这里很重要，首先要设零值。</span><br><span class="line">            &#x2F;&#x2F; 因为，作为接收调用的一部分，</span><br><span class="line">            &#x2F;&#x2F; 接收者可以在 &#96;transfer&#96; 返回之前重新调用该函数。（可查看上面关于‘条件 -&gt; 影响 -&gt; 交互’的标注）</span><br><span class="line">            pendingReturns[msg.sender] &#x3D; 0;</span><br><span class="line"></span><br><span class="line">            msg.sender.transfer(amount);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 结束拍卖，并把最高的出价发送给受益人</span><br><span class="line">    function auctionEnd()</span><br><span class="line">        public</span><br><span class="line">        onlyAfter(revealEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        require(!ended);</span><br><span class="line">        emit AuctionEnded(highestBidder, highestBid);</span><br><span class="line">        ended &#x3D; true;</span><br><span class="line">        beneficiary.transfer(highestBid);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/solidity-official-demo-safely-remote-shopping/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hanwen.png">
+      <meta itemprop="name" content="David Stark">
+      <meta itemprop="description" content="瀚文的技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David Stark">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/solidity-official-demo-safely-remote-shopping/" class="post-title-link" itemprop="url">Solidity-Official-Demo-安全的远程购买</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-14 10:55:12 / 修改时间：10:56:20" itemprop="dateCreated datePublished" datetime="2020-06-14T10:55:12+08:00">2020-06-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.22;</span><br><span class="line"></span><br><span class="line">contract Purchase &#123;</span><br><span class="line">    uint public value;</span><br><span class="line">    address public seller;</span><br><span class="line">    address public buyer;</span><br><span class="line">    enum State &#123; Created, Locked, Inactive &#125;</span><br><span class="line">    State public state;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;确保 &#96;msg.value&#96; 是一个偶数。</span><br><span class="line">    &#x2F;&#x2F;如果它是一个奇数，则它将被截断。</span><br><span class="line">    &#x2F;&#x2F;通过乘法检查它不是奇数。</span><br><span class="line">    constructor() public payable &#123;</span><br><span class="line">        seller &#x3D; msg.sender;</span><br><span class="line">        value &#x3D; msg.value &#x2F; 2;</span><br><span class="line">        require((2 * value) &#x3D;&#x3D; msg.value, &quot;Value has to be even.&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier condition(bool _condition) &#123;</span><br><span class="line">        require(_condition);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier onlyBuyer() &#123;</span><br><span class="line">        require(</span><br><span class="line">            msg.sender &#x3D;&#x3D; buyer,</span><br><span class="line">            &quot;Only buyer can call this.&quot;</span><br><span class="line">        );</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier onlySeller() &#123;</span><br><span class="line">        require(</span><br><span class="line">            msg.sender &#x3D;&#x3D; seller,</span><br><span class="line">            &quot;Only seller can call this.&quot;</span><br><span class="line">        );</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier inState(State _state) &#123;</span><br><span class="line">        require(</span><br><span class="line">            state &#x3D;&#x3D; _state,</span><br><span class="line">            &quot;Invalid state.&quot;</span><br><span class="line">        );</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    event Aborted();</span><br><span class="line">    event PurchaseConfirmed();</span><br><span class="line">    event ItemReceived();</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F;中止购买并回收以太币。</span><br><span class="line">    &#x2F;&#x2F;&#x2F;只能在合约被锁定之前由卖家调用。</span><br><span class="line">    function abort()</span><br><span class="line">        public</span><br><span class="line">        onlySeller</span><br><span class="line">        inState(State.Created)</span><br><span class="line">    &#123;</span><br><span class="line">        emit Aborted();</span><br><span class="line">        state &#x3D; State.Inactive;</span><br><span class="line">        seller.transfer(address(this).balance);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 买家确认购买。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 交易必须包含 &#96;2 * value&#96; 个以太币。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 以太币会被锁定，直到 confirmReceived 被调用。</span><br><span class="line">    function confirmPurchase()</span><br><span class="line">        public</span><br><span class="line">        inState(State.Created)</span><br><span class="line">        condition(msg.value &#x3D;&#x3D; (2 * value))</span><br><span class="line">        payable</span><br><span class="line">    &#123;</span><br><span class="line">        emit PurchaseConfirmed();</span><br><span class="line">        buyer &#x3D; msg.sender;</span><br><span class="line">        state &#x3D; State.Locked;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 确认你（买家）已经收到商品。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 这会释放被锁定的以太币。</span><br><span class="line">    function confirmReceived()</span><br><span class="line">        public</span><br><span class="line">        onlyBuyer</span><br><span class="line">        inState(State.Locked)</span><br><span class="line">    &#123;</span><br><span class="line">        emit ItemReceived();</span><br><span class="line">        &#x2F;&#x2F; 首先修改状态很重要，否则的话，由 &#96;transfer&#96; 所调用的合约可以回调进这里（再次接收以太币）。</span><br><span class="line">        state &#x3D; State.Inactive;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 注意: 这实际上允许买方和卖方阻止退款 - 应该使用取回模式。</span><br><span class="line">        buyer.transfer(value);</span><br><span class="line">        seller.transfer(address(this).balance);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/solidity-official-demo-simple-auction/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -769,186 +907,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/solidity-course-6-front-end-and-web3-js/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hanwen.png">
-      <meta itemprop="name" content="David Stark">
-      <meta itemprop="description" content="瀚文的技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David Stark">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/solidity-course-6-front-end-and-web3-js/" class="post-title-link" itemprop="url">6- 前端和 Web3.js</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-12 18:31:07" itemprop="dateCreated datePublished" datetime="2020-06-12T18:31:07+08:00">2020-06-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-13 09:33:30" itemprop="dateModified" datetime="2020-06-13T09:33:30+08:00">2020-06-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>完成了 CryptoZombies 的第六课！</strong> <a href="https://share.cryptozombies.io/zh/lesson/6/share/The_Phantom_of_Web3" target="_blank" rel="noopener">我的僵尸大军</a></p>
-<p>以太坊基金发布的 JavaScript 库 —— <strong>Web3.js</strong>.</p>
-<p>以太坊节点只能识别一种叫做 <strong>JSON-RPC</strong> 的语言。这种语言直接读起来并不好懂。当你想调用一个合约的方法的时候，需要发送的查询语句将会是这样的：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 哈……祝你写所有这样的函数调用的时候都一次通过</span></span><br><span class="line"><span class="comment">// 往右边拉…… ==&gt;</span></span><br><span class="line">&#123;<span class="attr">"jsonrpc"</span>:<span class="string">"2.0"</span>,<span class="attr">"method"</span>:<span class="string">"eth_sendTransaction"</span>,<span class="attr">"params"</span>:[&#123;<span class="attr">"from"</span>:<span class="string">"0xb60e8dd61c5d32be8058bb8eb970870f07233155"</span>,<span class="attr">"to"</span>:<span class="string">"0xd46e8dd67c5d32be8058bb8eb970870f07244567"</span>,<span class="attr">"gas"</span>:<span class="string">"0x76c0"</span>,<span class="attr">"gasPrice"</span>:<span class="string">"0x9184e72a000"</span>,<span class="attr">"value"</span>:<span class="string">"0x9184e72a"</span>,<span class="attr">"data"</span>:<span class="string">"0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"</span>&#125;],<span class="attr">"id"</span>:<span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<p>幸运的是 Web3.js 把这些令人讨厌的查询语句都隐藏起来了， 所以你只需要与方便易懂的 JavaScript 界面进行交互即可。</p>
-<p>你不需要构建上面的查询语句，在你的代码中调用一个函数看起来将是这样：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CryptoZombies.methods.createRandomZombie(<span class="string">"Vitalik Nakamoto 🤔 "</span>)</span><br><span class="line">  .send(&#123; <span class="attr">from</span>: <span class="string">"0xb60e8dd61c5d32be8058bb8eb970870f07233155"</span>, <span class="attr">gas</span>: <span class="string">"3000000"</span> &#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="Call"><a href="#Call" class="headerlink" title="Call"></a>Call</h3><p><code>call</code> 用来调用 <code>view</code> 和 <code>pure</code> 函数。它只运行在本地节点，不会在区块链上创建事务。</p>
-<blockquote>
-<p><strong>复习 :</strong> <code>view</code> 和 <code>pure</code> 函数是只读的并不会改变区块链的状态。它们也不会消耗任何 gas。用户也不会被要求用 MetaMask 对事务签名。</p>
-</blockquote>
-<p>使用 Web3.js，可以如下 <code>call</code> 一个名为 <code>myMethod</code> 的方法并传入一个 <code>123</code> 作为参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myContract.methods.myMethod(123).call()</span><br></pre></td></tr></table></figure>
-
-<h3 id="Send"><a href="#Send" class="headerlink" title="Send"></a>Send</h3><p><code>send</code> 将创建一个事务并改变区块链上的数据。你需要用 <code>send</code> 来调用任何非 <code>view</code> 或者 <code>pure</code> 的函数。</p>
-<blockquote>
-<p><strong>注意 :</strong> <code>send</code> 一个事务将要求用户支付 gas，并会要求弹出对话框请求用户使用 Metamask 对事务签名。在我们使用 Metamask 作为我们的 web3 提供者的时候，所有这一切都会在我们调用 <code>send()</code> 的时候自动发生。而我们自己无需在代码中操心这一切，挺爽的吧。</p>
-</blockquote>
-<p>使用 Web3.js, 你可以像这样 <code>send</code> 一个事务调用 <code>myMethod</code> 并传入 <code>123</code> 作为参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myContract.methods.myMethod(123).send()</span><br></pre></td></tr></table></figure>
-
-<p>语法几乎 <code>call()</code> 一模一样。</p>
-
-      
-    </div>
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/solidity-course-5-erc721-and-secret-collections/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hanwen.png">
-      <meta itemprop="name" content="David Stark">
-      <meta itemprop="description" content="瀚文的技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David Stark">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/solidity-course-5-erc721-and-secret-collections/" class="post-title-link" itemprop="url">5-ERC721标准和加密收藏品</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-12 17:49:09" itemprop="dateCreated datePublished" datetime="2020-06-12T17:49:09+08:00">2020-06-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-13 09:33:38" itemprop="dateModified" datetime="2020-06-13T09:33:38+08:00">2020-06-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>第五章<a href="https://share.cryptozombies.io/zh/lesson/5/share/H4XF13LD_MORRIS_%F0%9F%92%AF%F0%9F%92%AF%F0%9F%98%8E%F0%9F%92%AF%F0%9F%92%AF" target="_blank" rel="noopener">完课啦</a>！</p>
-<h3 id="ERC721-标准"><a href="#ERC721-标准" class="headerlink" title="ERC721 标准"></a>ERC721 标准</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">contract ERC721 &#123;</span><br><span class="line">  event Transfer(address indexed _from, address indexed _to, uint256 _tokenId);</span><br><span class="line">  event Approval(address indexed _owner, address indexed _approved, uint256 _tokenId);</span><br><span class="line"></span><br><span class="line">  function balanceOf(address _owner) public view returns (uint256 _balance);</span><br><span class="line">  function ownerOf(uint256 _tokenId) public view returns (address _owner);</span><br><span class="line">  function transfer(address _to, uint256 _tokenId) public;</span><br><span class="line">  function approve(address _to, uint256 _tokenId) public;</span><br><span class="line">  function takeOwnership(uint256 _tokenId) public;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>操作就是用一个新合约，继承这个原来的合约，重新实现。</p>
-<h3 id="注释和-natspec"><a href="#注释和-natspec" class="headerlink" title="注释和 natspec"></a>注释和 natspec</h3><p>Solidity 社区所使用的一个标准是使用一种被称作 <strong><em>natspec\</em></strong> 的格式，看起来像这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;&#x2F; @title 一个简单的基础运算合约</span><br><span class="line">&#x2F;&#x2F;&#x2F; @author H4XF13LD MORRIS 💯💯😎💯💯</span><br><span class="line">&#x2F;&#x2F;&#x2F; @notice 现在，这个合约只添加一个乘法</span><br><span class="line">contract Math &#123;</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @notice 两个数相乘</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @param x 第一个 uint</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @param y  第二个 uint</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @return z  (x * y) 的结果</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @dev 现在这个方法不检查溢出</span><br><span class="line">  function multiply(uint x, uint y) returns (uint z) &#123;</span><br><span class="line">    &#x2F;&#x2F; 这只是个普通的注释，不会被 natspec 解释</span><br><span class="line">    z &#x3D; x * y;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>@title</code>（标题） 和 <code>@author</code> （作者）很直接了.</p>
-<p><code>@notice</code> （须知）向 <strong>用户</strong> 解释这个方法或者合约是做什么的。 <code>@dev</code> （开发者） 是向开发者解释更多的细节。</p>
-<p><code>@param</code> （参数）和 <code>@return</code> （返回） 用来描述这个方法需要传入什么参数以及返回什么值。</p>
-
-      
-    </div>
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1019,7 +977,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

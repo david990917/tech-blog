@@ -186,6 +186,186 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/solidity-course-6-front-end-and-web3-js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hanwen.png">
+      <meta itemprop="name" content="David Stark">
+      <meta itemprop="description" content="瀚文的技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David Stark">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/solidity-course-6-front-end-and-web3-js/" class="post-title-link" itemprop="url">6- 前端和 Web3.js</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-12 18:31:07" itemprop="dateCreated datePublished" datetime="2020-06-12T18:31:07+08:00">2020-06-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-13 09:33:30" itemprop="dateModified" datetime="2020-06-13T09:33:30+08:00">2020-06-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>完成了 CryptoZombies 的第六课！</strong> <a href="https://share.cryptozombies.io/zh/lesson/6/share/The_Phantom_of_Web3" target="_blank" rel="noopener">我的僵尸大军</a></p>
+<p>以太坊基金发布的 JavaScript 库 —— <strong>Web3.js</strong>.</p>
+<p>以太坊节点只能识别一种叫做 <strong>JSON-RPC</strong> 的语言。这种语言直接读起来并不好懂。当你想调用一个合约的方法的时候，需要发送的查询语句将会是这样的：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 哈……祝你写所有这样的函数调用的时候都一次通过</span></span><br><span class="line"><span class="comment">// 往右边拉…… ==&gt;</span></span><br><span class="line">&#123;<span class="attr">"jsonrpc"</span>:<span class="string">"2.0"</span>,<span class="attr">"method"</span>:<span class="string">"eth_sendTransaction"</span>,<span class="attr">"params"</span>:[&#123;<span class="attr">"from"</span>:<span class="string">"0xb60e8dd61c5d32be8058bb8eb970870f07233155"</span>,<span class="attr">"to"</span>:<span class="string">"0xd46e8dd67c5d32be8058bb8eb970870f07244567"</span>,<span class="attr">"gas"</span>:<span class="string">"0x76c0"</span>,<span class="attr">"gasPrice"</span>:<span class="string">"0x9184e72a000"</span>,<span class="attr">"value"</span>:<span class="string">"0x9184e72a"</span>,<span class="attr">"data"</span>:<span class="string">"0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"</span>&#125;],<span class="attr">"id"</span>:<span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>幸运的是 Web3.js 把这些令人讨厌的查询语句都隐藏起来了， 所以你只需要与方便易懂的 JavaScript 界面进行交互即可。</p>
+<p>你不需要构建上面的查询语句，在你的代码中调用一个函数看起来将是这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CryptoZombies.methods.createRandomZombie(<span class="string">"Vitalik Nakamoto 🤔 "</span>)</span><br><span class="line">  .send(&#123; <span class="attr">from</span>: <span class="string">"0xb60e8dd61c5d32be8058bb8eb970870f07233155"</span>, <span class="attr">gas</span>: <span class="string">"3000000"</span> &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Call"><a href="#Call" class="headerlink" title="Call"></a>Call</h3><p><code>call</code> 用来调用 <code>view</code> 和 <code>pure</code> 函数。它只运行在本地节点，不会在区块链上创建事务。</p>
+<blockquote>
+<p><strong>复习 :</strong> <code>view</code> 和 <code>pure</code> 函数是只读的并不会改变区块链的状态。它们也不会消耗任何 gas。用户也不会被要求用 MetaMask 对事务签名。</p>
+</blockquote>
+<p>使用 Web3.js，可以如下 <code>call</code> 一个名为 <code>myMethod</code> 的方法并传入一个 <code>123</code> 作为参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myContract.methods.myMethod(123).call()</span><br></pre></td></tr></table></figure>
+
+<h3 id="Send"><a href="#Send" class="headerlink" title="Send"></a>Send</h3><p><code>send</code> 将创建一个事务并改变区块链上的数据。你需要用 <code>send</code> 来调用任何非 <code>view</code> 或者 <code>pure</code> 的函数。</p>
+<blockquote>
+<p><strong>注意 :</strong> <code>send</code> 一个事务将要求用户支付 gas，并会要求弹出对话框请求用户使用 Metamask 对事务签名。在我们使用 Metamask 作为我们的 web3 提供者的时候，所有这一切都会在我们调用 <code>send()</code> 的时候自动发生。而我们自己无需在代码中操心这一切，挺爽的吧。</p>
+</blockquote>
+<p>使用 Web3.js, 你可以像这样 <code>send</code> 一个事务调用 <code>myMethod</code> 并传入 <code>123</code> 作为参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myContract.methods.myMethod(123).send()</span><br></pre></td></tr></table></figure>
+
+<p>语法几乎 <code>call()</code> 一模一样。</p>
+
+      
+    </div>
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/solidity-course-5-erc721-and-secret-collections/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hanwen.png">
+      <meta itemprop="name" content="David Stark">
+      <meta itemprop="description" content="瀚文的技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David Stark">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/solidity-course-5-erc721-and-secret-collections/" class="post-title-link" itemprop="url">5-ERC721标准和加密收藏品</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-12 17:49:09" itemprop="dateCreated datePublished" datetime="2020-06-12T17:49:09+08:00">2020-06-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-13 09:33:38" itemprop="dateModified" datetime="2020-06-13T09:33:38+08:00">2020-06-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>第五章<a href="https://share.cryptozombies.io/zh/lesson/5/share/H4XF13LD_MORRIS_%F0%9F%92%AF%F0%9F%92%AF%F0%9F%98%8E%F0%9F%92%AF%F0%9F%92%AF" target="_blank" rel="noopener">完课啦</a>！</p>
+<h3 id="ERC721-标准"><a href="#ERC721-标准" class="headerlink" title="ERC721 标准"></a>ERC721 标准</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">contract ERC721 &#123;</span><br><span class="line">  event Transfer(address indexed _from, address indexed _to, uint256 _tokenId);</span><br><span class="line">  event Approval(address indexed _owner, address indexed _approved, uint256 _tokenId);</span><br><span class="line"></span><br><span class="line">  function balanceOf(address _owner) public view returns (uint256 _balance);</span><br><span class="line">  function ownerOf(uint256 _tokenId) public view returns (address _owner);</span><br><span class="line">  function transfer(address _to, uint256 _tokenId) public;</span><br><span class="line">  function approve(address _to, uint256 _tokenId) public;</span><br><span class="line">  function takeOwnership(uint256 _tokenId) public;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>操作就是用一个新合约，继承这个原来的合约，重新实现。</p>
+<h3 id="注释和-natspec"><a href="#注释和-natspec" class="headerlink" title="注释和 natspec"></a>注释和 natspec</h3><p>Solidity 社区所使用的一个标准是使用一种被称作 <strong><em>natspec\</em></strong> 的格式，看起来像这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;&#x2F; @title 一个简单的基础运算合约</span><br><span class="line">&#x2F;&#x2F;&#x2F; @author H4XF13LD MORRIS 💯💯😎💯💯</span><br><span class="line">&#x2F;&#x2F;&#x2F; @notice 现在，这个合约只添加一个乘法</span><br><span class="line">contract Math &#123;</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @notice 两个数相乘</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @param x 第一个 uint</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @param y  第二个 uint</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @return z  (x * y) 的结果</span><br><span class="line">  &#x2F;&#x2F;&#x2F; @dev 现在这个方法不检查溢出</span><br><span class="line">  function multiply(uint x, uint y) returns (uint z) &#123;</span><br><span class="line">    &#x2F;&#x2F; 这只是个普通的注释，不会被 natspec 解释</span><br><span class="line">    z &#x3D; x * y;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>@title</code>（标题） 和 <code>@author</code> （作者）很直接了.</p>
+<p><code>@notice</code> （须知）向 <strong>用户</strong> 解释这个方法或者合约是做什么的。 <code>@dev</code> （开发者） 是向开发者解释更多的细节。</p>
+<p><code>@param</code> （参数）和 <code>@return</code> （返回） 用来描述这个方法需要传入什么参数以及返回什么值。</p>
+
+      
+    </div>
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/generate-random-number-on-ethereum-safely/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -865,147 +1045,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/python-pdf-processing-by-pypdf2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hanwen.png">
-      <meta itemprop="name" content="David Stark">
-      <meta itemprop="description" content="瀚文的技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David Stark">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/python-pdf-processing-by-pypdf2/" class="post-title-link" itemprop="url">pyPDF2识别PDF中的图表、公式的数量</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-11 23:10:58 / 修改时间：23:41:43" itemprop="dateCreated datePublished" datetime="2020-06-11T23:10:58+08:00">2020-06-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>使用 PyPDF2 读取 PDF，通过正则表达式转换 PDF 中的图片为文字</p>
-<p>PyPDF2 是一个Python 库，用于提取文档信息和内容，逐页拆分文档，合并文档，裁剪页面和添加水印。 PyPDF2 支持未加密和加密的文档。</p>
-<p>代码如下</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/python-pdf-processing-by-pypdf2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/re-expression/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hanwen.png">
-      <meta itemprop="name" content="David Stark">
-      <meta itemprop="description" content="瀚文的技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David Stark">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/re-expression/" class="post-title-link" itemprop="url">正则表达式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-11 22:59:53" itemprop="dateCreated datePublished" datetime="2020-06-11T22:59:53+08:00">2020-06-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-12 00:12:37" itemprop="dateModified" datetime="2020-06-12T00:12:37+08:00">2020-06-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>总遇见正则的常用场景，这次就来记录一下。</p>
-<p><a href="https://tool.oschina.net/uploads/apidocs/jquery/regexp.html" target="_blank" rel="noopener">网上的正则表达式手册</a></p>
-<p><a href="https://c.runoob.com/front-end/854" target="_blank" rel="noopener">菜鸟在线正则表达式测试</a></p>
-<p>这次使用的是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pattern = re.compile(<span class="string">r'(Figure|Table|Fig\.)\s*(\d+)(:)'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>然后在文本中搜索</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res = pattern.findall(text)</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1076,7 +1115,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

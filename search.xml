@@ -1131,4 +1131,73 @@
         <tag>Solidity Game</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Powerful Backend 组件理解</title>
+    <url>/powerful-backend-components/</url>
+    <content><![CDATA[<p>理解 Nginx, Redis, RabbitMQ, MySQL 各部分组件 </p>
+<a id="more"></a>
+
+<p>Flask </p>
+<p>缓存层 Redis</p>
+<p>消息队列 RabbitMQ 异步执行</p>
+<p>Data Fetcher 从数据库取数据</p>
+<p>Locust Python负载均衡 10x</p>
+<hr>
+<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p>Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。</p>
+<p>Redis 与其他 key - value 缓存产品有以下三个特点：</p>
+<ol>
+<li>Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</li>
+<li>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</li>
+<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
+</ol>
+<h3 id="Redis-优势"><a href="#Redis-优势" class="headerlink" title="Redis 优势"></a>Redis 优势</h3><ol>
+<li>性能极高 – Redis能读的速度是110000次/s,写的速度是81000次/s 。</li>
+<li>丰富的数据类型 – Redis支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作。</li>
+<li>原子 – Redis的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行。单个操作是原子性的。多个操作也支持事务，即原子性，通过MULTI和EXEC指令包起来。</li>
+<li>丰富的特性 – Redis还支持 publish/subscribe, 通知, key 过期等等特性。</li>
+</ol>
+<p>【总之就是一个高性能的存储】</p>
+<h1 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h1><p>RabbitMQ 是一个由 Erlang 语言开发的 AMQP 的开源实现。</p>
+<p>AMQP ：Advanced Message Queue，高级消息队列协议。它是应用层协议的一个开放标准，为面向消息的中间件设计，基于此协议的客户端与消息中间件可传递消息，并不受产品、开发语言等条件的限制。</p>
+<p>RabbitMQ 最初起源于金融系统，用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。具体特点包括：</p>
+<ol>
+<li>可靠性（Reliability） RabbitMQ 使用一些机制来保证可靠性，如持久化、传输确认、发布确认。</li>
+<li>消息集群（Clustering） 多个 RabbitMQ 服务器可以组成一个集群，形成一个逻辑 Broker 。</li>
+<li>高可用（Highly Available Queues） 队列可以在集群中的机器上进行镜像，使得在部分节点出问题的情况下队列仍然可用。</li>
+<li>多种协议（Multi-protocol） RabbitMQ 支持多种消息队列协议，比如 STOMP、MQTT 等等。</li>
+<li>多语言客户端（Many Clients） RabbitMQ 几乎支持所有常用语言，比如 Java、.NET、Ruby 等等。</li>
+<li>管理界面（Management UI） RabbitMQ 提供了一个易用的用户界面，使得用户可以监控和管理消息 Broker 的许多方面。</li>
+<li>跟踪机制（Tracing） 如果消息异常，RabbitMQ 提供了消息跟踪机制，使用者可以找出发生了什么。</li>
+<li>插件机制（Plugin System） RabbitMQ 提供了许多插件，来从多方面进行扩展，也可以编写自己的插件。</li>
+</ol>
+<p>【就是一个消息队列】</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Serverless</title>
+    <url>/serverless-introduction/</url>
+    <content><![CDATA[<h1 id="Serverless"><a href="#Serverless" class="headerlink" title="Serverless"></a>Serverless</h1><p>相对于微服务是更加细粒度的服务架构模式，目前抽象级别更高的。</p>
+<p>函数暴露的形式进行发布，所以又称为 FaaS。提供了代码可以运行的平台。</p>
+<p>不需要关心计算资源，相较于 PaaS，计算能力是无限的。</p>
+<p><img data-src="/serverless-introduction/1450963-20190708100448985-80323474.webp" alt="img"></p>
+<blockquote>
+<p><em>如果你的PaaS能够有效地在20毫秒内启动实例并运行半秒,那么就可以称之为Serverless”。</em></p>
+<p><em>–摘抄自《从 IaaS 到 FaaS—— Serverless架构的前世今生》</em></p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="最强大的功能是-事件驱动"><a href="#最强大的功能是-事件驱动" class="headerlink" title="最强大的功能是  - 事件驱动"></a>最强大的功能是  - <strong>事件驱动</strong></h3><p>Serverless 本质是事件驱动的。</p>
+<ul>
+<li>上传图片时触发Lambda函数生成缩略图，用于做网站图片缓存。</li>
+<li>上传视频时触发Lambda函数生成视频摘要信息，截取关键帧。</li>
+</ul>
+<h3 id="记录变化途径"><a href="#记录变化途径" class="headerlink" title="记录变化途径"></a>记录变化途径</h3><p>云计算经历了从IDC -&gt; IaaS -&gt; PaaS -&gt; Serverless/FaaS 的发展历程</p>
+<p><img data-src="/serverless-introduction/1450963-20190708100500351-507271724.webp" alt="img"></p>
+<p>IaaS(Infrastructure as a Service) 基础设施即服务，_服务商提供底层/物理层基础设施资源（服务器，数据中心，环境控制，电源，服务器机房），用户需要通过IaaS提供的服务平台购买虚拟资源，选择操作系统，安装软件，部署程序，监控应用。</p>
+<p><img data-src="/serverless-introduction/1450963-20190708100507728-684923140.webp" alt="img"></p>
+<p>PaaS(Platform as a Service) 平台即服务，服务商提供基础设施底层服务，提供操作系统（Windows，Linux）、数据库服务器、Web服务器、负载均衡器和其他中间件，相对于IaaS客户仅仅需要自己控制上层的应用程序部署与应用托管的环境。</p>
+<p><img data-src="/serverless-introduction/1450963-20190708100513269-1002353393.webp" alt="img"></p>
+<p>SaaS(Software as a Service) 软件即服务， 服务商提供基于软件的解决方案，如OA、CRM、MIS、ERP、HRM、CM、Office 365、iCloud等，客户不需考虑任何形式的专业技术知识，只需要通过服务商平台获取软件使用即可。</p>
+]]></content>
+  </entry>
 </search>

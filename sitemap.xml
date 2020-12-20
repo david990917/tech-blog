@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tech.starky99.com/serverless-introduction/</loc>
+    
+    <lastmod>2020-12-20T03:11:07.012Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tech.starky99.com/powerful-backend-components/</loc>
+    
+    <lastmod>2020-10-24T13:57:28.428Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tech.starky99.com/clear-github-repo/</loc>
     
     <lastmod>2020-10-24T02:28:35.855Z</lastmod>
