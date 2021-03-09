@@ -21,28 +21,20 @@
     var CONFIG = {"hostname":"tech.starky99.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="容错模式我们已经学习了以下几种容错模式（fault-tolerance pattern）：  计算冗余：MapReduce，但是所有计算由单点 Master 进行调度。 数据冗余：GFS，也是依赖单点 Master 来对多个副本进行选主。 服务冗余：VMware-FT 依赖单个 TestAndSet 操作  Split Brain共识算法中最大的问题在于——如何避免 Split Brain。 Sp">
+  <meta name="description" content="2018 IEEE 11th International Conference on Cloud Computing 侧重于在 Serverless Platform 上进行神经网络推理 的 评估。 评估着眼于 冷&#x2F;温启动时间、和内存大小相关的性能、cost等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Raft">
-<meta property="og:url" content="https://tech.starky99.com/MIT-6.824-Raft/index.html">
+<meta property="og:title" content="Serving Deep Learning Models in a Serverless Platform 学习笔记">
+<meta property="og:url" content="https://tech.starky99.com/serving-deep-learning-models-in-a-Serverless-platform/index.html">
 <meta property="og:site_name" content="David Stark">
-<meta property="og:description" content="容错模式我们已经学习了以下几种容错模式（fault-tolerance pattern）：  计算冗余：MapReduce，但是所有计算由单点 Master 进行调度。 数据冗余：GFS，也是依赖单点 Master 来对多个副本进行选主。 服务冗余：VMware-FT 依赖单个 TestAndSet 操作  Split Brain共识算法中最大的问题在于——如何避免 Split Brain。 Sp">
+<meta property="og:description" content="2018 IEEE 11th International Conference on Cloud Computing 侧重于在 Serverless Platform 上进行神经网络推理 的 评估。 评估着眼于 冷&#x2F;温启动时间、和内存大小相关的性能、cost等。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-5d68e05ac6ec8837cb6871c6cbdc862a_1440w.jpg">
-<meta property="og:image" content="https://tech.starky99.com/MIT-6.824-Raft/v2-cbff2b86199392f38184a85bab3f7b56_1440w.jpg">
-<meta property="og:image" content="https://tech.starky99.com/MIT-6.824-Raft/v2-40d42747bec5c00503e4bd47566beb65_1440w.jpg">
-<meta property="og:image" content="https://tech.starky99.com/MIT-6.824-Raft/v2-7f64a2df8f8817932ed047d35878bca9_1440w.jpg">
-<meta property="og:image" content="https://tech.starky99.com/MIT-6.824-Raft/v2-d3cc1cb525ac72dc59ed34148cb3199c_1440w.jpg">
-<meta property="og:image" content="https://tech.starky99.com/MIT-6.824-Raft/v2-0471619d1b78ba6d57326d97825d9495_r.jpg">
-<meta property="og:image" content="https://tech.starky99.com/MIT-6.824-Raft/v2-ee29a89e4eb63468e142bb6103dbe4de_1440w.jpg">
-<meta property="article:published_time" content="2020-08-03T12:44:38.000Z">
-<meta property="article:modified_time" content="2020-08-03T13:33:03.829Z">
+<meta property="article:published_time" content="2020-12-20T04:02:18.000Z">
+<meta property="article:modified_time" content="2020-12-20T07:46:54.309Z">
 <meta property="article:author" content="David Stark">
-<meta property="article:tag" content="David Stark 瀚文 技术博客">
+<meta property="article:tag" content="Paper">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-5d68e05ac6ec8837cb6871c6cbdc862a_1440w.jpg">
 
-<link rel="canonical" href="https://tech.starky99.com/MIT-6.824-Raft/">
+<link rel="canonical" href="https://tech.starky99.com/serving-deep-learning-models-in-a-Serverless-platform/">
 
 
 <script id="page-configurations">
@@ -55,7 +47,7 @@
   };
 </script>
 
-  <title>Raft | David Stark</title>
+  <title>Serving Deep Learning Models in a Serverless Platform 学习笔记 | David Stark</title>
   
 
 
@@ -197,7 +189,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/MIT-6.824-Raft/">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/serving-deep-learning-models-in-a-Serverless-platform/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hanwen.png">
@@ -210,7 +202,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Raft
+          Serving Deep Learning Models in a Serverless Platform 学习笔记
         </h1>
 
         <div class="post-meta">
@@ -221,16 +213,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-03 20:44:38 / 修改时间：21:33:03" itemprop="dateCreated datePublished" datetime="2020-08-03T20:44:38+08:00">2020-08-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MIT-6-824/" itemprop="url" rel="index"><span itemprop="name">MIT-6.824</span></a>
-                </span>
+              <time title="创建时间：2020-12-20 12:02:18 / 修改时间：15:46:54" itemprop="dateCreated datePublished" datetime="2020-12-20T12:02:18+08:00">2020-12-20</time>
             </span>
 
           
@@ -251,64 +234,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="容错模式"><a href="#容错模式" class="headerlink" title="容错模式"></a>容错模式</h3><p>我们已经学习了以下几种容错模式（fault-tolerance pattern）：</p>
-<ul>
-<li>计算冗余：MapReduce，但是所有计算由单点 Master 进行调度。</li>
-<li>数据冗余：GFS，也是依赖单点 Master 来对多个副本进行选主。</li>
-<li>服务冗余：VMware-FT 依赖单个 TestAndSet 操作</li>
-</ul>
-<h3 id="Split-Brain"><a href="#Split-Brain" class="headerlink" title="Split Brain"></a>Split Brain</h3><p>共识算法中最大的问题在于——如何避免 <strong>Split Brain</strong>。</p>
-<p>Split Brain 是如何产生的，其危害性为什么很大？</p>
-<p>假设我们要对 test-and-set 服务进行备份。test-and-set，简而言之，就是一个锁服务。当多个 Client 同时请求服务时，只有其中一个能通过 Test（测试是否为0），获取锁，并设置 Server 状态为 1，则其他 Client 测试不能通过，从而不能获取锁。</p>
-<p>考虑有以下四个系统角色：[C1, C2, S1, S2]，S1 和 S2 组成一个双备份的、可容错的系统，C1 和 C2 是使用此系统的客户端。假设 C1 可以和 S1 通信，但是与 S2 失联。那在只有 S1 的情况下，系统能够给 C1 正常提供服务么？</p>
-<ol>
-<li>如果 S2 真的宕机了，系统应当在 S2 缺席的情况下正常工作，否则系统就不能称之为是容错的（fault-tolerance）。</li>
-<li>如果 S2 没有宕机，但是和 C1 失联了。则系统不能够给 C1 提供服务，因为 S2 可能正在给 C2 提供服务，如果让 S1 同时给 C1 服务，则会造成系统状态不一致，从而使服务出错：C1 和 C2 同时获取到锁。</li>
+        <p>2018 IEEE 11th International Conference on Cloud Computing</p>
+<p>侧重于在 Serverless Platform 上进行神经网络推理 的 评估。</p>
+<p>评估着眼于 冷/温启动时间、和内存大小相关的性能、cost等。</p>
+<a id="more"></a>
+
+<h3 id="文章结论部分"><a href="#文章结论部分" class="headerlink" title="文章结论部分"></a>文章结论部分</h3><blockquote>
+<p>Our results indicate that warm serverless function executions are within an acceptable latency range, while cold starts add significant overhead.</p>
+</blockquote>
+<h3 id="阅读的时候同步的笔记："><a href="#阅读的时候同步的笔记：" class="headerlink" title="阅读的时候同步的笔记："></a>阅读的时候同步的笔记：</h3><ol>
+<li>related work 不错</li>
+<li>启动时间 - cold / warm</li>
 </ol>
-<p><img data-src="https://pic4.zhimg.com/80/v2-5d68e05ac6ec8837cb6871c6cbdc862a_1440w.jpg" alt="img"></p>
-<p>在此种情况下，我们面临一种选择的困境：</p>
-<ol>
-<li>要么不提供容错保证，尽管我们使用了双备份服务器。</li>
-<li>要么仍然回复客户端请求，但由于 Split Brain 可能会发生，不保证一致性。</li>
-</ol>
-<p>问题在于，服务器 S1 无法区分 S2 是失联了（”server crashed”）还是网络故障了（network broken）。因为在这两种情况下，S1 看到的现象是一样的：向 S2 的请求得不到回复。S1 能够和 C1 通信，S2 能够和 C2 通信；但是 S1+C1 收不到 S2+C2 的回复，我们称这种情况为出现了<strong>网络分区</strong>（network partitionn）。</p>
-<p>网络分区可能会持续很久，可能需要引入一个外力（比如说运维人员），来判断何时网络可信、何时服务器可信，才能打破僵局。那我们如何可以将容错做到自动化？答曰：<strong>多数票原则</strong>（majority vote）。</p>
-<h3 id="多数票原则"><a href="#多数票原则" class="headerlink" title="多数票原则"></a>多数票原则</h3><p>多数票原则，要求系统集群包含奇数个服务器，以此来避免出现<strong>同票困境</strong>（symmetry）。如上面只有两个服务的情况，两方各执一词，就很难决定以谁为准。</p>
-<p>在有奇数个服务器的系统中，我们只要获取多数票就可以保持系统正常运转，而不会陷入同票僵局（如 Raft 中的主选举、提交日志条目等）。多数票原则能够打破僵局，其原理也很简单：<em>不可能出现一个以上同时包含多数服务器的分区</em>。<strong>需要注意的是，这里的多数指的是构成系统所有的服务器的多数，而非存活服务器的多数。</strong></p>
-<p>如果集群由 2f + 1 个服务器构成，最多能够承受 f 个服务器宕机，而仍能对外提供服务。</p>
-<h3 id="Raft-概览"><a href="#Raft-概览" class="headerlink" title="Raft 概览"></a>Raft 概览</h3><p>Raft 一般表现为库的形式，运行在在每个副本（replica）服务器上，对<strong>多副本状态机</strong> （replicated state machine） 进行管理，主要负责对操作日志的同步。基于此，我们可以进一步构建可靠的 KV 存储层，主要负责状态的存储。</p>
-<p><img data-src="/MIT-6.824-Raft/v2-cbff2b86199392f38184a85bab3f7b56_1440w.jpg" alt="img"></p>
-<hr>
-<h2 id="一、Raft算法概述"><a href="#一、Raft算法概述" class="headerlink" title="一、Raft算法概述"></a>一、Raft算法概述</h2><p>不同于Paxos算法直接从分布式一致性问题出发推导出来，Raft算法则是从多副本状态机的角度提出，用于管理多副本状态机的日志复制。Raft实现了和Paxos相同的功能，它将一致性分解为多个子问题：Leader选举（Leader election）、日志同步（Log replication）、安全性（Safety）、日志压缩（Log compaction）、成员变更（Membership change）等。同时，Raft算法使用了更强的假设来减少了需要考虑的状态，使之变的易于理解和实现。</p>
-<p>Raft将系统中的角色分为领导者（Leader）、跟从者（Follower）和候选人（Candidate）：</p>
-<ul>
-<li><strong>Leader</strong>：接受客户端请求，并向Follower同步请求日志，当日志同步到大多数节点上后告诉Follower提交日志。</li>
-<li><strong>Follower</strong>：接受并持久化Leader同步的日志，在Leader告之日志可以提交之后，提交日志。</li>
-<li><strong>Candidate</strong>：Leader选举过程中的临时角色。</li>
-</ul>
-<p><img data-src="/MIT-6.824-Raft/v2-40d42747bec5c00503e4bd47566beb65_1440w.jpg" alt="Raft算法角色"></p>
-<p>Raft要求系统在任意时刻最多只有一个Leader，正常工作期间只有Leader和Followers。</p>
-<p>Raft算法角色状态转换如下：</p>
-<p><img data-src="/MIT-6.824-Raft/v2-7f64a2df8f8817932ed047d35878bca9_1440w.jpg" alt="img"></p>
-<p>Follower只响应其他服务器的请求。如果Follower超时没有收到Leader的消息，它会成为一个Candidate并且开始一次Leader选举。收到大多数服务器投票的Candidate会成为新的Leader。Leader在宕机之前会一直保持Leader的状态。</p>
-<p><img data-src="/MIT-6.824-Raft/v2-d3cc1cb525ac72dc59ed34148cb3199c_1440w.jpg" alt="img"></p>
-<p>Raft算法将时间分为一个个的任期（term），每一个term的开始都是Leader选举。在成功选举Leader之后，Leader会在整个term内管理整个集群。如果Leader选举失败，该term就会因为没有Leader而结束。</p>
-<h2 id="二、Leader选举"><a href="#二、Leader选举" class="headerlink" title="二、Leader选举"></a>二、Leader选举</h2><p>Raft 使用心跳（heartbeat）触发Leader选举。当服务器启动时，初始化为Follower。Leader向所有Followers周期性发送heartbeat。如果Follower在选举超时时间内没有收到Leader的heartbeat，就会等待一段随机的时间后发起一次Leader选举。</p>
-<p>Follower将其当前term加一然后转换为Candidate。它首先给自己投票并且给集群中的其他服务器发送 RequestVote RPC。结果有以下三种情况：</p>
-<ul>
-<li>赢得了多数的选票，成功选举为Leader；</li>
-<li>收到了Leader的消息，表示有其它服务器已经抢先当选了Leader；</li>
-<li>没有服务器赢得多数的选票，Leader选举失败，等待选举时间超时后发起下一次选举。</li>
-</ul>
-<p><img data-src="/MIT-6.824-Raft/v2-0471619d1b78ba6d57326d97825d9495_r.jpg" alt="preview"></p>
-<p>选举出Leader后，Leader通过定期向所有Followers发送心跳信息维持其统治。若Follower一段时间未收到Leader的心跳则认为Leader可能已经挂了，再次发起Leader选举过程。</p>
-<p>Raft保证选举出的Leader上一定具有最新的已提交的日志，这一点将在 <strong>四、安全性</strong> 中说明。</p>
-<p>某些Followers可能没有成功的复制日志，Leader会无限的重试 AppendEntries RPC直到所有的Followers最终存储了所有的日志条目。</p>
-<p>日志由有序编号（log index）的日志条目组成。每个日志条目包含它被创建时的任期号（term），和用于状态机执行的命令。如果一个日志条目被复制到大多数服务器上，就被认为可以提交（commit）了。</p>
-<p><img data-src="/MIT-6.824-Raft/v2-ee29a89e4eb63468e142bb6103dbe4de_1440w.jpg" alt="img"></p>
-<hr>
-<p>参考文献：</p>
-<p>Raft算法详解 - 祥光的文章 - 知乎 <a href="https://zhuanlan.zhihu.com/p/32052223" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32052223</a></p>
 
     </div>
     
@@ -316,9 +253,18 @@
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\exploring-serverless-computing-for-neural-network-training\" rel="bookmark">Exploring Serverless Computing for Neural Network Training 学习笔记</a></div>
+    </li>
+  </ul>
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Paper/" rel="tag"># Paper</a>
+          </div>
 
         
 
@@ -326,12 +272,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/MIT-6.824-PrimaryBackup-Replication/" rel="prev" title="PrimaryBackup Replication">
-      <i class="fa fa-chevron-left"></i> PrimaryBackup Replication
+    <a href="/serverless-introduction/" rel="prev" title="Serverless">
+      <i class="fa fa-chevron-left"></i> Serverless
     </a></div>
       <div class="post-nav-item">
-    <a href="/MIT-6.824-Spanner/" rel="next" title="Spanner">
-      Spanner <i class="fa fa-chevron-right"></i>
+    <a href="/exploring-serverless-computing-for-neural-network-training/" rel="next" title="Exploring Serverless Computing for Neural Network Training 学习笔记">
+      Exploring Serverless Computing for Neural Network Training 学习笔记 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -391,7 +337,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#容错模式"><span class="nav-number">1.</span> <span class="nav-text">容错模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Split-Brain"><span class="nav-number">2.</span> <span class="nav-text">Split Brain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多数票原则"><span class="nav-number">3.</span> <span class="nav-text">多数票原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Raft-概览"><span class="nav-number">4.</span> <span class="nav-text">Raft 概览</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Raft算法概述"><span class="nav-number"></span> <span class="nav-text">一、Raft算法概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Leader选举"><span class="nav-number"></span> <span class="nav-text">二、Leader选举</span></a></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章结论部分"><span class="nav-number">1.</span> <span class="nav-text">文章结论部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读的时候同步的笔记："><span class="nav-number">2.</span> <span class="nav-text">阅读的时候同步的笔记：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

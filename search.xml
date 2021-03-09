@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Serverless</title>
+    <url>/serverless-introduction/</url>
+    <content><![CDATA[<h1 id="Serverless"><a href="#Serverless" class="headerlink" title="Serverless"></a>Serverless</h1><p>相对于微服务是更加细粒度的服务架构模式，目前抽象级别更高的。</p>
+<p>函数暴露的形式进行发布，所以又称为 FaaS。提供了代码可以运行的平台。</p>
+<p>不需要关心计算资源，相较于 PaaS，计算能力是无限的。</p>
+<p><img data-src="/serverless-introduction/1450963-20190708100448985-80323474.webp" alt="img"></p>
+<blockquote>
+<p><em>如果你的PaaS能够有效地在20毫秒内启动实例并运行半秒,那么就可以称之为Serverless”。</em></p>
+<p><em>–摘抄自《从 IaaS 到 FaaS—— Serverless架构的前世今生》</em></p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="最强大的功能是-事件驱动"><a href="#最强大的功能是-事件驱动" class="headerlink" title="最强大的功能是  - 事件驱动"></a>最强大的功能是  - <strong>事件驱动</strong></h3><p>Serverless 本质是事件驱动的。</p>
+<ul>
+<li>上传图片时触发Lambda函数生成缩略图，用于做网站图片缓存。</li>
+<li>上传视频时触发Lambda函数生成视频摘要信息，截取关键帧。</li>
+</ul>
+<h3 id="记录变化途径"><a href="#记录变化途径" class="headerlink" title="记录变化途径"></a>记录变化途径</h3><p>云计算经历了从IDC -&gt; IaaS -&gt; PaaS -&gt; Serverless/FaaS 的发展历程</p>
+<p><img data-src="/serverless-introduction/1450963-20190708100500351-507271724.webp" alt="img"></p>
+<p>IaaS(Infrastructure as a Service) 基础设施即服务，_服务商提供底层/物理层基础设施资源（服务器，数据中心，环境控制，电源，服务器机房），用户需要通过IaaS提供的服务平台购买虚拟资源，选择操作系统，安装软件，部署程序，监控应用。</p>
+<p><img data-src="/serverless-introduction/1450963-20190708100507728-684923140.webp" alt="img"></p>
+<p>PaaS(Platform as a Service) 平台即服务，服务商提供基础设施底层服务，提供操作系统（Windows，Linux）、数据库服务器、Web服务器、负载均衡器和其他中间件，相对于IaaS客户仅仅需要自己控制上层的应用程序部署与应用托管的环境。</p>
+<p><img data-src="/serverless-introduction/1450963-20190708100513269-1002353393.webp" alt="img"></p>
+<p>SaaS(Software as a Service) 软件即服务， 服务商提供基于软件的解决方案，如OA、CRM、MIS、ERP、HRM、CM、Office 365、iCloud等，客户不需考虑任何形式的专业技术知识，只需要通过服务商平台获取软件使用即可。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Powerful Backend 组件理解</title>
+    <url>/powerful-backend-components/</url>
+    <content><![CDATA[<p>理解 Nginx, Redis, RabbitMQ, MySQL 各部分组件 </p>
+<a id="more"></a>
+
+<p>Flask </p>
+<p>缓存层 Redis</p>
+<p>消息队列 RabbitMQ 异步执行</p>
+<p>Data Fetcher 从数据库取数据</p>
+<p>Locust Python负载均衡 10x</p>
+<hr>
+<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p>Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。</p>
+<p>Redis 与其他 key - value 缓存产品有以下三个特点：</p>
+<ol>
+<li>Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</li>
+<li>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</li>
+<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
+</ol>
+<h3 id="Redis-优势"><a href="#Redis-优势" class="headerlink" title="Redis 优势"></a>Redis 优势</h3><ol>
+<li>性能极高 – Redis能读的速度是110000次/s,写的速度是81000次/s 。</li>
+<li>丰富的数据类型 – Redis支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作。</li>
+<li>原子 – Redis的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行。单个操作是原子性的。多个操作也支持事务，即原子性，通过MULTI和EXEC指令包起来。</li>
+<li>丰富的特性 – Redis还支持 publish/subscribe, 通知, key 过期等等特性。</li>
+</ol>
+<p>【总之就是一个高性能的存储】</p>
+<h1 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h1><p>RabbitMQ 是一个由 Erlang 语言开发的 AMQP 的开源实现。</p>
+<p>AMQP ：Advanced Message Queue，高级消息队列协议。它是应用层协议的一个开放标准，为面向消息的中间件设计，基于此协议的客户端与消息中间件可传递消息，并不受产品、开发语言等条件的限制。</p>
+<p>RabbitMQ 最初起源于金融系统，用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。具体特点包括：</p>
+<ol>
+<li>可靠性（Reliability） RabbitMQ 使用一些机制来保证可靠性，如持久化、传输确认、发布确认。</li>
+<li>消息集群（Clustering） 多个 RabbitMQ 服务器可以组成一个集群，形成一个逻辑 Broker 。</li>
+<li>高可用（Highly Available Queues） 队列可以在集群中的机器上进行镜像，使得在部分节点出问题的情况下队列仍然可用。</li>
+<li>多种协议（Multi-protocol） RabbitMQ 支持多种消息队列协议，比如 STOMP、MQTT 等等。</li>
+<li>多语言客户端（Many Clients） RabbitMQ 几乎支持所有常用语言，比如 Java、.NET、Ruby 等等。</li>
+<li>管理界面（Management UI） RabbitMQ 提供了一个易用的用户界面，使得用户可以监控和管理消息 Broker 的许多方面。</li>
+<li>跟踪机制（Tracing） 如果消息异常，RabbitMQ 提供了消息跟踪机制，使用者可以找出发生了什么。</li>
+<li>插件机制（Plugin System） RabbitMQ 提供了许多插件，来从多方面进行扩展，也可以编写自己的插件。</li>
+</ol>
+<p>【就是一个消息队列】</p>
+]]></content>
+  </entry>
+  <entry>
     <title>PyMuPDF 进行 PDF 处理</title>
     <url>/pymupdf-process-pdf/</url>
     <content><![CDATA[<p>PyMuPDF（fitz）：MuPDF 的 Python 绑定，它是一个轻量级的 PDF 和 XPS 查看器。该库可以访问 PDF，XPS，OpenXPS，epub，漫画和小说书籍格式的文件，并以其顶级性能和高渲染质量而闻名。</p>
@@ -161,6 +230,33 @@
       </tags>
   </entry>
   <entry>
+    <title>Serverless</title>
+    <url>/serverless-introduction/</url>
+    <content><![CDATA[<h1 id="Serverless"><a href="#Serverless" class="headerlink" title="Serverless"></a>Serverless</h1><p>相对于微服务是更加细粒度的服务架构模式，目前抽象级别更高的。</p>
+<p>函数暴露的形式进行发布，所以又称为 FaaS。提供了代码可以运行的平台。</p>
+<p>不需要关心计算资源，相较于 PaaS，计算能力是无限的。</p>
+<p><img data-src="/serverless-introduction/1450963-20190708100448985-80323474.webp" alt="img"></p>
+<blockquote>
+<p><em>如果你的PaaS能够有效地在20毫秒内启动实例并运行半秒,那么就可以称之为Serverless”。</em></p>
+<p><em>–摘抄自《从 IaaS 到 FaaS—— Serverless架构的前世今生》</em></p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="最强大的功能是-事件驱动"><a href="#最强大的功能是-事件驱动" class="headerlink" title="最强大的功能是  - 事件驱动"></a>最强大的功能是  - <strong>事件驱动</strong></h3><p>Serverless 本质是事件驱动的。</p>
+<ul>
+<li>上传图片时触发Lambda函数生成缩略图，用于做网站图片缓存。</li>
+<li>上传视频时触发Lambda函数生成视频摘要信息，截取关键帧。</li>
+</ul>
+<h3 id="记录变化途径"><a href="#记录变化途径" class="headerlink" title="记录变化途径"></a>记录变化途径</h3><p>云计算经历了从IDC -&gt; IaaS -&gt; PaaS -&gt; Serverless/FaaS 的发展历程</p>
+<p><img data-src="/serverless-introduction/1450963-20190708100500351-507271724.webp" alt="img"></p>
+<p>IaaS(Infrastructure as a Service) 基础设施即服务，_服务商提供底层/物理层基础设施资源（服务器，数据中心，环境控制，电源，服务器机房），用户需要通过IaaS提供的服务平台购买虚拟资源，选择操作系统，安装软件，部署程序，监控应用。</p>
+<p><img data-src="/serverless-introduction/1450963-20190708100507728-684923140.webp" alt="img"></p>
+<p>PaaS(Platform as a Service) 平台即服务，服务商提供基础设施底层服务，提供操作系统（Windows，Linux）、数据库服务器、Web服务器、负载均衡器和其他中间件，相对于IaaS客户仅仅需要自己控制上层的应用程序部署与应用托管的环境。</p>
+<p><img data-src="/serverless-introduction/1450963-20190708100513269-1002353393.webp" alt="img"></p>
+<p>SaaS(Software as a Service) 软件即服务， 服务商提供基于软件的解决方案，如OA、CRM、MIS、ERP、HRM、CM、Office 365、iCloud等，客户不需考虑任何形式的专业技术知识，只需要通过服务商平台获取软件使用即可。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Flask 开启 80 端口</title>
     <url>/flask-port-80/</url>
     <content><![CDATA[<p><code>Flask</code> 在默认运行的时候是在 <code>5000</code> 端口处，映射到域名还需要额外输入 <code>:5000</code> 就不是很方便，所以就研究了一下如何映射到默认的 <code>80</code> 端口处。</p>
@@ -194,56 +290,6 @@
       <tags>
         <tag>GITHUB</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>PRC</title>
-    <url>/MIT-6.824-PRC/</url>
-    <content><![CDATA[<p>RPC，就是<strong>Remote Procedure Call</strong>的简称，翻译成中文就是<strong>远程过程调用</strong>，相对的是本地过程调用。</p>
-<p>远程过程调用为了简化，避免一串 HTTP 请求的代码，使用类似本地调用的方式，发起远程调用。</p>
-<p><strong>RPC要解决的两个问题：</strong></p>
-<ol>
-<li><strong>解决分布式系统中，服务之间的调用问题。</strong></li>
-<li><strong>远程调用时，要能够像本地调用一样方便，让调用者感知不到远程调用的逻辑。</strong></li>
-</ol>
-<h3 id="PRC的实现"><a href="#PRC的实现" class="headerlink" title="PRC的实现"></a>PRC的实现</h3><p>可以不使用 HTTP 协议（文本传输协议），而是直接使用 Socket 的二进制方式来进行传输。</p>
-<p><img data-src="/MIT-6.824-PRC/v2-43aee8a0ece93258fc6d6dc27f26ccea_1440w.jpg" alt="img"></p>
-<h3 id="PRC-和-Restful-的比较"><a href="#PRC-和-Restful-的比较" class="headerlink" title="PRC 和 Restful 的比较"></a>PRC 和 Restful 的比较</h3><p>RPC风格，你可能会这样写：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;queryOrder?orderId&#x3D;123</span><br></pre></td></tr></table></figure>
-
-<p>用Restful风格呢？</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Get  </span><br><span class="line">&#x2F;order?orderId&#x3D;123</span><br></pre></td></tr></table></figure>
-
-<p>再精炼一点，甚至可以这样：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Get  </span><br><span class="line">&#x2F;order&#x2F;123</span><br></pre></td></tr></table></figure>
-
-<p><strong>RPC是面向过程，Restful是面向资源</strong>，并且使用了Http动词。从这个维度上看，Restful风格的url在表述的精简性、可读性上都要更好。</p>
-<h3 id="RPC没那么简单"><a href="#RPC没那么简单" class="headerlink" title="RPC没那么简单"></a>RPC没那么简单</h3><p><strong>要实现一个RPC不算难，难的是实现一个高性能高可靠的RPC框架。</strong></p>
-<h3 id="PRC的实现原理-远程调用计算机为例"><a href="#PRC的实现原理-远程调用计算机为例" class="headerlink" title="PRC的实现原理-远程调用计算机为例"></a>PRC的实现原理-远程调用计算机为例</h3><p>本机计算机</p>
-<p><img data-src="/MIT-6.824-PRC/v2-f173a307dabb218a7f60c0be2629affc_1440w.jpg" alt="img"></p>
-<p>分布式计算器：</p>
-<p>CalculatorImpl和调用方不在同一个地址空间，那么就必须要进行远程过程调用：</p>
-<p><img data-src="/MIT-6.824-PRC/v2-c6a24fe26f6baa71532dacd02a5364b7_r.jpg" alt="preview"></p>
-<p><img data-src="/MIT-6.824-PRC/v2-43aee8a0ece93258fc6d6dc27f26ccea_1440w-1596454122000.jpg" alt="img"></p>
-<p>其中左边的Client，对应的就是前面的Service A，而右边的Server，对应的则是Service B。</p>
-<p>下面一步一步来理解一下：</p>
-<ol>
-<li>Service A的应用层代码中，调用了Calculator的一个实现类的add方法，希望执行一个加法运算；</li>
-<li>这个Calculator实现类，内部并不是直接实现计算器的加减乘除逻辑，而是通过远程调用Service B的RPC接口，来获取运算结果，因此称之为<strong>Stub</strong>；</li>
-<li>Stub怎么和Service B建立远程通讯呢？这时候就要用到<strong>远程通讯工具</strong>了，也就是图中的<strong>Run-time Library</strong>，这个工具将帮你实现远程通讯的功能，比如Java的<strong>Socket</strong>，就是这样一个库，当然，你也可以用基于Http协议的<strong>HttpClient</strong>，或者其他通讯工具类，都可以，<strong>RPC并没有规定说你要用何种协议进行通讯</strong>；</li>
-<li>Stub通过调用通讯工具提供的方法，和Service B建立起了通讯，然后将请求数据发给Service B。需要注意的是，由于底层的网络通讯是基于<strong>二进制格式</strong>的，因此这里Stub传给通讯工具类的数据也必须是二进制，比如calculator.add(1,2)，你必须把参数值1和2放到一个Request对象里头（这个Request对象当然不只这些信息，还包括要调用哪个服务的哪个RPC接口等其他信息），然后<strong>序列化</strong>为二进制，再传给通讯工具类，这一点也将在下面的代码实现中体现；</li>
-<li>二进制的数据传到Service B这一边了，Service B当然也有自己的通讯工具，通过这个通讯工具接收二进制的请求；</li>
-<li>既然数据是二进制的，那么自然要进行<strong>反序列化</strong>了，将二进制的数据反序列化为请求对象，然后将这个请求对象交给Service B的Stub处理；</li>
-<li>和之前的Service A的Stub一样，这里的Stub也同样是个“假玩意”，它所负责的，只是去解析请求对象，知道调用方要调的是哪个RPC接口，传进来的参数又是什么，然后再把这些参数传给对应的RPC接口，也就是Calculator的实际实现类去执行。很明显，如果是Java，那这里肯定用到了<strong>反射</strong>。</li>
-<li>RPC接口执行完毕，返回执行结果，现在轮到Service B要把数据发给Service A了，怎么发？一样的道理，一样的流程，只是现在Service B变成了Client，Service A变成了Server而已：Service B反序列化执行结果-&gt;传输给Service A-&gt;Service A反序列化执行结果 -&gt; 将结果返回给Application，完毕。</li>
-</ol>
-<hr>
-<p>参考文献：</p>
-<p><a href="https://zhuanlan.zhihu.com/p/36427583" target="_blank" rel="noopener">如何给老婆解释什么是RPC - 柳树的文章 - 知乎</a> </p>
-<p><a href="https://zhuanlan.zhihu.com/p/36528189" target="_blank" rel="noopener">如何实现一个简单的RPC - 柳树的文章 - 知乎</a></p>
-]]></content>
-      <categories>
-        <category>MIT-6.824</category>
-      </categories>
   </entry>
   <entry>
     <title>GFS</title>
@@ -291,38 +337,50 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo使用npm快速生成</title>
-    <url>/hexo-npm-fast-generate/</url>
-    <content><![CDATA[<p>使用 <code>Hexo</code> 的时候，我们通常使用</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s &#x2F; hexo d</span><br></pre></td></tr></table></figure>
+    <title>PRC</title>
+    <url>/MIT-6.824-PRC/</url>
+    <content><![CDATA[<p>RPC，就是<strong>Remote Procedure Call</strong>的简称，翻译成中文就是<strong>远程过程调用</strong>，相对的是本地过程调用。</p>
+<p>远程过程调用为了简化，避免一串 HTTP 请求的代码，使用类似本地调用的方式，发起远程调用。</p>
+<p><strong>RPC要解决的两个问题：</strong></p>
+<ol>
+<li><strong>解决分布式系统中，服务之间的调用问题。</strong></li>
+<li><strong>远程调用时，要能够像本地调用一样方便，让调用者感知不到远程调用的逻辑。</strong></li>
+</ol>
+<h3 id="PRC的实现"><a href="#PRC的实现" class="headerlink" title="PRC的实现"></a>PRC的实现</h3><p>可以不使用 HTTP 协议（文本传输协议），而是直接使用 Socket 的二进制方式来进行传输。</p>
+<p><img data-src="/MIT-6.824-PRC/v2-43aee8a0ece93258fc6d6dc27f26ccea_1440w.jpg" alt="img"></p>
+<h3 id="PRC-和-Restful-的比较"><a href="#PRC-和-Restful-的比较" class="headerlink" title="PRC 和 Restful 的比较"></a>PRC 和 Restful 的比较</h3><p>RPC风格，你可能会这样写：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;queryOrder?orderId&#x3D;123</span><br></pre></td></tr></table></figure>
 
-<p>但是在文件内容比较多的时候需要较长时间进行渲染处理，同时也需要输入三个命令。</p>
-<p>之前配置 npm 里面的快捷命令的时候时好时坏，最近终于可以正常运行了，记录一下。</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>打开 <code>package.json</code> 文件</p>
-<p>我们会发现默认已经配置好了脚本(scripts)</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">    "deploy": "hexo clean &amp;&amp; hexo g &amp;&amp; hexo d",</span><br><span class="line">    "start": "hexo clean &amp;&amp; hexo g &amp;&amp; hexo s"</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<p>用Restful风格呢？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Get  </span><br><span class="line">&#x2F;order?orderId&#x3D;123</span><br></pre></td></tr></table></figure>
 
-<p>这个时候使用以下命令，就可以直接运行了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm deploy </span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+<p>再精炼一点，甚至可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Get  </span><br><span class="line">&#x2F;order&#x2F;123</span><br></pre></td></tr></table></figure>
 
-<p>如果想要每次输入的字母数更少一些，可以将 <code>json</code> 更改成以下形式：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;d&quot;: &quot;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&quot;,</span><br><span class="line">    &quot;s&quot;: &quot;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&quot;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-
-<p>这种时候运行输入以下命令就可以啦</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run s</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spanner</title>
-    <url>/MIT-6.824-Spanner/</url>
-    <content><![CDATA[<p><strong>Spanner</strong> 是谷歌研发的可横向扩展的、支持多版本的、可在全球范围进行分布式部署的、同步进行数据复制的分布式数据库。</p>
+<p><strong>RPC是面向过程，Restful是面向资源</strong>，并且使用了Http动词。从这个维度上看，Restful风格的url在表述的精简性、可读性上都要更好。</p>
+<h3 id="RPC没那么简单"><a href="#RPC没那么简单" class="headerlink" title="RPC没那么简单"></a>RPC没那么简单</h3><p><strong>要实现一个RPC不算难，难的是实现一个高性能高可靠的RPC框架。</strong></p>
+<h3 id="PRC的实现原理-远程调用计算机为例"><a href="#PRC的实现原理-远程调用计算机为例" class="headerlink" title="PRC的实现原理-远程调用计算机为例"></a>PRC的实现原理-远程调用计算机为例</h3><p>本机计算机</p>
+<p><img data-src="/MIT-6.824-PRC/v2-f173a307dabb218a7f60c0be2629affc_1440w.jpg" alt="img"></p>
+<p>分布式计算器：</p>
+<p>CalculatorImpl和调用方不在同一个地址空间，那么就必须要进行远程过程调用：</p>
+<p><img data-src="/MIT-6.824-PRC/v2-c6a24fe26f6baa71532dacd02a5364b7_r.jpg" alt="preview"></p>
+<p><img data-src="/MIT-6.824-PRC/v2-43aee8a0ece93258fc6d6dc27f26ccea_1440w-1596454122000.jpg" alt="img"></p>
+<p>其中左边的Client，对应的就是前面的Service A，而右边的Server，对应的则是Service B。</p>
+<p>下面一步一步来理解一下：</p>
+<ol>
+<li>Service A的应用层代码中，调用了Calculator的一个实现类的add方法，希望执行一个加法运算；</li>
+<li>这个Calculator实现类，内部并不是直接实现计算器的加减乘除逻辑，而是通过远程调用Service B的RPC接口，来获取运算结果，因此称之为<strong>Stub</strong>；</li>
+<li>Stub怎么和Service B建立远程通讯呢？这时候就要用到<strong>远程通讯工具</strong>了，也就是图中的<strong>Run-time Library</strong>，这个工具将帮你实现远程通讯的功能，比如Java的<strong>Socket</strong>，就是这样一个库，当然，你也可以用基于Http协议的<strong>HttpClient</strong>，或者其他通讯工具类，都可以，<strong>RPC并没有规定说你要用何种协议进行通讯</strong>；</li>
+<li>Stub通过调用通讯工具提供的方法，和Service B建立起了通讯，然后将请求数据发给Service B。需要注意的是，由于底层的网络通讯是基于<strong>二进制格式</strong>的，因此这里Stub传给通讯工具类的数据也必须是二进制，比如calculator.add(1,2)，你必须把参数值1和2放到一个Request对象里头（这个Request对象当然不只这些信息，还包括要调用哪个服务的哪个RPC接口等其他信息），然后<strong>序列化</strong>为二进制，再传给通讯工具类，这一点也将在下面的代码实现中体现；</li>
+<li>二进制的数据传到Service B这一边了，Service B当然也有自己的通讯工具，通过这个通讯工具接收二进制的请求；</li>
+<li>既然数据是二进制的，那么自然要进行<strong>反序列化</strong>了，将二进制的数据反序列化为请求对象，然后将这个请求对象交给Service B的Stub处理；</li>
+<li>和之前的Service A的Stub一样，这里的Stub也同样是个“假玩意”，它所负责的，只是去解析请求对象，知道调用方要调的是哪个RPC接口，传进来的参数又是什么，然后再把这些参数传给对应的RPC接口，也就是Calculator的实际实现类去执行。很明显，如果是Java，那这里肯定用到了<strong>反射</strong>。</li>
+<li>RPC接口执行完毕，返回执行结果，现在轮到Service B要把数据发给Service A了，怎么发？一样的道理，一样的流程，只是现在Service B变成了Client，Service A变成了Server而已：Service B反序列化执行结果-&gt;传输给Service A-&gt;Service A反序列化执行结果 -&gt; 将结果返回给Application，完毕。</li>
+</ol>
 <hr>
 <p>参考文献：</p>
-<p><a href="https://www.jianshu.com/p/6ae6e7989161" target="_blank" rel="noopener">Google-Spanner论文的思考</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/36427583" target="_blank" rel="noopener">如何给老婆解释什么是RPC - 柳树的文章 - 知乎</a> </p>
+<p><a href="https://zhuanlan.zhihu.com/p/36528189" target="_blank" rel="noopener">如何实现一个简单的RPC - 柳树的文章 - 知乎</a></p>
 ]]></content>
       <categories>
         <category>MIT-6.824</category>
@@ -425,45 +483,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo博客自动刷新</title>
-    <url>/hexo-auto-refresh-by-browsersync/</url>
-    <content><![CDATA[<p>Hexo 博客在写的过程中不能自动刷新网页，所以引入新的插件来自动刷新。</p>
-<h3 id="安装-Browsersync"><a href="#安装-Browsersync" class="headerlink" title="安装 Browsersync"></a>安装 Browsersync</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g browser-sync</span><br></pre></td></tr></table></figure>
-
-<p>安装结束后，测试安装是否成功。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">browser-sync --version</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装-Hexo-插件"><a href="#安装-Hexo-插件" class="headerlink" title="安装 Hexo 插件"></a>安装 Hexo 插件</h3><p>还需要给 Hexo 安装上插件（需要在 Hexo 目录下安装）</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-browsersync --save</span><br></pre></td></tr></table></figure>
-
-<p>安装后像往常一样执行 <code>hexo s</code> 开启本地服务器，当相关文件被修改或者保存时，关联的浏览器页面会自带刷新。</p>
-<h3 id="Hexo-配置"><a href="#Hexo-配置" class="headerlink" title="Hexo 配置"></a>Hexo 配置</h3><p>需要在 Hexo 根目录的 config.yml 里面添加以下配置，就可以啦！</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">compress:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="一些不足"><a href="#一些不足" class="headerlink" title="一些不足"></a>一些不足</h3><ul>
-<li>变动后将重新加载整个页面，不能局部刷新</li>
-<li>使用 Hexo 自带服务器时，无法在移动端调试</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hexo 的 NexT 主题添加相关文章</title>
-    <url>/hexo-next-related-posts/</url>
-    <content><![CDATA[<p>更新 <code>NexT</code> 主题到最新版本之后，发现具有更多的定制功能，其中就有添加相关文章的选项。</p>
-<p>使用 <code>https://github.com/tea3/hexo-related-popular-posts</code></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Related popular posts</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/tea3/hexo-related-popular-posts</span></span><br><span class="line"><span class="attr">related_posts:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">相关文章</span></span><br><span class="line">  <span class="comment"># Custom header, leave empty to use the default one</span></span><br><span class="line">  <span class="attr">display_in_home:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">params:</span></span><br><span class="line">    <span class="attr">maxCount:</span> <span class="number">3</span></span><br><span class="line">    <span class="comment">#PPMixingRate: 0.0</span></span><br><span class="line">    <span class="comment">#isDate: false</span></span><br><span class="line">    <span class="comment">#isImage: false</span></span><br><span class="line">    <span class="comment">#isExcerpt: false</span></span><br></pre></td></tr></table></figure>
-
-<p>配置完成，重新生成 <code>html</code> 文件就可以直接看到效果啦！</p>
-<a id="more"></a>
-
-<p><img data-src="/hexo-next-related-posts/image-20200610111926921.png" alt="image-20200610111926921"></p>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-        <tag>NexT</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows以太坊区块链环境搭建</title>
     <url>/windows-geth/</url>
     <content><![CDATA[<p>从环境搭建开始我的 <strong>智能合约</strong> 探索。</p>
@@ -503,21 +522,26 @@
       </categories>
   </entry>
   <entry>
-    <title>NexT 主题添加 canvas-nest 动画背景</title>
-    <url>/next-canvas-nest/</url>
-    <content><![CDATA[<p><code>NexT</code> 主题相较于我之前的 <code>Casper</code> 主题是一个很成熟的主题，很多定制化都已经别前人封装好了。</p>
-<p>这篇文章来记录一下添加 <code>canvas-nest</code> 动画背景。</p>
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>使用 <code>NexT</code> 主题 <code>5.1.4</code> 版本</p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>主题配置文件中已经预留好接口了，只需要在选择的动画背景选择 <code>true</code> 即可</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Canvas-nest</span></span><br><span class="line"><span class="attr">canvas_nest:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># three_waves</span></span><br><span class="line"><span class="attr">three_waves:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># canvas_lines</span></span><br><span class="line"><span class="attr">canvas_lines:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># canvas_sphere</span></span><br><span class="line"><span class="attr">canvas_sphere:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+    <title>Hexo博客自动刷新</title>
+    <url>/hexo-auto-refresh-by-browsersync/</url>
+    <content><![CDATA[<p>Hexo 博客在写的过程中不能自动刷新网页，所以引入新的插件来自动刷新。</p>
+<h3 id="安装-Browsersync"><a href="#安装-Browsersync" class="headerlink" title="安装 Browsersync"></a>安装 Browsersync</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g browser-sync</span><br></pre></td></tr></table></figure>
 
-<hr>
-<p>更新到 <code>7</code> 版本的 <code>NexT</code> 之后暂时失效了。</p>
+<p>安装结束后，测试安装是否成功。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">browser-sync --version</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-Hexo-插件"><a href="#安装-Hexo-插件" class="headerlink" title="安装 Hexo 插件"></a>安装 Hexo 插件</h3><p>还需要给 Hexo 安装上插件（需要在 Hexo 目录下安装）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-browsersync --save</span><br></pre></td></tr></table></figure>
+
+<p>安装后像往常一样执行 <code>hexo s</code> 开启本地服务器，当相关文件被修改或者保存时，关联的浏览器页面会自带刷新。</p>
+<h3 id="Hexo-配置"><a href="#Hexo-配置" class="headerlink" title="Hexo 配置"></a>Hexo 配置</h3><p>需要在 Hexo 根目录的 config.yml 里面添加以下配置，就可以啦！</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">compress:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="一些不足"><a href="#一些不足" class="headerlink" title="一些不足"></a>一些不足</h3><ul>
+<li>变动后将重新加载整个页面，不能局部刷新</li>
+<li>使用 Hexo 自带服务器时，无法在移动端调试</li>
+</ul>
 ]]></content>
-      <tags>
-        <tag>hexo</tag>
-        <tag>NexT</tag>
-      </tags>
   </entry>
   <entry>
     <title>以太坊上安全生成随机数</title>
@@ -541,6 +565,164 @@
       <categories>
         <category>智能合约</category>
       </categories>
+  </entry>
+  <entry>
+    <title>NexT 主题添加 canvas-nest 动画背景</title>
+    <url>/next-canvas-nest/</url>
+    <content><![CDATA[<p><code>NexT</code> 主题相较于我之前的 <code>Casper</code> 主题是一个很成熟的主题，很多定制化都已经别前人封装好了。</p>
+<p>这篇文章来记录一下添加 <code>canvas-nest</code> 动画背景。</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>使用 <code>NexT</code> 主题 <code>5.1.4</code> 版本</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>主题配置文件中已经预留好接口了，只需要在选择的动画背景选择 <code>true</code> 即可</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Canvas-nest</span></span><br><span class="line"><span class="attr">canvas_nest:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># three_waves</span></span><br><span class="line"><span class="attr">three_waves:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># canvas_lines</span></span><br><span class="line"><span class="attr">canvas_lines:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># canvas_sphere</span></span><br><span class="line"><span class="attr">canvas_sphere:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>更新到 <code>7</code> 版本的 <code>NexT</code> 之后暂时失效了。</p>
+]]></content>
+      <tags>
+        <tag>NexT</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spanner</title>
+    <url>/MIT-6.824-Spanner/</url>
+    <content><![CDATA[<p><strong>Spanner</strong> 是谷歌研发的可横向扩展的、支持多版本的、可在全球范围进行分布式部署的、同步进行数据复制的分布式数据库。</p>
+<hr>
+<p>参考文献：</p>
+<p><a href="https://www.jianshu.com/p/6ae6e7989161" target="_blank" rel="noopener">Google-Spanner论文的思考</a></p>
+]]></content>
+      <categories>
+        <category>MIT-6.824</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo使用npm快速生成</title>
+    <url>/hexo-npm-fast-generate/</url>
+    <content><![CDATA[<p>使用 <code>Hexo</code> 的时候，我们通常使用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s &#x2F; hexo d</span><br></pre></td></tr></table></figure>
+
+<p>但是在文件内容比较多的时候需要较长时间进行渲染处理，同时也需要输入三个命令。</p>
+<p>之前配置 npm 里面的快捷命令的时候时好时坏，最近终于可以正常运行了，记录一下。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>打开 <code>package.json</code> 文件</p>
+<p>我们会发现默认已经配置好了脚本(scripts)</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">    "deploy": "hexo clean &amp;&amp; hexo g &amp;&amp; hexo d",</span><br><span class="line">    "start": "hexo clean &amp;&amp; hexo g &amp;&amp; hexo s"</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>这个时候使用以下命令，就可以直接运行了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm deploy </span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+
+<p>如果想要每次输入的字母数更少一些，可以将 <code>json</code> 更改成以下形式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;d&quot;: &quot;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&quot;,</span><br><span class="line">    &quot;s&quot;: &quot;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&quot;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>这种时候运行输入以下命令就可以啦</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run s</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 的 NexT 主题添加相关文章</title>
+    <url>/hexo-next-related-posts/</url>
+    <content><![CDATA[<p>更新 <code>NexT</code> 主题到最新版本之后，发现具有更多的定制功能，其中就有添加相关文章的选项。</p>
+<p>使用 <code>https://github.com/tea3/hexo-related-popular-posts</code></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Related popular posts</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/tea3/hexo-related-popular-posts</span></span><br><span class="line"><span class="attr">related_posts:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">相关文章</span></span><br><span class="line">  <span class="comment"># Custom header, leave empty to use the default one</span></span><br><span class="line">  <span class="attr">display_in_home:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">params:</span></span><br><span class="line">    <span class="attr">maxCount:</span> <span class="number">3</span></span><br><span class="line">    <span class="comment">#PPMixingRate: 0.0</span></span><br><span class="line">    <span class="comment">#isDate: false</span></span><br><span class="line">    <span class="comment">#isImage: false</span></span><br><span class="line">    <span class="comment">#isExcerpt: false</span></span><br></pre></td></tr></table></figure>
+
+<p>配置完成，重新生成 <code>html</code> 文件就可以直接看到效果啦！</p>
+<a id="more"></a>
+
+<p><img data-src="/hexo-next-related-posts/image-20200610111926921.png" alt="image-20200610111926921"></p>
+]]></content>
+      <tags>
+        <tag>NexT</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Exploring Serverless Computing for Neural Network Training 学习笔记</title>
+    <url>/exploring-serverless-computing-for-neural-network-training/</url>
+    <content><![CDATA[<p>2018 IEEE 11th International Conference on Cloud Computing</p>
+<a id="more"></a>
+
+<h3 id="阅读的时候同步的笔记："><a href="#阅读的时候同步的笔记：" class="headerlink" title="阅读的时候同步的笔记："></a>阅读的时候同步的笔记：</h3><ol>
+<li>关注参考文献1</li>
+<li>关注 intro 部分的贡献</li>
+<li>从分布式深度学习到Serverless</li>
+<li>分层的想法来进行传输</li>
+<li>数据传输的问题</li>
+<li>深度学习的并行计算问题</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Paper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Serving Deep Learning Models in a Serverless Platform 学习笔记</title>
+    <url>/serving-deep-learning-models-in-a-Serverless-platform/</url>
+    <content><![CDATA[<p>2018 IEEE 11th International Conference on Cloud Computing</p>
+<p>侧重于在 Serverless Platform 上进行神经网络推理 的 评估。</p>
+<p>评估着眼于 冷/温启动时间、和内存大小相关的性能、cost等。</p>
+<a id="more"></a>
+
+<h3 id="文章结论部分"><a href="#文章结论部分" class="headerlink" title="文章结论部分"></a>文章结论部分</h3><blockquote>
+<p>Our results indicate that warm serverless function executions are within an acceptable latency range, while cold starts add significant overhead.</p>
+</blockquote>
+<h3 id="阅读的时候同步的笔记："><a href="#阅读的时候同步的笔记：" class="headerlink" title="阅读的时候同步的笔记："></a>阅读的时候同步的笔记：</h3><ol>
+<li>related work 不错</li>
+<li>启动时间 - cold / warm</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Paper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用Flask快速部署一个网站</title>
+    <url>/deploy-a-website-by-flask/</url>
+    <content><![CDATA[<ol>
+<li><p>Pycharm 生成 Flask 项目</p>
+</li>
+<li><p>还是使用直白的 Debug 运行模式，赶紧开始工作起来啦</p>
+</li>
+<li><p>端口容易出现占用的情况</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">kill</span> $(lsof -ti:5000)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="Flask-实现上传"><a href="#Flask-实现上传" class="headerlink" title="Flask 实现上传"></a>Flask 实现上传</h3><ol>
+<li>上传的代码，这里整理一下方便之后复用</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 初始化上传的文件夹信息</span></span><br><span class="line">UPLOAD_FOLDER = <span class="string">'./uploads'</span></span><br><span class="line">ALLOWED_EXTENSIONS = &#123;<span class="string">'pdf'</span>&#125;</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">dropzone = Dropzone(app)</span><br><span class="line"><span class="comment"># 配置上传的文件夹和上传文件最大大小限制</span></span><br><span class="line">app.config[<span class="string">'UPLOAD_FOLDER'</span>] = UPLOAD_FOLDER</span><br><span class="line">app.config[<span class="string">'MAX_CONTENT_LENGTH'</span>] = <span class="number">32</span> * <span class="number">1024</span> * <span class="number">1024</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否是允许的文件，注意-1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">allowed_file</span><span class="params">(filename)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'.'</span> <span class="keyword">in</span> filename <span class="keyword">and</span> filename.rsplit(<span class="string">'.'</span>, <span class="number">1</span>)[<span class="number">-1</span>].lower() <span class="keyword">in</span> ALLOWED_EXTENSIONS</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注册网址 绑定函数</span></span><br><span class="line"><span class="meta">@app.route('/uploads/&lt;filename&gt;')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">uploaded_file</span><span class="params">(filename)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> send_from_directory(app.config[<span class="string">'UPLOAD_FOLDER'</span>], filename)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 是先上传</span></span><br><span class="line"><span class="meta">@app.route('/', methods=['GET', 'POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload_file</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        file = request.files[<span class="string">'file'</span>]</span><br><span class="line">        <span class="keyword">if</span> file <span class="keyword">and</span> allowed_file(file.filename):</span><br><span class="line">            filename = secure_filename(file.filename)</span><br><span class="line">            file.save(os.path.join(app.config[<span class="string">'UPLOAD_FOLDER'</span>], filename))</span><br><span class="line">            file_url = url_for(<span class="string">'uploaded_file'</span>, filename=filename)</span><br><span class="line">            <span class="keyword">return</span> redirect(url_for(<span class="string">'uploaded_file'</span>, filename=filename))</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">'upload.html'</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>前端实现拖拽上传的效果，使用 <code>dropzone.css</code> 和 <code>dropzone.js</code>。主要的 <code>HTML</code>的代码如下：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Flask upload with Dropzone example&lt;/title&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"&#123;&#123; url_for('static', filename='css/dropzone.css') &#125;&#125;"</span>&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- Change action value to your upload address --&gt;</span><br><span class="line">    &lt;form action="&#123;&#123; url_for('upload_file') &#125;&#125;" class="dropzone" method="POST" enctype="multipart/form-data"&gt;&lt;/form&gt;</span><br><span class="line">    &lt;header&gt;woshi555&lt;/header&gt;</span><br><span class="line">    &lt;script src="&#123;&#123; url_for('static', filename='js/dropzone.js') &#125;&#125;"&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>继续和我的基础环境绑定</li>
+</ol>
+<hr>
+<h3 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h3><p>之前也遇见过部署的时候网页就没了，这次发现是因为 <code>Flask</code> 自带的服务器在 ssh 退出之后就不可用了</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup python app.py 1&gt;result.txt 2&gt;err.txt &amp;</span><br></pre></td></tr></table></figure>
+
+<p>注意：最后的 &amp; 才表示后台运行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ux</span><br><span class="line">ps- aux</span><br><span class="line"></span><br><span class="line">lsof -i :5000</span><br><span class="line"><span class="built_in">kill</span> -9 PID</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="继续更新-flask-dropzone"><a href="#继续更新-flask-dropzone" class="headerlink" title="继续更新 - flask-dropzone"></a>继续更新 - flask-dropzone</h3><p>先配置，然后再 <code>dropzone = Dropzone(app)</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.config[<span class="string">'UPLOAD_FOLDER'</span>] = UPLOAD_FOLDER</span><br><span class="line"><span class="comment"># app.config['DROPZONE_REDIRECT_VIEW'] = 'hello'  # set redirect view</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_REDIRECT_VIEW'</span>] = <span class="string">'result'</span>  <span class="comment"># function-name (not the true url)</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_ALLOWED_FILE_CUSTOM'</span>] = <span class="literal">True</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_ALLOWED_FILE_TYPE'</span>] = <span class="string">'.pdf'</span></span><br><span class="line"></span><br><span class="line">dropzone = Dropzone(app)</span><br></pre></td></tr></table></figure>
+
+<p>限制了文件的格式是 PDF，可以实现最后选框上传的时候就是 PDF 文件</p>
+<p>跳转只能这样显示的写，不能使用 <code>redirect</code> ，使用的是函数的名字</p>
+<p><strong>html文件中</strong>很容易就可以做出来了</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    &#123;&#123; dropzone.load_css() &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.style('border: 2px dashed #0087F7; margin: 10%') &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    &#123;&#123; dropzone.create(action="upload_file") &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.load_js() &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.config() &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>flask</tag>
+      </tags>
   </entry>
   <entry>
     <title>ubuntu pip安装</title>
@@ -604,53 +786,6 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Stratified Train Index: [1 3 4 5 6 7]</span><br><span class="line">Stratified Test Index: [0 2]</span><br><span class="line">Stratified y_train: [1 0 1 1 0 0]</span><br><span class="line">Stratified y_test: [1 0] </span><br><span class="line"></span><br><span class="line">Stratified Train Index: [0 2 4 5 6 7]</span><br><span class="line">Stratified Test Index: [1 3]</span><br><span class="line">Stratified y_train: [1 0 1 1 0 0]</span><br><span class="line">Stratified y_test: [1 0] </span><br><span class="line"></span><br><span class="line">Stratified Train Index: [0 1 2 3 5 7]</span><br><span class="line">Stratified Test Index: [4 6]</span><br><span class="line">Stratified y_train: [1 1 0 0 1 0]</span><br><span class="line">Stratified y_test: [1 0] </span><br><span class="line"></span><br><span class="line">Stratified Train Index: [0 1 2 3 4 6]</span><br><span class="line">Stratified Test Index: [5 7]</span><br><span class="line">Stratified y_train: [1 1 0 0 1 0]</span><br><span class="line">Stratified y_test: [1 0]</span><br></pre></td></tr></table></figure>
 
 ]]></content>
-  </entry>
-  <entry>
-    <title>使用Flask快速部署一个网站</title>
-    <url>/deploy-a-website-by-flask/</url>
-    <content><![CDATA[<ol>
-<li><p>Pycharm 生成 Flask 项目</p>
-</li>
-<li><p>还是使用直白的 Debug 运行模式，赶紧开始工作起来啦</p>
-</li>
-<li><p>端口容易出现占用的情况</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">kill</span> $(lsof -ti:5000)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="Flask-实现上传"><a href="#Flask-实现上传" class="headerlink" title="Flask 实现上传"></a>Flask 实现上传</h3><ol>
-<li>上传的代码，这里整理一下方便之后复用</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 初始化上传的文件夹信息</span></span><br><span class="line">UPLOAD_FOLDER = <span class="string">'./uploads'</span></span><br><span class="line">ALLOWED_EXTENSIONS = &#123;<span class="string">'pdf'</span>&#125;</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">dropzone = Dropzone(app)</span><br><span class="line"><span class="comment"># 配置上传的文件夹和上传文件最大大小限制</span></span><br><span class="line">app.config[<span class="string">'UPLOAD_FOLDER'</span>] = UPLOAD_FOLDER</span><br><span class="line">app.config[<span class="string">'MAX_CONTENT_LENGTH'</span>] = <span class="number">32</span> * <span class="number">1024</span> * <span class="number">1024</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否是允许的文件，注意-1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">allowed_file</span><span class="params">(filename)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'.'</span> <span class="keyword">in</span> filename <span class="keyword">and</span> filename.rsplit(<span class="string">'.'</span>, <span class="number">1</span>)[<span class="number">-1</span>].lower() <span class="keyword">in</span> ALLOWED_EXTENSIONS</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注册网址 绑定函数</span></span><br><span class="line"><span class="meta">@app.route('/uploads/&lt;filename&gt;')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">uploaded_file</span><span class="params">(filename)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> send_from_directory(app.config[<span class="string">'UPLOAD_FOLDER'</span>], filename)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 是先上传</span></span><br><span class="line"><span class="meta">@app.route('/', methods=['GET', 'POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload_file</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        file = request.files[<span class="string">'file'</span>]</span><br><span class="line">        <span class="keyword">if</span> file <span class="keyword">and</span> allowed_file(file.filename):</span><br><span class="line">            filename = secure_filename(file.filename)</span><br><span class="line">            file.save(os.path.join(app.config[<span class="string">'UPLOAD_FOLDER'</span>], filename))</span><br><span class="line">            file_url = url_for(<span class="string">'uploaded_file'</span>, filename=filename)</span><br><span class="line">            <span class="keyword">return</span> redirect(url_for(<span class="string">'uploaded_file'</span>, filename=filename))</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">'upload.html'</span>)</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>前端实现拖拽上传的效果，使用 <code>dropzone.css</code> 和 <code>dropzone.js</code>。主要的 <code>HTML</code>的代码如下：</li>
-</ol>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Flask upload with Dropzone example&lt;/title&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"&#123;&#123; url_for('static', filename='css/dropzone.css') &#125;&#125;"</span>&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- Change action value to your upload address --&gt;</span><br><span class="line">    &lt;form action="&#123;&#123; url_for('upload_file') &#125;&#125;" class="dropzone" method="POST" enctype="multipart/form-data"&gt;&lt;/form&gt;</span><br><span class="line">    &lt;header&gt;woshi555&lt;/header&gt;</span><br><span class="line">    &lt;script src="&#123;&#123; url_for('static', filename='js/dropzone.js') &#125;&#125;"&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>继续和我的基础环境绑定</li>
-</ol>
-<hr>
-<h3 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h3><p>之前也遇见过部署的时候网页就没了，这次发现是因为 <code>Flask</code> 自带的服务器在 ssh 退出之后就不可用了</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup python app.py 1&gt;result.txt 2&gt;err.txt &amp;</span><br></pre></td></tr></table></figure>
-
-<p>注意：最后的 &amp; 才表示后台运行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ux</span><br><span class="line">ps- aux</span><br><span class="line"></span><br><span class="line">lsof -i :5000</span><br><span class="line"><span class="built_in">kill</span> -9 PID</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="继续更新-flask-dropzone"><a href="#继续更新-flask-dropzone" class="headerlink" title="继续更新 - flask-dropzone"></a>继续更新 - flask-dropzone</h3><p>先配置，然后再 <code>dropzone = Dropzone(app)</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.config[<span class="string">'UPLOAD_FOLDER'</span>] = UPLOAD_FOLDER</span><br><span class="line"><span class="comment"># app.config['DROPZONE_REDIRECT_VIEW'] = 'hello'  # set redirect view</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_REDIRECT_VIEW'</span>] = <span class="string">'result'</span>  <span class="comment"># function-name (not the true url)</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_ALLOWED_FILE_CUSTOM'</span>] = <span class="literal">True</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_ALLOWED_FILE_TYPE'</span>] = <span class="string">'.pdf'</span></span><br><span class="line"></span><br><span class="line">dropzone = Dropzone(app)</span><br></pre></td></tr></table></figure>
-
-<p>限制了文件的格式是 PDF，可以实现最后选框上传的时候就是 PDF 文件</p>
-<p>跳转只能这样显示的写，不能使用 <code>redirect</code> ，使用的是函数的名字</p>
-<p><strong>html文件中</strong>很容易就可以做出来了</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    &#123;&#123; dropzone.load_css() &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.style('border: 2px dashed #0087F7; margin: 10%') &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    &#123;&#123; dropzone.create(action="upload_file") &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.load_js() &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.config() &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>flask</tag>
-      </tags>
   </entry>
   <entry>
     <title>正向代理和反向代理</title>
@@ -718,6 +853,21 @@
       </categories>
   </entry>
   <entry>
+    <title>心疼我的Ethereum Studio</title>
+    <url>/ethereum-studio-no-longer-support/</url>
+    <content><![CDATA[<p><img data-src="/ethereum-studio-no-longer-support/image-20200613174400940.png" alt="image-20200613174400940"></p>
+<p>突然发现我最爱的 <code>Ethereum Studio</code> 被列为了之后不再维护的 IDE，心痛。。。</p>
+<p>今天接下来的主要任务就是对着官网链接整体过一下 Solidity 语法和 Remix 的使用！</p>
+<p><img data-src="/ethereum-studio-no-longer-support/image-20200614083819767.png" alt="image-20200614083819767"></p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>Solidity Game</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ethereum-Studio-Sample-Hello-World</title>
     <url>/ethereum-studio-sample-hello-world/</url>
     <content><![CDATA[<h1 id="Get-started-building-on-Ethereum"><a href="#Get-started-building-on-Ethereum" class="headerlink" title="Get started building on Ethereum"></a>Get started building on Ethereum</h1><p>使用 <strong>Ethereum Studio</strong> , a web-based IDE.</p>
@@ -753,36 +903,6 @@
       </categories>
   </entry>
   <entry>
-    <title>心疼我的Ethereum Studio</title>
-    <url>/ethereum-studio-no-longer-support/</url>
-    <content><![CDATA[<p><img data-src="/ethereum-studio-no-longer-support/image-20200613174400940.png" alt="image-20200613174400940"></p>
-<p>突然发现我最爱的 <code>Ethereum Studio</code> 被列为了之后不再维护的 IDE，心痛。。。</p>
-<p>今天接下来的主要任务就是对着官网链接整体过一下 Solidity 语法和 Remix 的使用！</p>
-<p><img data-src="/ethereum-studio-no-longer-support/image-20200614083819767.png" alt="image-20200614083819767"></p>
-]]></content>
-      <categories>
-        <category>智能合约</category>
-      </categories>
-      <tags>
-        <tag>Solidity Game</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Remix-Storage-Demo</title>
-    <url>/remix-storage-demo/</url>
-    <content><![CDATA[<p>第一个例子很简单，简单的代码，学习一下操作</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity &gt;&#x3D;0.4.22 &lt;0.7.0;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @title Storage</span><br><span class="line"> * @dev Store &amp; retreive value in a variable</span><br><span class="line"> *&#x2F;</span><br><span class="line">contract Storage &#123;</span><br><span class="line"></span><br><span class="line">    uint256 number;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Store value in variable</span><br><span class="line">     * @param num value to store</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function store(uint256 num) public &#123;</span><br><span class="line">        number &#x3D; num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Return value </span><br><span class="line">     * @return value of &#39;number&#39;</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function retreive() public view returns (uint256)&#123;</span><br><span class="line">        return number;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/remix-storage-demo/image-20200613182040528.png" alt="image-20200613182040528"></p>
-]]></content>
-      <categories>
-        <category>智能合约</category>
-      </categories>
-      <tags>
-        <tag>remix</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Remix-Owner-Demo</title>
     <url>/remix-owner-demo/</url>
     <content><![CDATA[<p>这个智能合约增加了操作数和账户，的但是依旧是比较简单的合约。</p>
@@ -807,6 +927,21 @@
 
 <h3 id="test-sol"><a href="#test-sol" class="headerlink" title="test.sol"></a>test.sol</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity &gt;&#x3D;0.4.22 &lt;0.7.0;</span><br><span class="line">import &quot;remix_tests.sol&quot;; &#x2F;&#x2F; this import is automatically injected by Remix.</span><br><span class="line">import &quot;.&#x2F;3_Ballot.sol&quot;;</span><br><span class="line"></span><br><span class="line">contract BallotTest &#123;</span><br><span class="line">   </span><br><span class="line">    bytes32[] proposalNames;</span><br><span class="line">   </span><br><span class="line">    Ballot ballotToTest;</span><br><span class="line">    function beforeAll () public &#123;</span><br><span class="line">        proposalNames.push(bytes32(&quot;candidate1&quot;));</span><br><span class="line">        ballotToTest &#x3D; new Ballot(proposalNames);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    function checkWinningProposal () public &#123;</span><br><span class="line">        ballotToTest.vote(0);</span><br><span class="line">        Assert.equal(ballotToTest.winningProposal(), uint(0), &quot;proposal at index 0 should be the winning proposal&quot;);</span><br><span class="line">        Assert.equal(ballotToTest.winnerName(), bytes32(&quot;candidate1&quot;), &quot;candidate1 should be the winner name&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    function checkWinninProposalWithReturnValue () public view returns (bool) &#123;</span><br><span class="line">        return ballotToTest.winningProposal() &#x3D;&#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>remix</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Remix-Storage-Demo</title>
+    <url>/remix-storage-demo/</url>
+    <content><![CDATA[<p>第一个例子很简单，简单的代码，学习一下操作</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity &gt;&#x3D;0.4.22 &lt;0.7.0;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @title Storage</span><br><span class="line"> * @dev Store &amp; retreive value in a variable</span><br><span class="line"> *&#x2F;</span><br><span class="line">contract Storage &#123;</span><br><span class="line"></span><br><span class="line">    uint256 number;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Store value in variable</span><br><span class="line">     * @param num value to store</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function store(uint256 num) public &#123;</span><br><span class="line">        number &#x3D; num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @dev Return value </span><br><span class="line">     * @return value of &#39;number&#39;</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function retreive() public view returns (uint256)&#123;</span><br><span class="line">        return number;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/remix-storage-demo/image-20200613182040528.png" alt="image-20200613182040528"></p>
 ]]></content>
       <categories>
         <category>智能合约</category>
@@ -874,25 +1009,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Solidity-Official-Demo-简单的公开拍卖</title>
-    <url>/solidity-official-demo-simple-auction/</url>
-    <content><![CDATA[<h3 id="简单的公开拍卖"><a href="#简单的公开拍卖" class="headerlink" title="简单的公开拍卖"></a>简单的公开拍卖</h3><p>以下简单的拍卖合约的总体思路是每个人都可以在投标期内发送他们的出价。 出价已经包含了资金/以太币，来将投标人与他们的投标绑定。 如果最高出价提高了（被其他出价者的出价超过），之前出价最高的出价者可以拿回她的钱。 在投标期结束后，受益人需要手动调用合约来接收他的钱 - 合约不能自己激活接收。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity ^0.4.22;</span><br><span class="line"></span><br><span class="line">contract SimpleAuction &#123;</span><br><span class="line">    &#x2F;&#x2F; 拍卖的参数。</span><br><span class="line">    address public beneficiary;</span><br><span class="line">    &#x2F;&#x2F; 时间是unix的绝对时间戳（自1970-01-01以来的秒数）</span><br><span class="line">    &#x2F;&#x2F; 或以秒为单位的时间段。</span><br><span class="line">    uint public auctionEnd;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 拍卖的当前状态</span><br><span class="line">    address public highestBidder;</span><br><span class="line">    uint public highestBid;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;可以取回的之前的出价</span><br><span class="line">    mapping(address &#x3D;&gt; uint) pendingReturns;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 拍卖结束后设为 true，将禁止所有的变更</span><br><span class="line">    bool ended;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 变更触发的事件</span><br><span class="line">    event HighestBidIncreased(address bidder, uint amount);</span><br><span class="line">    event AuctionEnded(address winner, uint amount);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 以下是所谓的 natspec 注释，可以通过三个斜杠来识别。</span><br><span class="line">    &#x2F;&#x2F; 当用户被要求确认交易时将显示。</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 以受益者地址 &#96;_beneficiary&#96; 的名义，</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 创建一个简单的拍卖，拍卖时间为 &#96;_biddingTime&#96; 秒。</span><br><span class="line">    constructor(</span><br><span class="line">        uint _biddingTime,</span><br><span class="line">        address _beneficiary</span><br><span class="line">    ) public &#123;</span><br><span class="line">        beneficiary &#x3D; _beneficiary;</span><br><span class="line">        auctionEnd &#x3D; now + _biddingTime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 对拍卖进行出价，具体的出价随交易一起发送。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 如果没有在拍卖中胜出，则返还出价。</span><br><span class="line">    function bid() public payable &#123;</span><br><span class="line">        &#x2F;&#x2F; 参数不是必要的。因为所有的信息已经包含在了交易中。</span><br><span class="line">        &#x2F;&#x2F; 对于能接收以太币的函数，关键字 payable 是必须的。</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 如果拍卖已结束，撤销函数的调用。</span><br><span class="line">        require(</span><br><span class="line">            now &lt;&#x3D; auctionEnd,</span><br><span class="line">            &quot;Auction already ended.&quot;</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 如果出价不够高，返还你的钱</span><br><span class="line">        require(</span><br><span class="line">            msg.value &gt; highestBid,</span><br><span class="line">            &quot;There already is a higher bid.&quot;</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        if (highestBid !&#x3D; 0) &#123;</span><br><span class="line">            &#x2F;&#x2F; 返还出价时，简单地直接调用 highestBidder.send(highestBid) 函数，</span><br><span class="line">            &#x2F;&#x2F; 是有安全风险的，因为它有可能执行一个非信任合约。</span><br><span class="line">            &#x2F;&#x2F; 更为安全的做法是让接收方自己提取金钱。</span><br><span class="line">            pendingReturns[highestBidder] +&#x3D; highestBid;</span><br><span class="line">        &#125;</span><br><span class="line">        highestBidder &#x3D; msg.sender;</span><br><span class="line">        highestBid &#x3D; msg.value;</span><br><span class="line">        emit HighestBidIncreased(msg.sender, msg.value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 取回出价（当该出价已被超越）</span><br><span class="line">    function withdraw() public returns (bool) &#123;</span><br><span class="line">        uint amount &#x3D; pendingReturns[msg.sender];</span><br><span class="line">        if (amount &gt; 0) &#123;</span><br><span class="line">            &#x2F;&#x2F; 这里很重要，首先要设零值。</span><br><span class="line">            &#x2F;&#x2F; 因为，作为接收调用的一部分，</span><br><span class="line">            &#x2F;&#x2F; 接收者可以在 &#96;send&#96; 返回之前，重新调用该函数。</span><br><span class="line">            pendingReturns[msg.sender] &#x3D; 0;</span><br><span class="line"></span><br><span class="line">            if (!msg.sender.send(amount)) &#123;</span><br><span class="line">                &#x2F;&#x2F; 这里不需抛出异常，只需重置未付款</span><br><span class="line">                pendingReturns[msg.sender] &#x3D; amount;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 结束拍卖，并把最高的出价发送给受益人</span><br><span class="line">    function auctionEnd() public &#123;</span><br><span class="line">        &#x2F;&#x2F; 对于可与其他合约交互的函数（意味着它会调用其他函数或发送以太币），</span><br><span class="line">        &#x2F;&#x2F; 一个好的指导方针是将其结构分为三个阶段：</span><br><span class="line">        &#x2F;&#x2F; 1. 检查条件</span><br><span class="line">        &#x2F;&#x2F; 2. 执行动作 (可能会改变条件)</span><br><span class="line">        &#x2F;&#x2F; 3. 与其他合约交互</span><br><span class="line">        &#x2F;&#x2F; 如果这些阶段相混合，其他的合约可能会回调当前合约并修改状态，</span><br><span class="line">        &#x2F;&#x2F; 或者导致某些效果（比如支付以太币）多次生效。</span><br><span class="line">        &#x2F;&#x2F; 如果合约内调用的函数包含了与外部合约的交互，</span><br><span class="line">        &#x2F;&#x2F; 则它也会被认为是与外部合约有交互的。</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 1. 条件</span><br><span class="line">        require(now &gt;&#x3D; auctionEnd, &quot;Auction not yet ended.&quot;);</span><br><span class="line">        require(!ended, &quot;auctionEnd has already been called.&quot;);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 2. 生效</span><br><span class="line">        ended &#x3D; true;</span><br><span class="line">        emit AuctionEnded(highestBidder, highestBid);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 3. 交互</span><br><span class="line">        beneficiary.transfer(highestBid);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>智能合约</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Solidity-Official-Demo-安全的远程购买</title>
-    <url>/solidity-official-demo-safely-remote-shopping/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity ^0.4.22;</span><br><span class="line"></span><br><span class="line">contract Purchase &#123;</span><br><span class="line">    uint public value;</span><br><span class="line">    address public seller;</span><br><span class="line">    address public buyer;</span><br><span class="line">    enum State &#123; Created, Locked, Inactive &#125;</span><br><span class="line">    State public state;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;确保 &#96;msg.value&#96; 是一个偶数。</span><br><span class="line">    &#x2F;&#x2F;如果它是一个奇数，则它将被截断。</span><br><span class="line">    &#x2F;&#x2F;通过乘法检查它不是奇数。</span><br><span class="line">    constructor() public payable &#123;</span><br><span class="line">        seller &#x3D; msg.sender;</span><br><span class="line">        value &#x3D; msg.value &#x2F; 2;</span><br><span class="line">        require((2 * value) &#x3D;&#x3D; msg.value, &quot;Value has to be even.&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier condition(bool _condition) &#123;</span><br><span class="line">        require(_condition);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier onlyBuyer() &#123;</span><br><span class="line">        require(</span><br><span class="line">            msg.sender &#x3D;&#x3D; buyer,</span><br><span class="line">            &quot;Only buyer can call this.&quot;</span><br><span class="line">        );</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier onlySeller() &#123;</span><br><span class="line">        require(</span><br><span class="line">            msg.sender &#x3D;&#x3D; seller,</span><br><span class="line">            &quot;Only seller can call this.&quot;</span><br><span class="line">        );</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier inState(State _state) &#123;</span><br><span class="line">        require(</span><br><span class="line">            state &#x3D;&#x3D; _state,</span><br><span class="line">            &quot;Invalid state.&quot;</span><br><span class="line">        );</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    event Aborted();</span><br><span class="line">    event PurchaseConfirmed();</span><br><span class="line">    event ItemReceived();</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F;中止购买并回收以太币。</span><br><span class="line">    &#x2F;&#x2F;&#x2F;只能在合约被锁定之前由卖家调用。</span><br><span class="line">    function abort()</span><br><span class="line">        public</span><br><span class="line">        onlySeller</span><br><span class="line">        inState(State.Created)</span><br><span class="line">    &#123;</span><br><span class="line">        emit Aborted();</span><br><span class="line">        state &#x3D; State.Inactive;</span><br><span class="line">        seller.transfer(address(this).balance);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 买家确认购买。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 交易必须包含 &#96;2 * value&#96; 个以太币。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 以太币会被锁定，直到 confirmReceived 被调用。</span><br><span class="line">    function confirmPurchase()</span><br><span class="line">        public</span><br><span class="line">        inState(State.Created)</span><br><span class="line">        condition(msg.value &#x3D;&#x3D; (2 * value))</span><br><span class="line">        payable</span><br><span class="line">    &#123;</span><br><span class="line">        emit PurchaseConfirmed();</span><br><span class="line">        buyer &#x3D; msg.sender;</span><br><span class="line">        state &#x3D; State.Locked;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 确认你（买家）已经收到商品。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 这会释放被锁定的以太币。</span><br><span class="line">    function confirmReceived()</span><br><span class="line">        public</span><br><span class="line">        onlyBuyer</span><br><span class="line">        inState(State.Locked)</span><br><span class="line">    &#123;</span><br><span class="line">        emit ItemReceived();</span><br><span class="line">        &#x2F;&#x2F; 首先修改状态很重要，否则的话，由 &#96;transfer&#96; 所调用的合约可以回调进这里（再次接收以太币）。</span><br><span class="line">        state &#x3D; State.Inactive;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 注意: 这实际上允许买方和卖方阻止退款 - 应该使用取回模式。</span><br><span class="line">        buyer.transfer(value);</span><br><span class="line">        seller.transfer(address(this).balance);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>智能合约</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Solidity Official Demo-投票</title>
     <url>/solidity-official-demo-vote/</url>
     <content><![CDATA[<h2 id="投票"><a href="#投票" class="headerlink" title="投票"></a>投票</h2><p>以下的合约相当复杂，但展示了很多Solidity的功能。它实现了一个投票合约。 当然，电子投票的主要问题是如何将投票权分配给正确的人员以及如何防止被操纵。 在这里解决所有的问题，但会展示如何进行委托投票，同时，计票又是 <strong>自动和完全透明的</strong> 。</p>
@@ -908,6 +1024,14 @@
       </categories>
   </entry>
   <entry>
+    <title>Solidity-Official-Demo-安全的远程购买</title>
+    <url>/solidity-official-demo-safely-remote-shopping/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity ^0.4.22;</span><br><span class="line"></span><br><span class="line">contract Purchase &#123;</span><br><span class="line">    uint public value;</span><br><span class="line">    address public seller;</span><br><span class="line">    address public buyer;</span><br><span class="line">    enum State &#123; Created, Locked, Inactive &#125;</span><br><span class="line">    State public state;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;确保 &#96;msg.value&#96; 是一个偶数。</span><br><span class="line">    &#x2F;&#x2F;如果它是一个奇数，则它将被截断。</span><br><span class="line">    &#x2F;&#x2F;通过乘法检查它不是奇数。</span><br><span class="line">    constructor() public payable &#123;</span><br><span class="line">        seller &#x3D; msg.sender;</span><br><span class="line">        value &#x3D; msg.value &#x2F; 2;</span><br><span class="line">        require((2 * value) &#x3D;&#x3D; msg.value, &quot;Value has to be even.&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier condition(bool _condition) &#123;</span><br><span class="line">        require(_condition);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier onlyBuyer() &#123;</span><br><span class="line">        require(</span><br><span class="line">            msg.sender &#x3D;&#x3D; buyer,</span><br><span class="line">            &quot;Only buyer can call this.&quot;</span><br><span class="line">        );</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier onlySeller() &#123;</span><br><span class="line">        require(</span><br><span class="line">            msg.sender &#x3D;&#x3D; seller,</span><br><span class="line">            &quot;Only seller can call this.&quot;</span><br><span class="line">        );</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier inState(State _state) &#123;</span><br><span class="line">        require(</span><br><span class="line">            state &#x3D;&#x3D; _state,</span><br><span class="line">            &quot;Invalid state.&quot;</span><br><span class="line">        );</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    event Aborted();</span><br><span class="line">    event PurchaseConfirmed();</span><br><span class="line">    event ItemReceived();</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F;中止购买并回收以太币。</span><br><span class="line">    &#x2F;&#x2F;&#x2F;只能在合约被锁定之前由卖家调用。</span><br><span class="line">    function abort()</span><br><span class="line">        public</span><br><span class="line">        onlySeller</span><br><span class="line">        inState(State.Created)</span><br><span class="line">    &#123;</span><br><span class="line">        emit Aborted();</span><br><span class="line">        state &#x3D; State.Inactive;</span><br><span class="line">        seller.transfer(address(this).balance);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 买家确认购买。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 交易必须包含 &#96;2 * value&#96; 个以太币。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 以太币会被锁定，直到 confirmReceived 被调用。</span><br><span class="line">    function confirmPurchase()</span><br><span class="line">        public</span><br><span class="line">        inState(State.Created)</span><br><span class="line">        condition(msg.value &#x3D;&#x3D; (2 * value))</span><br><span class="line">        payable</span><br><span class="line">    &#123;</span><br><span class="line">        emit PurchaseConfirmed();</span><br><span class="line">        buyer &#x3D; msg.sender;</span><br><span class="line">        state &#x3D; State.Locked;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 确认你（买家）已经收到商品。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 这会释放被锁定的以太币。</span><br><span class="line">    function confirmReceived()</span><br><span class="line">        public</span><br><span class="line">        onlyBuyer</span><br><span class="line">        inState(State.Locked)</span><br><span class="line">    &#123;</span><br><span class="line">        emit ItemReceived();</span><br><span class="line">        &#x2F;&#x2F; 首先修改状态很重要，否则的话，由 &#96;transfer&#96; 所调用的合约可以回调进这里（再次接收以太币）。</span><br><span class="line">        state &#x3D; State.Inactive;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 注意: 这实际上允许买方和卖方阻止退款 - 应该使用取回模式。</span><br><span class="line">        buyer.transfer(value);</span><br><span class="line">        seller.transfer(address(this).balance);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Solidity-Official-Demo-秘密竞拍（盲拍）</title>
     <url>/solidity-official-demo-secret-auction/</url>
     <content><![CDATA[<h3 id="秘密竞拍（盲拍）"><a href="#秘密竞拍（盲拍）" class="headerlink" title="秘密竞拍（盲拍）"></a>秘密竞拍（盲拍）</h3><p>之前的公开拍卖接下来将被扩展为一个秘密竞拍。 秘密竞拍的好处是在投标结束前不会有时间压力。 在一个透明的计算平台上进行秘密竞拍听起来像是自相矛盾，但密码学可以实现它。</p>
@@ -915,6 +1039,39 @@
 <p>另一个挑战是如何使拍卖同时做到 <strong>绑定和秘密</strong> : 唯一能阻止投标者在她赢得拍卖后不付款的方式是，让她将钱连同出价一起发出。 但由于资金转移在 以太坊Ethereum 中不能被隐藏，因此任何人都可以看到转移的资金。</p>
 <p>下面的合约通过接受任何大于最高出价的值来解决这个问题。 当然，因为这只能在披露阶段进行检查，有些出价可能是 <strong>无效</strong> 的， 并且，这是故意的(与高出价一起，它甚至提供了一个明确的标志来标识无效的出价): 投标人可以通过设置几个或高或低的无效出价来迷惑竞争对手。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity &gt;0.4.23 &lt;0.5.0;</span><br><span class="line"></span><br><span class="line">contract BlindAuction &#123;</span><br><span class="line">    struct Bid &#123;</span><br><span class="line">        bytes32 blindedBid;</span><br><span class="line">        uint deposit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    address public beneficiary;</span><br><span class="line">    uint public biddingEnd;</span><br><span class="line">    uint public revealEnd;</span><br><span class="line">    bool public ended;</span><br><span class="line"></span><br><span class="line">    mapping(address &#x3D;&gt; Bid[]) public bids;</span><br><span class="line"></span><br><span class="line">    address public highestBidder;</span><br><span class="line">    uint public highestBid;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 可以取回的之前的出价</span><br><span class="line">    mapping(address &#x3D;&gt; uint) pendingReturns;</span><br><span class="line"></span><br><span class="line">    event AuctionEnded(address winner, uint highestBid);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 使用 modifier 可以更便捷的校验函数的入参。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; &#96;onlyBefore&#96; 会被用于后面的 &#96;bid&#96; 函数：</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 新的函数体是由 modifier 本身的函数体，并用原函数体替换 &#96;_;&#96; 语句来组成的。</span><br><span class="line">    modifier onlyBefore(uint _time) &#123; require(now &lt; _time); _; &#125;</span><br><span class="line">    modifier onlyAfter(uint _time) &#123; require(now &gt; _time); _; &#125;</span><br><span class="line"></span><br><span class="line">    constructor(</span><br><span class="line">        uint _biddingTime,</span><br><span class="line">        uint _revealTime,</span><br><span class="line">        address _beneficiary</span><br><span class="line">    ) public &#123;</span><br><span class="line">        beneficiary &#x3D; _beneficiary;</span><br><span class="line">        biddingEnd &#x3D; now + _biddingTime;</span><br><span class="line">        revealEnd &#x3D; biddingEnd + _revealTime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 可以通过 &#96;_blindedBid&#96; &#x3D; keccak256(value, fake, secret)</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 设置一个秘密竞拍。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 只有在出价披露阶段被正确披露，已发送的以太币才会被退还。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 如果与出价一起发送的以太币至少为 “value” 且 “fake” 不为真，则出价有效。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 将 “fake” 设置为 true ，然后发送满足订金金额但又不与出价相同的金额是隐藏实际出价的方法。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 同一个地址可以放置多个出价。</span><br><span class="line">    function bid(bytes32 _blindedBid)</span><br><span class="line">        public</span><br><span class="line">        payable</span><br><span class="line">        onlyBefore(biddingEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        bids[msg.sender].push(Bid(&#123;</span><br><span class="line">            blindedBid: _blindedBid,</span><br><span class="line">            deposit: msg.value</span><br><span class="line">        &#125;));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 披露你的秘密竞拍出价。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 对于所有正确披露的无效出价以及除最高出价以外的所有出价，你都将获得退款。</span><br><span class="line">    function reveal(</span><br><span class="line">        uint[] _values,</span><br><span class="line">        bool[] _fake,</span><br><span class="line">        bytes32[] _secret</span><br><span class="line">    )</span><br><span class="line">        public</span><br><span class="line">        onlyAfter(biddingEnd)</span><br><span class="line">        onlyBefore(revealEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        uint length &#x3D; bids[msg.sender].length;</span><br><span class="line">        require(_values.length &#x3D;&#x3D; length);</span><br><span class="line">        require(_fake.length &#x3D;&#x3D; length);</span><br><span class="line">        require(_secret.length &#x3D;&#x3D; length);</span><br><span class="line"></span><br><span class="line">        uint refund;</span><br><span class="line">        for (uint i &#x3D; 0; i &lt; length; i++) &#123;</span><br><span class="line">            Bid storage bid &#x3D; bids[msg.sender][i];</span><br><span class="line">            (uint value, bool fake, bytes32 secret) &#x3D;</span><br><span class="line">                    (_values[i], _fake[i], _secret[i]);</span><br><span class="line">            if (bid.blindedBid !&#x3D; keccak256(value, fake, secret)) &#123;</span><br><span class="line">                &#x2F;&#x2F; 出价未能正确披露</span><br><span class="line">                &#x2F;&#x2F; 不返还订金</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            refund +&#x3D; bid.deposit;</span><br><span class="line">            if (!fake &amp;&amp; bid.deposit &gt;&#x3D; value) &#123;</span><br><span class="line">                if (placeBid(msg.sender, value))</span><br><span class="line">                    refund -&#x3D; value;</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F; 使发送者不可能再次认领同一笔订金</span><br><span class="line">            bid.blindedBid &#x3D; bytes32(0);</span><br><span class="line">        &#125;</span><br><span class="line">        msg.sender.transfer(refund);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 这是一个 &quot;internal&quot; 函数， 意味着它只能在本合约（或继承合约）内被调用</span><br><span class="line">    function placeBid(address bidder, uint value) internal</span><br><span class="line">            returns (bool success)</span><br><span class="line">    &#123;</span><br><span class="line">        if (value &lt;&#x3D; highestBid) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        if (highestBidder !&#x3D; address(0)) &#123;</span><br><span class="line">            &#x2F;&#x2F; 返还之前的最高出价</span><br><span class="line">            pendingReturns[highestBidder] +&#x3D; highestBid;</span><br><span class="line">        &#125;</span><br><span class="line">        highestBid &#x3D; value;</span><br><span class="line">        highestBidder &#x3D; bidder;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 取回出价（当该出价已被超越）</span><br><span class="line">    function withdraw() public &#123;</span><br><span class="line">        uint amount &#x3D; pendingReturns[msg.sender];</span><br><span class="line">        if (amount &gt; 0) &#123;</span><br><span class="line">            &#x2F;&#x2F; 这里很重要，首先要设零值。</span><br><span class="line">            &#x2F;&#x2F; 因为，作为接收调用的一部分，</span><br><span class="line">            &#x2F;&#x2F; 接收者可以在 &#96;transfer&#96; 返回之前重新调用该函数。（可查看上面关于‘条件 -&gt; 影响 -&gt; 交互’的标注）</span><br><span class="line">            pendingReturns[msg.sender] &#x3D; 0;</span><br><span class="line"></span><br><span class="line">            msg.sender.transfer(amount);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 结束拍卖，并把最高的出价发送给受益人</span><br><span class="line">    function auctionEnd()</span><br><span class="line">        public</span><br><span class="line">        onlyAfter(revealEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        require(!ended);</span><br><span class="line">        emit AuctionEnded(highestBidder, highestBid);</span><br><span class="line">        ended &#x3D; true;</span><br><span class="line">        beneficiary.transfer(highestBid);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>1-搭建僵尸工厂</title>
+    <url>/solidity-course-1-build-zoombies-factory/</url>
+    <content><![CDATA[<h3 id="这是-Solidity-的游戏教学项目，非常好！"><a href="#这是-Solidity-的游戏教学项目，非常好！" class="headerlink" title="这是 Solidity 的游戏教学项目，非常好！"></a>这是 Solidity 的游戏教学项目，非常好！</h3><p><a href="https://cryptozombies.io/zh/course" target="_blank" rel="noopener">项目网址</a>，我也生成了自己的 hanwen <a href="https://share.cryptozombies.io/zh/lesson/1/share/hanwen" target="_blank" rel="noopener">zoombie</a> </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity ^0.4.19;</span><br><span class="line"></span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line"></span><br><span class="line">    event NewZombie(uint zombieId, string name, uint dna);</span><br><span class="line"></span><br><span class="line">    uint dnaDigits &#x3D; 16;</span><br><span class="line">    uint dnaModulus &#x3D; 10 ** dnaDigits;</span><br><span class="line"></span><br><span class="line">    struct Zombie &#123;</span><br><span class="line">        string name;</span><br><span class="line">        uint dna;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Zombie[] public zombies;</span><br><span class="line"></span><br><span class="line">    function _createZombie(string _name, uint _dna) private &#123;</span><br><span class="line">        uint id &#x3D; zombies.push(Zombie(_name, _dna)) - 1;</span><br><span class="line">        NewZombie(id, _name, _dna);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function _generateRandomDna(string _str) private view returns (uint) &#123;</span><br><span class="line">        uint rand &#x3D; uint(keccak256(_str));</span><br><span class="line">        return rand % dnaModulus;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function createRandomZombie(string _name) public &#123;</span><br><span class="line">        uint randDna &#x3D; _generateRandomDna(_name);</span><br><span class="line">        _createZombie(_name, randDna);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="记录几个要点"><a href="#记录几个要点" class="headerlink" title="记录几个要点"></a>记录几个要点</h3><ol>
+<li>创建函数的时候默认是 public</li>
+<li>private 需要显式声明</li>
+<li>returns 需要有 s</li>
+<li>private 函数名需要以下环线开头</li>
+<li><code>keccak256</code> 生成的是 256 位的十六进制的哈希值，需要进行 uint 转换</li>
+</ol>
+<h3 id="event-和-前端的监听"><a href="#event-和-前端的监听" class="headerlink" title="event 和 前端的监听"></a>event 和 前端的监听</h3><p>智能合约中初始化 event，并且在函数中调用这个 event 可以将对应的信息传递到 前端页面中。</p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>Solidity Game</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solidity-Official-Demo-简单的公开拍卖</title>
+    <url>/solidity-official-demo-simple-auction/</url>
+    <content><![CDATA[<h3 id="简单的公开拍卖"><a href="#简单的公开拍卖" class="headerlink" title="简单的公开拍卖"></a>简单的公开拍卖</h3><p>以下简单的拍卖合约的总体思路是每个人都可以在投标期内发送他们的出价。 出价已经包含了资金/以太币，来将投标人与他们的投标绑定。 如果最高出价提高了（被其他出价者的出价超过），之前出价最高的出价者可以拿回她的钱。 在投标期结束后，受益人需要手动调用合约来接收他的钱 - 合约不能自己激活接收。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity ^0.4.22;</span><br><span class="line"></span><br><span class="line">contract SimpleAuction &#123;</span><br><span class="line">    &#x2F;&#x2F; 拍卖的参数。</span><br><span class="line">    address public beneficiary;</span><br><span class="line">    &#x2F;&#x2F; 时间是unix的绝对时间戳（自1970-01-01以来的秒数）</span><br><span class="line">    &#x2F;&#x2F; 或以秒为单位的时间段。</span><br><span class="line">    uint public auctionEnd;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 拍卖的当前状态</span><br><span class="line">    address public highestBidder;</span><br><span class="line">    uint public highestBid;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;可以取回的之前的出价</span><br><span class="line">    mapping(address &#x3D;&gt; uint) pendingReturns;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 拍卖结束后设为 true，将禁止所有的变更</span><br><span class="line">    bool ended;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 变更触发的事件</span><br><span class="line">    event HighestBidIncreased(address bidder, uint amount);</span><br><span class="line">    event AuctionEnded(address winner, uint amount);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 以下是所谓的 natspec 注释，可以通过三个斜杠来识别。</span><br><span class="line">    &#x2F;&#x2F; 当用户被要求确认交易时将显示。</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 以受益者地址 &#96;_beneficiary&#96; 的名义，</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 创建一个简单的拍卖，拍卖时间为 &#96;_biddingTime&#96; 秒。</span><br><span class="line">    constructor(</span><br><span class="line">        uint _biddingTime,</span><br><span class="line">        address _beneficiary</span><br><span class="line">    ) public &#123;</span><br><span class="line">        beneficiary &#x3D; _beneficiary;</span><br><span class="line">        auctionEnd &#x3D; now + _biddingTime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 对拍卖进行出价，具体的出价随交易一起发送。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 如果没有在拍卖中胜出，则返还出价。</span><br><span class="line">    function bid() public payable &#123;</span><br><span class="line">        &#x2F;&#x2F; 参数不是必要的。因为所有的信息已经包含在了交易中。</span><br><span class="line">        &#x2F;&#x2F; 对于能接收以太币的函数，关键字 payable 是必须的。</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 如果拍卖已结束，撤销函数的调用。</span><br><span class="line">        require(</span><br><span class="line">            now &lt;&#x3D; auctionEnd,</span><br><span class="line">            &quot;Auction already ended.&quot;</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 如果出价不够高，返还你的钱</span><br><span class="line">        require(</span><br><span class="line">            msg.value &gt; highestBid,</span><br><span class="line">            &quot;There already is a higher bid.&quot;</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        if (highestBid !&#x3D; 0) &#123;</span><br><span class="line">            &#x2F;&#x2F; 返还出价时，简单地直接调用 highestBidder.send(highestBid) 函数，</span><br><span class="line">            &#x2F;&#x2F; 是有安全风险的，因为它有可能执行一个非信任合约。</span><br><span class="line">            &#x2F;&#x2F; 更为安全的做法是让接收方自己提取金钱。</span><br><span class="line">            pendingReturns[highestBidder] +&#x3D; highestBid;</span><br><span class="line">        &#125;</span><br><span class="line">        highestBidder &#x3D; msg.sender;</span><br><span class="line">        highestBid &#x3D; msg.value;</span><br><span class="line">        emit HighestBidIncreased(msg.sender, msg.value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 取回出价（当该出价已被超越）</span><br><span class="line">    function withdraw() public returns (bool) &#123;</span><br><span class="line">        uint amount &#x3D; pendingReturns[msg.sender];</span><br><span class="line">        if (amount &gt; 0) &#123;</span><br><span class="line">            &#x2F;&#x2F; 这里很重要，首先要设零值。</span><br><span class="line">            &#x2F;&#x2F; 因为，作为接收调用的一部分，</span><br><span class="line">            &#x2F;&#x2F; 接收者可以在 &#96;send&#96; 返回之前，重新调用该函数。</span><br><span class="line">            pendingReturns[msg.sender] &#x3D; 0;</span><br><span class="line"></span><br><span class="line">            if (!msg.sender.send(amount)) &#123;</span><br><span class="line">                &#x2F;&#x2F; 这里不需抛出异常，只需重置未付款</span><br><span class="line">                pendingReturns[msg.sender] &#x3D; amount;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 结束拍卖，并把最高的出价发送给受益人</span><br><span class="line">    function auctionEnd() public &#123;</span><br><span class="line">        &#x2F;&#x2F; 对于可与其他合约交互的函数（意味着它会调用其他函数或发送以太币），</span><br><span class="line">        &#x2F;&#x2F; 一个好的指导方针是将其结构分为三个阶段：</span><br><span class="line">        &#x2F;&#x2F; 1. 检查条件</span><br><span class="line">        &#x2F;&#x2F; 2. 执行动作 (可能会改变条件)</span><br><span class="line">        &#x2F;&#x2F; 3. 与其他合约交互</span><br><span class="line">        &#x2F;&#x2F; 如果这些阶段相混合，其他的合约可能会回调当前合约并修改状态，</span><br><span class="line">        &#x2F;&#x2F; 或者导致某些效果（比如支付以太币）多次生效。</span><br><span class="line">        &#x2F;&#x2F; 如果合约内调用的函数包含了与外部合约的交互，</span><br><span class="line">        &#x2F;&#x2F; 则它也会被认为是与外部合约有交互的。</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 1. 条件</span><br><span class="line">        require(now &gt;&#x3D; auctionEnd, &quot;Auction not yet ended.&quot;);</span><br><span class="line">        require(!ended, &quot;auctionEnd has already been called.&quot;);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 2. 生效</span><br><span class="line">        ended &#x3D; true;</span><br><span class="line">        emit AuctionEnded(highestBidder, highestBid);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 3. 交互</span><br><span class="line">        beneficiary.transfer(highestBid);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>智能合约</category>
       </categories>
@@ -954,28 +1111,6 @@
 <p><strong>调用另一个合约</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contract MyContract &#123;</span><br><span class="line">  address NumberInterfaceAddress &#x3D; 0xab38...;</span><br><span class="line">  &#x2F;&#x2F; ^ 这是FavoriteNumber合约在以太坊上的地址</span><br><span class="line">  NumberInterface numberContract &#x3D; NumberInterface(NumberInterfaceAddress);</span><br><span class="line">  &#x2F;&#x2F; 现在变量 &#96;numberContract&#96; 指向另一个合约对象</span><br><span class="line"></span><br><span class="line">  function someFunction() public &#123;</span><br><span class="line">    &#x2F;&#x2F; 现在我们可以调用在那个合约中声明的 &#96;getNum&#96;函数:</span><br><span class="line">    uint num &#x3D; numberContract.getNum(msg.sender);</span><br><span class="line">    &#x2F;&#x2F; ...在这儿使用 &#96;num&#96;变量做些什么</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>智能合约</category>
-      </categories>
-      <tags>
-        <tag>Solidity Game</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>1-搭建僵尸工厂</title>
-    <url>/solidity-course-1-build-zoombies-factory/</url>
-    <content><![CDATA[<h3 id="这是-Solidity-的游戏教学项目，非常好！"><a href="#这是-Solidity-的游戏教学项目，非常好！" class="headerlink" title="这是 Solidity 的游戏教学项目，非常好！"></a>这是 Solidity 的游戏教学项目，非常好！</h3><p><a href="https://cryptozombies.io/zh/course" target="_blank" rel="noopener">项目网址</a>，我也生成了自己的 hanwen <a href="https://share.cryptozombies.io/zh/lesson/1/share/hanwen" target="_blank" rel="noopener">zoombie</a> </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity ^0.4.19;</span><br><span class="line"></span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line"></span><br><span class="line">    event NewZombie(uint zombieId, string name, uint dna);</span><br><span class="line"></span><br><span class="line">    uint dnaDigits &#x3D; 16;</span><br><span class="line">    uint dnaModulus &#x3D; 10 ** dnaDigits;</span><br><span class="line"></span><br><span class="line">    struct Zombie &#123;</span><br><span class="line">        string name;</span><br><span class="line">        uint dna;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Zombie[] public zombies;</span><br><span class="line"></span><br><span class="line">    function _createZombie(string _name, uint _dna) private &#123;</span><br><span class="line">        uint id &#x3D; zombies.push(Zombie(_name, _dna)) - 1;</span><br><span class="line">        NewZombie(id, _name, _dna);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function _generateRandomDna(string _str) private view returns (uint) &#123;</span><br><span class="line">        uint rand &#x3D; uint(keccak256(_str));</span><br><span class="line">        return rand % dnaModulus;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function createRandomZombie(string _name) public &#123;</span><br><span class="line">        uint randDna &#x3D; _generateRandomDna(_name);</span><br><span class="line">        _createZombie(_name, randDna);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="记录几个要点"><a href="#记录几个要点" class="headerlink" title="记录几个要点"></a>记录几个要点</h3><ol>
-<li>创建函数的时候默认是 public</li>
-<li>private 需要显式声明</li>
-<li>returns 需要有 s</li>
-<li>private 函数名需要以下环线开头</li>
-<li><code>keccak256</code> 生成的是 256 位的十六进制的哈希值，需要进行 uint 转换</li>
-</ol>
-<h3 id="event-和-前端的监听"><a href="#event-和-前端的监听" class="headerlink" title="event 和 前端的监听"></a>event 和 前端的监听</h3><p>智能合约中初始化 event，并且在函数中调用这个 event 可以将对应的信息传递到 前端页面中。</p>
 ]]></content>
       <categories>
         <category>智能合约</category>
@@ -1130,74 +1265,5 @@
       <tags>
         <tag>Solidity Game</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Powerful Backend 组件理解</title>
-    <url>/powerful-backend-components/</url>
-    <content><![CDATA[<p>理解 Nginx, Redis, RabbitMQ, MySQL 各部分组件 </p>
-<a id="more"></a>
-
-<p>Flask </p>
-<p>缓存层 Redis</p>
-<p>消息队列 RabbitMQ 异步执行</p>
-<p>Data Fetcher 从数据库取数据</p>
-<p>Locust Python负载均衡 10x</p>
-<hr>
-<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p>Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。</p>
-<p>Redis 与其他 key - value 缓存产品有以下三个特点：</p>
-<ol>
-<li>Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</li>
-<li>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</li>
-<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
-</ol>
-<h3 id="Redis-优势"><a href="#Redis-优势" class="headerlink" title="Redis 优势"></a>Redis 优势</h3><ol>
-<li>性能极高 – Redis能读的速度是110000次/s,写的速度是81000次/s 。</li>
-<li>丰富的数据类型 – Redis支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作。</li>
-<li>原子 – Redis的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行。单个操作是原子性的。多个操作也支持事务，即原子性，通过MULTI和EXEC指令包起来。</li>
-<li>丰富的特性 – Redis还支持 publish/subscribe, 通知, key 过期等等特性。</li>
-</ol>
-<p>【总之就是一个高性能的存储】</p>
-<h1 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h1><p>RabbitMQ 是一个由 Erlang 语言开发的 AMQP 的开源实现。</p>
-<p>AMQP ：Advanced Message Queue，高级消息队列协议。它是应用层协议的一个开放标准，为面向消息的中间件设计，基于此协议的客户端与消息中间件可传递消息，并不受产品、开发语言等条件的限制。</p>
-<p>RabbitMQ 最初起源于金融系统，用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。具体特点包括：</p>
-<ol>
-<li>可靠性（Reliability） RabbitMQ 使用一些机制来保证可靠性，如持久化、传输确认、发布确认。</li>
-<li>消息集群（Clustering） 多个 RabbitMQ 服务器可以组成一个集群，形成一个逻辑 Broker 。</li>
-<li>高可用（Highly Available Queues） 队列可以在集群中的机器上进行镜像，使得在部分节点出问题的情况下队列仍然可用。</li>
-<li>多种协议（Multi-protocol） RabbitMQ 支持多种消息队列协议，比如 STOMP、MQTT 等等。</li>
-<li>多语言客户端（Many Clients） RabbitMQ 几乎支持所有常用语言，比如 Java、.NET、Ruby 等等。</li>
-<li>管理界面（Management UI） RabbitMQ 提供了一个易用的用户界面，使得用户可以监控和管理消息 Broker 的许多方面。</li>
-<li>跟踪机制（Tracing） 如果消息异常，RabbitMQ 提供了消息跟踪机制，使用者可以找出发生了什么。</li>
-<li>插件机制（Plugin System） RabbitMQ 提供了许多插件，来从多方面进行扩展，也可以编写自己的插件。</li>
-</ol>
-<p>【就是一个消息队列】</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Serverless</title>
-    <url>/serverless-introduction/</url>
-    <content><![CDATA[<h1 id="Serverless"><a href="#Serverless" class="headerlink" title="Serverless"></a>Serverless</h1><p>相对于微服务是更加细粒度的服务架构模式，目前抽象级别更高的。</p>
-<p>函数暴露的形式进行发布，所以又称为 FaaS。提供了代码可以运行的平台。</p>
-<p>不需要关心计算资源，相较于 PaaS，计算能力是无限的。</p>
-<p><img data-src="/serverless-introduction/1450963-20190708100448985-80323474.webp" alt="img"></p>
-<blockquote>
-<p><em>如果你的PaaS能够有效地在20毫秒内启动实例并运行半秒,那么就可以称之为Serverless”。</em></p>
-<p><em>–摘抄自《从 IaaS 到 FaaS—— Serverless架构的前世今生》</em></p>
-</blockquote>
-<a id="more"></a>
-
-<h3 id="最强大的功能是-事件驱动"><a href="#最强大的功能是-事件驱动" class="headerlink" title="最强大的功能是  - 事件驱动"></a>最强大的功能是  - <strong>事件驱动</strong></h3><p>Serverless 本质是事件驱动的。</p>
-<ul>
-<li>上传图片时触发Lambda函数生成缩略图，用于做网站图片缓存。</li>
-<li>上传视频时触发Lambda函数生成视频摘要信息，截取关键帧。</li>
-</ul>
-<h3 id="记录变化途径"><a href="#记录变化途径" class="headerlink" title="记录变化途径"></a>记录变化途径</h3><p>云计算经历了从IDC -&gt; IaaS -&gt; PaaS -&gt; Serverless/FaaS 的发展历程</p>
-<p><img data-src="/serverless-introduction/1450963-20190708100500351-507271724.webp" alt="img"></p>
-<p>IaaS(Infrastructure as a Service) 基础设施即服务，_服务商提供底层/物理层基础设施资源（服务器，数据中心，环境控制，电源，服务器机房），用户需要通过IaaS提供的服务平台购买虚拟资源，选择操作系统，安装软件，部署程序，监控应用。</p>
-<p><img data-src="/serverless-introduction/1450963-20190708100507728-684923140.webp" alt="img"></p>
-<p>PaaS(Platform as a Service) 平台即服务，服务商提供基础设施底层服务，提供操作系统（Windows，Linux）、数据库服务器、Web服务器、负载均衡器和其他中间件，相对于IaaS客户仅仅需要自己控制上层的应用程序部署与应用托管的环境。</p>
-<p><img data-src="/serverless-introduction/1450963-20190708100513269-1002353393.webp" alt="img"></p>
-<p>SaaS(Software as a Service) 软件即服务， 服务商提供基于软件的解决方案，如OA、CRM、MIS、ERP、HRM、CM、Office 365、iCloud等，客户不需考虑任何形式的专业技术知识，只需要通过服务商平台获取软件使用即可。</p>
-]]></content>
   </entry>
 </search>

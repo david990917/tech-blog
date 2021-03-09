@@ -126,7 +126,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">15</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -182,6 +182,222 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/solidity-course-1-build-zoombies-factory/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hanwen.png">
+      <meta itemprop="name" content="David Stark">
+      <meta itemprop="description" content="瀚文的技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David Stark">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/solidity-course-1-build-zoombies-factory/" class="post-title-link" itemprop="url">1-搭建僵尸工厂</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-12 11:27:18" itemprop="dateCreated datePublished" datetime="2020-06-12T11:27:18+08:00">2020-06-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-13 09:34:09" itemprop="dateModified" datetime="2020-06-13T09:34:09+08:00">2020-06-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="这是-Solidity-的游戏教学项目，非常好！"><a href="#这是-Solidity-的游戏教学项目，非常好！" class="headerlink" title="这是 Solidity 的游戏教学项目，非常好！"></a>这是 Solidity 的游戏教学项目，非常好！</h3><p><a href="https://cryptozombies.io/zh/course" target="_blank" rel="noopener">项目网址</a>，我也生成了自己的 hanwen <a href="https://share.cryptozombies.io/zh/lesson/1/share/hanwen" target="_blank" rel="noopener">zoombie</a> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.19;</span><br><span class="line"></span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line"></span><br><span class="line">    event NewZombie(uint zombieId, string name, uint dna);</span><br><span class="line"></span><br><span class="line">    uint dnaDigits &#x3D; 16;</span><br><span class="line">    uint dnaModulus &#x3D; 10 ** dnaDigits;</span><br><span class="line"></span><br><span class="line">    struct Zombie &#123;</span><br><span class="line">        string name;</span><br><span class="line">        uint dna;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Zombie[] public zombies;</span><br><span class="line"></span><br><span class="line">    function _createZombie(string _name, uint _dna) private &#123;</span><br><span class="line">        uint id &#x3D; zombies.push(Zombie(_name, _dna)) - 1;</span><br><span class="line">        NewZombie(id, _name, _dna);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function _generateRandomDna(string _str) private view returns (uint) &#123;</span><br><span class="line">        uint rand &#x3D; uint(keccak256(_str));</span><br><span class="line">        return rand % dnaModulus;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function createRandomZombie(string _name) public &#123;</span><br><span class="line">        uint randDna &#x3D; _generateRandomDna(_name);</span><br><span class="line">        _createZombie(_name, randDna);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="记录几个要点"><a href="#记录几个要点" class="headerlink" title="记录几个要点"></a>记录几个要点</h3><ol>
+<li>创建函数的时候默认是 public</li>
+<li>private 需要显式声明</li>
+<li>returns 需要有 s</li>
+<li>private 函数名需要以下环线开头</li>
+<li><code>keccak256</code> 生成的是 256 位的十六进制的哈希值，需要进行 uint 转换</li>
+</ol>
+<h3 id="event-和-前端的监听"><a href="#event-和-前端的监听" class="headerlink" title="event 和 前端的监听"></a>event 和 前端的监听</h3><p>智能合约中初始化 event，并且在函数中调用这个 event 可以将对应的信息传递到 前端页面中。</p>
+
+      
+    </div>
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/turing-completeness/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hanwen.png">
+      <meta itemprop="name" content="David Stark">
+      <meta itemprop="description" content="瀚文的技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David Stark">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/turing-completeness/" class="post-title-link" itemprop="url">图灵完备</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-12 10:34:14 / 修改时间：10:47:12" itemprop="dateCreated datePublished" datetime="2020-06-12T10:34:14+08:00">2020-06-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在<a href="https://zh.wikipedia.org/wiki/可计算性理论" target="_blank" rel="noopener">可计算性理论</a>里，如果一系列操作数据的规则（如<a href="https://zh.wikipedia.org/wiki/指令集" target="_blank" rel="noopener">指令集</a>、<a href="https://zh.wikipedia.org/wiki/编程语言" target="_blank" rel="noopener">编程语言</a>、<a href="https://zh.wikipedia.org/wiki/細胞自動機" target="_blank" rel="noopener">细胞自动机</a>）可以用来模拟<a href="https://zh.wikipedia.org/wiki/图灵机" target="_blank" rel="noopener">单带图灵机</a>，那么它是<strong>图灵完全的</strong>。这个词源于引入图灵机概念的数学家<a href="https://zh.wikipedia.org/wiki/艾伦·图灵" target="_blank" rel="noopener">艾伦·图灵</a>。</p>
+<p>虽然<a href="https://zh.wikipedia.org/wiki/图灵机" target="_blank" rel="noopener">图灵机</a>会受到储存能力的<a href="https://zh.wikipedia.org/wiki/物理" target="_blank" rel="noopener">物理</a>限制，图灵完全性通常指“具有无限存储能力的通用物理机器或编程语言”。</p>
+<p>PPT 是图灵完备的，神奇！</p>
+
+      
+    </div>
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/pymupdf-process-pdf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hanwen.png">
+      <meta itemprop="name" content="David Stark">
+      <meta itemprop="description" content="瀚文的技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David Stark">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/pymupdf-process-pdf/" class="post-title-link" itemprop="url">PyMuPDF 进行 PDF 处理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-11 23:42:43" itemprop="dateCreated datePublished" datetime="2020-06-11T23:42:43+08:00">2020-06-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-12 00:15:25" itemprop="dateModified" datetime="2020-06-12T00:15:25+08:00">2020-06-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>PyMuPDF（fitz）：MuPDF 的 Python 绑定，它是一个轻量级的 PDF 和 XPS 查看器。该库可以访问 PDF，XPS，OpenXPS，epub，漫画和小说书籍格式的文件，并以其顶级性能和高渲染质量而闻名。</p>
+<p><a href="https://github.com/pymupdf/PyMuPDF/wiki" target="_blank" rel="noopener">PyMuPDF/wiki</a></p>
+<p><img data-src="/pymupdf-process-pdf/13717038-cdc4983066bc598f.webp" alt="img"></p>
+<h3 id="使用-PyMuPDF-从-PDF-中提取图像"><a href="#使用-PyMuPDF-从-PDF-中提取图像" class="headerlink" title="使用 PyMuPDF 从 PDF 中提取图像"></a>使用 PyMuPDF 从 PDF 中提取图像</h3><p>PyMuPDF 使用 getPageImageList（）方法简化了从 PDF 文档中提取图像的过程。下面的代码来源于 PyMuPDF wiki 页面的示例，并逐页提取并保存 PDF 中的所有图像作为 PNG 文件。 如果图像具有 CMYK 颜色空间，则首先将其转换为 RGB。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -686,247 +902,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/ubuntu-pip-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hanwen.png">
-      <meta itemprop="name" content="David Stark">
-      <meta itemprop="description" content="瀚文的技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David Stark">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ubuntu-pip-install/" class="post-title-link" itemprop="url">ubuntu pip安装</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-11 10:57:55 / 修改时间：19:40:00" itemprop="dateCreated datePublished" datetime="2020-06-11T10:57:55+08:00">2020-06-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>ubuntu pip 安装的时候常需要源，这里记录一下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install * -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-
-<p>aws 上面机器由于内存比较小，安装的时候会遇到 MemoryError</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install * --no-cache-dir</span><br></pre></td></tr></table></figure>
-
-<p>安装 opencv</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install -y libsm6 libxext6 libxrender-dev libglib2.0-0</span><br><span class="line">pip install opencv-python</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/ubuntu-pip-install/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/ethereum-studio-sample-crypto-pizzas/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hanwen.png">
-      <meta itemprop="name" content="David Stark">
-      <meta itemprop="description" content="瀚文的技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David Stark">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ethereum-studio-sample-crypto-pizzas/" class="post-title-link" itemprop="url">Ethereum-Studio-Sample-Crypto-Pizzas</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-10 20:00:32" itemprop="dateCreated datePublished" datetime="2020-06-10T20:00:32+08:00">2020-06-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-13 09:32:23" itemprop="dateModified" datetime="2020-06-13T09:32:23+08:00">2020-06-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Creating-a-unique-collectible-token"><a href="#Creating-a-unique-collectible-token" class="headerlink" title="Creating a unique collectible token"></a>Creating a unique collectible token</h1><p>This project is an example application that teaches you how to:</p>
-<ul>
-<li>Write a smart contract and web app that conforms to a token standard.</li>
-<li>Different variable types in Solidity.</li>
-<li>Create, update and get variables in a smart contract.</li>
-<li>Emit events that clients can subscribe to.</li>
-<li>Provide arguments to a contract constructor using the <em>Configure contract</em> modal.</li>
-</ul>
-<p>这是一个略微复杂的智能合约</p>
-<p><img data-src="/ethereum-studio-sample-crypto-pizzas/image-20200610200542158.png" alt="image-20200610200542158"></p>
-
-      
-    </div>
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/ethereum-studio-sample-coin/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hanwen.png">
-      <meta itemprop="name" content="David Stark">
-      <meta itemprop="description" content="瀚文的技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David Stark">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ethereum-studio-sample-coin/" class="post-title-link" itemprop="url">Ethereum-Studio-Sample-Coin</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-10 18:52:31" itemprop="dateCreated datePublished" datetime="2020-06-10T18:52:31+08:00">2020-06-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-13 09:31:30" itemprop="dateModified" datetime="2020-06-13T09:31:30+08:00">2020-06-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Ethereum-Studio 上面简单的 Coin 交易 Sample</p>
-<p>代码很容易理解，重要的是基于这个代码理解了 Ethereum-Studio 上面的操作</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Specifies that the source code is for a version</span></span><br><span class="line"><span class="comment">// of Solidity greater than 0.5.0</span></span><br><span class="line">pragma solidity &gt;=<span class="number">0.5</span><span class="number">.0</span> &lt;<span class="number">0.7</span><span class="number">.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// A contract is a collection of functions and data (its state)</span></span><br><span class="line"><span class="comment">// that resides at a specific address on the Ethereum blockchain.</span></span><br><span class="line">contract Coin &#123;</span><br><span class="line">    <span class="comment">// The keyword "public" makes variables accessible from outside a contract</span></span><br><span class="line">    <span class="comment">// and creates a function that other contracts or SDKs can call to access the value</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// An address stores addresses of contracts or external (user) accounts</span></span><br><span class="line">    address public minter;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A mapping lets you create complex custom data types.</span></span><br><span class="line">    <span class="comment">// This mapping assigns an unsigned integer to an address</span></span><br><span class="line">    <span class="comment">// and is also a public variable.</span></span><br><span class="line">    mapping (<span class="function"><span class="params">address</span> =&gt;</span> uint) public balances;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Events allow Ethereum clients to react to specific</span></span><br><span class="line">    <span class="comment">// contract changes you declare.</span></span><br><span class="line">    <span class="comment">// This defines the event and it is sent later</span></span><br><span class="line">    event Sent(address <span class="keyword">from</span>, address to, uint amount);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A special function only run during the creation of the contract</span></span><br><span class="line">    <span class="keyword">constructor</span>() public &#123;</span><br><span class="line">        <span class="comment">// Uses the special msg global variable to store the</span></span><br><span class="line">        <span class="comment">// address of the contract creator</span></span><br><span class="line">        minter = msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Sends an amount of newly created coins to an address</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">mint</span>(<span class="params">address receiver, uint amount</span>) <span class="title">public</span> </span>&#123;</span><br><span class="line">        <span class="comment">// require statements define conditions that must pass</span></span><br><span class="line">        <span class="comment">// before state is changed.</span></span><br><span class="line">        <span class="comment">// If it fails (equals false), an exception is triggered</span></span><br><span class="line">        <span class="comment">// and reverts all modifications to state from the current call</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Can only be called by the contract creator</span></span><br><span class="line">        <span class="built_in">require</span>(msg.sender == minter);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Ensures a maximum amount of tokens</span></span><br><span class="line">        <span class="built_in">require</span>(amount &lt; <span class="number">1e60</span>);</span><br><span class="line">        balances[receiver] += amount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Sends an amount of existing coins</span></span><br><span class="line">    <span class="comment">// from any caller to an address</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params">address receiver, uint amount</span>) <span class="title">public</span> </span>&#123;</span><br><span class="line">        <span class="comment">// The sender must have enough coins to send</span></span><br><span class="line">        <span class="built_in">require</span>(amount &lt;= balances[msg.sender], <span class="string">"Insufficient balance."</span>);</span><br><span class="line">        <span class="comment">// Adjust balances</span></span><br><span class="line">        balances[msg.sender] -= amount;</span><br><span class="line">        balances[receiver] += amount;</span><br><span class="line">        <span class="comment">// Emit event defined earlier</span></span><br><span class="line">        emit Sent(msg.sender, receiver, amount);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>进入到页面默认是这样的</p>
-<p><img data-src="/ethereum-studio-sample-coin/image-20200610194530891.png" alt="image-20200610194530891"></p>
-<p>点击左侧的小火箭进行部署 - 右侧会更新 <code>构造函数</code> 生成的结果。</p>
-<p><img data-src="/ethereum-studio-sample-coin/image-20200610194608028.png" alt="image-20200610194608028"></p>
-<p>利用 mint 函数，为合约账户添加 100 个币。</p>
-<p><img data-src="/ethereum-studio-sample-coin/image-20200610194743997.png" alt="image-20200610194743997"></p>
-<p>给账户一转去 50 个币，可以看到交易和余额同步都正确显示了。</p>
-<p><img data-src="/ethereum-studio-sample-coin/image-20200610194838920.png" alt="image-20200610194838920"></p>
-
-      
-    </div>
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -997,7 +972,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1010,7 +985,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

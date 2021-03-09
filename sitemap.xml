@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tech.starky99.com/serving-deep-learning-models-in-a-Serverless-platform/</loc>
+    
+    <lastmod>2020-12-20T07:46:54.309Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tech.starky99.com/exploring-serverless-computing-for-neural-network-training/</loc>
+    
+    <lastmod>2020-12-20T07:25:42.141Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tech.starky99.com/serverless-introduction/</loc>
+    
+    <lastmod>2020-12-20T03:11:07.012Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tech.starky99.com/serverless-introduction/</loc>
     
     <lastmod>2020-12-20T03:11:07.012Z</lastmod>

@@ -1,3 +1,6 @@
+https://tech.starky99.com/exploring-serverless-computing-for-neural-network-training/
+https://tech.starky99.com/serving-deep-learning-models-in-a-Serverless-platform/
+https://tech.starky99.com/serverless-introduction/
 https://tech.starky99.com/serverless-introduction/
 https://tech.starky99.com/powerful-backend-components/
 https://tech.starky99.com/clear-github-repo/
