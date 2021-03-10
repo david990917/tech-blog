@@ -211,7 +211,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-03-10 19:26:30 / 修改时间：21:21:51" itemprop="dateCreated datePublished" datetime="2021-03-10T19:26:30+08:00">2021-03-10</time>
+              <time title="创建时间：2021-03-10 19:26:30 / 修改时间：21:40:48" itemprop="dateCreated datePublished" datetime="2021-03-10T19:26:30+08:00">2021-03-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -234,15 +234,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>主要是三个 level 的创新。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/help-rather-than-recycle-alleviating-cold-startup-in-serverless-computing-with-inter-function-container-sharing/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 - Introduction"></a>1 - Introduction</h3><p>从闲置的warm容器借共享的资源过来。</p>
+<p><strong>三个挑战：</strong></p>
+<ol>
+<li>不稳定，QoS 下降</li>
+<li>借的时候会需要定向的配置，这个过程会需要额外的时间</li>
+<li>被借的那个人也需要考虑：去帮谁呢？</li>
+</ol>
+<p><strong>Pagurus 系统的三种容器状态：</strong></p>
+<ol>
+<li>zygote containers</li>
+<li>private containers</li>
+<li>helper containers</li>
+</ol>
+<p><strong>主要的贡献：</strong></p>
+<ol>
+<li>An inter-function sharing mechanism that alleviates cold startup with security guarantee</li>
+<li>A similarity-based container image re-packing policy</li>
+<li>A cluster-level function balancing mechanism</li>
+</ol>
+<h3 id="3-Motivation"><a href="#3-Motivation" class="headerlink" title="3 - Motivation"></a>3 - Motivation</h3><p><strong>3.1 - Existence of Excessive Warm Containers</strong></p>
+<p>通过实验发现真的存在。</p>
+<p><strong>3.2 - Inter-Function Sharing</strong></p>
+<ol>
+<li>负载在动态的变化</li>
+<li>容器需要安装不同的软件包</li>
+<li>共享可能会伤害其他的安全性</li>
+</ol>
+<h3 id="4-Design-of-Pagurus"><a href="#4-Design-of-Pagurus" class="headerlink" title="4 - Design of Pagurus"></a>4 - Design of Pagurus</h3><p><img data-src="/help-rather-than-recycle-alleviating-cold-startup-in-serverless-computing-with-inter-function-container-sharing/image-20210310204418282.png" alt="image-20210310204418282"></p>
+<p>合子容器包含两种的运行环境，然后 load code；基于合子容器的 fork 会产生 helper 容器。</p>
+<p><strong>Intra:</strong> 功能内部的管理最重要是 <strong>识别闲置状态</strong> + <strong>确保共享的时候不伤害安全性</strong></p>
+<ul>
+<li>re-packing operator：让 private 容器编程 zygote 容器</li>
+<li>zygote fork：创造 helper 容器</li>
+<li>code copy：复制需要帮助的代码 到内存中</li>
+</ul>
+<p><strong>Inter:</strong> 很难决定要从哪儿进行 borrow</p>
+<p>通过分析package的相似性。</p>
+<p><strong>Balancer - 跨界点node - 具体的执行机制</strong></p>
+<p>Pagurus works in the following steps. Suppose functions A and B are on the same node, and A already generates a zygote container that installs the software packages for B. Once a query of B tends to suffer a cold startup, B’s intra-function manager requests a helper container from the inter-function scheduler. Then, the inter-function scheduler schedules a zygote container from A to B. By forking A’s zygote container and load B’s code, B obtains a helper container and can execute this query without cold startup. If all the functions on the node do not have zygote containers for B, later queries of B are routed to other nodes that have excessive containers.</p>
+<hr>
+
       
     </div>
     
@@ -284,10 +316,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-09 21:09:20 / 修改时间：21:12:26" itemprop="dateCreated datePublished" datetime="2021-03-09T21:09:20+08:00">2021-03-09</time>
+              <time title="创建时间：2021-03-09 21:09:20" itemprop="dateCreated datePublished" datetime="2021-03-09T21:09:20+08:00">2021-03-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-10 21:34:19" itemprop="dateModified" datetime="2021-03-10T21:34:19+08:00">2021-03-10</time>
+              </span>
 
           
 
@@ -300,7 +338,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="AWS-Serverless-项目"><a href="#AWS-Serverless-项目" class="headerlink" title="AWS Serverless 项目"></a><a href="https://www.coursera.org/learn/aws-fundamentals-building-serverless-applications/home/welcome" target="_blank" rel="noopener">AWS Serverless 项目</a></h1><h3 id="第一步：-搭建-Amazon-Lex-智能语音对答助手"><a href="#第一步：-搭建-Amazon-Lex-智能语音对答助手" class="headerlink" title="第一步： 搭建 Amazon Lex - 智能语音对答助手"></a><a href="https://www.coursera.org/learn/aws-fundamentals-building-serverless-applications/supplement/rn0YB/exercise-1-1-creating-a-simple-bot-with-lex" target="_blank" rel="noopener">第一步： 搭建 Amazon Lex - 智能语音对答助手</a></h3><p>有几个小细节：slot、</p>
+          <h1 id="AWS-Serverless-项目"><a href="#AWS-Serverless-项目" class="headerlink" title="AWS Serverless 项目"></a><a href="https://www.coursera.org/learn/aws-fundamentals-building-serverless-applications/home/welcome" target="_blank" rel="noopener">AWS Serverless 项目</a></h1><h3 id="第一步：-搭建-Amazon-Lex-智能语音对答助手"><a href="#第一步：-搭建-Amazon-Lex-智能语音对答助手" class="headerlink" title="第一步： 搭建 Amazon Lex - 智能语音对答助手"></a><a href="https://www.coursera.org/learn/aws-fundamentals-building-serverless-applications/supplement/rn0YB/exercise-1-1-creating-a-simple-bot-with-lex" target="_blank" rel="noopener">第一步： 搭建 Amazon Lex - 智能语音对答助手</a></h3><p>有几个名词：slot、Intent</p>
 <h3 id="第二步：通过-S3-搭建一个静态的网站"><a href="#第二步：通过-S3-搭建一个静态的网站" class="headerlink" title="第二步：通过 S3 搭建一个静态的网站"></a><a href="https://www.coursera.org/learn/aws-fundamentals-building-serverless-applications/supplement/6CVIl/exercise-1-2-creating-a-s3-bucket-and-configuring-as-a-static-website" target="_blank" rel="noopener">第二步：通过 S3 搭建一个静态的网站</a></h3><p>目前的版本和教程有一些不同，现在设置 <code>metadata</code> 和上传是在同一个页面，需要注意这个的设置。</p>
 <p>从 403 - 404 - 到正常网页的显示～ 不过是一个静态的页面</p>
 <p>联系了整体上传和部分文件的更新</p>
