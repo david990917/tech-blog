@@ -43,6 +43,29 @@
 ]]></content>
   </entry>
   <entry>
+    <title>PyMuPDF 进行 PDF 处理</title>
+    <url>/pymupdf-process-pdf/</url>
+    <content><![CDATA[<p>PyMuPDF（fitz）：MuPDF 的 Python 绑定，它是一个轻量级的 PDF 和 XPS 查看器。该库可以访问 PDF，XPS，OpenXPS，epub，漫画和小说书籍格式的文件，并以其顶级性能和高渲染质量而闻名。</p>
+<p><a href="https://github.com/pymupdf/PyMuPDF/wiki" target="_blank" rel="noopener">PyMuPDF/wiki</a></p>
+<p><img data-src="/pymupdf-process-pdf/13717038-cdc4983066bc598f.webp" alt="img"></p>
+<h3 id="使用-PyMuPDF-从-PDF-中提取图像"><a href="#使用-PyMuPDF-从-PDF-中提取图像" class="headerlink" title="使用 PyMuPDF 从 PDF 中提取图像"></a>使用 PyMuPDF 从 PDF 中提取图像</h3><p>PyMuPDF 使用 getPageImageList（）方法简化了从 PDF 文档中提取图像的过程。下面的代码来源于 PyMuPDF wiki 页面的示例，并逐页提取并保存 PDF 中的所有图像作为 PNG 文件。 如果图像具有 CMYK 颜色空间，则首先将其转换为 RGB。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+  </entry>
+  <entry>
+    <title>overleaf写汉语报告</title>
+    <url>/overleaf-chinese/</url>
+    <content><![CDATA[<p>在 overleaf <a href="https://www.overleaf.com/learn/latex/chinese" target="_blank" rel="noopener">官网文档</a>，已经详细说明了配置，这里简单概括一下。</p>
+<p>就是在最开始添加 <code>ctex</code> 包就可以啦！</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">usepackage</span></span> &#123;ctex&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+  </entry>
+  <entry>
     <title>np.unique( )的用法</title>
     <url>/np-unique/</url>
     <content><![CDATA[<p>去除数组中的重复数字，并进行排序之后输出。</p>
@@ -57,17 +80,6 @@
       <tags>
         <tag>numpy</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>overleaf写汉语报告</title>
-    <url>/overleaf-chinese/</url>
-    <content><![CDATA[<p>在 overleaf <a href="https://www.overleaf.com/learn/latex/chinese" target="_blank" rel="noopener">官网文档</a>，已经详细说明了配置，这里简单概括一下。</p>
-<p>就是在最开始添加 <code>ctex</code> 包就可以啦！</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">usepackage</span></span> &#123;ctex&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
   </entry>
   <entry>
     <title>latex模板研究</title>
@@ -131,16 +143,27 @@
       </tags>
   </entry>
   <entry>
-    <title>PyMuPDF 进行 PDF 处理</title>
-    <url>/pymupdf-process-pdf/</url>
-    <content><![CDATA[<p>PyMuPDF（fitz）：MuPDF 的 Python 绑定，它是一个轻量级的 PDF 和 XPS 查看器。该库可以访问 PDF，XPS，OpenXPS，epub，漫画和小说书籍格式的文件，并以其顶级性能和高渲染质量而闻名。</p>
-<p><a href="https://github.com/pymupdf/PyMuPDF/wiki" target="_blank" rel="noopener">PyMuPDF/wiki</a></p>
-<p><img data-src="/pymupdf-process-pdf/13717038-cdc4983066bc598f.webp" alt="img"></p>
-<h3 id="使用-PyMuPDF-从-PDF-中提取图像"><a href="#使用-PyMuPDF-从-PDF-中提取图像" class="headerlink" title="使用 PyMuPDF 从 PDF 中提取图像"></a>使用 PyMuPDF 从 PDF 中提取图像</h3><p>PyMuPDF 使用 getPageImageList（）方法简化了从 PDF 文档中提取图像的过程。下面的代码来源于 PyMuPDF wiki 页面的示例，并逐页提取并保存 PDF 中的所有图像作为 PNG 文件。 如果图像具有 CMYK 颜色空间，则首先将其转换为 RGB。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <title>Python-Round</title>
+    <url>/python-round/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">round( x [, n]  )</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>x – 数字表达式</li>
+<li>n – 表示从小数点位数，其中 x 需要四舍五入，默认值为 0</li>
+</ul>
+<a id="more"></a>
 
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">round(<span class="number">70.23456</span>) :  <span class="number">70</span></span><br><span class="line">round(<span class="number">56.659</span>,<span class="number">1</span>) :  <span class="number">56.7</span></span><br><span class="line">round(<span class="number">80.264</span>, <span class="number">2</span>) :  <span class="number">80.26</span></span><br><span class="line">round(<span class="number">100.000056</span>, <span class="number">3</span>) :  <span class="number">100.0</span></span><br><span class="line">round(<span class="number">-100.000056</span>, <span class="number">3</span>) :  <span class="number">-100.0</span></span><br></pre></td></tr></table></figure>
+
+<p>但是浮点数精度会对结果有影响</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>round(<span class="number">2.675</span>, <span class="number">2</span>) </span><br><span class="line"><span class="number">2.67</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>按我们的想法返回结果应该是 2.68，可结果却是 2.67，为什么？</strong></p>
+<p>这跟浮点数的精度有关。我们知道在机器中浮点数不一定能精确表达，因为换算成一串 1 和 0 后可能是无限位数的，机器已经做出了截断处理。那么在机器中保存的2.675这个数字就比实际数字要小那么一点点。这一点点就导致了它离 2.67 要更近一点点，所以保留两位小数时就近似到了 2.67。</p>
 ]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title>Flask 开启 80 端口</title>
@@ -182,29 +205,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python-Round</title>
-    <url>/python-round/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">round( x [, n]  )</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>x – 数字表达式</li>
-<li>n – 表示从小数点位数，其中 x 需要四舍五入，默认值为 0</li>
-</ul>
-<a id="more"></a>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">round(<span class="number">70.23456</span>) :  <span class="number">70</span></span><br><span class="line">round(<span class="number">56.659</span>,<span class="number">1</span>) :  <span class="number">56.7</span></span><br><span class="line">round(<span class="number">80.264</span>, <span class="number">2</span>) :  <span class="number">80.26</span></span><br><span class="line">round(<span class="number">100.000056</span>, <span class="number">3</span>) :  <span class="number">100.0</span></span><br><span class="line">round(<span class="number">-100.000056</span>, <span class="number">3</span>) :  <span class="number">-100.0</span></span><br></pre></td></tr></table></figure>
-
-<p>但是浮点数精度会对结果有影响</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>round(<span class="number">2.675</span>, <span class="number">2</span>) </span><br><span class="line"><span class="number">2.67</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>按我们的想法返回结果应该是 2.68，可结果却是 2.67，为什么？</strong></p>
-<p>这跟浮点数的精度有关。我们知道在机器中浮点数不一定能精确表达，因为换算成一串 1 和 0 后可能是无限位数的，机器已经做出了截断处理。那么在机器中保存的2.675这个数字就比实际数字要小那么一点点。这一点点就导致了它离 2.67 要更近一点点，所以保留两位小数时就近似到了 2.67。</p>
-]]></content>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>正则表达式</title>
     <url>/re-expression/</url>
     <content><![CDATA[<p>总遇见正则的常用场景，这次就来记录一下。</p>
@@ -238,21 +238,49 @@
       </tags>
   </entry>
   <entry>
-    <title>NexT 主题添加 canvas-nest 动画背景</title>
-    <url>/next-canvas-nest/</url>
-    <content><![CDATA[<p><code>NexT</code> 主题相较于我之前的 <code>Casper</code> 主题是一个很成熟的主题，很多定制化都已经别前人封装好了。</p>
-<p>这篇文章来记录一下添加 <code>canvas-nest</code> 动画背景。</p>
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>使用 <code>NexT</code> 主题 <code>5.1.4</code> 版本</p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>主题配置文件中已经预留好接口了，只需要在选择的动画背景选择 <code>true</code> 即可</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Canvas-nest</span></span><br><span class="line"><span class="attr">canvas_nest:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># three_waves</span></span><br><span class="line"><span class="attr">three_waves:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># canvas_lines</span></span><br><span class="line"><span class="attr">canvas_lines:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># canvas_sphere</span></span><br><span class="line"><span class="attr">canvas_sphere:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
+    <title>GFS</title>
+    <url>/MIT-6.824-GFS/</url>
+    <content><![CDATA[<p><strong>GFS</strong> - The Google File System.</p>
+<p><code>parallel performance, fault tolerance, replication, consistency</code></p>
+<p><strong>Why is distributed storage hard?</strong></p>
+<ul>
+<li>high performance -&gt; shard data over many servers</li>
+<li>many servers -&gt; constant faults</li>
+<li>fault tolerance -&gt; replication</li>
+<li>replication -&gt; potential inconsistencies</li>
+<li>better consistency -&gt; low performance</li>
+</ul>
+<h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p><img data-src="/MIT-6.824-GFS/4309024-3e9b3ed1e3bf65c0.webp" alt="img"></p>
+<p>GFS主要包括master和chunk server两部分组成。一个文件被打散成了多个chunk，每个chunk会在多个chunk server上保存作为冗余备份。客户端向master请求某个某个文件的某个chunk的数据，master返回这个chunk所属的chunk server。客户端再请求对应的chunk server操作数据。</p>
+<p><strong>几个问题：</strong></p>
+<blockquote>
+<p>这种数据存储形式有什么好处？</p>
+</blockquote>
+<p>这样的设计巧妙的解耦了元数据和数据。对于元数据，只有master知道。因此，master必须好好维护这些信息，防止数据丢失或者错误，因此写operation log就变得非常重要。而对于数据本身，chunk server更加了解自身存储的情况，因此chunk的信息，chunk server说了算。这样避免了master中持久化一份数据分布的信息而带来的与实际情况不一致的情况(另外设计一套同步机制会使系统变得复杂)。</p>
+<blockquote>
+<p>master机器只有一台，怎么避免单点故障？</p>
+</blockquote>
+<p>为防止单点故障，肯定要准备备机。一般会存在2台或者以上的shadow master。当master在本地写operation log的时候，也会让shadow master写一份。只有在全部都写成功的时候，操作才会继续。如果master的硬盘挂了，那么任意一台shadow master都能够挺身而出充当新的master。</p>
+<blockquote>
+<p>master机器的内存大小会不会成为系统存储容量的瓶颈呢？</p>
+</blockquote>
+<p>首先，一个chunk被设置成了64M，大大减少了一个文件所占用的chunk数量，因此，master中存储的数量也会大大减少。</p>
+<p>其次，由于系统存储的是大文件，因此每一个文件，除了最后一个chunk以外，其他的chunk基本上都是存满的。</p>
+<p>最后，加内存也不是什么难事。</p>
+<p>一般64个bytes就可以存一个64M的chunk信息，因此大约可以用(内存大小)*(2^6)估算系统的容量，至少可以达到P级别。</p>
+<blockquote>
+<p>operation log是记下来了，但是重启的时候会不会因为日志回放的时间太久而导致很慢？</p>
+</blockquote>
+<p>当operation log达到一定大小时，系统会切换到一个新的日志。老的日志则会被回放，并存储在硬盘上，这个操作被称作checkpoint。当master重启时，直接加载checkpoint生成的内容，并回放新的日志，就可以完成了。</p>
 <hr>
-<p>更新到 <code>7</code> 版本的 <code>NexT</code> 之后暂时失效了。</p>
+<p>参考文献：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/113161014" target="_blank" rel="noopener">6.824 2020 视频笔记三：GFS - 穆尼奥的文章 - 知乎</a> </p>
+<p><a href="https://www.jianshu.com/p/540ae70c0500" target="_blank" rel="noopener">GFS(Google File System)读书笔记</a></p>
+<p>【未整理-图解】-<a href="https://zhuanlan.zhihu.com/p/20673524" target="_blank" rel="noopener">硅谷之路9：深入浅出理解GFS - Mingche Su的文章 - 知乎</a> </p>
 ]]></content>
-      <tags>
-        <tag>NexT</tag>
-        <tag>hexo</tag>
-      </tags>
+      <categories>
+        <category>MIT-6.824</category>
+      </categories>
   </entry>
   <entry>
     <title>PRC</title>
@@ -335,167 +363,6 @@
       </categories>
   </entry>
   <entry>
-    <title>GFS</title>
-    <url>/MIT-6.824-GFS/</url>
-    <content><![CDATA[<p><strong>GFS</strong> - The Google File System.</p>
-<p><code>parallel performance, fault tolerance, replication, consistency</code></p>
-<p><strong>Why is distributed storage hard?</strong></p>
-<ul>
-<li>high performance -&gt; shard data over many servers</li>
-<li>many servers -&gt; constant faults</li>
-<li>fault tolerance -&gt; replication</li>
-<li>replication -&gt; potential inconsistencies</li>
-<li>better consistency -&gt; low performance</li>
-</ul>
-<h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p><img data-src="/MIT-6.824-GFS/4309024-3e9b3ed1e3bf65c0.webp" alt="img"></p>
-<p>GFS主要包括master和chunk server两部分组成。一个文件被打散成了多个chunk，每个chunk会在多个chunk server上保存作为冗余备份。客户端向master请求某个某个文件的某个chunk的数据，master返回这个chunk所属的chunk server。客户端再请求对应的chunk server操作数据。</p>
-<p><strong>几个问题：</strong></p>
-<blockquote>
-<p>这种数据存储形式有什么好处？</p>
-</blockquote>
-<p>这样的设计巧妙的解耦了元数据和数据。对于元数据，只有master知道。因此，master必须好好维护这些信息，防止数据丢失或者错误，因此写operation log就变得非常重要。而对于数据本身，chunk server更加了解自身存储的情况，因此chunk的信息，chunk server说了算。这样避免了master中持久化一份数据分布的信息而带来的与实际情况不一致的情况(另外设计一套同步机制会使系统变得复杂)。</p>
-<blockquote>
-<p>master机器只有一台，怎么避免单点故障？</p>
-</blockquote>
-<p>为防止单点故障，肯定要准备备机。一般会存在2台或者以上的shadow master。当master在本地写operation log的时候，也会让shadow master写一份。只有在全部都写成功的时候，操作才会继续。如果master的硬盘挂了，那么任意一台shadow master都能够挺身而出充当新的master。</p>
-<blockquote>
-<p>master机器的内存大小会不会成为系统存储容量的瓶颈呢？</p>
-</blockquote>
-<p>首先，一个chunk被设置成了64M，大大减少了一个文件所占用的chunk数量，因此，master中存储的数量也会大大减少。</p>
-<p>其次，由于系统存储的是大文件，因此每一个文件，除了最后一个chunk以外，其他的chunk基本上都是存满的。</p>
-<p>最后，加内存也不是什么难事。</p>
-<p>一般64个bytes就可以存一个64M的chunk信息，因此大约可以用(内存大小)*(2^6)估算系统的容量，至少可以达到P级别。</p>
-<blockquote>
-<p>operation log是记下来了，但是重启的时候会不会因为日志回放的时间太久而导致很慢？</p>
-</blockquote>
-<p>当operation log达到一定大小时，系统会切换到一个新的日志。老的日志则会被回放，并存储在硬盘上，这个操作被称作checkpoint。当master重启时，直接加载checkpoint生成的内容，并回放新的日志，就可以完成了。</p>
-<hr>
-<p>参考文献：</p>
-<p><a href="https://zhuanlan.zhihu.com/p/113161014" target="_blank" rel="noopener">6.824 2020 视频笔记三：GFS - 穆尼奥的文章 - 知乎</a> </p>
-<p><a href="https://www.jianshu.com/p/540ae70c0500" target="_blank" rel="noopener">GFS(Google File System)读书笔记</a></p>
-<p>【未整理-图解】-<a href="https://zhuanlan.zhihu.com/p/20673524" target="_blank" rel="noopener">硅谷之路9：深入浅出理解GFS - Mingche Su的文章 - 知乎</a> </p>
-]]></content>
-      <categories>
-        <category>MIT-6.824</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo博客自动刷新</title>
-    <url>/hexo-auto-refresh-by-browsersync/</url>
-    <content><![CDATA[<p>Hexo 博客在写的过程中不能自动刷新网页，所以引入新的插件来自动刷新。</p>
-<h3 id="安装-Browsersync"><a href="#安装-Browsersync" class="headerlink" title="安装 Browsersync"></a>安装 Browsersync</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g browser-sync</span><br></pre></td></tr></table></figure>
-
-<p>安装结束后，测试安装是否成功。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">browser-sync --version</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装-Hexo-插件"><a href="#安装-Hexo-插件" class="headerlink" title="安装 Hexo 插件"></a>安装 Hexo 插件</h3><p>还需要给 Hexo 安装上插件（需要在 Hexo 目录下安装）</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-browsersync --save</span><br></pre></td></tr></table></figure>
-
-<p>安装后像往常一样执行 <code>hexo s</code> 开启本地服务器，当相关文件被修改或者保存时，关联的浏览器页面会自带刷新。</p>
-<h3 id="Hexo-配置"><a href="#Hexo-配置" class="headerlink" title="Hexo 配置"></a>Hexo 配置</h3><p>需要在 Hexo 根目录的 config.yml 里面添加以下配置，就可以啦！</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">compress:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="一些不足"><a href="#一些不足" class="headerlink" title="一些不足"></a>一些不足</h3><ul>
-<li>变动后将重新加载整个页面，不能局部刷新</li>
-<li>使用 Hexo 自带服务器时，无法在移动端调试</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hexo使用npm快速生成</title>
-    <url>/hexo-npm-fast-generate/</url>
-    <content><![CDATA[<p>使用 <code>Hexo</code> 的时候，我们通常使用</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s &#x2F; hexo d</span><br></pre></td></tr></table></figure>
-
-<p>但是在文件内容比较多的时候需要较长时间进行渲染处理，同时也需要输入三个命令。</p>
-<p>之前配置 npm 里面的快捷命令的时候时好时坏，最近终于可以正常运行了，记录一下。</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>打开 <code>package.json</code> 文件</p>
-<p>我们会发现默认已经配置好了脚本(scripts)</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">    "deploy": "hexo clean &amp;&amp; hexo g &amp;&amp; hexo d",</span><br><span class="line">    "start": "hexo clean &amp;&amp; hexo g &amp;&amp; hexo s"</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-
-<p>这个时候使用以下命令，就可以直接运行了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm deploy </span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
-
-<p>如果想要每次输入的字母数更少一些，可以将 <code>json</code> 更改成以下形式：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;d&quot;: &quot;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&quot;,</span><br><span class="line">    &quot;s&quot;: &quot;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&quot;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-
-<p>这种时候运行输入以下命令就可以啦</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run s</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spanner</title>
-    <url>/MIT-6.824-Spanner/</url>
-    <content><![CDATA[<p><strong>Spanner</strong> 是谷歌研发的可横向扩展的、支持多版本的、可在全球范围进行分布式部署的、同步进行数据复制的分布式数据库。</p>
-<hr>
-<p>参考文献：</p>
-<p><a href="https://www.jianshu.com/p/6ae6e7989161" target="_blank" rel="noopener">Google-Spanner论文的思考</a></p>
-]]></content>
-      <categories>
-        <category>MIT-6.824</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo 的 NexT 主题添加相关文章</title>
-    <url>/hexo-next-related-posts/</url>
-    <content><![CDATA[<p>更新 <code>NexT</code> 主题到最新版本之后，发现具有更多的定制功能，其中就有添加相关文章的选项。</p>
-<p>使用 <code>https://github.com/tea3/hexo-related-popular-posts</code></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Related popular posts</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/tea3/hexo-related-popular-posts</span></span><br><span class="line"><span class="attr">related_posts:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">相关文章</span></span><br><span class="line">  <span class="comment"># Custom header, leave empty to use the default one</span></span><br><span class="line">  <span class="attr">display_in_home:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">params:</span></span><br><span class="line">    <span class="attr">maxCount:</span> <span class="number">3</span></span><br><span class="line">    <span class="comment">#PPMixingRate: 0.0</span></span><br><span class="line">    <span class="comment">#isDate: false</span></span><br><span class="line">    <span class="comment">#isImage: false</span></span><br><span class="line">    <span class="comment">#isExcerpt: false</span></span><br></pre></td></tr></table></figure>
-
-<p>配置完成，重新生成 <code>html</code> 文件就可以直接看到效果啦！</p>
-<a id="more"></a>
-
-<p><img data-src="/hexo-next-related-posts/image-20200610111926921.png" alt="image-20200610111926921"></p>
-]]></content>
-      <tags>
-        <tag>NexT</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows以太坊区块链环境搭建</title>
-    <url>/windows-geth/</url>
-    <content><![CDATA[<p>从环境搭建开始我的 <strong>智能合约</strong> 探索。</p>
-<h3 id="一、安装Geth"><a href="#一、安装Geth" class="headerlink" title="一、安装Geth"></a>一、安装Geth</h3><p>以太坊社区提供了多种语言实现的客户端和开发库，官方推荐使用 <code>Go-ethererum</code>，也就是 <code>Geth</code> 。</p>
-<p><a href="https://geth.ethereum.org/downloads/" target="_blank" rel="noopener">Geth 官网下载链接</a> 官网有一点小问题，通过 <code>F12</code> 找到了 <code>Windows</code> 的对应下载链接 <a href="https://gethstore.blob.core.windows.net/builds/geth-windows-amd64-1.9.15-0f77f34b.exe" target="_blank" rel="noopener">v1.9.15</a></p>
-<p>源码在 <a href="https://github.com/ethereum/go-ethereum/releases" target="_blank" rel="noopener">Github - Geth - Release</a> </p>
-<p>安装到路径 <code>C:\workspace\geth\</code> </p>
-<p>命令行里面输入 <code>geth version</code>，正常反馈信息即为安装成功。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ geth version</span><br><span class="line">Geth</span><br><span class="line">Version: 1.9.15-stable</span><br><span class="line">Git Commit: 0f77f34bb67b640bd8af22b215f3d279a1e21170</span><br><span class="line">Git Commit Date: 20200608</span><br><span class="line">Architecture: amd64</span><br><span class="line">Protocol Versions: [65 64 63]</span><br><span class="line">Go Version: go1.14.2</span><br><span class="line">Operating System: windows</span><br><span class="line">GOPATH&#x3D;</span><br><span class="line">GOROOT&#x3D;C:\go</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、创建创世区块"><a href="#二、创建创世区块" class="headerlink" title="二、创建创世区块"></a>二、创建创世区块</h3><p>相同文件夹下面创建 <code>genesis.json</code> 文件</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"config"</span>: &#123;</span><br><span class="line">        <span class="attr">"chainId"</span>: <span class="number">98</span>,</span><br><span class="line">        <span class="attr">"homesteadBlock"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"eip155Block"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"eip158Block"</span>: <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"difficulty"</span> : <span class="string">"200000000"</span>,</span><br><span class="line">    <span class="attr">"gasLimit"</span> : <span class="string">"2100000"</span>,</span><br><span class="line">    <span class="attr">"alloc"</span>: &#123; </span><br><span class="line">        <span class="attr">"7df9a875a174b3bc565e6424a0050ebc1b2d1d82"</span>: &#123; <span class="attr">"balance"</span>: <span class="string">"300000"</span> &#125;,</span><br><span class="line">        <span class="attr">"f41c74c9ae680c1aa78f42e5647a62f353b7bdde"</span>: &#123; <span class="attr">"balance"</span>: <span class="string">"400000"</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在命令行中执行命令，生成创世区块</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">geth --datadir &quot;.&#x2F;&quot; init genesis.json</span><br></pre></td></tr></table></figure>
-
-<p>进入 <code>Geth</code>命令行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">geth --datadir &quot;.&#x2F;&quot; --nodiscover console 2&gt;&gt;geth.log</span><br></pre></td></tr></table></figure>
-
-<p>提示以下内容</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">Welcome to the Geth JavaScript console!</span><br><span class="line"></span><br><span class="line"><span class="function">instance: <span class="title">Geth</span>/<span class="title">v1</span>.9.15-<span class="title">stable</span>-0<span class="title">f77f34b</span>/<span class="title">windows</span>-<span class="title">amd64</span>/<span class="title">go1</span>.14.2                         </span></span><br><span class="line"><span class="function"><span class="title">at</span> <span class="title">block</span>: 0 (<span class="title">Thu</span> <span class="title">Jan</span> 01 1970 08:00:00 <span class="title">GMT</span>+0800 (<span class="title">CST</span>))                                 </span></span><br><span class="line"><span class="function"><span class="title">datadir</span>: <span class="title">C</span>:\<span class="title">workspace</span>\<span class="title">geth</span>                                                             </span></span><br><span class="line"><span class="function"><span class="title">modules</span>: <span class="title">admin</span>:1.0 <span class="title">debug</span>:1.0 <span class="title">eth</span>:1.0 <span class="title">ethash</span>:1.0 <span class="title">miner</span>:1.0 <span class="title">net</span>:1.0 <span class="title">personal</span>:1.0 <span class="title">rpc</span>:1.0 <span class="title">txpool</span>:1.0 <span class="title">web3</span>:1.0</span></span><br><span class="line"><span class="function">&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>创建一个新账户，记录地址</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">&gt; personal.newAccount()</span><br><span class="line"><span class="function">Passphrase:</span></span><br><span class="line"><span class="function"><span class="title">Repeat</span> <span class="title">passphrase</span>:</span></span><br><span class="line"><span class="function">"0<span class="title">xc6d0ba74c35a0b8650a75d81e41bac0478c45efc</span>"</span></span><br><span class="line"><span class="function">&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>启动挖矿</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">geth --datadir "./" --networkid <span class="number">98</span> --mine --minerthreads=<span class="number">1</span> --etherbase=<span class="number">0</span>xc6d0ba74c35a0b8650a75d81e41bac0478c45efc</span><br></pre></td></tr></table></figure>
-
-<p>以太坊是内存困难型的挖矿算法，首先需要生成 <code>DAG</code>，这个过程会占用大量的 CPU 资源</p>
-<p><img data-src="/windows-geth/image-20200610172600263.png" alt="image-20200610172600263"></p>
-<p><img data-src="/windows-geth/image-20200610173936739.png" alt="image-20200610173936739"></p>
-<p>停留在 <code>Looking for peers</code> ，好像是因为没有太多全节点了，导致的卡住。</p>
-<p>暂时挂载着，期待着后续的结果吧，如果一切顺利下一步就是挖到以太啦！</p>
-]]></content>
-      <categories>
-        <category>智能合约</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Raft</title>
     <url>/MIT-6.824-Raft/</url>
     <content><![CDATA[<h3 id="容错模式"><a href="#容错模式" class="headerlink" title="容错模式"></a>容错模式</h3><p>我们已经学习了以下几种容错模式（fault-tolerance pattern）：</p>
@@ -562,6 +429,57 @@
       </categories>
   </entry>
   <entry>
+    <title>Spanner</title>
+    <url>/MIT-6.824-Spanner/</url>
+    <content><![CDATA[<p><strong>Spanner</strong> 是谷歌研发的可横向扩展的、支持多版本的、可在全球范围进行分布式部署的、同步进行数据复制的分布式数据库。</p>
+<hr>
+<p>参考文献：</p>
+<p><a href="https://www.jianshu.com/p/6ae6e7989161" target="_blank" rel="noopener">Google-Spanner论文的思考</a></p>
+]]></content>
+      <categories>
+        <category>MIT-6.824</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Windows以太坊区块链环境搭建</title>
+    <url>/windows-geth/</url>
+    <content><![CDATA[<p>从环境搭建开始我的 <strong>智能合约</strong> 探索。</p>
+<h3 id="一、安装Geth"><a href="#一、安装Geth" class="headerlink" title="一、安装Geth"></a>一、安装Geth</h3><p>以太坊社区提供了多种语言实现的客户端和开发库，官方推荐使用 <code>Go-ethererum</code>，也就是 <code>Geth</code> 。</p>
+<p><a href="https://geth.ethereum.org/downloads/" target="_blank" rel="noopener">Geth 官网下载链接</a> 官网有一点小问题，通过 <code>F12</code> 找到了 <code>Windows</code> 的对应下载链接 <a href="https://gethstore.blob.core.windows.net/builds/geth-windows-amd64-1.9.15-0f77f34b.exe" target="_blank" rel="noopener">v1.9.15</a></p>
+<p>源码在 <a href="https://github.com/ethereum/go-ethereum/releases" target="_blank" rel="noopener">Github - Geth - Release</a> </p>
+<p>安装到路径 <code>C:\workspace\geth\</code> </p>
+<p>命令行里面输入 <code>geth version</code>，正常反馈信息即为安装成功。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ geth version</span><br><span class="line">Geth</span><br><span class="line">Version: 1.9.15-stable</span><br><span class="line">Git Commit: 0f77f34bb67b640bd8af22b215f3d279a1e21170</span><br><span class="line">Git Commit Date: 20200608</span><br><span class="line">Architecture: amd64</span><br><span class="line">Protocol Versions: [65 64 63]</span><br><span class="line">Go Version: go1.14.2</span><br><span class="line">Operating System: windows</span><br><span class="line">GOPATH&#x3D;</span><br><span class="line">GOROOT&#x3D;C:\go</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、创建创世区块"><a href="#二、创建创世区块" class="headerlink" title="二、创建创世区块"></a>二、创建创世区块</h3><p>相同文件夹下面创建 <code>genesis.json</code> 文件</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"config"</span>: &#123;</span><br><span class="line">        <span class="attr">"chainId"</span>: <span class="number">98</span>,</span><br><span class="line">        <span class="attr">"homesteadBlock"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"eip155Block"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"eip158Block"</span>: <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"difficulty"</span> : <span class="string">"200000000"</span>,</span><br><span class="line">    <span class="attr">"gasLimit"</span> : <span class="string">"2100000"</span>,</span><br><span class="line">    <span class="attr">"alloc"</span>: &#123; </span><br><span class="line">        <span class="attr">"7df9a875a174b3bc565e6424a0050ebc1b2d1d82"</span>: &#123; <span class="attr">"balance"</span>: <span class="string">"300000"</span> &#125;,</span><br><span class="line">        <span class="attr">"f41c74c9ae680c1aa78f42e5647a62f353b7bdde"</span>: &#123; <span class="attr">"balance"</span>: <span class="string">"400000"</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在命令行中执行命令，生成创世区块</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">geth --datadir &quot;.&#x2F;&quot; init genesis.json</span><br></pre></td></tr></table></figure>
+
+<p>进入 <code>Geth</code>命令行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">geth --datadir &quot;.&#x2F;&quot; --nodiscover console 2&gt;&gt;geth.log</span><br></pre></td></tr></table></figure>
+
+<p>提示以下内容</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">Welcome to the Geth JavaScript console!</span><br><span class="line"></span><br><span class="line"><span class="function">instance: <span class="title">Geth</span>/<span class="title">v1</span>.9.15-<span class="title">stable</span>-0<span class="title">f77f34b</span>/<span class="title">windows</span>-<span class="title">amd64</span>/<span class="title">go1</span>.14.2                         </span></span><br><span class="line"><span class="function"><span class="title">at</span> <span class="title">block</span>: 0 (<span class="title">Thu</span> <span class="title">Jan</span> 01 1970 08:00:00 <span class="title">GMT</span>+0800 (<span class="title">CST</span>))                                 </span></span><br><span class="line"><span class="function"><span class="title">datadir</span>: <span class="title">C</span>:\<span class="title">workspace</span>\<span class="title">geth</span>                                                             </span></span><br><span class="line"><span class="function"><span class="title">modules</span>: <span class="title">admin</span>:1.0 <span class="title">debug</span>:1.0 <span class="title">eth</span>:1.0 <span class="title">ethash</span>:1.0 <span class="title">miner</span>:1.0 <span class="title">net</span>:1.0 <span class="title">personal</span>:1.0 <span class="title">rpc</span>:1.0 <span class="title">txpool</span>:1.0 <span class="title">web3</span>:1.0</span></span><br><span class="line"><span class="function">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>创建一个新账户，记录地址</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">&gt; personal.newAccount()</span><br><span class="line"><span class="function">Passphrase:</span></span><br><span class="line"><span class="function"><span class="title">Repeat</span> <span class="title">passphrase</span>:</span></span><br><span class="line"><span class="function">"0<span class="title">xc6d0ba74c35a0b8650a75d81e41bac0478c45efc</span>"</span></span><br><span class="line"><span class="function">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>启动挖矿</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">geth --datadir "./" --networkid <span class="number">98</span> --mine --minerthreads=<span class="number">1</span> --etherbase=<span class="number">0</span>xc6d0ba74c35a0b8650a75d81e41bac0478c45efc</span><br></pre></td></tr></table></figure>
+
+<p>以太坊是内存困难型的挖矿算法，首先需要生成 <code>DAG</code>，这个过程会占用大量的 CPU 资源</p>
+<p><img data-src="/windows-geth/image-20200610172600263.png" alt="image-20200610172600263"></p>
+<p><img data-src="/windows-geth/image-20200610173936739.png" alt="image-20200610173936739"></p>
+<p>停留在 <code>Looking for peers</code> ，好像是因为没有太多全节点了，导致的卡住。</p>
+<p>暂时挂载着，期待着后续的结果吧，如果一切顺利下一步就是挖到以太啦！</p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+  </entry>
+  <entry>
     <title>以太坊上安全生成随机数</title>
     <url>/generate-random-number-on-ethereum-safely/</url>
     <content><![CDATA[<h2 id="用-keccak256-来制造随机数。"><a href="#用-keccak256-来制造随机数。" class="headerlink" title="用 keccak256 来制造随机数。"></a>用 <code>keccak256</code> 来制造随机数。</h2><p>Solidity 中最好的随机数生成器是 <code>keccak256</code> 哈希函数.</p>
@@ -583,6 +501,88 @@
       <categories>
         <category>智能合约</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Hexo博客自动刷新</title>
+    <url>/hexo-auto-refresh-by-browsersync/</url>
+    <content><![CDATA[<p>Hexo 博客在写的过程中不能自动刷新网页，所以引入新的插件来自动刷新。</p>
+<h3 id="安装-Browsersync"><a href="#安装-Browsersync" class="headerlink" title="安装 Browsersync"></a>安装 Browsersync</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g browser-sync</span><br></pre></td></tr></table></figure>
+
+<p>安装结束后，测试安装是否成功。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">browser-sync --version</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-Hexo-插件"><a href="#安装-Hexo-插件" class="headerlink" title="安装 Hexo 插件"></a>安装 Hexo 插件</h3><p>还需要给 Hexo 安装上插件（需要在 Hexo 目录下安装）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-browsersync --save</span><br></pre></td></tr></table></figure>
+
+<p>安装后像往常一样执行 <code>hexo s</code> 开启本地服务器，当相关文件被修改或者保存时，关联的浏览器页面会自带刷新。</p>
+<h3 id="Hexo-配置"><a href="#Hexo-配置" class="headerlink" title="Hexo 配置"></a>Hexo 配置</h3><p>需要在 Hexo 根目录的 config.yml 里面添加以下配置，就可以啦！</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">compress:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="一些不足"><a href="#一些不足" class="headerlink" title="一些不足"></a>一些不足</h3><ul>
+<li>变动后将重新加载整个页面，不能局部刷新</li>
+<li>使用 Hexo 自带服务器时，无法在移动端调试</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>NexT 主题添加 canvas-nest 动画背景</title>
+    <url>/next-canvas-nest/</url>
+    <content><![CDATA[<p><code>NexT</code> 主题相较于我之前的 <code>Casper</code> 主题是一个很成熟的主题，很多定制化都已经别前人封装好了。</p>
+<p>这篇文章来记录一下添加 <code>canvas-nest</code> 动画背景。</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>使用 <code>NexT</code> 主题 <code>5.1.4</code> 版本</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>主题配置文件中已经预留好接口了，只需要在选择的动画背景选择 <code>true</code> 即可</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Canvas-nest</span></span><br><span class="line"><span class="attr">canvas_nest:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># three_waves</span></span><br><span class="line"><span class="attr">three_waves:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># canvas_lines</span></span><br><span class="line"><span class="attr">canvas_lines:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># canvas_sphere</span></span><br><span class="line"><span class="attr">canvas_sphere:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>更新到 <code>7</code> 版本的 <code>NexT</code> 之后暂时失效了。</p>
+]]></content>
+      <tags>
+        <tag>NexT</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo使用npm快速生成</title>
+    <url>/hexo-npm-fast-generate/</url>
+    <content><![CDATA[<p>使用 <code>Hexo</code> 的时候，我们通常使用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s &#x2F; hexo d</span><br></pre></td></tr></table></figure>
+
+<p>但是在文件内容比较多的时候需要较长时间进行渲染处理，同时也需要输入三个命令。</p>
+<p>之前配置 npm 里面的快捷命令的时候时好时坏，最近终于可以正常运行了，记录一下。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>打开 <code>package.json</code> 文件</p>
+<p>我们会发现默认已经配置好了脚本(scripts)</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">    "deploy": "hexo clean &amp;&amp; hexo g &amp;&amp; hexo d",</span><br><span class="line">    "start": "hexo clean &amp;&amp; hexo g &amp;&amp; hexo s"</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>这个时候使用以下命令，就可以直接运行了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm deploy </span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+
+<p>如果想要每次输入的字母数更少一些，可以将 <code>json</code> 更改成以下形式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;d&quot;: &quot;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&quot;,</span><br><span class="line">    &quot;s&quot;: &quot;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&quot;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>这种时候运行输入以下命令就可以啦</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run s</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 的 NexT 主题添加相关文章</title>
+    <url>/hexo-next-related-posts/</url>
+    <content><![CDATA[<p>更新 <code>NexT</code> 主题到最新版本之后，发现具有更多的定制功能，其中就有添加相关文章的选项。</p>
+<p>使用 <code>https://github.com/tea3/hexo-related-popular-posts</code></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Related popular posts</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/tea3/hexo-related-popular-posts</span></span><br><span class="line"><span class="attr">related_posts:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">相关文章</span></span><br><span class="line">  <span class="comment"># Custom header, leave empty to use the default one</span></span><br><span class="line">  <span class="attr">display_in_home:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">params:</span></span><br><span class="line">    <span class="attr">maxCount:</span> <span class="number">3</span></span><br><span class="line">    <span class="comment">#PPMixingRate: 0.0</span></span><br><span class="line">    <span class="comment">#isDate: false</span></span><br><span class="line">    <span class="comment">#isImage: false</span></span><br><span class="line">    <span class="comment">#isExcerpt: false</span></span><br></pre></td></tr></table></figure>
+
+<p>配置完成，重新生成 <code>html</code> 文件就可以直接看到效果啦！</p>
+<a id="more"></a>
+
+<p><img data-src="/hexo-next-related-posts/image-20200610111926921.png" alt="image-20200610111926921"></p>
+]]></content>
+      <tags>
+        <tag>NexT</tag>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>AWS-Serverless-Project</title>
@@ -689,73 +689,57 @@
 ]]></content>
   </entry>
   <entry>
-    <title>使用Flask快速部署一个网站</title>
-    <url>/deploy-a-website-by-flask/</url>
-    <content><![CDATA[<ol>
-<li><p>Pycharm 生成 Flask 项目</p>
-</li>
-<li><p>还是使用直白的 Debug 运行模式，赶紧开始工作起来啦</p>
-</li>
-<li><p>端口容易出现占用的情况</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">kill</span> $(lsof -ti:5000)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="Flask-实现上传"><a href="#Flask-实现上传" class="headerlink" title="Flask 实现上传"></a>Flask 实现上传</h3><ol>
-<li>上传的代码，这里整理一下方便之后复用</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 初始化上传的文件夹信息</span></span><br><span class="line">UPLOAD_FOLDER = <span class="string">'./uploads'</span></span><br><span class="line">ALLOWED_EXTENSIONS = &#123;<span class="string">'pdf'</span>&#125;</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">dropzone = Dropzone(app)</span><br><span class="line"><span class="comment"># 配置上传的文件夹和上传文件最大大小限制</span></span><br><span class="line">app.config[<span class="string">'UPLOAD_FOLDER'</span>] = UPLOAD_FOLDER</span><br><span class="line">app.config[<span class="string">'MAX_CONTENT_LENGTH'</span>] = <span class="number">32</span> * <span class="number">1024</span> * <span class="number">1024</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否是允许的文件，注意-1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">allowed_file</span><span class="params">(filename)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'.'</span> <span class="keyword">in</span> filename <span class="keyword">and</span> filename.rsplit(<span class="string">'.'</span>, <span class="number">1</span>)[<span class="number">-1</span>].lower() <span class="keyword">in</span> ALLOWED_EXTENSIONS</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注册网址 绑定函数</span></span><br><span class="line"><span class="meta">@app.route('/uploads/&lt;filename&gt;')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">uploaded_file</span><span class="params">(filename)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> send_from_directory(app.config[<span class="string">'UPLOAD_FOLDER'</span>], filename)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 是先上传</span></span><br><span class="line"><span class="meta">@app.route('/', methods=['GET', 'POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload_file</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        file = request.files[<span class="string">'file'</span>]</span><br><span class="line">        <span class="keyword">if</span> file <span class="keyword">and</span> allowed_file(file.filename):</span><br><span class="line">            filename = secure_filename(file.filename)</span><br><span class="line">            file.save(os.path.join(app.config[<span class="string">'UPLOAD_FOLDER'</span>], filename))</span><br><span class="line">            file_url = url_for(<span class="string">'uploaded_file'</span>, filename=filename)</span><br><span class="line">            <span class="keyword">return</span> redirect(url_for(<span class="string">'uploaded_file'</span>, filename=filename))</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">'upload.html'</span>)</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>前端实现拖拽上传的效果，使用 <code>dropzone.css</code> 和 <code>dropzone.js</code>。主要的 <code>HTML</code>的代码如下：</li>
-</ol>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Flask upload with Dropzone example&lt;/title&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"&#123;&#123; url_for('static', filename='css/dropzone.css') &#125;&#125;"</span>&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- Change action value to your upload address --&gt;</span><br><span class="line">    &lt;form action="&#123;&#123; url_for('upload_file') &#125;&#125;" class="dropzone" method="POST" enctype="multipart/form-data"&gt;&lt;/form&gt;</span><br><span class="line">    &lt;header&gt;woshi555&lt;/header&gt;</span><br><span class="line">    &lt;script src="&#123;&#123; url_for('static', filename='js/dropzone.js') &#125;&#125;"&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>继续和我的基础环境绑定</li>
-</ol>
-<hr>
-<h3 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h3><p>之前也遇见过部署的时候网页就没了，这次发现是因为 <code>Flask</code> 自带的服务器在 ssh 退出之后就不可用了</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup python app.py 1&gt;result.txt 2&gt;err.txt &amp;</span><br></pre></td></tr></table></figure>
-
-<p>注意：最后的 &amp; 才表示后台运行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ux</span><br><span class="line">ps- aux</span><br><span class="line"></span><br><span class="line">lsof -i :5000</span><br><span class="line"><span class="built_in">kill</span> -9 PID</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="继续更新-flask-dropzone"><a href="#继续更新-flask-dropzone" class="headerlink" title="继续更新 - flask-dropzone"></a>继续更新 - flask-dropzone</h3><p>先配置，然后再 <code>dropzone = Dropzone(app)</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.config[<span class="string">'UPLOAD_FOLDER'</span>] = UPLOAD_FOLDER</span><br><span class="line"><span class="comment"># app.config['DROPZONE_REDIRECT_VIEW'] = 'hello'  # set redirect view</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_REDIRECT_VIEW'</span>] = <span class="string">'result'</span>  <span class="comment"># function-name (not the true url)</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_ALLOWED_FILE_CUSTOM'</span>] = <span class="literal">True</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_ALLOWED_FILE_TYPE'</span>] = <span class="string">'.pdf'</span></span><br><span class="line"></span><br><span class="line">dropzone = Dropzone(app)</span><br></pre></td></tr></table></figure>
-
-<p>限制了文件的格式是 PDF，可以实现最后选框上传的时候就是 PDF 文件</p>
-<p>跳转只能这样显示的写，不能使用 <code>redirect</code> ，使用的是函数的名字</p>
-<p><strong>html文件中</strong>很容易就可以做出来了</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    &#123;&#123; dropzone.load_css() &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.style('border: 2px dashed #0087F7; margin: 10%') &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    &#123;&#123; dropzone.create(action="upload_file") &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.load_js() &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.config() &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ubuntu pip安装</title>
-    <url>/ubuntu-pip-install/</url>
-    <content><![CDATA[<p>ubuntu pip 安装的时候常需要源，这里记录一下。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install * -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-
-<p>aws 上面机器由于内存比较小，安装的时候会遇到 MemoryError</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install * --no-cache-dir</span><br></pre></td></tr></table></figure>
-
-<p>安装 opencv</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install -y libsm6 libxext6 libxrender-dev libglib2.0-0</span><br><span class="line">pip install opencv-python</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+    <title>Help Rather Than Recycle - Alleviating Cold Startup in Serverless Computing with Inter-Function Container Sharing</title>
+    <url>/help-rather-than-recycle-alleviating-cold-startup-in-serverless-computing-with-inter-function-container-sharing/</url>
+    <content><![CDATA[<p>主要是三个 level 的创新。</p>
 <a id="more"></a>
 
+<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 - Introduction"></a>1 - Introduction</h3><p>从闲置的warm容器借共享的资源过来。</p>
+<p><strong>三个挑战：</strong></p>
+<ol>
+<li>不稳定，QoS 下降</li>
+<li>借的时候会需要定向的配置，这个过程会需要额外的时间</li>
+<li>被借的那个人也需要考虑：去帮谁呢？</li>
+</ol>
+<p><strong>Pagurus 系统的三种容器状态：</strong></p>
+<ol>
+<li>zygote containers</li>
+<li>private containers</li>
+<li>helper containers</li>
+</ol>
+<p><strong>主要的贡献：</strong></p>
+<ol>
+<li>An inter-function sharing mechanism that alleviates cold startup with security guarantee</li>
+<li>A similarity-based container image re-packing policy</li>
+<li>A cluster-level function balancing mechanism</li>
+</ol>
+<h3 id="3-Motivation"><a href="#3-Motivation" class="headerlink" title="3 - Motivation"></a>3 - Motivation</h3><p><strong>3.1 - Existence of Excessive Warm Containers</strong></p>
+<p>通过实验发现真的存在。</p>
+<p><strong>3.2 - Inter-Function Sharing</strong></p>
+<ol>
+<li>负载在动态的变化</li>
+<li>容器需要安装不同的软件包</li>
+<li>共享可能会伤害其他的安全性</li>
+</ol>
+<h3 id="4-Design-of-Pagurus"><a href="#4-Design-of-Pagurus" class="headerlink" title="4 - Design of Pagurus"></a>4 - Design of Pagurus</h3><p><img data-src="/help-rather-than-recycle-alleviating-cold-startup-in-serverless-computing-with-inter-function-container-sharing/image-20210310204418282.png" alt="image-20210310204418282"></p>
+<p>合子容器包含两种的运行环境，然后 load code；基于合子容器的 fork 会产生 helper 容器。</p>
+<p><strong>Intra:</strong> 功能内部的管理最重要是 <strong>识别闲置状态</strong> + <strong>确保共享的时候不伤害安全性</strong></p>
+<ul>
+<li>re-packing operator：让 private 容器编程 zygote 容器</li>
+<li>zygote fork：创造 helper 容器</li>
+<li>code copy：复制需要帮助的代码 到内存中</li>
+</ul>
+<p><strong>Inter:</strong> 很难决定要从哪儿进行 borrow</p>
+<p>通过分析package的相似性。</p>
+<p><strong>Balancer - 跨界点node - 具体的执行机制</strong></p>
+<p>Pagurus works in the following steps. Suppose functions A and B are on the same node, and A already generates a zygote container that installs the software packages for B. Once a query of B tends to suffer a cold startup, B’s intra-function manager requests a helper container from the inter-function scheduler. Then, the inter-function scheduler schedules a zygote container from A to B. By forking A’s zygote container and load B’s code, B obtains a helper container and can execute this query without cold startup. If all the functions on the node do not have zygote containers for B, later queries of B are routed to other nodes that have excessive containers.</p>
+<hr>
 ]]></content>
+      <categories>
+        <category>paper</category>
+      </categories>
       <tags>
-        <tag>ubuntu</tag>
+        <tag>Serverless</tag>
       </tags>
   </entry>
   <entry>
@@ -818,42 +802,74 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Ethereum-Studio-Sample-Crypto-Pizzas</title>
-    <url>/ethereum-studio-sample-crypto-pizzas/</url>
-    <content><![CDATA[<h1 id="Creating-a-unique-collectible-token"><a href="#Creating-a-unique-collectible-token" class="headerlink" title="Creating a unique collectible token"></a>Creating a unique collectible token</h1><p>This project is an example application that teaches you how to:</p>
-<ul>
-<li>Write a smart contract and web app that conforms to a token standard.</li>
-<li>Different variable types in Solidity.</li>
-<li>Create, update and get variables in a smart contract.</li>
-<li>Emit events that clients can subscribe to.</li>
-<li>Provide arguments to a contract constructor using the <em>Configure contract</em> modal.</li>
-</ul>
-<p>这是一个略微复杂的智能合约</p>
-<p><img data-src="/ethereum-studio-sample-crypto-pizzas/image-20200610200542158.png" alt="image-20200610200542158"></p>
+    <title>ubuntu pip安装</title>
+    <url>/ubuntu-pip-install/</url>
+    <content><![CDATA[<p>ubuntu pip 安装的时候常需要源，这里记录一下。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install * -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<p>aws 上面机器由于内存比较小，安装的时候会遇到 MemoryError</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install * --no-cache-dir</span><br></pre></td></tr></table></figure>
+
+<p>安装 opencv</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install -y libsm6 libxext6 libxrender-dev libglib2.0-0</span><br><span class="line">pip install opencv-python</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<a id="more"></a>
+
 ]]></content>
-      <categories>
-        <category>智能合约</category>
-      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
   </entry>
   <entry>
-    <title>Ethereum-Studio-Sample-Coin</title>
-    <url>/ethereum-studio-sample-coin/</url>
-    <content><![CDATA[<p>Ethereum-Studio 上面简单的 Coin 交易 Sample</p>
-<p>代码很容易理解，重要的是基于这个代码理解了 Ethereum-Studio 上面的操作</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Specifies that the source code is for a version</span></span><br><span class="line"><span class="comment">// of Solidity greater than 0.5.0</span></span><br><span class="line">pragma solidity &gt;=<span class="number">0.5</span><span class="number">.0</span> &lt;<span class="number">0.7</span><span class="number">.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// A contract is a collection of functions and data (its state)</span></span><br><span class="line"><span class="comment">// that resides at a specific address on the Ethereum blockchain.</span></span><br><span class="line">contract Coin &#123;</span><br><span class="line">    <span class="comment">// The keyword "public" makes variables accessible from outside a contract</span></span><br><span class="line">    <span class="comment">// and creates a function that other contracts or SDKs can call to access the value</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// An address stores addresses of contracts or external (user) accounts</span></span><br><span class="line">    address public minter;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A mapping lets you create complex custom data types.</span></span><br><span class="line">    <span class="comment">// This mapping assigns an unsigned integer to an address</span></span><br><span class="line">    <span class="comment">// and is also a public variable.</span></span><br><span class="line">    mapping (<span class="function"><span class="params">address</span> =&gt;</span> uint) public balances;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Events allow Ethereum clients to react to specific</span></span><br><span class="line">    <span class="comment">// contract changes you declare.</span></span><br><span class="line">    <span class="comment">// This defines the event and it is sent later</span></span><br><span class="line">    event Sent(address <span class="keyword">from</span>, address to, uint amount);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A special function only run during the creation of the contract</span></span><br><span class="line">    <span class="keyword">constructor</span>() public &#123;</span><br><span class="line">        <span class="comment">// Uses the special msg global variable to store the</span></span><br><span class="line">        <span class="comment">// address of the contract creator</span></span><br><span class="line">        minter = msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Sends an amount of newly created coins to an address</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">mint</span>(<span class="params">address receiver, uint amount</span>) <span class="title">public</span> </span>&#123;</span><br><span class="line">        <span class="comment">// require statements define conditions that must pass</span></span><br><span class="line">        <span class="comment">// before state is changed.</span></span><br><span class="line">        <span class="comment">// If it fails (equals false), an exception is triggered</span></span><br><span class="line">        <span class="comment">// and reverts all modifications to state from the current call</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Can only be called by the contract creator</span></span><br><span class="line">        <span class="built_in">require</span>(msg.sender == minter);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Ensures a maximum amount of tokens</span></span><br><span class="line">        <span class="built_in">require</span>(amount &lt; <span class="number">1e60</span>);</span><br><span class="line">        balances[receiver] += amount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Sends an amount of existing coins</span></span><br><span class="line">    <span class="comment">// from any caller to an address</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params">address receiver, uint amount</span>) <span class="title">public</span> </span>&#123;</span><br><span class="line">        <span class="comment">// The sender must have enough coins to send</span></span><br><span class="line">        <span class="built_in">require</span>(amount &lt;= balances[msg.sender], <span class="string">"Insufficient balance."</span>);</span><br><span class="line">        <span class="comment">// Adjust balances</span></span><br><span class="line">        balances[msg.sender] -= amount;</span><br><span class="line">        balances[receiver] += amount;</span><br><span class="line">        <span class="comment">// Emit event defined earlier</span></span><br><span class="line">        emit Sent(msg.sender, receiver, amount);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>使用Flask快速部署一个网站</title>
+    <url>/deploy-a-website-by-flask/</url>
+    <content><![CDATA[<ol>
+<li><p>Pycharm 生成 Flask 项目</p>
+</li>
+<li><p>还是使用直白的 Debug 运行模式，赶紧开始工作起来啦</p>
+</li>
+<li><p>端口容易出现占用的情况</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">kill</span> $(lsof -ti:5000)</span><br></pre></td></tr></table></figure>
 
-<p>进入到页面默认是这样的</p>
-<p><img data-src="/ethereum-studio-sample-coin/image-20200610194530891.png" alt="image-20200610194530891"></p>
-<p>点击左侧的小火箭进行部署 - 右侧会更新 <code>构造函数</code> 生成的结果。</p>
-<p><img data-src="/ethereum-studio-sample-coin/image-20200610194608028.png" alt="image-20200610194608028"></p>
-<p>利用 mint 函数，为合约账户添加 100 个币。</p>
-<p><img data-src="/ethereum-studio-sample-coin/image-20200610194743997.png" alt="image-20200610194743997"></p>
-<p>给账户一转去 50 个币，可以看到交易和余额同步都正确显示了。</p>
-<p><img data-src="/ethereum-studio-sample-coin/image-20200610194838920.png" alt="image-20200610194838920"></p>
+</li>
+</ol>
+<h3 id="Flask-实现上传"><a href="#Flask-实现上传" class="headerlink" title="Flask 实现上传"></a>Flask 实现上传</h3><ol>
+<li>上传的代码，这里整理一下方便之后复用</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 初始化上传的文件夹信息</span></span><br><span class="line">UPLOAD_FOLDER = <span class="string">'./uploads'</span></span><br><span class="line">ALLOWED_EXTENSIONS = &#123;<span class="string">'pdf'</span>&#125;</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">dropzone = Dropzone(app)</span><br><span class="line"><span class="comment"># 配置上传的文件夹和上传文件最大大小限制</span></span><br><span class="line">app.config[<span class="string">'UPLOAD_FOLDER'</span>] = UPLOAD_FOLDER</span><br><span class="line">app.config[<span class="string">'MAX_CONTENT_LENGTH'</span>] = <span class="number">32</span> * <span class="number">1024</span> * <span class="number">1024</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否是允许的文件，注意-1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">allowed_file</span><span class="params">(filename)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'.'</span> <span class="keyword">in</span> filename <span class="keyword">and</span> filename.rsplit(<span class="string">'.'</span>, <span class="number">1</span>)[<span class="number">-1</span>].lower() <span class="keyword">in</span> ALLOWED_EXTENSIONS</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注册网址 绑定函数</span></span><br><span class="line"><span class="meta">@app.route('/uploads/&lt;filename&gt;')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">uploaded_file</span><span class="params">(filename)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> send_from_directory(app.config[<span class="string">'UPLOAD_FOLDER'</span>], filename)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 是先上传</span></span><br><span class="line"><span class="meta">@app.route('/', methods=['GET', 'POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload_file</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        file = request.files[<span class="string">'file'</span>]</span><br><span class="line">        <span class="keyword">if</span> file <span class="keyword">and</span> allowed_file(file.filename):</span><br><span class="line">            filename = secure_filename(file.filename)</span><br><span class="line">            file.save(os.path.join(app.config[<span class="string">'UPLOAD_FOLDER'</span>], filename))</span><br><span class="line">            file_url = url_for(<span class="string">'uploaded_file'</span>, filename=filename)</span><br><span class="line">            <span class="keyword">return</span> redirect(url_for(<span class="string">'uploaded_file'</span>, filename=filename))</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">'upload.html'</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>前端实现拖拽上传的效果，使用 <code>dropzone.css</code> 和 <code>dropzone.js</code>。主要的 <code>HTML</code>的代码如下：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Flask upload with Dropzone example&lt;/title&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"&#123;&#123; url_for('static', filename='css/dropzone.css') &#125;&#125;"</span>&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- Change action value to your upload address --&gt;</span><br><span class="line">    &lt;form action="&#123;&#123; url_for('upload_file') &#125;&#125;" class="dropzone" method="POST" enctype="multipart/form-data"&gt;&lt;/form&gt;</span><br><span class="line">    &lt;header&gt;woshi555&lt;/header&gt;</span><br><span class="line">    &lt;script src="&#123;&#123; url_for('static', filename='js/dropzone.js') &#125;&#125;"&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>继续和我的基础环境绑定</li>
+</ol>
+<hr>
+<h3 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h3><p>之前也遇见过部署的时候网页就没了，这次发现是因为 <code>Flask</code> 自带的服务器在 ssh 退出之后就不可用了</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup python app.py 1&gt;result.txt 2&gt;err.txt &amp;</span><br></pre></td></tr></table></figure>
+
+<p>注意：最后的 &amp; 才表示后台运行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ux</span><br><span class="line">ps- aux</span><br><span class="line"></span><br><span class="line">lsof -i :5000</span><br><span class="line"><span class="built_in">kill</span> -9 PID</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="继续更新-flask-dropzone"><a href="#继续更新-flask-dropzone" class="headerlink" title="继续更新 - flask-dropzone"></a>继续更新 - flask-dropzone</h3><p>先配置，然后再 <code>dropzone = Dropzone(app)</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.config[<span class="string">'UPLOAD_FOLDER'</span>] = UPLOAD_FOLDER</span><br><span class="line"><span class="comment"># app.config['DROPZONE_REDIRECT_VIEW'] = 'hello'  # set redirect view</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_REDIRECT_VIEW'</span>] = <span class="string">'result'</span>  <span class="comment"># function-name (not the true url)</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_ALLOWED_FILE_CUSTOM'</span>] = <span class="literal">True</span></span><br><span class="line">app.config[<span class="string">'DROPZONE_ALLOWED_FILE_TYPE'</span>] = <span class="string">'.pdf'</span></span><br><span class="line"></span><br><span class="line">dropzone = Dropzone(app)</span><br></pre></td></tr></table></figure>
+
+<p>限制了文件的格式是 PDF，可以实现最后选框上传的时候就是 PDF 文件</p>
+<p>跳转只能这样显示的写，不能使用 <code>redirect</code> ，使用的是函数的名字</p>
+<p><strong>html文件中</strong>很容易就可以做出来了</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    &#123;&#123; dropzone.load_css() &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.style('border: 2px dashed #0087F7; margin: 10%') &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    &#123;&#123; dropzone.create(action="upload_file") &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.load_js() &#125;&#125;</span><br><span class="line">    &#123;&#123; dropzone.config() &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 ]]></content>
-      <categories>
-        <category>智能合约</category>
-      </categories>
+      <tags>
+        <tag>flask</tag>
+      </tags>
   </entry>
   <entry>
     <title>Ethereum-Studio-Sample-Hello-World</title>
@@ -891,19 +907,42 @@
       </categories>
   </entry>
   <entry>
-    <title>心疼我的Ethereum Studio</title>
-    <url>/ethereum-studio-no-longer-support/</url>
-    <content><![CDATA[<p><img data-src="/ethereum-studio-no-longer-support/image-20200613174400940.png" alt="image-20200613174400940"></p>
-<p>突然发现我最爱的 <code>Ethereum Studio</code> 被列为了之后不再维护的 IDE，心痛。。。</p>
-<p>今天接下来的主要任务就是对着官网链接整体过一下 Solidity 语法和 Remix 的使用！</p>
-<p><img data-src="/ethereum-studio-no-longer-support/image-20200614083819767.png" alt="image-20200614083819767"></p>
+    <title>Ethereum-Studio-Sample-Crypto-Pizzas</title>
+    <url>/ethereum-studio-sample-crypto-pizzas/</url>
+    <content><![CDATA[<h1 id="Creating-a-unique-collectible-token"><a href="#Creating-a-unique-collectible-token" class="headerlink" title="Creating a unique collectible token"></a>Creating a unique collectible token</h1><p>This project is an example application that teaches you how to:</p>
+<ul>
+<li>Write a smart contract and web app that conforms to a token standard.</li>
+<li>Different variable types in Solidity.</li>
+<li>Create, update and get variables in a smart contract.</li>
+<li>Emit events that clients can subscribe to.</li>
+<li>Provide arguments to a contract constructor using the <em>Configure contract</em> modal.</li>
+</ul>
+<p>这是一个略微复杂的智能合约</p>
+<p><img data-src="/ethereum-studio-sample-crypto-pizzas/image-20200610200542158.png" alt="image-20200610200542158"></p>
 ]]></content>
       <categories>
         <category>智能合约</category>
       </categories>
-      <tags>
-        <tag>Solidity Game</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>Ethereum-Studio-Sample-Coin</title>
+    <url>/ethereum-studio-sample-coin/</url>
+    <content><![CDATA[<p>Ethereum-Studio 上面简单的 Coin 交易 Sample</p>
+<p>代码很容易理解，重要的是基于这个代码理解了 Ethereum-Studio 上面的操作</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Specifies that the source code is for a version</span></span><br><span class="line"><span class="comment">// of Solidity greater than 0.5.0</span></span><br><span class="line">pragma solidity &gt;=<span class="number">0.5</span><span class="number">.0</span> &lt;<span class="number">0.7</span><span class="number">.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// A contract is a collection of functions and data (its state)</span></span><br><span class="line"><span class="comment">// that resides at a specific address on the Ethereum blockchain.</span></span><br><span class="line">contract Coin &#123;</span><br><span class="line">    <span class="comment">// The keyword "public" makes variables accessible from outside a contract</span></span><br><span class="line">    <span class="comment">// and creates a function that other contracts or SDKs can call to access the value</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// An address stores addresses of contracts or external (user) accounts</span></span><br><span class="line">    address public minter;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A mapping lets you create complex custom data types.</span></span><br><span class="line">    <span class="comment">// This mapping assigns an unsigned integer to an address</span></span><br><span class="line">    <span class="comment">// and is also a public variable.</span></span><br><span class="line">    mapping (<span class="function"><span class="params">address</span> =&gt;</span> uint) public balances;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Events allow Ethereum clients to react to specific</span></span><br><span class="line">    <span class="comment">// contract changes you declare.</span></span><br><span class="line">    <span class="comment">// This defines the event and it is sent later</span></span><br><span class="line">    event Sent(address <span class="keyword">from</span>, address to, uint amount);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A special function only run during the creation of the contract</span></span><br><span class="line">    <span class="keyword">constructor</span>() public &#123;</span><br><span class="line">        <span class="comment">// Uses the special msg global variable to store the</span></span><br><span class="line">        <span class="comment">// address of the contract creator</span></span><br><span class="line">        minter = msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Sends an amount of newly created coins to an address</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">mint</span>(<span class="params">address receiver, uint amount</span>) <span class="title">public</span> </span>&#123;</span><br><span class="line">        <span class="comment">// require statements define conditions that must pass</span></span><br><span class="line">        <span class="comment">// before state is changed.</span></span><br><span class="line">        <span class="comment">// If it fails (equals false), an exception is triggered</span></span><br><span class="line">        <span class="comment">// and reverts all modifications to state from the current call</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Can only be called by the contract creator</span></span><br><span class="line">        <span class="built_in">require</span>(msg.sender == minter);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Ensures a maximum amount of tokens</span></span><br><span class="line">        <span class="built_in">require</span>(amount &lt; <span class="number">1e60</span>);</span><br><span class="line">        balances[receiver] += amount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Sends an amount of existing coins</span></span><br><span class="line">    <span class="comment">// from any caller to an address</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params">address receiver, uint amount</span>) <span class="title">public</span> </span>&#123;</span><br><span class="line">        <span class="comment">// The sender must have enough coins to send</span></span><br><span class="line">        <span class="built_in">require</span>(amount &lt;= balances[msg.sender], <span class="string">"Insufficient balance."</span>);</span><br><span class="line">        <span class="comment">// Adjust balances</span></span><br><span class="line">        balances[msg.sender] -= amount;</span><br><span class="line">        balances[receiver] += amount;</span><br><span class="line">        <span class="comment">// Emit event defined earlier</span></span><br><span class="line">        emit Sent(msg.sender, receiver, amount);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>进入到页面默认是这样的</p>
+<p><img data-src="/ethereum-studio-sample-coin/image-20200610194530891.png" alt="image-20200610194530891"></p>
+<p>点击左侧的小火箭进行部署 - 右侧会更新 <code>构造函数</code> 生成的结果。</p>
+<p><img data-src="/ethereum-studio-sample-coin/image-20200610194608028.png" alt="image-20200610194608028"></p>
+<p>利用 mint 函数，为合约账户添加 100 个币。</p>
+<p><img data-src="/ethereum-studio-sample-coin/image-20200610194743997.png" alt="image-20200610194743997"></p>
+<p>给账户一转去 50 个币，可以看到交易和余额同步都正确显示了。</p>
+<p><img data-src="/ethereum-studio-sample-coin/image-20200610194838920.png" alt="image-20200610194838920"></p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
   </entry>
   <entry>
     <title>Remix-Ballot-Demo</title>
@@ -954,54 +993,19 @@
       </tags>
   </entry>
   <entry>
-    <title>Truffle快速入门</title>
-    <url>/truffle-get-started/</url>
-    <content><![CDATA[<h1 id="Truffle简介"><a href="#Truffle简介" class="headerlink" title="Truffle简介"></a>Truffle简介</h1><p>Truffle 是一个世界级的开发环境，测试框架，以太坊的资源管理通道，致力于让以太坊上的开发变得简单，Truffle 有以下特点：</p>
-<ul>
-<li>内置的智能合约编译，链接，部署和二进制文件的管理。</li>
-<li>快速开发下的自动合约测试。</li>
-<li>脚本化的，可扩展的部署与发布框架。</li>
-<li>部署到不管多少的公网或私网的网络环境管理功能</li>
-<li>使用EthPM&amp;NPM提供的包管理，使用<a href="https://github.com/ethereum/EIPs/issues/190" target="_blank" rel="noopener">ERC190</a>标准。</li>
-<li>与合约直接通信的直接交互控制台（写完合约就可以命令行里验证了）。</li>
-<li>可配的构建流程，支持紧密集成。</li>
-<li>在Truffle环境里支持执行外部的脚本。</li>
-</ul>
-<h3 id="Truffle-框架安装"><a href="#Truffle-框架安装" class="headerlink" title="Truffle 框架安装"></a>Truffle 框架安装</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g truffle</span><br></pre></td></tr></table></figure>
-
-<p><strong>Windows用户的建议</strong></p>
-<p>推荐使用 Powershell 或 Git BASH 来安装和使用Truffle框架。这两个 shell 环境相对默认的，提供了更方便的一些特性。</p>
-<h3 id="Truffle-客户端"><a href="#Truffle-客户端" class="headerlink" title="Truffle 客户端"></a>Truffle 客户端</h3><p>使用 Ganache 的桌面客户端 <del>我使用官网推荐的 Test RPC <code>is now</code> <a href="https://github.com/trufflesuite/ganache-cli" target="_blank" rel="noopener">ganache-cli</a></del> </p>
-<blockquote>
-<p>当开发基于Truffle的应用时，我们推荐使用EthereumJS TestRPC。它是一个完整的在内存中的区块链仅仅存在于你开发的设备上。它在执行交易时是实时返回，而不等待默认的出块时间，这样你可以快速验证你新写的代码，当出现错误时，也能即时反馈给你。它同时还是一个支持自动化测试的功能强大的客户端。Truffle充分利用它的特性，能将测试运行时间提速近90%。</p>
-</blockquote>
-<h3 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">truffle init</span><br></pre></td></tr></table></figure>
-
-<h3 id="编译合约"><a href="#编译合约" class="headerlink" title="编译合约"></a>编译合约</h3><p>所有的合约应该位于 <code>./contracts</code> 目录。默认我们提供了一个合约文件，一个库文件，均以 <code>.sol</code> 结尾作为示例。尽管库文件有一定的特殊性，但为简单起见，当前均称之为合约。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">truffle compile</span><br></pre></td></tr></table></figure>
-
-<p>Truffle 仅默认编译自上次编译后被修改过的文件，来减少不必要的编译。如果你想编译全部文件，可以使用 <code>--compile-all</code> 选项。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">truffle compile --compile-all</span><br></pre></td></tr></table></figure>
-
-<p><strong>编译目录</strong></p>
-<p>编译的输出位于 <code>./build/contracts</code> 目录。如果目录不存在会自动创建。这些编译文件对于Truffle框架能否正常工作至关重要。不应该在正常的编译或发布以外手动修改这些文件。</p>
-<h3 id="移植"><a href="#移植" class="headerlink" title="移植"></a>移植</h3><p>移植是由一些 Javascript 文件组成来协助发布到以太坊网络。主要目的是用来缓存你的发布任务，它的存在基于发布需求会改变的前提。当工程发生了重要的改变，将创建新的移植脚本来将这些变化带到区块链上。</p>
-<p><strong>待续…不过感觉没啥内容了</strong></p>
+    <title>心疼我的Ethereum Studio</title>
+    <url>/ethereum-studio-no-longer-support/</url>
+    <content><![CDATA[<p><img data-src="/ethereum-studio-no-longer-support/image-20200613174400940.png" alt="image-20200613174400940"></p>
+<p>突然发现我最爱的 <code>Ethereum Studio</code> 被列为了之后不再维护的 IDE，心痛。。。</p>
+<p>今天接下来的主要任务就是对着官网链接整体过一下 Solidity 语法和 Remix 的使用！</p>
+<p><img data-src="/ethereum-studio-no-longer-support/image-20200614083819767.png" alt="image-20200614083819767"></p>
 ]]></content>
       <categories>
         <category>智能合约</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Solidity-Official-Demo-简单的公开拍卖</title>
-    <url>/solidity-official-demo-simple-auction/</url>
-    <content><![CDATA[<h3 id="简单的公开拍卖"><a href="#简单的公开拍卖" class="headerlink" title="简单的公开拍卖"></a>简单的公开拍卖</h3><p>以下简单的拍卖合约的总体思路是每个人都可以在投标期内发送他们的出价。 出价已经包含了资金/以太币，来将投标人与他们的投标绑定。 如果最高出价提高了（被其他出价者的出价超过），之前出价最高的出价者可以拿回她的钱。 在投标期结束后，受益人需要手动调用合约来接收他的钱 - 合约不能自己激活接收。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity ^0.4.22;</span><br><span class="line"></span><br><span class="line">contract SimpleAuction &#123;</span><br><span class="line">    &#x2F;&#x2F; 拍卖的参数。</span><br><span class="line">    address public beneficiary;</span><br><span class="line">    &#x2F;&#x2F; 时间是unix的绝对时间戳（自1970-01-01以来的秒数）</span><br><span class="line">    &#x2F;&#x2F; 或以秒为单位的时间段。</span><br><span class="line">    uint public auctionEnd;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 拍卖的当前状态</span><br><span class="line">    address public highestBidder;</span><br><span class="line">    uint public highestBid;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;可以取回的之前的出价</span><br><span class="line">    mapping(address &#x3D;&gt; uint) pendingReturns;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 拍卖结束后设为 true，将禁止所有的变更</span><br><span class="line">    bool ended;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 变更触发的事件</span><br><span class="line">    event HighestBidIncreased(address bidder, uint amount);</span><br><span class="line">    event AuctionEnded(address winner, uint amount);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 以下是所谓的 natspec 注释，可以通过三个斜杠来识别。</span><br><span class="line">    &#x2F;&#x2F; 当用户被要求确认交易时将显示。</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 以受益者地址 &#96;_beneficiary&#96; 的名义，</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 创建一个简单的拍卖，拍卖时间为 &#96;_biddingTime&#96; 秒。</span><br><span class="line">    constructor(</span><br><span class="line">        uint _biddingTime,</span><br><span class="line">        address _beneficiary</span><br><span class="line">    ) public &#123;</span><br><span class="line">        beneficiary &#x3D; _beneficiary;</span><br><span class="line">        auctionEnd &#x3D; now + _biddingTime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 对拍卖进行出价，具体的出价随交易一起发送。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 如果没有在拍卖中胜出，则返还出价。</span><br><span class="line">    function bid() public payable &#123;</span><br><span class="line">        &#x2F;&#x2F; 参数不是必要的。因为所有的信息已经包含在了交易中。</span><br><span class="line">        &#x2F;&#x2F; 对于能接收以太币的函数，关键字 payable 是必须的。</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 如果拍卖已结束，撤销函数的调用。</span><br><span class="line">        require(</span><br><span class="line">            now &lt;&#x3D; auctionEnd,</span><br><span class="line">            &quot;Auction already ended.&quot;</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 如果出价不够高，返还你的钱</span><br><span class="line">        require(</span><br><span class="line">            msg.value &gt; highestBid,</span><br><span class="line">            &quot;There already is a higher bid.&quot;</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        if (highestBid !&#x3D; 0) &#123;</span><br><span class="line">            &#x2F;&#x2F; 返还出价时，简单地直接调用 highestBidder.send(highestBid) 函数，</span><br><span class="line">            &#x2F;&#x2F; 是有安全风险的，因为它有可能执行一个非信任合约。</span><br><span class="line">            &#x2F;&#x2F; 更为安全的做法是让接收方自己提取金钱。</span><br><span class="line">            pendingReturns[highestBidder] +&#x3D; highestBid;</span><br><span class="line">        &#125;</span><br><span class="line">        highestBidder &#x3D; msg.sender;</span><br><span class="line">        highestBid &#x3D; msg.value;</span><br><span class="line">        emit HighestBidIncreased(msg.sender, msg.value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 取回出价（当该出价已被超越）</span><br><span class="line">    function withdraw() public returns (bool) &#123;</span><br><span class="line">        uint amount &#x3D; pendingReturns[msg.sender];</span><br><span class="line">        if (amount &gt; 0) &#123;</span><br><span class="line">            &#x2F;&#x2F; 这里很重要，首先要设零值。</span><br><span class="line">            &#x2F;&#x2F; 因为，作为接收调用的一部分，</span><br><span class="line">            &#x2F;&#x2F; 接收者可以在 &#96;send&#96; 返回之前，重新调用该函数。</span><br><span class="line">            pendingReturns[msg.sender] &#x3D; 0;</span><br><span class="line"></span><br><span class="line">            if (!msg.sender.send(amount)) &#123;</span><br><span class="line">                &#x2F;&#x2F; 这里不需抛出异常，只需重置未付款</span><br><span class="line">                pendingReturns[msg.sender] &#x3D; amount;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 结束拍卖，并把最高的出价发送给受益人</span><br><span class="line">    function auctionEnd() public &#123;</span><br><span class="line">        &#x2F;&#x2F; 对于可与其他合约交互的函数（意味着它会调用其他函数或发送以太币），</span><br><span class="line">        &#x2F;&#x2F; 一个好的指导方针是将其结构分为三个阶段：</span><br><span class="line">        &#x2F;&#x2F; 1. 检查条件</span><br><span class="line">        &#x2F;&#x2F; 2. 执行动作 (可能会改变条件)</span><br><span class="line">        &#x2F;&#x2F; 3. 与其他合约交互</span><br><span class="line">        &#x2F;&#x2F; 如果这些阶段相混合，其他的合约可能会回调当前合约并修改状态，</span><br><span class="line">        &#x2F;&#x2F; 或者导致某些效果（比如支付以太币）多次生效。</span><br><span class="line">        &#x2F;&#x2F; 如果合约内调用的函数包含了与外部合约的交互，</span><br><span class="line">        &#x2F;&#x2F; 则它也会被认为是与外部合约有交互的。</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 1. 条件</span><br><span class="line">        require(now &gt;&#x3D; auctionEnd, &quot;Auction not yet ended.&quot;);</span><br><span class="line">        require(!ended, &quot;auctionEnd has already been called.&quot;);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 2. 生效</span><br><span class="line">        ended &#x3D; true;</span><br><span class="line">        emit AuctionEnded(highestBidder, highestBid);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 3. 交互</span><br><span class="line">        beneficiary.transfer(highestBid);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>智能合约</category>
-      </categories>
+      <tags>
+        <tag>Solidity Game</tag>
+      </tags>
   </entry>
   <entry>
     <title>Solidity-Official-Demo-安全的远程购买</title>
@@ -1010,6 +1014,25 @@
       <categories>
         <category>智能合约</category>
       </categories>
+  </entry>
+  <entry>
+    <title>sublime安装solidity代码高亮</title>
+    <url>/sublime-solidity-highlight/</url>
+    <content><![CDATA[<h3 id="安装-Package-Control"><a href="#安装-Package-Control" class="headerlink" title="安装 Package Control"></a>安装 Package Control</h3><p>通过 Ctrl+<code>快捷键或者</code>View &gt; Show Console` 菜单打开控制台，复制粘贴如下代码回车即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h &#x3D; &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)</span><br></pre></td></tr></table></figure>
+
+<h3 id="在-Preference-中打开-Package-Control"><a href="#在-Preference-中打开-Package-Control" class="headerlink" title="在 Preference 中打开 Package-Control"></a>在 Preference 中打开 Package-Control</h3><p><img data-src="/sublime-solidity-highlight/image-20200613094916993.png" alt="image-20200613094916993"></p>
+<h3 id="在-Package-Control-中搜索-install-package"><a href="#在-Package-Control-中搜索-install-package" class="headerlink" title="在 Package Control 中搜索 install package"></a>在 Package Control 中搜索 install package</h3><p>左下角会有一个加载的提示</p>
+<p><img data-src="/sublime-solidity-highlight/image-20200613095119124.png" alt="image-20200613095119124"></p>
+<h3 id="在弹出的搜索栏中输入-Ethereum"><a href="#在弹出的搜索栏中输入-Ethereum" class="headerlink" title="在弹出的搜索栏中输入 Ethereum"></a>在弹出的搜索栏中输入 Ethereum</h3><p>点击安装即可</p>
+<h3 id="重启-sublime-就可以看到代码高亮了"><a href="#重启-sublime-就可以看到代码高亮了" class="headerlink" title="重启 sublime 就可以看到代码高亮了"></a>重启 sublime 就可以看到代码高亮了</h3><p><img data-src="/sublime-solidity-highlight/image-20200613095354818.png" alt="image-20200613095354818"></p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>solidity</tag>
+      </tags>
   </entry>
   <entry>
     <title>Solidity Official Demo-投票</title>
@@ -1039,25 +1062,6 @@
       </categories>
   </entry>
   <entry>
-    <title>sublime安装solidity代码高亮</title>
-    <url>/sublime-solidity-highlight/</url>
-    <content><![CDATA[<h3 id="安装-Package-Control"><a href="#安装-Package-Control" class="headerlink" title="安装 Package Control"></a>安装 Package Control</h3><p>通过 Ctrl+<code>快捷键或者</code>View &gt; Show Console` 菜单打开控制台，复制粘贴如下代码回车即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h &#x3D; &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)</span><br></pre></td></tr></table></figure>
-
-<h3 id="在-Preference-中打开-Package-Control"><a href="#在-Preference-中打开-Package-Control" class="headerlink" title="在 Preference 中打开 Package-Control"></a>在 Preference 中打开 Package-Control</h3><p><img data-src="/sublime-solidity-highlight/image-20200613094916993.png" alt="image-20200613094916993"></p>
-<h3 id="在-Package-Control-中搜索-install-package"><a href="#在-Package-Control-中搜索-install-package" class="headerlink" title="在 Package Control 中搜索 install package"></a>在 Package Control 中搜索 install package</h3><p>左下角会有一个加载的提示</p>
-<p><img data-src="/sublime-solidity-highlight/image-20200613095119124.png" alt="image-20200613095119124"></p>
-<h3 id="在弹出的搜索栏中输入-Ethereum"><a href="#在弹出的搜索栏中输入-Ethereum" class="headerlink" title="在弹出的搜索栏中输入 Ethereum"></a>在弹出的搜索栏中输入 Ethereum</h3><p>点击安装即可</p>
-<h3 id="重启-sublime-就可以看到代码高亮了"><a href="#重启-sublime-就可以看到代码高亮了" class="headerlink" title="重启 sublime 就可以看到代码高亮了"></a>重启 sublime 就可以看到代码高亮了</h3><p><img data-src="/sublime-solidity-highlight/image-20200613095354818.png" alt="image-20200613095354818"></p>
-]]></content>
-      <categories>
-        <category>智能合约</category>
-      </categories>
-      <tags>
-        <tag>solidity</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>1-搭建僵尸工厂</title>
     <url>/solidity-course-1-build-zoombies-factory/</url>
     <content><![CDATA[<h3 id="这是-Solidity-的游戏教学项目，非常好！"><a href="#这是-Solidity-的游戏教学项目，非常好！" class="headerlink" title="这是 Solidity 的游戏教学项目，非常好！"></a>这是 Solidity 的游戏教学项目，非常好！</h3><p><a href="https://cryptozombies.io/zh/course" target="_blank" rel="noopener">项目网址</a>，我也生成了自己的 hanwen <a href="https://share.cryptozombies.io/zh/lesson/1/share/hanwen" target="_blank" rel="noopener">zoombie</a> </p>
@@ -1071,6 +1075,60 @@
 <li><code>keccak256</code> 生成的是 256 位的十六进制的哈希值，需要进行 uint 转换</li>
 </ol>
 <h3 id="event-和-前端的监听"><a href="#event-和-前端的监听" class="headerlink" title="event 和 前端的监听"></a>event 和 前端的监听</h3><p>智能合约中初始化 event，并且在函数中调用这个 event 可以将对应的信息传递到 前端页面中。</p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>Solidity Game</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solidity-Official-Demo-简单的公开拍卖</title>
+    <url>/solidity-official-demo-simple-auction/</url>
+    <content><![CDATA[<h3 id="简单的公开拍卖"><a href="#简单的公开拍卖" class="headerlink" title="简单的公开拍卖"></a>简单的公开拍卖</h3><p>以下简单的拍卖合约的总体思路是每个人都可以在投标期内发送他们的出价。 出价已经包含了资金/以太币，来将投标人与他们的投标绑定。 如果最高出价提高了（被其他出价者的出价超过），之前出价最高的出价者可以拿回她的钱。 在投标期结束后，受益人需要手动调用合约来接收他的钱 - 合约不能自己激活接收。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity ^0.4.22;</span><br><span class="line"></span><br><span class="line">contract SimpleAuction &#123;</span><br><span class="line">    &#x2F;&#x2F; 拍卖的参数。</span><br><span class="line">    address public beneficiary;</span><br><span class="line">    &#x2F;&#x2F; 时间是unix的绝对时间戳（自1970-01-01以来的秒数）</span><br><span class="line">    &#x2F;&#x2F; 或以秒为单位的时间段。</span><br><span class="line">    uint public auctionEnd;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 拍卖的当前状态</span><br><span class="line">    address public highestBidder;</span><br><span class="line">    uint public highestBid;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;可以取回的之前的出价</span><br><span class="line">    mapping(address &#x3D;&gt; uint) pendingReturns;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 拍卖结束后设为 true，将禁止所有的变更</span><br><span class="line">    bool ended;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 变更触发的事件</span><br><span class="line">    event HighestBidIncreased(address bidder, uint amount);</span><br><span class="line">    event AuctionEnded(address winner, uint amount);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 以下是所谓的 natspec 注释，可以通过三个斜杠来识别。</span><br><span class="line">    &#x2F;&#x2F; 当用户被要求确认交易时将显示。</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 以受益者地址 &#96;_beneficiary&#96; 的名义，</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 创建一个简单的拍卖，拍卖时间为 &#96;_biddingTime&#96; 秒。</span><br><span class="line">    constructor(</span><br><span class="line">        uint _biddingTime,</span><br><span class="line">        address _beneficiary</span><br><span class="line">    ) public &#123;</span><br><span class="line">        beneficiary &#x3D; _beneficiary;</span><br><span class="line">        auctionEnd &#x3D; now + _biddingTime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 对拍卖进行出价，具体的出价随交易一起发送。</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 如果没有在拍卖中胜出，则返还出价。</span><br><span class="line">    function bid() public payable &#123;</span><br><span class="line">        &#x2F;&#x2F; 参数不是必要的。因为所有的信息已经包含在了交易中。</span><br><span class="line">        &#x2F;&#x2F; 对于能接收以太币的函数，关键字 payable 是必须的。</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 如果拍卖已结束，撤销函数的调用。</span><br><span class="line">        require(</span><br><span class="line">            now &lt;&#x3D; auctionEnd,</span><br><span class="line">            &quot;Auction already ended.&quot;</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 如果出价不够高，返还你的钱</span><br><span class="line">        require(</span><br><span class="line">            msg.value &gt; highestBid,</span><br><span class="line">            &quot;There already is a higher bid.&quot;</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        if (highestBid !&#x3D; 0) &#123;</span><br><span class="line">            &#x2F;&#x2F; 返还出价时，简单地直接调用 highestBidder.send(highestBid) 函数，</span><br><span class="line">            &#x2F;&#x2F; 是有安全风险的，因为它有可能执行一个非信任合约。</span><br><span class="line">            &#x2F;&#x2F; 更为安全的做法是让接收方自己提取金钱。</span><br><span class="line">            pendingReturns[highestBidder] +&#x3D; highestBid;</span><br><span class="line">        &#125;</span><br><span class="line">        highestBidder &#x3D; msg.sender;</span><br><span class="line">        highestBid &#x3D; msg.value;</span><br><span class="line">        emit HighestBidIncreased(msg.sender, msg.value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 取回出价（当该出价已被超越）</span><br><span class="line">    function withdraw() public returns (bool) &#123;</span><br><span class="line">        uint amount &#x3D; pendingReturns[msg.sender];</span><br><span class="line">        if (amount &gt; 0) &#123;</span><br><span class="line">            &#x2F;&#x2F; 这里很重要，首先要设零值。</span><br><span class="line">            &#x2F;&#x2F; 因为，作为接收调用的一部分，</span><br><span class="line">            &#x2F;&#x2F; 接收者可以在 &#96;send&#96; 返回之前，重新调用该函数。</span><br><span class="line">            pendingReturns[msg.sender] &#x3D; 0;</span><br><span class="line"></span><br><span class="line">            if (!msg.sender.send(amount)) &#123;</span><br><span class="line">                &#x2F;&#x2F; 这里不需抛出异常，只需重置未付款</span><br><span class="line">                pendingReturns[msg.sender] &#x3D; amount;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;&#x2F; 结束拍卖，并把最高的出价发送给受益人</span><br><span class="line">    function auctionEnd() public &#123;</span><br><span class="line">        &#x2F;&#x2F; 对于可与其他合约交互的函数（意味着它会调用其他函数或发送以太币），</span><br><span class="line">        &#x2F;&#x2F; 一个好的指导方针是将其结构分为三个阶段：</span><br><span class="line">        &#x2F;&#x2F; 1. 检查条件</span><br><span class="line">        &#x2F;&#x2F; 2. 执行动作 (可能会改变条件)</span><br><span class="line">        &#x2F;&#x2F; 3. 与其他合约交互</span><br><span class="line">        &#x2F;&#x2F; 如果这些阶段相混合，其他的合约可能会回调当前合约并修改状态，</span><br><span class="line">        &#x2F;&#x2F; 或者导致某些效果（比如支付以太币）多次生效。</span><br><span class="line">        &#x2F;&#x2F; 如果合约内调用的函数包含了与外部合约的交互，</span><br><span class="line">        &#x2F;&#x2F; 则它也会被认为是与外部合约有交互的。</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 1. 条件</span><br><span class="line">        require(now &gt;&#x3D; auctionEnd, &quot;Auction not yet ended.&quot;);</span><br><span class="line">        require(!ended, &quot;auctionEnd has already been called.&quot;);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 2. 生效</span><br><span class="line">        ended &#x3D; true;</span><br><span class="line">        emit AuctionEnded(highestBidder, highestBid);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 3. 交互</span><br><span class="line">        beneficiary.transfer(highestBid);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>2-僵尸攻击人类</title>
+    <url>/solidity-course-2-zombie-attack-human/</url>
+    <content><![CDATA[<p>完成了教程，获得了 <a href="https://share.cryptozombies.io/zh/lesson/2/share/hanwen" target="_blank" rel="noopener">二级的僵尸</a>。</p>
+<h3 id="记录几个要点"><a href="#记录几个要点" class="headerlink" title="记录几个要点"></a>记录几个要点</h3><ol>
+<li><p><code>msg.sender</code> 调用者的地址</p>
+</li>
+<li><p>solidity 不原生支持字符串的比较</p>
+<p><code>require(keccak256(_name) == keccak256(&quot;Vitalik&quot;));</code></p>
+</li>
+<li><p>继承关系存在（越来越感觉像 C++ 了）</p>
+</li>
+<li><p>多文件 <code>import</code> 语句需要添加分号</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &quot;.&#x2F;zombiefactory.sol&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数内部需要显式声明 <code>memory</code> <code>storage</code></p>
+</li>
+<li><p>合约不能调用另一个合约的 private 函数</p>
+</li>
+<li><p>在 Solidity中，可以让一个函数返回多个值</p>
+</li>
+</ol>
+<h3 id="Contract-Interface"><a href="#Contract-Interface" class="headerlink" title="Contract Interface"></a>Contract Interface</h3><p>首先，我们定义 <code>LuckyNumber</code> 合约的 <strong><em>interface\</em></strong> ：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contract NumberInterface &#123;</span><br><span class="line">  function getNum(address _myAddress) public view returns (uint);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请注意，这个过程虽然看起来像在定义一个合约，但其实内里不同：</p>
+<p>首先，我们只声明了要与之交互的函数 —— 在本例中为 <code>getNum</code> —— 在其中我们没有使用到任何其他的函数或状态变量。</p>
+<p>其次，我们并没有使用大括号（<code>{</code> 和 <code>}</code>）定义函数体，我们单单用分号（<code>;</code>）结束了函数声明。这使它看起来像一个合约框架。</p>
+<p>编译器就是靠这些特征认出它是一个接口的。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contract KittyInterface &#123;</span><br><span class="line">  function getKitty(uint256 _id) external view returns (</span><br><span class="line">    bool isGestating,</span><br><span class="line">    bool isReady,</span><br><span class="line">    uint256 cooldownIndex,</span><br><span class="line">    uint256 nextActionAt,</span><br><span class="line">    uint256 siringWithId,</span><br><span class="line">    uint256 birthTime,</span><br><span class="line">    uint256 matronId,</span><br><span class="line">    uint256 sireId,</span><br><span class="line">    uint256 generation,</span><br><span class="line">    uint256 genes</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要写上所有的 return 的值，并且在 return 的括号后面加上分号！</p>
+<p><strong>调用另一个合约</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contract MyContract &#123;</span><br><span class="line">  address NumberInterfaceAddress &#x3D; 0xab38...;</span><br><span class="line">  &#x2F;&#x2F; ^ 这是FavoriteNumber合约在以太坊上的地址</span><br><span class="line">  NumberInterface numberContract &#x3D; NumberInterface(NumberInterfaceAddress);</span><br><span class="line">  &#x2F;&#x2F; 现在变量 &#96;numberContract&#96; 指向另一个合约对象</span><br><span class="line"></span><br><span class="line">  function someFunction() public &#123;</span><br><span class="line">    &#x2F;&#x2F; 现在我们可以调用在那个合约中声明的 &#96;getNum&#96;函数:</span><br><span class="line">    uint num &#x3D; numberContract.getNum(msg.sender);</span><br><span class="line">    &#x2F;&#x2F; ...在这儿使用 &#96;num&#96;变量做些什么</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>智能合约</category>
@@ -1116,49 +1174,6 @@
 <p>Solidity 还包含<code>秒(seconds)</code>，<code>分钟(minutes)</code>，<code>小时(hours)</code>，<code>天(days)</code>，<code>周(weeks)</code> 和 <code>年(years)</code> 等时间单位。它们都会转换成对应的秒数放入 <code>uint</code> 中。所以 <code>1分钟</code> 就是 <code>60</code>，<code>1小时</code>是 <code>3600</code>（60秒×60分钟），<code>1天</code>是<code>86400</code>（24小时×60分钟×60秒），以此类推。</p>
 <p>下面是一些使用时间单位的实用案例：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uint lastUpdated;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 将‘上次更新时间’ 设置为 ‘现在’</span><br><span class="line">function updateTimestamp() public &#123;</span><br><span class="line">  lastUpdated &#x3D; now;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 如果到上次&#96;updateTimestamp&#96; 超过5分钟，返回 &#39;true&#39;</span><br><span class="line">&#x2F;&#x2F; 不到5分钟返回 &#39;false&#39;</span><br><span class="line">function fiveMinutesHavePassed() public view returns (bool) &#123;</span><br><span class="line">  return (now &gt;&#x3D; (lastUpdated + 5 minutes));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>智能合约</category>
-      </categories>
-      <tags>
-        <tag>Solidity Game</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2-僵尸攻击人类</title>
-    <url>/solidity-course-2-zombie-attack-human/</url>
-    <content><![CDATA[<p>完成了教程，获得了 <a href="https://share.cryptozombies.io/zh/lesson/2/share/hanwen" target="_blank" rel="noopener">二级的僵尸</a>。</p>
-<h3 id="记录几个要点"><a href="#记录几个要点" class="headerlink" title="记录几个要点"></a>记录几个要点</h3><ol>
-<li><p><code>msg.sender</code> 调用者的地址</p>
-</li>
-<li><p>solidity 不原生支持字符串的比较</p>
-<p><code>require(keccak256(_name) == keccak256(&quot;Vitalik&quot;));</code></p>
-</li>
-<li><p>继承关系存在（越来越感觉像 C++ 了）</p>
-</li>
-<li><p>多文件 <code>import</code> 语句需要添加分号</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &quot;.&#x2F;zombiefactory.sol&quot;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>函数内部需要显式声明 <code>memory</code> <code>storage</code></p>
-</li>
-<li><p>合约不能调用另一个合约的 private 函数</p>
-</li>
-<li><p>在 Solidity中，可以让一个函数返回多个值</p>
-</li>
-</ol>
-<h3 id="Contract-Interface"><a href="#Contract-Interface" class="headerlink" title="Contract Interface"></a>Contract Interface</h3><p>首先，我们定义 <code>LuckyNumber</code> 合约的 <strong><em>interface\</em></strong> ：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contract NumberInterface &#123;</span><br><span class="line">  function getNum(address _myAddress) public view returns (uint);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>请注意，这个过程虽然看起来像在定义一个合约，但其实内里不同：</p>
-<p>首先，我们只声明了要与之交互的函数 —— 在本例中为 <code>getNum</code> —— 在其中我们没有使用到任何其他的函数或状态变量。</p>
-<p>其次，我们并没有使用大括号（<code>{</code> 和 <code>}</code>）定义函数体，我们单单用分号（<code>;</code>）结束了函数声明。这使它看起来像一个合约框架。</p>
-<p>编译器就是靠这些特征认出它是一个接口的。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contract KittyInterface &#123;</span><br><span class="line">  function getKitty(uint256 _id) external view returns (</span><br><span class="line">    bool isGestating,</span><br><span class="line">    bool isReady,</span><br><span class="line">    uint256 cooldownIndex,</span><br><span class="line">    uint256 nextActionAt,</span><br><span class="line">    uint256 siringWithId,</span><br><span class="line">    uint256 birthTime,</span><br><span class="line">    uint256 matronId,</span><br><span class="line">    uint256 sireId,</span><br><span class="line">    uint256 generation,</span><br><span class="line">    uint256 genes</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>需要写上所有的 return 的值，并且在 return 的括号后面加上分号！</p>
-<p><strong>调用另一个合约</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contract MyContract &#123;</span><br><span class="line">  address NumberInterfaceAddress &#x3D; 0xab38...;</span><br><span class="line">  &#x2F;&#x2F; ^ 这是FavoriteNumber合约在以太坊上的地址</span><br><span class="line">  NumberInterface numberContract &#x3D; NumberInterface(NumberInterfaceAddress);</span><br><span class="line">  &#x2F;&#x2F; 现在变量 &#96;numberContract&#96; 指向另一个合约对象</span><br><span class="line"></span><br><span class="line">  function someFunction() public &#123;</span><br><span class="line">    &#x2F;&#x2F; 现在我们可以调用在那个合约中声明的 &#96;getNum&#96;函数:</span><br><span class="line">    uint num &#x3D; numberContract.getNum(msg.sender);</span><br><span class="line">    &#x2F;&#x2F; ...在这儿使用 &#96;num&#96;变量做些什么</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
       <categories>
         <category>智能合约</category>
       </categories>
@@ -1219,6 +1234,22 @@
       </tags>
   </entry>
   <entry>
+    <title>智能合约简单实战-石头剪刀布</title>
+    <url>/smart-contract-rock-scissors-paper/</url>
+    <content><![CDATA[<p>在 <code>Ethereum Studio</code> 配置双用户，使用 0.5.10 较新版本的 solidity，实现了 <strong>石头剪刀布</strong> 游戏程序，代码如下。</p>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity ^0.5.10;</span><br><span class="line"></span><br><span class="line">contract MyContract &#123;</span><br><span class="line"></span><br><span class="line">    mapping (string &#x3D;&gt; mapping(string &#x3D;&gt; int)) payoffMatrix;</span><br><span class="line">    address public player1;</span><br><span class="line">    address public player2;</span><br><span class="line">    string public player1Choice;</span><br><span class="line">    string public player2Choice;</span><br><span class="line">    int public winnerMessage;</span><br><span class="line"></span><br><span class="line">    modifier sentEnoughCash(uint amount) &#123;</span><br><span class="line">        require(msg.value&gt;&#x3D;amount);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    modifier notRegisteredYet()&#123;</span><br><span class="line">        require(msg.sender!&#x3D;player1 &amp;&amp; msg.sender!&#x3D;player2);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    constructor() public &#123;</span><br><span class="line">        payoffMatrix[&quot;rock&quot;][&quot;rock&quot;] &#x3D; 0;</span><br><span class="line">        payoffMatrix[&quot;rock&quot;][&quot;paper&quot;] &#x3D; 2;</span><br><span class="line">        payoffMatrix[&quot;rock&quot;][&quot;scissors&quot;] &#x3D; 1;</span><br><span class="line">        payoffMatrix[&quot;paper&quot;][&quot;rock&quot;] &#x3D; 1;</span><br><span class="line">        payoffMatrix[&quot;paper&quot;][&quot;paper&quot;] &#x3D; 0;</span><br><span class="line">        payoffMatrix[&quot;paper&quot;][&quot;scissors&quot;] &#x3D; 2;</span><br><span class="line">        payoffMatrix[&quot;scissors&quot;][&quot;rock&quot;] &#x3D; 2;</span><br><span class="line">        payoffMatrix[&quot;scissors&quot;][&quot;paper&quot;] &#x3D; 1;</span><br><span class="line">        payoffMatrix[&quot;scissors&quot;][&quot;scissors&quot;] &#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getWinner() public view returns(int)&#123;</span><br><span class="line">        return payoffMatrix[player1Choice][player2Choice];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function play(string memory choice) public&#123;</span><br><span class="line">        if(msg.sender&#x3D;&#x3D;player1)&#123;player1Choice&#x3D;choice;&#125;</span><br><span class="line">        else if(msg.sender&#x3D;&#x3D;player2)&#123;player2Choice&#x3D;choice;&#125;</span><br><span class="line">        if(bytes(player1Choice).length !&#x3D; 0 &amp;&amp; bytes(player2Choice).length !&#x3D; 0)&#123;</span><br><span class="line">            winnerMessage&#x3D;payoffMatrix[player1Choice][player2Choice];</span><br><span class="line">            player1Choice&#x3D;&quot;&quot;;</span><br><span class="line">            player2Choice&#x3D;&quot;&quot;;</span><br><span class="line">            player1&#x3D;address(0);</span><br><span class="line">            player2&#x3D;address(0);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    function register() public payable sentEnoughCash(5) notRegisteredYet&#123;</span><br><span class="line"></span><br><span class="line">        if(player1&#x3D;&#x3D;address(0))&#123;player1&#x3D;msg.sender;&#125;</span><br><span class="line">        else if (player2&#x3D;&#x3D;address(0))&#123;player2&#x3D;msg.sender;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>Solidity Game</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>6- 前端和 Web3.js</title>
     <url>/solidity-course-6-front-end-and-web3-js/</url>
     <content><![CDATA[<p><strong>完成了 CryptoZombies 的第六课！</strong> <a href="https://share.cryptozombies.io/zh/lesson/6/share/The_Phantom_of_Web3" target="_blank" rel="noopener">我的僵尸大军</a></p>
@@ -1254,36 +1285,15 @@
       </tags>
   </entry>
   <entry>
-    <title>智能合约简单实战-石头剪刀布</title>
-    <url>/smart-contract-rock-scissors-paper/</url>
-    <content><![CDATA[<p>在 <code>Ethereum Studio</code> 配置双用户，使用 0.5.10 较新版本的 solidity，实现了 <strong>石头剪刀布</strong> 游戏程序，代码如下。</p>
+    <title>EMARS: Efficient Management and Allocation of Resources in Serverless-学习笔记</title>
+    <url>/emars-efficient-management-and-allocation-of-resource-in-serverless/</url>
+    <content><![CDATA[<p><a href="https://ieeexplore.ieee.org/document/8457882" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/8457882</a></p>
+<p>关注资源管理，重点关注每个容器的内存使用情况。最终实现的目标是：为每一个容器高效分配内存。</p>
+<p>为了高效识别容器的内存状态，定义了4个R效率：①<em>Reduce<em>：根据实际需要限制分配给每个容器的资源②</em>Reuse<em>：使容器保持</em>温暖</em> 状态。③<em>Recycle</em>：仅在长时间不使用它们时才杀死它们。④<em>Refuse</em>：如果系统过载，则不让新容器产生。</p>
+<p>基于内存的模型捕获每个功能在一定时间范围内对于内存的需求，然后对于新生成的容器进行内存优化；基于工作量的模型记录每个功能的请求数。综合两个模型的数据，为每个功能生成一个配置文件来限制/分配资源。</p>
 <a id="more"></a>
 
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pragma solidity ^0.5.10;</span><br><span class="line"></span><br><span class="line">contract MyContract &#123;</span><br><span class="line"></span><br><span class="line">    mapping (string &#x3D;&gt; mapping(string &#x3D;&gt; int)) payoffMatrix;</span><br><span class="line">    address public player1;</span><br><span class="line">    address public player2;</span><br><span class="line">    string public player1Choice;</span><br><span class="line">    string public player2Choice;</span><br><span class="line">    int public winnerMessage;</span><br><span class="line"></span><br><span class="line">    modifier sentEnoughCash(uint amount) &#123;</span><br><span class="line">        require(msg.value&gt;&#x3D;amount);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    modifier notRegisteredYet()&#123;</span><br><span class="line">        require(msg.sender!&#x3D;player1 &amp;&amp; msg.sender!&#x3D;player2);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    constructor() public &#123;</span><br><span class="line">        payoffMatrix[&quot;rock&quot;][&quot;rock&quot;] &#x3D; 0;</span><br><span class="line">        payoffMatrix[&quot;rock&quot;][&quot;paper&quot;] &#x3D; 2;</span><br><span class="line">        payoffMatrix[&quot;rock&quot;][&quot;scissors&quot;] &#x3D; 1;</span><br><span class="line">        payoffMatrix[&quot;paper&quot;][&quot;rock&quot;] &#x3D; 1;</span><br><span class="line">        payoffMatrix[&quot;paper&quot;][&quot;paper&quot;] &#x3D; 0;</span><br><span class="line">        payoffMatrix[&quot;paper&quot;][&quot;scissors&quot;] &#x3D; 2;</span><br><span class="line">        payoffMatrix[&quot;scissors&quot;][&quot;rock&quot;] &#x3D; 2;</span><br><span class="line">        payoffMatrix[&quot;scissors&quot;][&quot;paper&quot;] &#x3D; 1;</span><br><span class="line">        payoffMatrix[&quot;scissors&quot;][&quot;scissors&quot;] &#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getWinner() public view returns(int)&#123;</span><br><span class="line">        return payoffMatrix[player1Choice][player2Choice];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function play(string memory choice) public&#123;</span><br><span class="line">        if(msg.sender&#x3D;&#x3D;player1)&#123;player1Choice&#x3D;choice;&#125;</span><br><span class="line">        else if(msg.sender&#x3D;&#x3D;player2)&#123;player2Choice&#x3D;choice;&#125;</span><br><span class="line">        if(bytes(player1Choice).length !&#x3D; 0 &amp;&amp; bytes(player2Choice).length !&#x3D; 0)&#123;</span><br><span class="line">            winnerMessage&#x3D;payoffMatrix[player1Choice][player2Choice];</span><br><span class="line">            player1Choice&#x3D;&quot;&quot;;</span><br><span class="line">            player2Choice&#x3D;&quot;&quot;;</span><br><span class="line">            player1&#x3D;address(0);</span><br><span class="line">            player2&#x3D;address(0);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    function register() public payable sentEnoughCash(5) notRegisteredYet&#123;</span><br><span class="line"></span><br><span class="line">        if(player1&#x3D;&#x3D;address(0))&#123;player1&#x3D;msg.sender;&#125;</span><br><span class="line">        else if (player2&#x3D;&#x3D;address(0))&#123;player2&#x3D;msg.sender;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>智能合约</category>
-      </categories>
-      <tags>
-        <tag>Solidity Game</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Narrowing the Gap Between Serverless and its State with Storage Functions-学习笔记</title>
-    <url>/narrowing-the-gap-between-serverless-and-its-state-with-storage-function/</url>
-    <content><![CDATA[<p>Serverless 是一种无状态的计算服务，云服务的提供商基于此来实现简化配置和更好的容错。但是这样就需要数据存在远端云存储上，使用”将数据传输到代码中”的方式，引发了大量额外的数据传输的开销。同时传统的云存储系统无法提供相同级别的细粒度资源记帐和按需可伸缩性，反而损害了无服务器模型的优势。</p>
-<p>虽然现在有一一些 fast ephemeral 的存储设计能帮助 serverless 应用之间保存需要传递的状态，但是并没有从根本上解决数据传输的问题，同时也没有解决用户想要在已有持久化数据上的计算问题。</p>
-<p>本文构建了Shredder，一种低延迟的多租户的云存储系统，允许在存储节点内直接运行计算单元。</p>
-<p>为数据密集型计算应用提供巨大的增益。</p>
-<p>难点主要是：安全隔离数千个租户的存储功能，同时最大程度减少数据交互的成本。</p>
-<h3 id="神经元网络上面的测试"><a href="#神经元网络上面的测试" class="headerlink" title="神经元网络上面的测试"></a>神经元网络上面的测试</h3><p>模型和数据集部署在同一个storage上，然后将 prediction的代码上传上去，减少数据传输。</p>
-<p>测试发现 在网络较小的时候，由于 JavaScript计算能力弱于C++，所以性能弱了；但是在网络较大的时候，网络数据传输超过CPU成了主要瓶颈，性能显著上升。</p>
-<a id="more"></a>
-
-<p>摘要直接翻译版本：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">无服务器计算由于其细粒度的配置，大规模的多租户和按需缩放而备受关注。但是，这也迫使应用程序将远程存储中的状态外部化，从而增加了大量开销。为了解决此“数据传输问题”，我们构建了Shredder，这是一种低延迟的多租户云存储，它允许在存储节点内直接执行小的计算单元。存储租户为Shredder提供了JavaScript函数（或WebAssembly程序），这些函数可以直接与数据交互，而无需通过网络移动它们。</span><br><span class="line"></span><br><span class="line">Shredder的主要挑战是安全地隔离数千个租户存储功能，同时最大程度地减少数据交互成本。Shredder使用一种独特的方法，即以本机代码实现其数据存储和网络路径以确保性能，而隔离的租户功能则使用V8特定的中间表示与数据进行交互，从而避免了昂贵的跨保护域调用和数据复制。结果，Shredder每秒可以在数以千计的租户中执行400万个远程调用的租户功能，其中位数和第99％的响应延迟分别小于50μs和500μs。我们的评估表明，当获取项目之间仅有一到三个数据相关性的项目时，Shredder与传统的远程存储相比可实现14％至78％的加速。</span><br></pre></td></tr></table></figure>
-
+<p>优化思路：使用 LSTM 模型对未来进行内存需要进行预测。</p>
 ]]></content>
       <tags>
         <tag>Paper</tag>
@@ -1316,6 +1326,65 @@
       </tags>
   </entry>
   <entry>
+    <title>Narrowing the Gap Between Serverless and its State with Storage Functions-学习笔记</title>
+    <url>/narrowing-the-gap-between-serverless-and-its-state-with-storage-function/</url>
+    <content><![CDATA[<p>Serverless 是一种无状态的计算服务，云服务的提供商基于此来实现简化配置和更好的容错。但是这样就需要数据存在远端云存储上，使用”将数据传输到代码中”的方式，引发了大量额外的数据传输的开销。同时传统的云存储系统无法提供相同级别的细粒度资源记帐和按需可伸缩性，反而损害了无服务器模型的优势。</p>
+<p>虽然现在有一一些 fast ephemeral 的存储设计能帮助 serverless 应用之间保存需要传递的状态，但是并没有从根本上解决数据传输的问题，同时也没有解决用户想要在已有持久化数据上的计算问题。</p>
+<p>本文构建了Shredder，一种低延迟的多租户的云存储系统，允许在存储节点内直接运行计算单元。</p>
+<p>为数据密集型计算应用提供巨大的增益。</p>
+<p>难点主要是：安全隔离数千个租户的存储功能，同时最大程度减少数据交互的成本。</p>
+<h3 id="神经元网络上面的测试"><a href="#神经元网络上面的测试" class="headerlink" title="神经元网络上面的测试"></a>神经元网络上面的测试</h3><p>模型和数据集部署在同一个storage上，然后将 prediction的代码上传上去，减少数据传输。</p>
+<p>测试发现 在网络较小的时候，由于 JavaScript计算能力弱于C++，所以性能弱了；但是在网络较大的时候，网络数据传输超过CPU成了主要瓶颈，性能显著上升。</p>
+<a id="more"></a>
+
+<p>摘要直接翻译版本：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">无服务器计算由于其细粒度的配置，大规模的多租户和按需缩放而备受关注。但是，这也迫使应用程序将远程存储中的状态外部化，从而增加了大量开销。为了解决此“数据传输问题”，我们构建了Shredder，这是一种低延迟的多租户云存储，它允许在存储节点内直接执行小的计算单元。存储租户为Shredder提供了JavaScript函数（或WebAssembly程序），这些函数可以直接与数据交互，而无需通过网络移动它们。</span><br><span class="line"></span><br><span class="line">Shredder的主要挑战是安全地隔离数千个租户存储功能，同时最大程度地减少数据交互成本。Shredder使用一种独特的方法，即以本机代码实现其数据存储和网络路径以确保性能，而隔离的租户功能则使用V8特定的中间表示与数据进行交互，从而避免了昂贵的跨保护域调用和数据复制。结果，Shredder每秒可以在数以千计的租户中执行400万个远程调用的租户功能，其中位数和第99％的响应延迟分别小于50μs和500μs。我们的评估表明，当获取项目之间仅有一到三个数据相关性的项目时，Shredder与传统的远程存储相比可实现14％至78％的加速。</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Paper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Truffle快速入门</title>
+    <url>/truffle-get-started/</url>
+    <content><![CDATA[<h1 id="Truffle简介"><a href="#Truffle简介" class="headerlink" title="Truffle简介"></a>Truffle简介</h1><p>Truffle 是一个世界级的开发环境，测试框架，以太坊的资源管理通道，致力于让以太坊上的开发变得简单，Truffle 有以下特点：</p>
+<ul>
+<li>内置的智能合约编译，链接，部署和二进制文件的管理。</li>
+<li>快速开发下的自动合约测试。</li>
+<li>脚本化的，可扩展的部署与发布框架。</li>
+<li>部署到不管多少的公网或私网的网络环境管理功能</li>
+<li>使用EthPM&amp;NPM提供的包管理，使用<a href="https://github.com/ethereum/EIPs/issues/190" target="_blank" rel="noopener">ERC190</a>标准。</li>
+<li>与合约直接通信的直接交互控制台（写完合约就可以命令行里验证了）。</li>
+<li>可配的构建流程，支持紧密集成。</li>
+<li>在Truffle环境里支持执行外部的脚本。</li>
+</ul>
+<h3 id="Truffle-框架安装"><a href="#Truffle-框架安装" class="headerlink" title="Truffle 框架安装"></a>Truffle 框架安装</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g truffle</span><br></pre></td></tr></table></figure>
+
+<p><strong>Windows用户的建议</strong></p>
+<p>推荐使用 Powershell 或 Git BASH 来安装和使用Truffle框架。这两个 shell 环境相对默认的，提供了更方便的一些特性。</p>
+<h3 id="Truffle-客户端"><a href="#Truffle-客户端" class="headerlink" title="Truffle 客户端"></a>Truffle 客户端</h3><p>使用 Ganache 的桌面客户端 <del>我使用官网推荐的 Test RPC <code>is now</code> <a href="https://github.com/trufflesuite/ganache-cli" target="_blank" rel="noopener">ganache-cli</a></del> </p>
+<blockquote>
+<p>当开发基于Truffle的应用时，我们推荐使用EthereumJS TestRPC。它是一个完整的在内存中的区块链仅仅存在于你开发的设备上。它在执行交易时是实时返回，而不等待默认的出块时间，这样你可以快速验证你新写的代码，当出现错误时，也能即时反馈给你。它同时还是一个支持自动化测试的功能强大的客户端。Truffle充分利用它的特性，能将测试运行时间提速近90%。</p>
+</blockquote>
+<h3 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">truffle init</span><br></pre></td></tr></table></figure>
+
+<h3 id="编译合约"><a href="#编译合约" class="headerlink" title="编译合约"></a>编译合约</h3><p>所有的合约应该位于 <code>./contracts</code> 目录。默认我们提供了一个合约文件，一个库文件，均以 <code>.sol</code> 结尾作为示例。尽管库文件有一定的特殊性，但为简单起见，当前均称之为合约。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">truffle compile</span><br></pre></td></tr></table></figure>
+
+<p>Truffle 仅默认编译自上次编译后被修改过的文件，来减少不必要的编译。如果你想编译全部文件，可以使用 <code>--compile-all</code> 选项。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">truffle compile --compile-all</span><br></pre></td></tr></table></figure>
+
+<p><strong>编译目录</strong></p>
+<p>编译的输出位于 <code>./build/contracts</code> 目录。如果目录不存在会自动创建。这些编译文件对于Truffle框架能否正常工作至关重要。不应该在正常的编译或发布以外手动修改这些文件。</p>
+<h3 id="移植"><a href="#移植" class="headerlink" title="移植"></a>移植</h3><p>移植是由一些 Javascript 文件组成来协助发布到以太坊网络。主要目的是用来缓存你的发布任务，它的存在基于发布需求会改变的前提。当工程发生了重要的改变，将创建新的移植脚本来将这些变化带到区块链上。</p>
+<p><strong>待续…不过感觉没啥内容了</strong></p>
+]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Serverless Computing - Current Trends and Open Problems 学习笔记</title>
     <url>/serverless-computing-current-trends-and-open-problems/</url>
     <content><![CDATA[<p>很早的文章，侧重于定义概念，引出问题。</p>
@@ -1333,21 +1402,6 @@
 <p><img data-src="/serverless-computing-current-trends-and-open-problems/image-20201220155819315.png" alt="image-20201220155819315"></p>
 </li>
 </ol>
-]]></content>
-      <tags>
-        <tag>Paper</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>EMARS: Efficient Management and Allocation of Resources in Serverless-学习笔记</title>
-    <url>/emars-efficient-management-and-allocation-of-resource-in-serverless/</url>
-    <content><![CDATA[<p><a href="https://ieeexplore.ieee.org/document/8457882" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/8457882</a></p>
-<p>关注资源管理，重点关注每个容器的内存使用情况。最终实现的目标是：为每一个容器高效分配内存。</p>
-<p>为了高效识别容器的内存状态，定义了4个R效率：①<em>Reduce<em>：根据实际需要限制分配给每个容器的资源②</em>Reuse<em>：使容器保持</em>温暖</em> 状态。③<em>Recycle</em>：仅在长时间不使用它们时才杀死它们。④<em>Refuse</em>：如果系统过载，则不让新容器产生。</p>
-<p>基于内存的模型捕获每个功能在一定时间范围内对于内存的需求，然后对于新生成的容器进行内存优化；基于工作量的模型记录每个功能的请求数。综合两个模型的数据，为每个功能生成一个配置文件来限制/分配资源。</p>
-<a id="more"></a>
-
-<p>优化思路：使用 LSTM 模型对未来进行内存需要进行预测。</p>
 ]]></content>
       <tags>
         <tag>Paper</tag>
@@ -1422,18 +1476,19 @@
       </tags>
   </entry>
   <entry>
-    <title>Exploring Serverless Computing for Neural Network Training 学习笔记</title>
-    <url>/exploring-serverless-computing-for-neural-network-training/</url>
+    <title>Serving Deep Learning Models in a Serverless Platform 学习笔记</title>
+    <url>/serving-deep-learning-models-in-a-Serverless-platform/</url>
     <content><![CDATA[<p>2018 IEEE 11th International Conference on Cloud Computing</p>
+<p>侧重于在 Serverless Platform 上进行神经网络推理 的 评估。</p>
+<p>评估着眼于 冷/温启动时间、和内存大小相关的性能、cost等。</p>
 <a id="more"></a>
 
+<h3 id="文章结论部分"><a href="#文章结论部分" class="headerlink" title="文章结论部分"></a>文章结论部分</h3><blockquote>
+<p>Our results indicate that warm serverless function executions are within an acceptable latency range, while cold starts add significant overhead.</p>
+</blockquote>
 <h3 id="阅读的时候同步的笔记："><a href="#阅读的时候同步的笔记：" class="headerlink" title="阅读的时候同步的笔记："></a>阅读的时候同步的笔记：</h3><ol>
-<li>关注参考文献</li>
-<li>关注 intro 部分的贡献</li>
-<li>从分布式深度学习到Serverless</li>
-<li>分层的想法来进行传输</li>
-<li>数据传输的问题</li>
-<li>深度学习的并行计算问题</li>
+<li>related work 不错</li>
+<li>启动时间 - cold / warm</li>
 </ol>
 ]]></content>
       <tags>
@@ -1470,19 +1525,18 @@
       </tags>
   </entry>
   <entry>
-    <title>Serving Deep Learning Models in a Serverless Platform 学习笔记</title>
-    <url>/serving-deep-learning-models-in-a-Serverless-platform/</url>
+    <title>Exploring Serverless Computing for Neural Network Training 学习笔记</title>
+    <url>/exploring-serverless-computing-for-neural-network-training/</url>
     <content><![CDATA[<p>2018 IEEE 11th International Conference on Cloud Computing</p>
-<p>侧重于在 Serverless Platform 上进行神经网络推理 的 评估。</p>
-<p>评估着眼于 冷/温启动时间、和内存大小相关的性能、cost等。</p>
 <a id="more"></a>
 
-<h3 id="文章结论部分"><a href="#文章结论部分" class="headerlink" title="文章结论部分"></a>文章结论部分</h3><blockquote>
-<p>Our results indicate that warm serverless function executions are within an acceptable latency range, while cold starts add significant overhead.</p>
-</blockquote>
 <h3 id="阅读的时候同步的笔记："><a href="#阅读的时候同步的笔记：" class="headerlink" title="阅读的时候同步的笔记："></a>阅读的时候同步的笔记：</h3><ol>
-<li>related work 不错</li>
-<li>启动时间 - cold / warm</li>
+<li>关注参考文献</li>
+<li>关注 intro 部分的贡献</li>
+<li>从分布式深度学习到Serverless</li>
+<li>分层的想法来进行传输</li>
+<li>数据传输的问题</li>
+<li>深度学习的并行计算问题</li>
 </ol>
 ]]></content>
       <tags>

@@ -121,7 +121,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -182,6 +182,104 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/truffle-get-started/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hanwen.png">
+      <meta itemprop="name" content="David Stark">
+      <meta itemprop="description" content="瀚文的技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David Stark">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/truffle-get-started/" class="post-title-link" itemprop="url">Truffle快速入门</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-14 11:38:28 / 修改时间：12:18:26" itemprop="dateCreated datePublished" datetime="2020-06-14T11:38:28+08:00">2020-06-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Truffle简介"><a href="#Truffle简介" class="headerlink" title="Truffle简介"></a>Truffle简介</h1><p>Truffle 是一个世界级的开发环境，测试框架，以太坊的资源管理通道，致力于让以太坊上的开发变得简单，Truffle 有以下特点：</p>
+<ul>
+<li>内置的智能合约编译，链接，部署和二进制文件的管理。</li>
+<li>快速开发下的自动合约测试。</li>
+<li>脚本化的，可扩展的部署与发布框架。</li>
+<li>部署到不管多少的公网或私网的网络环境管理功能</li>
+<li>使用EthPM&amp;NPM提供的包管理，使用<a href="https://github.com/ethereum/EIPs/issues/190" target="_blank" rel="noopener">ERC190</a>标准。</li>
+<li>与合约直接通信的直接交互控制台（写完合约就可以命令行里验证了）。</li>
+<li>可配的构建流程，支持紧密集成。</li>
+<li>在Truffle环境里支持执行外部的脚本。</li>
+</ul>
+<h3 id="Truffle-框架安装"><a href="#Truffle-框架安装" class="headerlink" title="Truffle 框架安装"></a>Truffle 框架安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g truffle</span><br></pre></td></tr></table></figure>
+
+<p><strong>Windows用户的建议</strong></p>
+<p>推荐使用 Powershell 或 Git BASH 来安装和使用Truffle框架。这两个 shell 环境相对默认的，提供了更方便的一些特性。</p>
+<h3 id="Truffle-客户端"><a href="#Truffle-客户端" class="headerlink" title="Truffle 客户端"></a>Truffle 客户端</h3><p>使用 Ganache 的桌面客户端 <del>我使用官网推荐的 Test RPC <code>is now</code> <a href="https://github.com/trufflesuite/ganache-cli" target="_blank" rel="noopener">ganache-cli</a></del> </p>
+<blockquote>
+<p>当开发基于Truffle的应用时，我们推荐使用EthereumJS TestRPC。它是一个完整的在内存中的区块链仅仅存在于你开发的设备上。它在执行交易时是实时返回，而不等待默认的出块时间，这样你可以快速验证你新写的代码，当出现错误时，也能即时反馈给你。它同时还是一个支持自动化测试的功能强大的客户端。Truffle充分利用它的特性，能将测试运行时间提速近90%。</p>
+</blockquote>
+<h3 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truffle init</span><br></pre></td></tr></table></figure>
+
+<h3 id="编译合约"><a href="#编译合约" class="headerlink" title="编译合约"></a>编译合约</h3><p>所有的合约应该位于 <code>./contracts</code> 目录。默认我们提供了一个合约文件，一个库文件，均以 <code>.sol</code> 结尾作为示例。尽管库文件有一定的特殊性，但为简单起见，当前均称之为合约。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truffle compile</span><br></pre></td></tr></table></figure>
+
+<p>Truffle 仅默认编译自上次编译后被修改过的文件，来减少不必要的编译。如果你想编译全部文件，可以使用 <code>--compile-all</code> 选项。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truffle compile --compile-all</span><br></pre></td></tr></table></figure>
+
+<p><strong>编译目录</strong></p>
+<p>编译的输出位于 <code>./build/contracts</code> 目录。如果目录不存在会自动创建。这些编译文件对于Truffle框架能否正常工作至关重要。不应该在正常的编译或发布以外手动修改这些文件。</p>
+<h3 id="移植"><a href="#移植" class="headerlink" title="移植"></a>移植</h3><p>移植是由一些 Javascript 文件组成来协助发布到以太坊网络。主要目的是用来缓存你的发布任务，它的存在基于发布需求会改变的前提。当工程发生了重要的改变，将创建新的移植脚本来将这些变化带到区块链上。</p>
+<p><strong>待续…不过感觉没啥内容了</strong></p>
+
+      
+    </div>
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -832,81 +930,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tech.starky99.com/smart-contract-rock-scissors-paper/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hanwen.png">
-      <meta itemprop="name" content="David Stark">
-      <meta itemprop="description" content="瀚文的技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David Stark">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/smart-contract-rock-scissors-paper/" class="post-title-link" itemprop="url">智能合约简单实战-石头剪刀布</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-13 09:28:00 / 修改时间：10:32:52" itemprop="dateCreated datePublished" datetime="2020-06-13T09:28:00+08:00">2020-06-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/smart-contract/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在 <code>Ethereum Studio</code> 配置双用户，使用 0.5.10 较新版本的 solidity，实现了 <strong>石头剪刀布</strong> 游戏程序，代码如下。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/smart-contract-rock-scissors-paper/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -977,14 +1000,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
