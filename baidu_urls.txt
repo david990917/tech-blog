@@ -1,6 +1,13 @@
+https://tech.starky99.com/aws-serverless-project/
+https://tech.starky99.com/wukong-a-scalable-and-locality-enhanced-framework-for-severless-parallel-computing/
+https://tech.starky99.com/emars-efficient-management-and-allocation-of-resource-in-serverless/
+https://tech.starky99.com/photons-lambdas-on-a-diet/
+https://tech.starky99.com/narrowing-the-gap-between-serverless-and-its-state-with-storage-function/
+https://tech.starky99.com/particle-ephemeral-endpoints-for-severles/
+https://tech.starky99.com/serverless-data-analytics-with-flint/
+https://tech.starky99.com/serverless-computing-current-trends-and-open-problems/
 https://tech.starky99.com/exploring-serverless-computing-for-neural-network-training/
 https://tech.starky99.com/serving-deep-learning-models-in-a-Serverless-platform/
-https://tech.starky99.com/serverless-introduction/
 https://tech.starky99.com/serverless-introduction/
 https://tech.starky99.com/powerful-backend-components/
 https://tech.starky99.com/clear-github-repo/

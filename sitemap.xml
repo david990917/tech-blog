@@ -2,23 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tech.starky99.com/exploring-serverless-computing-for-neural-network-training/</loc>
+    
+    <lastmod>2021-03-10T13:05:43.145Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tech.starky99.com/aws-serverless-project/</loc>
+    
+    <lastmod>2021-03-09T13:12:26.703Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tech.starky99.com/photons-lambdas-on-a-diet/</loc>
+    
+    <lastmod>2020-12-24T01:22:56.426Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tech.starky99.com/wukong-a-scalable-and-locality-enhanced-framework-for-severless-parallel-computing/</loc>
+    
+    <lastmod>2020-12-23T08:13:19.823Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tech.starky99.com/emars-efficient-management-and-allocation-of-resource-in-serverless/</loc>
+    
+    <lastmod>2020-12-23T07:34:02.746Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tech.starky99.com/narrowing-the-gap-between-serverless-and-its-state-with-storage-function/</loc>
+    
+    <lastmod>2020-12-23T04:00:01.110Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tech.starky99.com/particle-ephemeral-endpoints-for-severles/</loc>
+    
+    <lastmod>2020-12-20T13:47:42.948Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tech.starky99.com/serverless-data-analytics-with-flint/</loc>
+    
+    <lastmod>2020-12-20T13:25:03.213Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tech.starky99.com/serverless-computing-current-trends-and-open-problems/</loc>
+    
+    <lastmod>2020-12-20T13:04:26.240Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tech.starky99.com/serving-deep-learning-models-in-a-Serverless-platform/</loc>
     
     <lastmod>2020-12-20T07:46:54.309Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tech.starky99.com/exploring-serverless-computing-for-neural-network-training/</loc>
-    
-    <lastmod>2020-12-20T07:25:42.141Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tech.starky99.com/serverless-introduction/</loc>
-    
-    <lastmod>2020-12-20T03:11:07.012Z</lastmod>
     
   </url>
   

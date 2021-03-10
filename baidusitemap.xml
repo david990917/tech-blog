@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tech.starky99.com/serving-deep-learning-models-in-a-Serverless-platform/</loc>
-    <lastmod>2020-12-20</lastmod>
-  </url>  <url>
     <loc>https://tech.starky99.com/exploring-serverless-computing-for-neural-network-training/</loc>
+    <lastmod>2021-03-10</lastmod>
+  </url>  <url>
+    <loc>https://tech.starky99.com/aws-serverless-project/</loc>
+    <lastmod>2021-03-09</lastmod>
+  </url>  <url>
+    <loc>https://tech.starky99.com/photons-lambdas-on-a-diet/</loc>
+    <lastmod>2020-12-24</lastmod>
+  </url>  <url>
+    <loc>https://tech.starky99.com/wukong-a-scalable-and-locality-enhanced-framework-for-severless-parallel-computing/</loc>
+    <lastmod>2020-12-23</lastmod>
+  </url>  <url>
+    <loc>https://tech.starky99.com/emars-efficient-management-and-allocation-of-resource-in-serverless/</loc>
+    <lastmod>2020-12-23</lastmod>
+  </url>  <url>
+    <loc>https://tech.starky99.com/narrowing-the-gap-between-serverless-and-its-state-with-storage-function/</loc>
+    <lastmod>2020-12-23</lastmod>
+  </url>  <url>
+    <loc>https://tech.starky99.com/particle-ephemeral-endpoints-for-severles/</loc>
     <lastmod>2020-12-20</lastmod>
   </url>  <url>
-    <loc>https://tech.starky99.com/serverless-introduction/</loc>
+    <loc>https://tech.starky99.com/serverless-data-analytics-with-flint/</loc>
+    <lastmod>2020-12-20</lastmod>
+  </url>  <url>
+    <loc>https://tech.starky99.com/serverless-computing-current-trends-and-open-problems/</loc>
+    <lastmod>2020-12-20</lastmod>
+  </url>  <url>
+    <loc>https://tech.starky99.com/serving-deep-learning-models-in-a-Serverless-platform/</loc>
     <lastmod>2020-12-20</lastmod>
   </url>  <url>
     <loc>https://tech.starky99.com/serverless-introduction/</loc>
